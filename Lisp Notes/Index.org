@@ -1,0 +1,15 @@
+# -*- mode: org -*-
+
+# Time-stamp: <2011-12-09 13:16:29 Friday by richard>
+
+#+STARTUP: showall
+
+#+TITLE:       TEST org mode and some lisp notes.
+
+* Manage lisp:
+
+** `(apostrophe) in preceding sections is called a quote; when it precedes a list, it tells Lisp to do nothing with the list, other than take it as it is written.
+
+** But if there is no quote preceding a list, the first item of the list is special: it is a command for the computer to obey.
+
+
