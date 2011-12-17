@@ -1,0 +1,70 @@
+# -*- mode: org -*-
+
+# Time-stamp: <2011-12-10 14:43:59 Saturday by richard>
+
+#+STARTUP: showall
+#+TITLE:       A Few Buffer-Related Functions.
+
+* ERRATA:
+
+** find-tags function should be find-tag in emacs 24.
+
+* A greate function definition resource is to using describe-functions and describe-variables..
+
+* SOLUTIONS to exercises:
+1. Write your own simplified-end-of-buffer function definition; then test it to see whether it works.
+   #+begin_src emacs-lisp :tangle yes
+
+(defun simplified-end-of-buffer()
+  "DOCSTRING"
+  (interactive)
+  (push-mark)
+  (goto-char (point-max)))
+
+(simplified-end-of-buffer)
+
+   #+end_src
+2. Use if and get-buffer to write a function that prints a message telling you whether a buffer exists.
+  #+begin_src emacs-lisp :tangle yes
+(defun test-buffer-exists(buffer-name)
+  "DOCSTRING"
+  (interactive "B")
+  (if (get-buffer buffer-name)
+      (message "Buffer; %s exists." buffer-name)
+    (message "Buffer: %s does not exists." buffer-name)))
+
+
+(test-buffer-exists "*scratch*")
+
+"Buffer; *scratch* exists."
+
+(test-buffer-exists "*dd*")
+
+"Buffer: *dd* does not exists."
+  #+end_src   
+3. Using find-tag, find the source for the copy-to-buffer function.
+This answer I have written is not so correct, because I do not know how to test it right now. 
+#+begin_src emacs-lisp :tangle yes
+(find-tag "copy-to-buffer")
+#+end_src
+
+* code in chapter 4:
+  #+begin_src emacs-lisp :tangle yes
+
+(find-tag "abc")
+
+(beginning-of-buffer)
+
+(end-of-buffer)
+
+(defun simplified-beginning-of-buffer()
+  "Move point to the beginning of the buffer;
+leave mark at previous position"
+  (interactive)
+    (push-mark)
+    (goto-char (point-min)))
+
+
+(simplified-beginning-of-buffer)
+
+  #+end_src

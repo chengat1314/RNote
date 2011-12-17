@@ -1,0 +1,83 @@
+# -*- mode: org -*-
+
+# Time-stamp: <2011-12-10 13:24:35 Saturday by richard>
+
+#+STARTUP: showall
+#+TITLE:       Getting Buffers
+
+* jargons:
+** In Lisp, nil is also used to mean ‘false’ and is a synonym for the empty list, ().
+
+** the current position of the cursor is called point. 
+
+* programming skills:
+  
+
+** if you are in the ‘*scratch*’ buffer and want the value returned by an expression to appear in the ‘*scratch*’ buffer itself rather than in the echo area, type C-u C-x C-e instead of C-x C-e.
+
+** The other-buffer function actually provides a buffer when it is used as an argument to a function that requires one. 
+
+** set-buffer, on the other hand, does only one thing: it switches the attention of the computer program to a different buffer. Don't alter what the window is showing.
+
+** The function buffer-size tells you the size of the current buffer
+   
+** The function point-min returns the value of the minimum permissible value of point in the current buffer.
+
+
+* SOLUTION to Exercises:
+
+** Find a file with which you are working and move towards its middle. Find its buffer name, file name, length, and your position in the file.
+
+buffername:
+#+begin_src emacs-lisp :tangle yes
+(current-buffer)
+#+end_src
+
+#<buffer GettingBuffers.org>
+
+filename:
+#+begin_src emacs-lisp :tangle yes
+(buffer-file-name)
+#+end_src
+"/home/richard/Dropbox/My Notes/Lisp Notes/GettingBuffers.org"
+
+length: (HACK: This question can only use this function under chapter 2.)
+#+begin_src emacs-lisp :tangle yes
+(point-max)
+#+end_src
+1869
+
+position:
+#+begin_src emacs-lisp :tangle yes
+(point)
+#+end_src
+1542
+
+* code in chapter 2
+#+begin_src emacs-lisp :tangle yes
+
+(buffer-name)
+
+(buffer-file-name)
+nil
+
+(current-buffer)
+#<buffer *scratch*>
+
+
+(other-buffer)
+
+(switch-to-buffer (other-buffer))
+
+(switch-to-buffer (other-buffer (current-buffer) t))
+
+(buffer-size)
+223
+(point)
+208
+
+(point-min)
+1
+(point-max)
+248
+#+end_src

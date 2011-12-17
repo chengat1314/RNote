@@ -1,0 +1,173 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-16 13:22:07 Friday by richard>
+#+STARTUP: showall
+
+#+TITLE:   Cutting and Storing Text
+
+* BASIC point:
+** The use of the word 'kill' in Emacs for processes which specifically do not destroy the values of the entities. (A word of clip would be more appropriate.) 
+** when you get to the end of the list, Emacs should give you the first element of the list, rather than nothing at all. ( But I don't know why here.)
+** The list that holds the pieces of text is called the kill ring.
+** progn is a special form that causes each of its arguments to be evaluated in sequence and then returns the value of the last one.
+** A when statement is an if statement without the possibility of an else clause.
+   when is a Lisp macro.
+** A Lisp macro enables you to define new cnotrol constructs and other language features. It tells the interpreter how to compute another Lisp expression which will in turn compute the value.
+** The word DEFUN is followed by seven parts inside of parentheses:
+*** The first part is the name given to the function in Lisp.
+*** The second part is the name of the function in C. It starts with 'F'.
+*** The third part is the name for the C constant structure that records information on this function for internal use. It starts with 'S'.
+*** The fourth and fifth part specify the minimum and maximum number of arguments the function can have.
+*** The sixth part is nearly like the argument that follows the interactive declaration in a function written in Lisp: a letter followed by a prompt.
+*** The seventh part is a documentation string, just like the one for a function written in Emacs Lisp.
+** In early versions of Emacs, `start` and `end` were thirty-two bits long, but the code is slowly being generalized to handle other lengths. Three of the available bits are used to specify the type of information and a fourth bit is used for handling the computer’s memory; the remaining bits are used as ‘content’.
+** defvar:
+*** Emacs used the defvar special form for internal variables that you would not expect a user to change. Use defcustom instead. that speacial form provides a path into the Customization commands.
+*** Add '*' in the first column of its documentation string means you could use the edit-options command to change the value.
+** ! Normally, whenever a function is executed, Emacs sets the value of this-command to the function being executed (which in this case would be copy-region-as-kill). At the same time, Emacs sets the value of last-command to the previous value of this-command.
+
+
+* Function:
+
+** The search-forward function takes four arguments:
+   1. what is searched for. (A string such as "s")
+   2. argument bounds the search.
+   3. tells the function what it should do if search fails. (can signal an error)
+   4. How many occurrences of the string to look for.Optional(default value is 1)
+
+** condition-case takes three argument:
+   1. do nothing.
+   2. contains the code that does the word when all goes well.
+   3. contains the code that is called in the event of an error.
+   4. The template for condition-case looks like this:
+   #+begin_src emacs-lisp :tangle yes
+(condition-case
+var
+bodyform
+error-handler...)
+   #+end_src
+   5. Lastly, the first argument to the condition-case expression, the var argument, is sometimes bound to a variable that contains information about the error. 
+
+** The delete-and-extract-region function is the function that actually removes the text.
+
+** 'XINT' is a C macro that extracts the relevant number from the longer collection of bits; the four other bits are discarded.
+
+** The and special form evaluates each of its arguments until one of the arguments returns a value of nil, and return the last argument.
+
+** The fboundp function returns true if the symbol it is testing has a function definition that 'is not void'.
+
+** Function funcall, in turn calls its first argument as a function and passes the remaining arguments to it.
+
+* Solution to Searching Exercises:
+• Write an interactive function that searches for a string. If the search finds the string, leave point after it and display a message that says “Found!”. (Do not use search-forward for the name of this function; if you do, you will overwrite the existing version of search-forward that comes with Emacs. Use a name such as test-search instead.)
+How to make function return nothing.
+#+begin_src emacs-lisp :tangle yes
+
+(defun test-search(str)
+  "Docstring of search-stringr"
+  (interactive "c")
+  (push-mark (point))
+  (goto-char (point-min))
+  (let (search-index)
+    (setq search-index (search-forward (char-to-string str) nil nil 1))
+    (if search-index
+        (message "Found!"))))
+
+#+end_src
+• Write a function that prints the third element of the kill ring in the echo area, if any; if the kill ring does not contain a third element, print an appropriate message.
+FIXME: I don't knwo how to deal with the properties in emacs 24. I will fix it later, when I make it clear.
+#+begin_src emacs-lisp :tangle yes
+(defun printKill3(&optional arg)
+  "Docstring of printKill3
+print the 3rd element in the kill ring."
+  ;; (interacitve "P")
+  (let (elem3)
+    (setq elem3 (nthcdr 2 kill-ring))
+    (if elem3
+        (insert "elem3")
+      (message "MEIYOUWENHUA."))))
+
+#+end_src
+
+
+
+
+
+
+
+
+*code in Chapter:
+
+#+begin_src emacs-lisp :tangle yes
+
+(cons "another piece "
+      '("a piece of text" "previous piece"
+))
+
+("another piece " "a piece of text" "previous piece")
+
+(car (nthcdr 1 '("another piece"
+                 "a piece of text"
+                 "previous piece")))
+
+
+"a piece of text"
+
+(defun zap-to-char(arg char)
+  "Docstring of zap-to-char"
+  (interactive "*p\ncZap to char: ")
+  (kill-region (point)
+               (progn
+                 (search-forward
+                  (char-to-string char)
+                  nil nil arg)
+                 (point))))
+
+(zap-to-char 1 ?s)
+
+Thus
+
+(zap-to-char 2 ?s)
+
+Thus, if the curs
+
+(defun kill-region(beg end)
+  "kill between point and mark.
+The text is deleted but saved in the kill ring."
+  (interactive "r")
+  (condition-case nil
+      (let ((string (delete-and-extract-region beg end)))
+        (when string
+          (if (eq last-command 'kill-region)
+              (kill-append string (< end beg))
+            (kill-new string)))
+        (setq this-command 'kill-region))
+    ((buffer-read-only text-read-only)
+     (copy-region-as-kill beg end)
+     (if kill-read-only-ok
+         (message "Read only text copied to kill ring")
+       (barf-if-buffer-read-only)
+       (signal 'text-read-only (list (current-buffer)))))))
+(forward-line)
+
+(setq example-list '("here is a clause" "another clause"))
+
+
+("here is a clause" "another clause")
+
+(setq example-list (cons "a third clause" example-list))
+
+("a third clause" "here is a clause" "another clause")
+
+(setq trees '(maple oak pine birch))
+
+(maple oak pine birch)
+
+(setcdr (nthcdr 2 trees) nil)
+
+nil
+
+trees
+
+(maple oak pine)
+
+#+end_src

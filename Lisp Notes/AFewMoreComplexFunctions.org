@@ -1,0 +1,90 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-12 12:39:39 Monday by richard>
+
+#+STARTUP: showall
+
+#+TITLE:       A Few More Complex Functions
+
+
+* Basic Points.
+** The asterisk is for the situation when the buffer is a read-only buffer—a buffer that cannot be modified.
+*** The asterisk does not need to be followed by a newline to separate it from the next argument.
+
+** The last character of the function name(bufferp) bufferp is the character ‘p’; as we saw earlier, such use of ‘p’ is a convention that indicates that the function is a predicate, which is a term that means that the function will determine whether some property is true or false.
+* Jargons:
+** and: Evaluate each argument in sequence, and if any are nil, return nil; if none are nil, return the value of the last argument.
+** or: Evaluate each arugment in sequence, and return the value of the first argumnent that is not nil; if none return a value that is not nil, return nil.
+
+** The "P" in the interactive expression tells Emacs to pass a prefix argument, if there is one, to the function.
+
+*** prefix-numeric-value: Convert the 'raw prefix argument' produced by (interactive "P") to a numeric value.
+
+** &optional Keyword: A keyword used to indicate that an argument to a function definition is optional.
+   (The ‘&’ in front of ‘optional’ is part of the keyword.)
+
+** A ‘\’ is used before the first parenthesis of this expression. This ‘\’ tells the Lisp interpreter that the expression should be printed as shown in the documentation rather than evaluated as a symbolic expression, which is what it looks like.
+
+* Solution to optional Argument Excercise:
+  Write an interactive function with an optional argument that tests whether its argument, a number, is greater or less than the value of fill-column, and tells you which, in a message. However, if you do not pass an argument to the function, use 56 as a default value.
+
+  #+begin_src emacs-lisp :tangle yes
+(defun test-argument(&optional test-number)
+  "Docstring of test-argument default value is 56"
+  (interactive "^P")
+  (let (number)
+    (setq number (prefix-numeric-value test-number))
+    (if (not test-number)
+        (setq number 56))
+    (if (> number fill-column)
+        (message "number:%d is greater than fill-column:%d" number fill-column)
+      (message "number:%d is less than fill-column:%d" number fill-column))))
+  #+end_src
+
+
+* code in chapter 5:
+  #+begin_src emacs-lisp :tangle yes
+(setq buffer "*scratch*")
+
+"*scratch*"
+
+(or (bufferp buffer)
+    (setq buffer (get-buffer buffer)))
+
+;; First time
+t
+;; Second time
+#<buffer *scratch*>
+
+  #+end_src
+
+  #+begin_src emacs-lisp :tangle yes
+
+;; This line will be Copied
+
+(let (start end newmark)
+  (save-excursion
+    (save-excursion
+      (set-buffer buffer)
+      (setq start (point-min)
+            end (point-max)))
+    (insert-buffer-substring buffer start end)
+    (setq newmark (point)))
+  (push-mark newmark))
+
+;; Press C-u C-x C-e here.
+(Pop Here)nil;;@After Press 
+;; This line will be Copied
+
+(let (start end newmark)
+  (save-excursion
+    (save-excursion
+      (set-buffer buffer)
+      (setq start (point-min)
+            end (point-max)))
+    (insert-buffer-substring buffer start end)
+    (setq newmark (point)))
+  (push-mark newmark))
+
+;; Press C-u C-x C-e here.
+
+  #+end_src

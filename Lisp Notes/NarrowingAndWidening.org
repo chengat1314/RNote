@@ -1,0 +1,54 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-12 13:03:00 Monday by richard>
+#+STARTUP: showall
+
+#+TITLE:   Narrowing and Widening
+
+* Basic Point:
+** Narrowing is a feature of Emacs that makes it possible for you to focus on a specific part of a buffer, and work without accidentally changing other parts.
+*** The keybinding for narrow-to-region is C-x n n
+*** The keybinding for widen is C-x n w.
+** When the Lisp interpreter meets with save-restriction, it executes the code in the body of the save-restriction expression, and then undoes any changes to narrowing that the code caused.
+*** The template for a save-restriction expression is simple:
+    #+begin_src emacs-lisp :tangle yes
+(save-restriction
+   body... )
+
+    #+end_src
+
+*** a point to note: when you use both save-excursion and save-restriction, one right after the other, you should use save-excursion outermost. If you write them in reverse order, you may fail to record narrowing in the buffer to which Emacs switches after calling save-excursion. Thus, when written together, save-excursion and save-restriction should be written like this:
+    #+begin_src emacs-lisp :tangle yes
+(save-excursion
+(save-restriction
+body...))
+    #+end_src
+    and this    :
+    #+begin_src emacs-lisp :tangle yes
+(save-restriction
+(widen)
+(save-excursion
+body...))
+    #+end_src
+
+** count-lines counts only the lines before the current line.
+
+* Solution to exercise
+  Write a function that will display the first 60 characters of the current buffer, even if you have narrowed the buffer to its latter half so that the first line is inaccessible. Restore point, mark, and narrowing. For this exercise, you need to use save-restriction, widen, goto-char, point-min, buffer-substring, message, and other functions, a whole potpourri.
+
+  #+begin_src emacs-lisp :tangle yes
+(defun potpourri()
+  "Docstring of potporri"
+  (let (first60)
+    (save-excursion
+      (save-restriction
+        (push-mark) ;; Mark current pos 
+        (goto-char (point-min))
+        (widen)
+        (setq first60 (buffer-substring-no-properties (point-min) 60))
+        (message first60)))))
+
+
+  #+end_src
+  
+
+

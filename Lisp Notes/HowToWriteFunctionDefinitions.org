@@ -1,0 +1,251 @@
+# -*- mode: org -*-
+
+# Time-stamp: <2011-12-16 12:56:54 Friday by richard>
+
+#+STARTUP: showall
+
+#+TITLE:       How To Write Function Definition
+
+* jargons:
+  
+** ‘Execute’ is a jargon term that means to evaluate a list;
+
+** On terminals where the cursor appears to be on top of a character, point is immediately before the character.
+
+* Basic Point:
+
+** All functions are defined in terms of other functions, except for a few primitive functions that are written in the C programming language. 
+
+** A list of the arguments that will be passed to the function. If no arguments will be passed to the function, this is an empty list, ().
+
+** Interestingly, when you call an interactive function interactively, the value returned is not automatically displayed in the echo area.
+
+** Let expression:
+
+*** let creates a name for a local variable that overshadows any use of the same name outside the let expression.
+
+*** Local variables created by a let expression retain their value only within the let expression itself (and within expressions called within the let expression); 
+
+*** After let has created and bound the variables, it executes the code in the body of the let, and returns the value of the last expression in the body, as the value of the whole let expression.
+
+*** let template:
+    #+begin_src emacs-lisp :tangle yes
+(let varlist body...)
+    #+end_src
+
+*** Uninitialized Variables will automatically be bound to an initial value of nil.
+
+** if expression:
+   #+begin_src emacs-lisp :tangle yes
+(if true-or-false-test
+    action-to-carry-out-if-test-is-true)
+   #+end_src
+** In fact, ‘false’ is just our old friend nil. Anything else—anything at all—is ‘true’.
+   In Emacs Lisp, the symbol nil has two meanings. First, it means the empty list. Second, it means false and is the value returned when a true-or-false-test tests false. 
+   As far as the Lisp interpreter is concerned, () and nil are the same. 
+   if some other useful value is not available for a test that returns true, then the Lisp interpreter will return the symbol t for true. 
+
+** equal and eq:
+   
+*** equal returns true if the two objects have a similar structure and contents.
+
+*** eq, returns true if both arguments are actually the same object.
+
+** string comparison: string<, string-lessp, string=, string-equal
+   
+*** The string-lessp function tests whether its first argument is smaller than the second argument. (string< is alternative name for string-lessp)
+    An empty string, `""`, is smaller than any string of characters.
+    The argument to string-lessp must be strings or symbols; case is significant.
+** %c argument in message function must be an ascii code number. It will print as the character with that ASCII code.
+* programming skills:
+
+** In Lisp, equal is a function that determines whether its first argument is equal to its second argument.
+   
+** five parts of a function definition as being organized in a template
+   #+begin_src emacs-lisp :tangle yes
+   (defun function-name (arguments...)
+   "optional-documentation..."
+   (interactive argument-passing-info)
+   body...)
+   #+end_src
+
+** Speaking more generally, you invoke a function like this in either of two ways:
+1. By typing a prefix argument that contains the number to be passed, and then typing M-x and the name of the function, as with `C-u 3 M-x` forward-sentence; or,
+2. By typing whatever key or keychord the function is bound to, as with `C-u 3 M-e`.
+
+** interactive:
+   Declare to the interpreter that the function can be used interactively. This special form may be followed by a string with one or more parts that pass the information to the arguments of the function, in sequence. These parts may also tell the interpreter to prompt for information. Parts of the string are separated by newlines, ‘\n’
+
+*** "b" The name of an existing buffer
+*** "f" The name of an existing file.
+*** "p" The numeric prefix argument. ("p" is lower case)
+*** "P" Can be used in Meta-<number>
+*** "r" Point and the mark, as two numeric arguments, smallest first. This is only code letter that specifies two successive arguments rather than one.
+*** "*" (asterisk), simply causes an error to be signalled if the buffer is read-only.
+    added at chapter 8 
+*** If a function does not have arguments, then interactive does not require any. 
+*** mutiple interactive argument template:
+    #+begin_src emacs-lisp :tangle yes
+(defun name-of-function (buffer start end)
+"documentation..."
+(interactive "BAppend to buffer: \nr")
+body-of-function...)
+    #+end_src
+
+** Mark:
+*** the mark is another position in the buffer; its value can be set with a command such as C- SPC (set-mark-command). If a mark has been set, you can use the command C-x C-x (exchange-point-and-mark) to cause the cursor to jump to the mark and set the mark to be the previous position of point.
+
+*** The part of the buffer between point and mark is called the region. Numerous commands work on the region, including center-region, count-lines-region, kill-region, and print-region.
+
+** save-excursion :
+   Record the values of point and mark and the current buffer before evaluating the body of this special form. Restore the values of point and mark and buffer afterward.
+   
+*** save-excursion template:
+    #+begin_src emacs-lisp :tangle yes
+(save-excursion
+body...)
+;;  If there is more than one expression in the body, the value of the last one will be returned as the value of the save-excursion function. 
+    #+end_src
+*** In Emacs Lisp code, a save-excursion expression often occurs within the body of a let expression. It looks like this:
+    #+begin_src emacs-lisp :tangle yes
+(let varlist
+(save-excursion
+body...))
+    #+end_src
+
+* Solution to Exercises:
+1. Write a non-interactive function that doubles the value of its argument, a number. Make that function interactive.
+   #+begin_src emacs-lisp :tangle yes
+(defun double-value(number) ;; non-interactive edition.
+  "double number's value"
+  (* 2 number))
+
+(double-value 5)
+10
+
+(defun double-value(number) ;; interactive edition.
+  "double number's value"
+  (interactive "p")
+  (message "%d"
+           (* 2 number))) ;; No return in active but echo it out.
+   #+end_src
+2. Write a function that tests whether the current value of fill-column is greater than the argument passed to the function, and if so, prints an appropriate message.
+  #+begin_src emacs-lisp :tangle yes
+(defun test-fill-column(number)
+  "test whether the current value of fill-column is greater than number."
+  (interactive "p")
+  (if (< fill-column number)
+       (message "The number is %d is greater than %d (current fill-column size)" number fill-column)
+     (message "guys, your number is so small, I don;t like small numbers.")))
+  #+end_src
+
+
+* Code in Chapter 3:(to Page 54)
+  #+begin_src emacs-lisp :tangle yes
+(defun multiply-by-seven (number)
+  "Multiply NUMBER by seven."
+  (* 7 number))
+(multiply-by-seven 3)
+21
+
+(defun multiply-by-seven(number) ; Second Edition
+  "Multiply NUMBER by seven"
+  (+ number number number number number number number))
+
+(defun multiply-by-seven(number) ; Interactive version
+  "Multiply NUMBER by seven"
+  (interactive "p")
+  (message "THe result is %d" (* 7 number)))
+(let((zebra 'stripes)
+     (tiger 'fierce))
+  (message "One kind of animal has %s and another is %s." zebra tiger))
+
+(let ((birch 3)
+      pine
+      fir
+      (oak 'some))
+  (message "Here are %d variables with %s, %s, and %s value."
+  birch pine fir oak))
+
+(if (> 5 4)
+    (message "5 is greater than 4!"))
+"5 is greater than 4!"
+
+(defun type-of-animal(characteristic)
+  "Print messagein echo area depending on CHARACTERISTIC.
+If the CHARACTERISTIC is the symbol 'fierce',
+then warn of a tiger."
+  (if (equal characteristic 'fierce)
+      (message "It's a tiger!")
+    ))
+(type-of-animal 'fierce)
+
+"It's a tiger!"
+(type-of-animal 'zebra)
+
+nil
+
+(if (> 4 5)
+    (message "5 is greater than 4!")
+  (message "4 is not greater than 5!"))
+
+"4 is not greater than 5!"
+
+(defun type-of-animal(characteristic)
+  "Print message in echo area depending on CHARACTERISTIC. If the CHARACTERISTIC is the symbol 'fierce',
+then warn of  a tiger;
+else say it's not fierce."
+  (if (equal characteristic 'fierce)
+      (message "It's a tiger!")
+    (message "It's not fierce!")))
+
+type-of-animal
+
+(type-of-animal 'fierce)
+
+"It's a tiger!"
+(type-of-animal 'zebra)
+
+"It's not fierce!"
+
+(if 4
+    'true
+  'false)
+
+true
+(if nil
+    'true
+  'false)
+
+false
+
+(> 5 4)
+t
+(> 4 5)
+
+nil
+(defun back-to-indentation()
+  "DOCSTRING"
+  (interactive)
+  (beginning-of-line 1)
+  (skip-chars-forward " \t"))
+
+(back-to-indentation)
+
+(message "We are %d characters into this buffer."
+         (- (point) 
+            (save-excursion
+              (goto-char (point-min)) (point))))
+
+(emacs-version)
+"GNU Emacs 24.0.91.1 (i686-pc-linux-gnu, GTK+ Version 2.24.6)
+ of 2011-11-12 on richard-FairyTale"
+(if (string-equal
+     (number-to-string 21)
+     (substring (emacs-version) 10 12))
+    (message "This is version 21 Emacs")
+  (message "This is not version 21 Emacs"))
+
+"This is not version 21 Emacs"
+
+  #+end_src

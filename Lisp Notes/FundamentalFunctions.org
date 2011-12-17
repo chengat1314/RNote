@@ -1,0 +1,103 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-12 13:53:43 Monday by richard>
+#+STARTUP: showall
+
+#+TITLE:   car, cdr, cons: Fundamental Functions
+
+* Basic Point:
+** In Lisp, car, cdr, and cons are funamental functions.
+*** con is a function that construct lists.
+    #+begin_src emacs-lisp :tangle yes
+(cons 'pine '(fir oak maple))
+    #+end_src
+
+    #+results:
+    | pine | fir | oak | maple |
+
+**** TODO :you can cons an element to an atom to produce a dotted pair. 
+
+*** car is "Contents of the Address part of the Register"
+    car does not remove the first item from the list; it only reports what it is. After car has been applied to a list, the list is still the same as it was. In the jargon, car is ‘non-destructive’.
+
+    #+begin_src emacs-lisp :tangle yes
+(car '(rose violet daisy buttercup))
+    #+end_src
+    #+results:
+: rose
+
+*** cdr is "Contents of the Decrement part of the Register"
+    The cdr of a list is the rest of the list, that is, the cdr function returns the part of the list that follows the first item. 
+    #+begin_src emacs-lisp :tangle yes
+(cdr '(rose violet daisy buttercup))
+    #+end_src
+
+    #+results:
+    | violet | daisy | buttercup |
+
+** Extend functions:
+
+*** length: find the length of a list:
+    #+begin_src emacs-lisp :tangle yes
+(length (cons 'violet '(daisy buttercup)))
+    #+end_src
+
+    #+results:
+    : 3
+*** Notation #< is indicates that the function length is one of the primitive functions written in C.
+
+*** nthcdr function is repeated cdr version.
+    #+begin_src emacs-lisp :tangle yes
+(cdr (cdr '(pine fir oak maple)))
+(nthcdr 2 '(pine fir oak maple))
+    #+end_src
+
+    #+results:
+    | oak | maple |
+*** nth returns the Nth element of the list:(0-based)
+    #+begin_src emacs-lisp :tangle yes
+(nth 0 '("one" "two" "three"))
+    #+end_src
+
+    #+results:
+    : one
+
+*** nth nthcdr and cdr is non-destructive. setcar and setcdr is destructive.
+
+*** setcar:
+    #+begin_src emacs-lisp :tangle yes
+(setq animals '(antelope giraffe lion tiger))
+(setcar animals 'hippopotamus)
+animals
+    #+end_src
+
+    #+results:
+    | hippopotamus | giraffe | lion | tiger |
+
+*** setcdr:
+    #+begin_src emacs-lisp :tangle yes
+(setq domesticated-animals '(horse cow sheep goat))
+(setcdr domesticated-animals '(cat dog))
+domesticated-animals
+    #+end_src
+
+    #+results:
+    | horse | cat | dog |
+
+*** solution to exercise:
+    Construct a list of four birds by evaluating several expressions with cons. Find out what happens when you cons a list onto itself. Replace the first element of the list of four birds with a fish. Replace the rest of that list with a list of other fish.
+    #+begin_src emacs-lisp :tangle yes
+
+(setq bird4 (cons 'bd1 '(bd2 bd3 bd4)))
+
+(cons bird4 bird4)
+
+(setcar bird4 'bd5)
+
+(setcdr bird4 '(bd6 bd7 bd8))
+
+bird4
+    #+end_src
+
+    #+results:
+    | bd5 | bd6 | bd7 | bd8 |
+
