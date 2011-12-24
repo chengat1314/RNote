@@ -1,0 +1,335 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-18 11:06:25 Sunday by richard>
+#+STARTUP: showall
+#+TITLE:   LoopsAndRecursion
+
+* BASIC points:
+** The value returned by the while, which is always nil.
+** function's argument's change will not effect outside.
+** dolist and dotimes are Lisp macros.
+*** dolist works like a while loop that 'CDRs down a list': automatically shortens the list each time it loops.
+*** dotimes loops a specific number of time.
+* When concatenates two list when append a list to another will make the first one as a list.
+#+begin_src emacs-lisp :tangle yes
+(cons '(1 2 3) 3)
+#+end_src
+
+#+results:
+
+#+begin_src emacs-lisp :tangle yes
+(cons 3 '(1 2 3))
+#+end_src
+
+#+results:
+| 3 | 1 | 2 | 3 |
+
+
+* Jargons:
+  
+** The phrase tail recursive is used to describe such a process, one that uses 'constant space'.
+
+
+
+
+* solution to exercises.
+** Write a function similar to triangle in which each row has a value which is the square of the row number. Use a while loop.
+   #+begin_src emacs-lisp :tangle yes
+;; ** Write a function similar to triangle in which each row has a value which is the square of the row number. Use a while loop.
+(defun square-each(row)
+  (let ((total 0) (line-of-row row))
+    (while (< 0 line-of-row)
+      (setq total (+ (* line-of-row line-of-row) total))
+      (setq line-of-row (1- line-of-row)))
+    total))
+   #+end_src
+** Write a function similar to triangle that multiplies instead of adds the values.
+#+begin_src emacs-lisp :tangle yes
+(defun multi-triangle(num)
+  "Docstring of multi-triangle"
+  (let ((total 1))
+    (dotimes (number num total)
+      (setq total (* (1+ number) total)))))
+(multi-triangle 5)
+#+end_src
+
+#+results:
+: 6
+
+** Rewrite these two functions recursively. Rewrite these functions using cond.
+#+begin_src emacs-lisp :tangle yes
+(defun multi-tri(num)
+  "Docstring of "
+  (if (= num 1)
+      1
+    (* num (multi-tri (1- num)))))
+(multi-tri 3)
+
+(defun square-each(row)
+  "Docstring of "
+  (if (< 0 row)
+      (+ (* row row) (square-each (1- row)))
+    0))
+(square-each 10)
+
+(defun square-each-cond(row)
+  "Docstring of square-each-cond"
+  (cond
+   ((= row 0) 0)
+   ((= row 1) 1)
+   ((< 1 row) (+ (* row row) (square-each-cond (1- row))))
+   ))
+(square-each-cond 10)
+
+(defun multi-tri-cond(num)
+  "Docstring of multi-tri"
+  (cond
+   ((= num 0) 0)
+   ((= num 1) 1)
+   ((> num 1) (* num (multi-tri-cond (1- num))))
+   ))
+(multi-tri-cond 5)
+
+#+end_src
+** Write a function for Texinfo mode that creates an index entry at the beginning of a paragraph for every ‘@dfn’ within the paragraph. (In a Texinfo file, ‘@dfn’ marks a definition. For more information, see “Indicating Definitions, Commands, etc.” in Texinfo, The GNU Documentation Format.)
+
+#+begin_src emacs-lisp :tangle yes
+
+(defun Create-index-of-Para()
+  "Docstring of Create-index-of-Para"
+  (let ((search-string "@dfn") (paragraph-delimiter "\n")(listIndex))
+    (push-mark)
+    (goto-char (point-min))
+    (while (and (search-forward search-string nil nil 1)
+                t);; FIXME:this t should be replaced with `paragraph-delimiter'
+      (setq listIndex (cons (point) listIndex)))
+    (goto-char (point-min))
+    (print listIndex)
+    (pop-mark)))
+
+(Create-index-of-Para)
+
+#+end_src
+
+
+
+* code in chapter 11
+#+begin_src emacs-lisp :tangle yes
+max-specpdl-size
+
+1300
+
+max-lisp-eval-depth
+
+600
+
+(setq empty-list ())
+
+nil
+
+empty-list
+nil
+
+(setq animals '(gazelle giraffe lion tiger))
+
+(gazelle giraffe lion tiger)
+
+(while animals
+  (setq animals(cdr animals)))
+
+(defun print-elements-of-list(list)
+  "Docstring of print-elements-of-list"
+  (while list
+    (print (car list ))
+    (setq list (cdr list))))
+
+
+(print-elements-of-list animals)
+
+
+gazelle
+
+giraffe
+
+lion
+
+tiger
+nil
+(print animals)
+
+(defun add-down(row)
+  "Docstring of addup"
+  (let ((sum 0))
+    (while (<= 0 row)
+      (setq sum (+ row sum))
+      (setq row (1- row)))
+    sum))
+
+(add-down 2)
+
+
+(setq animals '(gazelle giraffe lion tiger))
+
+(reverse animals)
+
+(tiger lion giraffe gazelle)
+
+(defun reverse-list-with-while(list)
+  "using while to reverse the order of LIST"
+  (let ((reverse-list ))
+    (while list
+      (setq reverse-list
+            (cons (car list) reverse-list))
+      (setq list (cdr list)))
+    reverse-list))
+
+(reverse-list-with-while animals)
+
+(tiger lion giraffe gazelle)
+
+(defun reverse-list-with-dolist(list)
+  "using dolist, reverse the order of LIST"
+  (let (value)
+    (dolist (element list value)
+      (setq value (cons element value)))))
+
+(reverse-list-with-dolist animals)
+
+(tiger lion giraffe gazelle)
+
+(let (value)
+  (dotimes (number 3 value)
+    (setq value (cons number value))))
+
+(defun triangle-using-dotimes (number-of-rows)
+  "Using dotimes, add up the number of pebbles in a triangle."
+  (let ((total 0))
+    (dotimes (number number-of-rows total)
+      (setq total (+ total number-of-rows)))))
+
+(triangle-using-dotimes 15)
+
+(defun triangle-recursion (number-of-rows)
+  "Using triangle-recursion, add up the number of pebbles in a triangle."
+  (if (= number-of-rows 1)
+      1
+    (+ (triangle-recursion (- number-of-rows 1)) number-of-rows)))
+
+
+(triangle-recursion 7)
+
+28
+
+
+(defun triangle-using-cond (number)
+  (cond ((<= number 0) 0)
+        ((= number 1) 1)
+        ((> number 1)
+         (+ number (triangle-using-cond (1- number))))))
+
+
+(triangle-using-cond 5)
+
+15
+
+
+
+
+
+
+
+
+
+
+animals
+(gazelle giraffe lion tiger)
+
+(defun print-element-recursively(list)
+  "Print each element of LIST on a line of its own.
+Uses recursion."
+  (if list
+      (progn
+        (print (car list))
+        (print-elements-recursively
+         (cdr list)))))
+
+
+
+print-element-recursively
+(print-element-recursively animals)
+
+
+gazelle
+
+giraffe
+
+lion
+
+tiger
+nil
+
+(defun square-each(numbers-list)
+  "Docstring of square-each"
+  (if (not numbers-list)
+      nil
+    (cons
+     (* (car numbers-list) (car numbers-list))
+     (square-each (cdr numbers-list)))))
+
+
+(square-each '(1 2 3))
+
+(1 4 9)
+
+(setq test-list '(1 2 3 4 5 6 7 8 9))
+
+;; (every test-list)
+
+(defun add-elements(numbers-list)
+  "Docstring of add-elements"
+  (if (not numbers-list)
+      0
+    (+ (car numbers-list) (add-elements (cdr numbers-list)))))
+(add-elements test-list)
+
+45
+
+(defun keep-three-letter-words(word-list)
+  "Docstring of keep-three-letter-words"
+  (cond
+   ((not word-list) nil)
+   ((eq 3 (length (symbol-name (car word-list))))
+    (cons (car word-list) (keep-three-letter-words (cdr word-list))))
+   (t (keep-three-letter-words (cdr word-list)))))
+(keep-three-letter-words '(one two three four five six))
+
+(one two six)
+(defun triangle-re(number)
+  "Docstring of triangle-re"
+  (if (= number 1)
+      1
+    (+ number
+       (triangle-re
+        (1- number)))))
+
+(triangle-re 7)
+
+28
+
+(defun triangle-initialization(number)
+  "Docstring of triangle-initialization"
+  (triangle-recursive-helper 0 0 number))
+
+(defun triangle-recursive-helper (sum counter number)
+
+  "Docstring of "
+  (if (> counter number)
+      sum
+    (triangle-recursive-helper (+ sum counter)
+                               (1+ counter)
+                               number)))
+(triangle-initialization 4)
+
+10
+
+#+end_src
+

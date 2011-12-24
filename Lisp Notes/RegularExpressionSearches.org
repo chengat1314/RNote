@@ -1,0 +1,100 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-22 10:36:44 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   RegularExpressionSearches
+
+* Basic Points:
+
+** To create a 'TAGS' file, should switch to the directory in which you want to create the file. 
+   #+begin_src emacs-lisp :tangle yes
+run the compile command, with etags *.el as the command to execute
+M-x compile RET etags *.el RET
+   #+end_src
+
+** re-search-forward searches for a regular expression. If the search is successful, it leaves point immediately after the last char in the target. While backwards, it leaves the point just before the first character in the target.
+** A list of special characters:
+
+***    .(Period): matches any single character except a newline.
+
+*** * :it is a postfix means to match the preceding regular expressoin repetitively as many times as possible.
+
+**** WARN: Nested repetition operators can run for an indefiniely long time, if they lead to ambigous matching. (Eg: '\(x+y*\)*a)
+
+*** +: is a postfix operator, similar to '*' except that it must match the preceding expression at least once.
+
+*** ?: is a postfix operator, match the preceding expression either once or not at all.
+
+*** *?, +?, ??: These all postfix with a ?, is "non=greedy"variants of the operators. They match the smallest possible substring.
+
+*** [...]: is a character alternative. In the simplest case, the characters between the two brackets are what this characte ralternative can match.
+    eg:
+    normaluse:[ab]
+    withrange: [a-z]
+
+*** [^...]: begins a complemented character alternative.
+    eg:
+    [^a-z0-9A-Z]: matches all characters except letters and digits.
+
+**** ^ is not speacial in a character unless it is the fist character.
+
+**** Specify named character classes:
+     eg:
+     [^[:ascii:]] matches any non-ASCII character.
+
+*** $: matches only at the end of a line.
+    Thus, x+$ matches a string of one 'x' or more at the end of a line.
+
+**** $ can be used only at the end of the regular expression, or before `|)' or `\|'.
+     
+
+*** \: has two functions: it quotes the special characters, and it introduces additional special constructs.
+    
+**** Note that '\' also has speacial meaning in read syntax of Lisp strings, and must be quoted with \. the read syntac for a re-expression matching '\' is "\\\\".
+*** '\|': specifies an alternative.
+    for\|bar matches foo or bar.
+*** \{m\}: is a postfix operator:
+    x\{5\} matches the string "xxxxx" and nothing else.
+*** \{m,n\}: specifies repetition with a minimum of m repeats and a maximum of n repeats.
+    c[ad]\{1,2\}r matches the strings 'car', 'cdr', 'caar', 'cdar', and 'cddr' and nothing else.
+
+*** \(...\): is a grouping construct that serves three purposes:
+    1. To enclose a set of \| alternatives for other operation.
+    2. To enclose a complicated expression for the postfix operators '*', '+' and '?' to operate on.
+    3. To record a matched substring for future reference with '\digit'.
+
+* Functions:
+
+** prog1 is similar to the progn special form, except that prog1 evaluates its arguments in sequence and then returns the value of its first argument as the value of the whole expression.
+   The second and subsequent arguments to prog1 are evaluated only for their side effects.
+
+** eobp is an abbreviation of ‘End Of Buffer P’ and is a function that returns true if point is at the end of the buffer.
+
+** looking-at is a function that returns true if the text following point matches the regular expression passed looking-at as its argument.
+
+* 
+
+** let*
+   Bind some variables locally to particular values, and then evaluate the remaining arguments, returning the value of the last one. While binding the local variables, use the local values of variables bound earlier, if any.
+
+
+
+
+* Extending Points:
+  The GNU Emacs sources come with a ‘Makefile’ that contains a sophisticated etags command that creates, collects, and merges tags tables from all over the Emacs sources and puts the information into one ‘TAGS’ file in the ‘src/’ directory below the top level of your Emacs source directory.
+
+* answer to solution.
+  • Write a function to search for a regular expression that matches two or more blank lines in sequence.
+  #+begin_src emacs-lisp :tangle yes
+
+(defun find-two-or-more-blank()
+  (interactive)
+  (push-mark)
+  (re-search-forward "\n\n+"))
+
+  #+end_src
+  • Write a function to search for duplicated words, such as ‘the the’. See section “Syntax of Regular Expressions” in The GNU Emacs Manual, for information on how to write a regexp (a regular expression) to match a string that is composed of two identical halves. You can devise several regexps; some are better than others. The function I use is described in an appendix, along with several regexps. See Appendix A, “the-the Duplicated Words Function”, page 241.
+
+
+
+
+

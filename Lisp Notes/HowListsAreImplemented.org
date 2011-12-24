@@ -1,0 +1,60 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-17 14:04:35 Saturday by richard>
+#+STARTUP: showall
+
+#+TITLE:   HowListsAreImplemented
+
+
+* BASIC points:
+** A list is kept using a series of paris of pointers.
+*** The first pointer in each pair points to an atom or to another list, and the second pointer in each pair points to the next pair, or the symbol nil.
+[rose|]-->[violet|]-->[buttercup|nil]    
+
+*** A pair of address-boxes is called a cons cell or dotted pair.
+
+
+* SOLUTION to exercises:
+  Set flowers to violet and buttercup. Cons two more flowers on to this list and set this new list to more-flowers. Set the car of flowers to a fish. What does the more-flowers list now contain?
+
+#+begin_src emacs-lisp :tangle yes
+
+(setq flowers '(violet buttercup))
+
+(setq more-flowers (cons 'BigMadam (cons 'rose flowers)))
+
+(setcar flowers 'fish)
+
+more-flowers
+ ;; And now it changes to fish.. and also more-flowers
+
+#+end_src
+
+#+results:
+| BigMadam | rose | fish | buttercup |
+
+
+
+* code in chapter 9
+#+begin_src emacs-lisp :tangle yes
+(setq bouquet '(rose violet buttercup))
+
+(rose violet buttercup)
+
+(setq flowers (cdr bouquet))
+
+(violet buttercup)
+
+bouquet
+(rose violet buttercup)
+flowers
+(violet buttercup)
+
+(setq bouquet (cons 'lily bouquet))
+
+(lily rose violet buttercup)
+
+(eq (cdr (cdr bouquet)) flowers)
+
+t
+
+#+end_src

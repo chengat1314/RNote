@@ -1,0 +1,51 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-24 11:53:17 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   CountingRepetitionAndRegexps
+
+* solution to Exercise: Counting Punctuation
+  Using a while loop, write a function to count the number of punctuation marks in a region—period, comma, semicolon, colon, exclamation mark, and question mark. Do the same using recursion.
+  #+begin_src emacs-lisp :tangle yes
+(defun count-punctuation(beginning end)
+  "count the punctuation mark. Including period, comma, semicolon, colon, exclamation mark, and question mark."
+  (interactive "r")
+  (let ((punc-mark "[.,:;!?]")
+        (count 0))
+    (save-excursion
+      (goto-char beginning)
+      (while (and (< (point) end) (re-search-forward punc-mark end t))
+        (setq count (1+ count)))
+      (cond ((> count 1) (message "the region has %d punctuation marks." count))
+            ((= count 1) (message "the region has only ONE punctuation mark."))
+            (t (message "the region does NOT contain any punctuation mark."))))))
+(count-punctuation (point-min) (point-max))
+  #+end_src
+
+  #+results:
+  : the region has 58 punctuation marks.
+
+#+begin_src emacs-lisp :tangle yes
+(defun count-punctuation(beginning end)
+  "count the punctuation mark. Including period, comma, semicolon, colon, exclamation mark, and question mark."
+  (interactive "r")
+  (save-excursion
+    (goto-char beginning)
+    (let (( count (count-punc-inner end)))
+      (cond ((> count 1) (message "the region has %d punctuation marks." count))
+            ((= count 1) (message "the region has only ONE punctuation mark."))
+            (t (message "the region does NOT contain any punctuation mark."))))))
+
+(defun count-punc-inner(end)
+  "Documentation..."
+  (let ((punc-mark "[.,:;!?]"))
+    (if (and (< (point) end) (re-search-forward punc-mark end t))
+        (1+ (count-punc-inner end))
+      0)))
+(count-punctuation (point-min) (point-max))
+
+
+#+end_src
+
+#+results:
+: the region has 58 punctuation marks.
+

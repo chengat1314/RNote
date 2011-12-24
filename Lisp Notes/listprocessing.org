@@ -1,12 +1,12 @@
 # -*- mode: org -*-
 
-# Time-stamp: <2011-12-09 15:56:38 Friday by richard>
+# Time-stamp: <2011-12-10 10:18:49 Saturday by richard>
 
 #+STARTUP: showall
 
 #+TITLE:       List Processing
 
-* Manage lisp:
+* Jargons:
 
 
 ** Lisp programs are made up of expressions, which are lists or single atoms.
@@ -45,30 +45,31 @@
 
 *** setq can be used to assign different values to different variables.
 
-** SOLUTION to Exercises:
+* SOLUTION to Exercises:
 1. Generate an error message by evaluating an appropriate symbol that is not within parentheses.
    Any atom is a function but not a variable.
    such as (buffer-name); Already mentioned in chapter 1.
 
 2. Generate an error message by evaluating an appropriate symbol that is between parentheses.
    Any atom is a variable but not a function.
-   #+begin_lisp options
+   #+begin_src emacs-lisp :tangle yes
    (fill-column)
-   #+end_lisp
+   #+end_src
 
 3. Create a counter that increments by two rather than one.
+   #+begin_src emacs-lisp :tangle yes
    (setq counter 0)
    (setq counter (+ counter 2))
+   #+end_src
 
 4. Write an expression that prints a message in the echo area when evaluated.
-   #+begin_lisp 
+   #+begin_src emacs-lisp :tangle yes
    (message "This message will be showed in echo area.")
-   #+end_lisp
+   #+end_src
 
 * Code in Chapter 1:
 
-  #+begin_lisp 
-
+  #+begin_src emacs-lisp :tangle yes
   '(rose
   violet
   daisy
@@ -132,4 +133,4 @@
 
   (buffer-name)
 
-  #+end_lisp
+  #+end_src

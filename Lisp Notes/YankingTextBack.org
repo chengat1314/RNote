@@ -1,0 +1,49 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-17 14:45:32 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   YankingTextBack
+
+* Basic Points
+** the kill-ring-yank-pointer is a variable points to something by being bound to the value of what it points to.
+*** The kill-ring is generally thought of as the complete structure of data that holds the information of what has recently been cut out of the Emacs buffers.
+*** The kill-ring-yank-pointer on the other hand, serves to indicate that part of the kill ring of which the first element will be inserted.
+
+** The rotate-yank-pointer function changes the element in the kill ring to which the kill-ring-yank-pointer points; when the pointer is set to point to the next element beyond the end of the kill ring, it automatically sets it to point to the first element of the kill ring.
+
+* Solution to exercises:
+** Using C-h v (describe-variable), look at the value of your kill ring. Add several items to your kill ring; look at its value again. Using M-y (yank-pop), move all the way around the kill ring. How many items were in your kill ring? Find the value of kill-ring-max. Was your kill ring full, or could you have kept more blocks of text within it?
+
+   6 items in the yank. Keep more text by change the kill-ring-max value.
+
+** Using nthcdr and car, construct a series of expressions to return the first, second, third, and fourth elements of a list.
+
+   #+begin_src emacs-lisp :tangle yes
+(setq alpha '(a b c d e f g h i j k))
+
+;; return 1st:
+(car alpha)
+;; or
+(nth 0 alpha)
+
+;; return 2st:
+(nth 1 alpha)
+;; or
+(car (cdr alpha))
+;; or
+(car (nthcdr 1 alpha))
+
+;; return 3rd:
+(nth 2 alpha)
+;; or 
+(car (nthcdr 2 alpha))
+;; or
+(car (cdr (cdr alpha)))
+
+;; return 4th:
+(nth 3 alpha)
+;; or
+(car (nthcdr 3 alpha))
+;; or
+(car (cdr (cdr (cdr alpha))))
+   #+end_src
+
