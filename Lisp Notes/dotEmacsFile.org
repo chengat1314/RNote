@@ -1,0 +1,85 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-24 14:01:36 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   dotEmacsFile
+* Basic Points:
+** it would have been specified simply as "-". But nowadays, Emacs can add properties to a string, such as highlighting or, as in this case, a help feature.
+   #+begin_src emacs-lisp :tangle yes
+#("-" 0 1 (help-echo "mouse-1: select window, ..."))
+   #+end_src
+   The #( begins a list. The first element of the list is the string
+   itself, just one‘-’. The second and third elements specify the
+   range over which the fourth element applies.
+** mode-line-buffer-identification displays the current buffer name. It is a list beginning (#("%12b" 0 4 .... The #( begins the list.
+   The ‘"%12b"’ displays the current buffer name, using the
+   buffer-name function with which we are familiar; the ‘12’ specifies
+   the maximum number of characters that will be displayed.
+** :eval says to evaluate the following form and use the result as a string to display.
+   ‘%[’ and ‘%]’ cause a pair of square brackets to appear for each recursive
+   editing level. ‘%n’ says ‘Narrow’ when narrowing is in effect. ‘%P’ tells you
+   the percentage of the buffer that is above the bottom of the window, or
+   ‘Top’, ‘Bottom’, or ‘All’. (A lower case ‘p’ tell you the percentage above the
+   top of the window.) ‘%-’ inserts enough dashes to fill out the line.
+
+** bind and unbind a key:
+   #+begin_src emacs-lisp :tangle yes
+(global-set-key "\C-co" 'occur)
+(global-unset-key "\C-xf")
+   #+end_src
+
+*** Mode-specific keymaps are bound using the define-key function, which takes a specific keymap as an argument, as well as the key and the command.
+    #+begin_src emacs-lisp :tangle yes
+    (define-key texinfo-mode-map "\C-c\C-cg" ’texinfo-insert-@group)
+    #+end_src
+** Rarely used functions are frequently autoloaded.
+   autoload is a built-in function that takes up to five arguments, 
+   1. the name of the function to be autoloaded;
+   2. the name of the file to be loaded.
+   3. documentation for the function,
+   4. whether the function can be called interactively.
+   5. argument tells what type of object—autoload can handle a keymap or macro as well as a function (the default is a function).
+   #+begin_src emacs-lisp :tangle yes
+(autoload 'html-helper-mode
+  "html-helper-mode" "Edit HTML documents" t)
+   #+end_src
+   P234 in the emacs reference manual book.
+
+** Settings and definitions in your ‘.emacs’ file will overwrite conflicting settings and definitions in a ‘site-start.el’ file, if it exists; but the settings and definitions in a ‘default.el’ or terminal type file will overwrite those in your ‘.emacs’ file.
+** You can prevent interference from a terminal type file by setting term-file-prefix to nil.
+** The ‘loaddefs.el’ file contains a good many suggestions as to what to put into your own ‘.emacs’ file, or into a site-wide initialization file.
+** You can specify variables using defcustom so that you and others can then can use Emacs’ customize feature to set their values.
+*** The first argument to defcustom is the name of the variable.
+*** The second argument is the variable’s initial value, if any; and this value is set only if the value has not already been set.
+*** The third argument is the documentation.
+*** The fourth and subsequent arguments to defcustom specify types and options; these are not featured in defvar.
+    Each of these arguments consists of a keyword followed by a value. Each keyword starts with the character :.
+
+*** ex:
+    #+begin_src emacs-lisp :tangle yes
+(defcustom test-mode-hook nil
+  "Normal hook run when entering Text mode and many related modes."
+  :type 'hook
+  :options '(turn-on-auto-fill flyspell-mode)
+  :group 'data)
+    #+end_src
+
+**** The :type keyword tells Emacs what kind of data text-mode-hook should be set to and how to display the value in a Customization buffer.
+**** The :options keyword specifies a suggested list of values for the variable. Currently, you can use :options only for a hook. The list is only a suggestion; it is not exclusive; a person who sets the variable may set it to other values; the list shown following the :options keyword is intended to offer convenient choices to a user.
+**** Finally, the :group keyword tells the Emacs Customization command in which group the variable is located. This tells where to find it.
+* Modes
+** The major modes fall into three major groups.
+*** The first group contains modes for normal text, either plain or with mark-up.
+*** The second group contains modes for specific programming languages. 
+*** The remaining major modes are not intended for use on users’ files; they are used in buffers created for specific purposes by Emacs, such as Dired mode for buffers made by Dired.
+
+** How Major Modes are Chosen
+*** First, Emacs checks whether the file contains a file-local variable that specifies the major mode. If so, it uses that major mode, ignoring all other criteria. the simplest is to put the mode name in the first nonblank line, preceded and followed by ‘-*-’. Other text may appear on the line as well.
+    For example,
+    ; -*-Lisp-*-
+    tells Emacs to use Lisp mode. Note how the semicolon is used to make Lisp treat this line as a comment. Alternatively, you could write
+    ; -*- mode: Lisp;-*-
+    The latter format allows you to specify local variables as well, like this:
+    ; -*- mode: Lisp; tab-width: 4; -*-
+*** Second, Emacs checks whether the file’s contents begin with ‘#!’. If so, that indicates that the file can serve as an executable shell command, which works by running an interpreter named on the file’s first line.
+** The setq-default command sets values only in buffers that do not have their own local values for the variable.
+

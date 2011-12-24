@@ -1,0 +1,60 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-24 14:43:21 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   Debugging
+
+* Basic Points:
+  
+** Each time you type d, Emacs will evaluate another expression in the function definition.
+*** enable the effect of debug-on-entry:
+    #+begin_src emacs-lisp :tangle yes
+M-x debug-on-entry RET (function-name) RET
+    #+end_src
+*** Cancel the effect of debug-on-entry:
+    #+begin_src emacs-lisp :tangle yes
+M-x cancel-debug-on-entry RET (function-name) RET
+    #+end_src
+** edebug (need reference manual)
+
+* Solution to Debugging Exercises:
+** Install the count-words-region function and then cause it to enter the built-in debugger when you call it. Run the command on a region containing two words. You will need to press d a remarkable number of times. On your system, is a ‘hook’ called after the command finishes? (For information on hooks, see section “Command Loop Overview” in The GNU Emacs Lisp Reference Manual.)
+   OMIT...
+** Copy count-words-region into the ‘*scratch*’ buffer, instrument the function for Edebug, and walk through its execution. The function does not need to have a bug, although you can introduce one if you wish. If the function lacks a bug, the walk-through completes without problems.
+#+begin_src emacs-lisp :tangle yes
+(defun count-words-region (start end)
+  "Return the number of words between START and END.
+If called interactively, print a message reporting the number of
+lines, words, and characters in the region."
+  (interactive "r")
+  (let ((words 0))
+    (save-excursion
+      (save-restriction
+        (narrow-to-region start end)
+        (goto-char (point-min))
+        (while (forward-word 1)
+          (setq words (1+ words)))))
+    (when (called-interactively-p 'interactive)
+      (count-words--message "Region"
+			    (count-lines start end)
+			    words
+			    (- end start)))
+    words))
+(edebug-defun count-words-region)
+(count-words-region (point-min) (point-max))
+#+end_src
+** While running Edebug, type ? to see a list of all the Edebug commands. (The global-edebug-prefix is usually C-x X, i.e. CTL -x followed by an upper case X; use this prefix for commands made outside of the Edebug debugging buffer.)
+OMIT
+
+** In the Edebug debugging buffer, use the p (edebug-bounce-point) command to see where in the region the count-words-region is working. 
+OMIT
+
+** Move point to some spot further down function and then type the h (edebug-goto-here) command to jump to that location. 
+OMIT
+
+** Use the t (edebug-trace-mode) command to cause Edebug to walk through the function on its own; use an upper case T for edebug-Trace-fast-mode.
+OMIT
+
+** Set a breakpoint, then run Edebug in Trace mode until it reaches the stopping point.
+:FIXME ?edebug-form-data-symbol: Not inside instrumented form
+
+
