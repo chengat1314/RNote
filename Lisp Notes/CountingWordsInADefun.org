@@ -1,0 +1,22 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-25 16:52:06 Sunday by richard>
+#+STARTUP: showall
+#+TITLE:   CountingWordsInADefun
+* Functions:
+** directory-files function, which lists the names of files that match a specified pattern within a single directory.
+* Question:
+
+
+** why use 
+#+begin_src emacs-lisp :tangle yes
+"\\(\\w\\|\\s_\\)+[^ \t\n]*[ \t\n]*"
+#+end_src
+but not use 
+#+begin_src emacs-lisp :tangle yes
+"\\(\\w\\|\\s_\\)+[ \t\n]*"
+#+end_src
+or
+#+begin_src emacs-lisp :tangle yes
+"[^ \t\n]+[ \t\n]*"
+#+end_src
+?

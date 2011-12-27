@@ -1,0 +1,17 @@
+# -*- mode: org -*-
+# Time-stamp: <2011-12-26 02:07:11 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Graph
+
+
+* Functions:
+  
+
+**  apply. This function ‘applies’ its first argument (a function) to its remaining arguments, the last of which may be a list. 
+#+begin_src emacs-lisp :tangle yes
+(apply 'max 3 4 7 3 '(4 8 5))
+#+end_src
+#+results:
+: 8
+
+
