@@ -1,0 +1,118 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-04 22:26:36 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   LearningDeliberately
+
+
+** Positive emotions are essential to learning and creative thinking.
+
+** Your Working environment needs to be rich in sensory opportunities, or else it will literally cause brain damage.
+
+** Commoditization means you compete on aesthetics.  
+
+
+
+* Tips
+** Time can't be created or destroyed, only allocated.  
+** All knowledge investments have value.
+** Writing is as important as reading.
+** Harness the power of Documenting.
+   - Hand-drawing the cards emphasizes R-mode processes.
+   - The active creation of the notes/cards helps prepare the mind for
+     the later activity.
+   - Visualizing the sequences and maneuvers can help "groove" the mind.
+** Keep a big enough context get an instant productivity gain of 20 to 30 percent.
+
+* Optimize your Current Context.
+  - It takes twenty minutes to reload context.
+  - Multitasking can cost you 20 to 40 percent of your productivity.
+  - Scan the input queue only once.
+  - Process each pile of work in order.
+  - Don't keep lists in your head.
+
+* How to stay sharp
+  - Learn to quite your chattering L-mode.
+  - Deliberately work with and add to thoughts in progress, even if
+    they aren't "done" yet.
+  - Be aware of just how expensive context switching can be, and avoid
+    it in all its myriad forms.
+
+>cc lecture 1 ends here. to be contd.<
+* Vipassana meditation
+  * Find a quiet spot, free from distraction or interruption.
+  * Sit in a comfortable, alert posture, with a straight back.
+  * Close your eyes, and focus your awareness on your breath.
+  * Be aware of the rhythm of your breath, the length and qualities of
+    the inhale, the brief pause at the top of the sycle, the qualities
+    of the exhale, and the brief pause at the bottom.
+  * Keep your mind focused on the breath.
+  * You may find yourself thinking about some topic or carrying on a
+    conversation with yourself.
+  * Even if your mind is wandering often, the exercise of noticing
+    that you have wandered and beringing yourself back each time is helpful.
+
+
+
+
+* Create an Exploratory Environment
+** Freedom to experiment.
+** Ability to backtrack to a stable state.
+** Reproduce any work prodect as of any time.
+** Ability to demonstrate progress.
+
+
+* Enhanced Learning Techniques
+  * Better ways to deliberately read and summarize written material.
+  * Using mind maps to explore and find patterns and relationships.
+  * Learning by teaching.
+
+* Method to study a book: SQ3R
+  * Survey: Scan the table of contests and chapter summaries for an overview.
+  * Question: Note any qestions you have.
+  * Read: Read in its entirety.
+  * Recite: Summarize, take notes, and put in your own words.
+  * Review: Reread, expand notes, and discuss with colleagues.
+
+* Test-driven learning:
+  * retest after two hours. two days, two weeks, six months.
+
+
+
+
+* Work Together, Study together.
+** Reading groups are nontoxic.
+** Deliberate steps
+   1. Ask for proposals.
+   2. Select a proposal - and a leader
+   3. Buy books.
+   4. Schedual lunch meetings.
+
+
+
+* Manage your profoilo
+  * Have a concrete plan. 
+    - Next action.
+    - Goals for next year
+    - Goals for five years out.
+    - The planning is far more important than plan.
+  * Diversify
+  * Make an active, not passive, investment.
+  * Make a regular investment.
+    - 
+
+
+* Sheep dip training doesn't work:
+  1. Learning isn't done to you; it's something you do.
+  2. Mastering knowledge alone, without experience, isn't effective.
+  3. A random approach, without goals and feedback, tends to give
+     random results.
+
+* SMART
+  1. Specific
+  2. Measurable.
+     You just have to see two or three feet ahead of you.
+  3. Achievable.
+     A goal or objective that you cannot attain is not a target; it's
+     just a maddening, soul-sucking frustration.
+  4. Relevant.
+  5. Time-boxed.

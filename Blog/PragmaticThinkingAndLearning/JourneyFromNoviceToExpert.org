@@ -1,0 +1,50 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-04 22:09:18 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   JourneyFromNoviceToExpert
+
+   
+* No Expertise without Experience.
+
+* The model is a tool, not a mirror.
+  
+* A hard work it is:
+  * You need a well-defined task.
+  * The task needs to be appropriately difficult -- chanllenging but doable.
+  * The environment needs to supply informative feedback that you can
+    act on.
+  * It should also provide oppoetunities for repetition and correction
+    of errors.
+    
+* Here are some observations for nurse and programmers:
+
+** Expert staff members working in the trenches aren't always recognized as experts or paid accordingly.
+
+** Not all expert staff want to end up as managers.
+
+** There's a huge variance in staff members' abilities.
+
+** There's a huge variance in managers' abilities.
+
+** Any given team likely has members at widely different skill levels and can't be treated as a homogeneous set of replaceable resources.
+
+
+* weibo.com   What do you call an expert software developer? A Wizard!
+
+* 5 Dreyfus Model Stages:
+  1. Novice: Novice need recipes. When something unexpected comes up,
+     they will be completely flummoxed.
+  2. Advanced beginners: Advanced beinners don't want the big picture.
+  3. Competent: Competents can troubleshoot. But they can't apply
+     agile methods the way we would like.
+  4. Proficient: can self-correct.
+  5. Expert: work from intuition, not from reason.
+** Rules ruins Experts.
+** From Novice to Expert:
+*** Moving away from relience on rules to intuition.
+*** A change in perception, where a problem is no longer a collection of equally relevant bits but a complete and unique whole where only certains bits are relevant.
+*** Finally, a change from being a detached observer of the problem to an involved part of the system itself.
+    
+
+* 
+

@@ -1,0 +1,47 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-06 13:45:05 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Fix
+
+* Fix Tips
+  1. There's more to a good fix than just makeing the software behave correctly.
+  2. Start from a clean source tree.
+  3. diff first, commit second.
+  4. Make sure you know how you're going to test it before designing
+     your fix.
+  5. Every occasion where we choose not to address the root cause of a
+     problem, we are significantly reducing the overall quality of the
+     codebase.
+  6. Refactor or change functionality -- one or the other, never both.
+  7. One logical change, one check-in.
+
+* Review tips:
+  1. 
+
+
+
+
+* Fixing Goals:
+  1. Fixing the problem.
+  2. Avoiding introducing regressions.
+  3. Maintaining or improving the overall quality(readability,
+     architecture, test coverage, performance, and so on ) of the
+     code.
+
+* Testing sequence:
+  1. Run the existing tests, and demonstrate that they pass.
+  2. Add one or more new tests, or fix the existing tests, to
+     demonstrate the bug.
+  3. Fix the bug.
+  4. Demonstrate that your fix works.
+  5. Demonstrate that you haven't introduced any regressions.
+
+
+
+
+* Rule of fixing bug:
+  1. Don't modify the source until you have a failing test.
+  2. 
+
+
+

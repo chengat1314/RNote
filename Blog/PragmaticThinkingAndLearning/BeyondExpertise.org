@@ -1,0 +1,42 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-04 22:08:17 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   BeyondExpertise
+
+* Manage effective change:
+
+** Start with a plan.
+
+** Inaction is the enemy, not error.
+
+** New habits take time.
+
+** Belief is real.
+
+** Take small, next steps.
+
+* TODO next morning.
+  * Start taking responsibility.
+  * Pick two things that will help you maintain context and avoid
+    interruption.
+  * Create a pragmatic investment plan, and set up SMART goals.
+  * Figure out where you are on the novice-to-expert spectrum in your
+    chosen profession and what you might need to progress.
+  * Practice.
+  * Plan on making more mistakes.
+  * Keep a notebook on you.
+    - Take notes, Keep your thoughts loose and flowing.
+  * Open up your mind to aesthetics and additional sensory input.
+  * Start your personal wiki on things you find interesting.
+  * Start blogging.
+  * Make thoughtful walking a part of your day.
+  * Start a book-reading group.
+  * Get a second monitor, and start using a virtual desktop.
+  * Go through the "next actions" for each chapter and try them.
+  * Start and maintain an engineer's log of notes from design
+    meetings, coding questions and solutions, and so on.
+  * Set up a remindes to reevaluate your portfolio on a regular,
+    periodic basis.
+  * Figure out when your most prodective coding time occurs, and
+    arrange to limit distractions during that time.
+  * Keep something on your person for 24 * 7 note taking.

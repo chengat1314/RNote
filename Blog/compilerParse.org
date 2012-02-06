@@ -1,0 +1,15 @@
+# -*- mode: org -*-
+# Last modified: <2012-01-20 12:56:17 Friday by richard>
+#+STARTUP: showall
+#+TITLE:   compilerParser
+
+* Read X : α1α2 · · · αn, as
+  “An X may be formed from the concatenation of an α1, α2, . . . ,
+  αn .”
+* Context free
+  means can replace nonterminals in any order (i.e., re-
+  gardless of context) to get same result (as long as you use same
+  productions).
+
+
+

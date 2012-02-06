@@ -1,0 +1,19 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-04 22:09:09 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   GetinYourRightMind
+
+
+
+* Quick Tips
+** Work with one person in L-mode, one in R-mode.
+** Feel R-mode with a Cognitive Shift.
+** Many ideas are not verbalizable.
+** R-mode can be invited not commanded.
+
+* Morning tip:
+  The first thing in the morning, you're not really as awake as you
+  think. Your unconscious still has a prominent role to play. You have
+  a pretty good line direct to your R-mode, at least for a little
+  while.
+

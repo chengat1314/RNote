@@ -1,0 +1,20 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-05 10:01:14 Sunday by richard>
+#+STARTUP: showall
+#+TITLE:   Six Great Ideas From Computer Architecture
+
+1. Layer of Representation/Interpreter.
+
+2. Moore's Law
+   2X transistors/chip every 2 year.
+
+3. Jim Gray's Storage Latency Analogy:
+   Memory Hierachy.
+
+4. Parallelism.
+
+5. Proformance Measurement & improvement.
+
+6. Dependability via Reduncency.
+   
+

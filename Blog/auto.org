@@ -1,0 +1,18 @@
+# -*- mode: org -*-
+# Last modified: <2012-01-18 22:52:41 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   Make your life more eazy
+
+
+The GNU Autotools framework includes three main packages: Autoconf,
+Automake, and Libtool. The tools in these packages can generate code that
+depends on utilities and functionality from the gettext, m4, sed, make, and perl
+packages, among others.
+
+三个标准得编译时工具：
+1. Autoconf, which is used to generate a configuration script for a project
+2. Automake, which is used to simplify the process of creating
+   consistent and functional makefiles.
+3. Libtool, which provides an abstraction for the portable creation of
+   shared libraries
+什么时候使用这些工具没有意义？只有当你在写windows软件得时候。因为windows中有更好得软件替代品，一般写MS中软件时候的makefile，主要是学术作用。

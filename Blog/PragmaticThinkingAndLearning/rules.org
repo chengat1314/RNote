@@ -1,0 +1,95 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-04 22:11:10 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   rules
+
+** Create SMART objectves to reach your goals.
+
+** Plan your investment in learning deliverately.
+
+** Disover how you learn best.
+
+** Form Study groups to learn and teach.
+
+** Read deliberately.
+
+** Take notes with both R-modes and L-modes.
+
+** Write on: Documenting is more imporatnt than documentation.
+
+** See it. Do it. Teach it.
+
+** Play more in order to learn more. 
+
+** Learn from similarities; unlearn from differences.
+
+** Explore, invent, and apply in your environment -- safely.
+
+** See without judging and then act.
+
+** Give yourself permission to fail; it's the path to success.
+
+** Groove your mind for success.
+
+** Make thinking time.
+
+** Use a wiki to manage information and knowledge.
+
+** Establish rules of engagement to manage interruptions.
+
+** Mask interrupts to maintain focus.
+   - Prepare to be interrupted.
+** Use multiple monitors to avoid context switching.
+   - Use virtual desktops.
+** Optimize your personal workflow to maximize context.
+
+** Capture all ideas to get more of them.
+
+** Learn by synthesis as well as by analysis.
+
+** Strive for good design; it really words better.
+
+** Rewire your brain with belief and constant practice.
+
+** Always consider the context.
+
+** Use rules for novices, intuition for experts.
+
+** Know what you don't know.
+
+** Learn by watching and imitating.
+
+** Keep practicing in order to remain expert.
+
+** Avoid formal methods if you need creativity, intuition, or inventiveness.
+
+** Learn the skill of learning.
+
+** Grab the wheel, You can't steer on autopilot.
+
+** Watch the outliers: "rarely" doesn't mean "never".
+
+** Be comfortable with uncertainty.
+
+** Trust ink over memory; every mental read is a write.
+
+** Hedge your bets with diversity.
+
+** Allow for different bugs in different people.
+
+** Act like you've evolved; breathe don't hiss.
+
+** Trust Intuition, but verify.
+
+** Add sensory experience to engage more of your brain.
+
+** Lead with R-mode; follow with L-mode.
+
+** Use metaphor as the meeting place between L-mode and R-mode.
+
+** Cultivate humor to build stronger metaphors.
+
+** Step aways from the keyboard to solve hard problems.
+
+** Change your viewpoint to solve the problem.
+   

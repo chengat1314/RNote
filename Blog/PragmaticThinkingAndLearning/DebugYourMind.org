@@ -1,0 +1,8 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-04 22:08:23 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   DebugYourMind
+
+* Tips
+** Every decision is a trade-off.
+** Expectations color reality.

@@ -1,0 +1,94 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-05 11:04:41 Sunday by richard>
+#+STARTUP: showall
+#+TITLE:   Diagnose
+
+Diagnosis is the key element of debugging.
+
+* Weibo: 
+  The great tradedy of Science -- the slaying of a beautiful
+  hypothesis by an ugly fact.
+
+* Tips:
+  1. Balance creativity with rigor.
+  2. Experiments Must prove something.
+  3. Make only one Change at a time.
+  4. Maintain a record for what you have tried and what results were.
+   - Periodically review what you'v already tried and learned.
+  5. Ignore Nothing.
+   - If you have a broken assumption, then the most valuable thing
+     that you can do is to stop, identify, and fix it.
+  6. Anything that you don't understand is potentially a bug.
+  7. Explaining the problem helps get your thoughts in order.
+  8. Help your subconscious help you.
+  9. Sherlock holmes principle
+     When you eliminated the impossible, what ever remains, however
+     improbable, must be the truth.
+
+* Stratagems
+  1. Instrumentation
+     is code that doesn't affect how the software behaves but instead
+     provides insight into why it behaves as it does.
+  2. Devide and conquer (binary chop)
+  3. Leveraging source control.
+  4. Focus on the Differences. 
+  5. Learn from others.
+  6. Occams' razor
+     All other things being equal, the simplest explanation is the best.
+
+* Points about Cardboard cutout
+  1. Pay attention.
+  2. Ask questions.
+  3. Keep an eye out for unexplored avenues.
+  4. Do your best to understand what's going on.
+
+
+* Less debugging, more testing.
+  1. Debugging sessions are ephemeral; test are permanent.
+  2. test-first development.
+  3. Leave the debugger as an exploratory tool.
+  4. points about when debugging is effectiveness.
+     - During initial development, it's helpful when single-stepping
+       through code helps to convince us that what it's really doing
+       agrees with what we thought we were implementing.
+     - If we have theory about why the code is behaving in a
+       particular way, we can use the debugger ot confirm or refute
+       this theory.
+     - Finally, a debugger helps us explore code that is behaving in a
+       way we simply don't understand.
+
+* Daybook in Debugging.
+  1. Writing out hypothesis.
+  2. Keeping a track of details such as 
+   - stack traces
+   - argument values
+   - variable names.
+  3. Keeping a list of ideas to try.
+  4. Doodling when you need to take your mind off the problem.
+
+
+
+
+* Idealized process of debugging:
+  1. Examine what you know about the software's behavior, and
+     construct a hypothesis about what might cause it.
+  2. Design an experiment that will allow you to test its truth.
+  3. If the experiment disprove your hypothesis, come up with a new
+     one and start again.
+  4. If it supports your hypothesis, keep coming up with experiments
+     until you have either disproved it or reached a high enough level
+     of certainty to consider it proven.
+
+* types of experiment.
+  1. Examine an aspect of the software's internal state.
+  2. Modify some aspect of how you run the software and see whether it
+     behaves differently.
+  3. You can change the logic encoded within the software itself and
+     examine the effect of that change.
+
+* Validate your diagnosis.
+  1. Explain your diagnosis to someone else.
+  2. Check out a pristine copy of the source code, without any of the
+     changes you've made along the way, and verify that your analysis
+     still holds.
+  3. Play devil's advocate, and imagine you are wrong.

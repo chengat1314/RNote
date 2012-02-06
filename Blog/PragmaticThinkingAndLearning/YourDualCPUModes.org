@@ -1,0 +1,49 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-04 22:11:44 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   R-mode And L-mode
+
+
+* You brain has Two CPUs which provide R-mode and L-modes.
+
+
+* Characteristics of L-mode processing.
+
+** Verbal
+
+** Analytic
+
+** Symbolic
+
+** Abstract
+
+** Temporal
+
+** Rational
+
+** Digital
+
+** Logical
+
+** Linear
+
+* Characteristics of R-mode
+  
+** Non-verbal
+
+** Non-rational
+
+** Synthetic
+
+** Spatial
+
+** Concrete
+
+** Analogic
+
+** Intuitive
+
+** Holistic
+
+** Non-linear
+
