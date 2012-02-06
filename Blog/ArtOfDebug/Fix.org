@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-02-06 13:45:05 Monday by richard>
+# Last modified: <2012-02-06 13:51:41 Monday by richard>
 #+STARTUP: showall
 #+TITLE:   Fix
 
@@ -16,10 +16,11 @@
   7. One logical change, one check-in.
 
 * Review tips:
-  1. 
-
-
-
+  1. If you're working in an area that's relatively new to you, it
+     probably makes sense to ask someone who is already familiar with
+     it.
+  2. If you know the code extremely well, consider asking someone who
+     is new to it and has a fresh perspective.
 
 * Fixing Goals:
   1. Fixing the problem.
@@ -37,11 +38,6 @@
   5. Demonstrate that you haven't introduced any regressions.
 
 
-
-
 * Rule of fixing bug:
-  1. Don't modify the source until you have a failing test.
-  2. 
-
-
+  Don't modify the source until you have a failing test.
 
