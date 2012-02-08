@@ -1,0 +1,47 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-08 11:47:27 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   Reproduce
+
+* Tips:
+** You shouldn't write any new code until you have a failing test.
+** You want to be able to run lots of experiments quickly.
+** Aim for a minimal reproduction.
+** Make nondeterministic bugs deterministic:
+   - Starting from an unpredictable initial state.
+   - Interaction with external systems.
+   - Deliberate randomness.
+   - Multithreading.
+
+
+
+* Reproduce First, Ask Questions later.
+  - Start with the Obvious.
+  - Targeting Your Effort.
+  - The things you need to control:
+    1. The software itself.(Make sure the version)
+    2. The environment it's running within.
+    3. The inputs you provide to it.
+
+* Debug need control
+  1. Controlling the software.
+  2. Controlling the environment. 
+     Your software's environment is anything that might affect its behavior.
+  3. Controlling inputs. 
+     - Inferring Inputs
+     - Work Backward
+     - Explore the Landscape.
+       - Boundary value analysis;
+       - Branch coverage;
+     - Force Error Conditions.
+     - Introduce randomness.
+     - Recording Inputs.
+     - Logging.
+     - External logging.
+     - Load and Stress.
+  5. 
+* Logging and code:
+  The most useful logging is at the highest level -- a record of what
+  happened.
+  Aspect-oriented programming.(AspectJ in programming.)
+

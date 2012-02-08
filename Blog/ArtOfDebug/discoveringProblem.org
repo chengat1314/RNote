@@ -1,0 +1,39 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-08 11:27:40 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   DiscoveringProblem
+
+* Tracking Bugs:
+
+** Bug-tracking system:
+   1. Do not forget about a bug;
+   2. By providing a standard format for bug reports.(Increases the
+      chance that all relevant info will be included.)
+   3. Ensures that for each release we know which bugs are outstanding.
+   4. Allow prioirtize bugs and determine which to work on first.
+   5. Ensures that everyone understands the current state of the bug.
+   6. Provides an overview of the current state of the project.
+   7. We can store the reasoning behind a decision that we choose
+      not to fix a bug.
+** Good bug report:
+   
+*** A report should be sepcific, unambiguous, and detailed, but also minimal and unique.
+
+*** Environment and Configuration Reporting:
+    Collect environment and confiuration information automatically.
+
+*** Tips:
+   If you're working in a small colocated team, don't have many bugs
+   to track, and don't need to provide remote access to your bug
+   database, then a nontechnical solution may well be right for you.
+
+* Working with users.
+  - Make it obvious how to report a bug.
+  - Automate.
+  - Provide multiple options.
+  - Keep it simple.
+  - Don't have too rigid a template.
+  - Respect your users' privacy.
+  - Imagine how things might appear from your users perspective.
+  - Provide feed back.
+
