@@ -1,0 +1,37 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-10 12:33:30 Friday by richard>
+#+STARTUP: showall
+#+TITLE:   Attitude Of Bug
+
+* Bugs take priority
+  - Processes that are likely to uncover bugs happen continuously
+    during development.
+  - Bug fixing takes priority over everything else.
+
+* When faced with poor quality codebase.
+  - Recognize there is no silver bullet.
+  - Make sure that the basics are in place first.
+  - Separate clean code from unclean, and keep it clean.
+  - use bug triage to keep on top of your bug database.
+  - Incrementally clean up bad code by adding tests and refactoring .
+
+* Prioritizing bugs requires an overview of the entire bug databases.
+
+* ! Refactoring crucially depends upon the support of an extensive suite of automated tests.
+
+
+* Early Bug Fixing Deacreases Uncertainty.
+  - Poor quality is contagious.
+  - Goal: Maintain a zerobug count at all times. (No broken windows)
+
+* Differenct of a bug and a feature.
+  - Bugs are unintentional behavior, according to it's design.
+  - It's designed to do, is a feature.
+
+* Temper perfectionism with pragmatism.
+
+* Out of quality Hole
+  - Source Control
+  - A fully automated build system.
+  - A fully automated test harness.
+  - Overnight builds or continuous integration.
