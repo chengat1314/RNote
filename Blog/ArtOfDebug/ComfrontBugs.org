@@ -1,0 +1,58 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-10 12:49:55 Friday by richard>
+#+STARTUP: showall
+#+TITLE:   ComfrontBugs
+
+* Tips
+  1. When patching on an existing release, concentrate on reducing the
+     risk.
+  2. Remember, the bug will need fixing in the development version
+     too.
+  3. Identifying that you have a problem.
+     also add identifying compatibility issues to your bug-fixing checklist.
+  4. Addressing compatibility issues.
+     - Implement a Compatibility mode.
+  5. Provide a Migration Path.
+  6. Provide Forewarning.
+
+* When Dealing with embedded software, Getting information out is the key.
+
+* Bugs in Third-party Software:
+  1. Suspect your own code first.
+  2. Thinking carefully before using your own patched version of
+     third-party code.
+
+* When Concurrency.
+
+** Keep simplicity and control
+   Simplicity is the key element of any software design.(esp when
+   dealing with concurrency)
+** Avoid using sleep() when fixing concurrency bugs.
+
+* Heisenbugs
+
+** Minimize the side effects of collecting he information you need.
+
+* Performance bugs.
+
+** Find the bottleneck.(90%)
+
+*** Profile your code before diagnosing a performance bug.
+    - Ensure the profile generated accurately reflects software's true
+      behavior.
+
+*** Accurate profilling.
+    - profile a build that is as close as possible to a production
+      release.
+    - The environment you run in is as similar as possible to the
+      software's ultimate target environment.
+    - You run the software with representative data.
+
+** No bottle neck.
+
+*** Resouce exhaustion.
+
+*** Garbage collection.
+
+*** Caching.
+
