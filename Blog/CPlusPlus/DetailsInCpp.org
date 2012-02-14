@@ -1,0 +1,36 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-11 21:03:35 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   C++ Details
+
+* Tips
+
+* Good habits
+  1. If we cannot guarantee that the variable will be reset before
+     being read, we should initialize it.
+  2. in multi-comment style, Beging each line in the comment with
+     asterisk, thus indicating that the entire range is part of a
+     multi-line comment.
+     
+* Details (Something we may overlooked)
+
+** An istream becomes invalid when we hit end-of-file or encounter an invalid input.
+
+** Buffers:
+
+*** Output buffers usually must be explicitly flushed to force the buffer to be written.
+
+*** reading cin flushes cout; cout is also flushed when the program ends normally.
+
+*** By default, writes to cerr are not buffered and clog are buffered.
+
+
+* Methods
+
+** The use a class we need to know three things:
+   1. What is its name?
+   2. Where is it defined?
+   3. What operations does it support?
+
+
+ 

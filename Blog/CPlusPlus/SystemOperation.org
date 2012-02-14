@@ -1,0 +1,39 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-12 10:28:20 Sunday by richard>
+#+STARTUP: showall
+#+TITLE:   SystemOperation
+
+This article is about the system difference's effect on C++ language.
+ 
+Last year, I have moved my programming context to the unix-family
+(debian, ubuntu, and fedora)system. At the same time, I met a lot of
+prime and confusable problems when try to use Windows behavior to deal
+with the problem in unix-systems. 
+And now, I conclude these difference here.
+
+* Primer.
+
+** The value returned by main 
+   On unix systems, We obtain the status by writing:
+#+begin_src bash
+echo $?
+#+end_src
+   And on windows, we write:
+#+begin_src bat
+echo %ERRORLEVEL%
+#+end_src
+
+** An istream becomes invalid when we hit end-of-file or encounter.
+   But, what is end-of-file?
+   On windows systems, we enter an end-of-file by typing control-z.
+   On unix systems, it usually control-d.
+   
+** The postfix of cpp source file?
+   Normally, Windows system, especially in VC(Visual C series),
+   default is .cpp files. And on unix systems, GNU team always use .cc
+   to indicate the cpp mode.(Just FOR FUN HERE.) 
+   But I havn't figure out why cxx and hxx, hpp's reason, may depend
+   on some specific IDE, or apple system. (I can't verify that because
+   I don't have a mac machine.)
+
+* Intermediate.
