@@ -1,17 +1,17 @@
 # -*- mode: org -*-
-# Last modified: <2012-02-09 22:42:09 Thursday by richard>
+# Last modified: <2012-02-15 10:03:04 Wednesday by richard>
 #+STARTUP: showall
-#+TITLE:   Feb 09 - 16 (Week 06)
+#+TITLE:   Feb 09 - 12 (Week 06)
 
 * Next week plan:
   * Code complete.
   * C++ Coding Standards: 101 Rules, Guidelines, and Best Practices.
  
 * tempplan. (Things encountered and arranged)
-** TODO : [0%]
-   - [] includeing elpa package in emacs 23 and make more suitable. org-mode
-   - [] Make wireless network not connect automatically.
-   - [] kick the *speedbar* away from buffer showing list.
+* TODO : [0%] 
+  - [ ] includeing elpa package in emacs 23 and make more suitable. org-mode
+  - [ ] Make wireless network not connect automatically.
+  - [ ] kick the *speedbar* away from buffer showing list.
 
 
 
@@ -22,8 +22,8 @@
    
 * Professional Skill
 
-* TODO :${1:LIST}[50%] 
-  - [X] ${2:}
+* TODO :${1:LIST}[0%] 
+  - [ ] ${2:}
   - [ ] ${3:Item2}
 
 * Family
