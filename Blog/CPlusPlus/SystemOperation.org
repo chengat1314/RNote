@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-02-12 10:28:20 Sunday by richard>
+# Last modified: <2012-02-15 22:28:06 Wednesday by richard>
 #+STARTUP: showall
 #+TITLE:   SystemOperation
 
@@ -37,3 +37,10 @@ echo %ERRORLEVEL%
    I don't have a mac machine.)
 
 * Intermediate.
+** The sign is machine-dependent for modulus(%) and division(/);
+   - On a machine where modulus follows the sign of the numerator when
+     the value of division truncates toward zero.(GCC compiler)
+   - If modulus matches the sign of the denominator, then the result
+     of division reuncates toward minus infinity.(Visual C++ compiler)
+** 
+

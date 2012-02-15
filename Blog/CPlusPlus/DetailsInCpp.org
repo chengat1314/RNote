@@ -1,18 +1,211 @@
 # -*- mode: org -*-
-# Last modified: <2012-02-11 21:03:35 Saturday by richard>
+# Last modified: <2012-02-15 23:11:07 Wednesday by richard>
 #+STARTUP: showall
 #+TITLE:   C++ Details
 
 * Tips
+  1. Direct assigment syntax is more flexible and can be slightly more
+     efficient.
+     #+begin_src c++ :tangle yes
+int ival = 2048; //copy-initialization
+int ival(2048);  //direct-initialization
+     #+end_src
+  2. Every object of built-in type should be initialized.
+  3. Use const_cast almost always indicates a design flaw.
 
 * Good habits
-  1. If we cannot guarantee that the variable will be reset before
-     being read, we should initialize it.
-  2. in multi-comment style, Beging each line in the comment with
+  1. Define an object near the point at which the object is first
+     used, and then initialize it.
+  2. Using != in preference to < as a matter of habit.
+  3. in multi-comment style, Begin each line in the comment with
      asterisk, thus indicating that the entire range is part of a
      multi-line comment.
-     
+  4. Headers for declarations, not definitions.(will be included
+     multiple times)
+     But except:
+     1. classes;
+     2. const objects whose value is known at compile time;
+     3. inline functions.
+     4. When a const is initialized by a value that is not a constant
+        expression, then it shouldn'tbe defined in header file.
+  5. We should always use the fully qualified library names: inside
+     header files.
+  6. Any variable used to store the result from string size operation
+     ought to be of type class::size_type, It is particularly
+     important not to assign the return from size to an int.
+  7. It was almost right to use double.
+  8. Programs that use undefined behavior are in error.
+     Programs also shouldn't rely on machine-dependent behavior.
+  9. Identifiers shouldn't
+     - contain two consecutive underscores
+     - begin with an underscore followed immediately by an upper-case
+       letter.
+     - begin with an underscore, when defined outside a function.
+     - Using Operator alternative names.(table:)
+     | C++ Operator Alternative names       |
+     |--------------------------------------|
+     | and     bitand  compl  not_eq  or_eq |
+     | xor_eq  and_eq  bitor  not     or    |
+     | xor                                  |
+  10. 
+
+      
 * Details (Something we may overlooked)
+
+** C++ Library
+
+*** Library Overview:
+    1. The library is not required to check the value of the index.
+    2. Using difference_type to store :iter1 - iter2.
+    3. size_t type is defined in the cstddef header.
+
+*** Boost:
+
+
+
+*** vector: 
+    1. Vector makes existing iterators invalid.
+    2. It is always to let the vector grow by adding elements to it
+       dynamically as the element values are known.
+    3. If vector is empty, then the iterator returned from begin does
+       not denote any element.
+
+*** Arrays:
+    1. The right type to use for the index is size_t.
+
+*** bitset:
+    1. The bits are read from the string from right to left.
+       - The numbering conventions of strings and bitsets are
+         inversely related. 
+
+*** String Library:
+    1. Caller is respondible for size of a destination string.
+    2. Using strn- series functions.
+    3. function table:
+       | <25>                      |           |
+       | common functions          | head file |
+       |---------------------------+-----------|
+       | strlen(s)                 | <cstring> |
+       | strcmp(s1, s2)            | $4        |
+       | strcat(s1, s2)            | $4        |
+       | strcpy(s1, s2)            | $4        |
+       | strncat(s1, s2, n)        | $4        |
+       | strncpy(s1, s2, n)        | $4        |
+       |---------------------------+-----------|
+
+** new and delete
+   - delete [] pi;
+     If the empty bracket pair is omitted, it is an error, but an
+     error that the compiler is unlikey to catch; the program may fail
+     at run time.
+   - If the new expression cannot acquire the requested memory, it
+     throws an exception named bad_alloc.
+
+** bitwise operators
+*** left-shift and right-shift operand.
+    - The right-hand operand must not be negative and must be a value
+      that is strictly less than the number of bits in the left-hand
+      operand. Otherwise, the effect of the operation is undefined.
+    - Bit code snippets:
+      #+begin_src c++ :tangle yes
+    bitv |= 1UL << 27;//set bit 27
+    bitv &= ~(1UL << 27); //turn off bit 27;
+      #+end_src
+
+
+
+** Enumerator
+   1. An enumerator value need not be unique.
+   2. The type to which an enum object enumerator is promoted is
+      machine-defined and depends on the value of the largest
+      enumerator.(at least to int)
+
+** Reference and Pointers
+*** Reference:
+    - A non-const reference may be attached only to an object of the
+      same type as the reference itself.
+    - A const reference may be bound to an object of a different but
+      related type or to an rvalue.
+
+*** Pointers:
+    - the type void* is a special pointer type that can hold an
+      address of any object.
+    - Using ptrdiff_t to store the result of two pointers.
+      ptrdiff_t type is a machine-specific type and is defined in the
+      cstddef header.
+    - pointers and typedef:
+      #+begin_src c++ :tangle yes
+int (*ip)[4]             // style 1
+
+typedef int int_array[4] // style 2
+int array *ip;
+      #+end_src
+
+
+** File scope:
+   - Nonconst variables are extern by default. To make a const
+     variable accessible to other files, we must explicitly specify
+     that it is extern.
+   - const variables declared at global scope are local to the file in which the object is defined.
+** Lvalue and Rvalue:
+   - lvalue may appear as either the left-hand or right-hand side of
+     an assignment.(an lvalue yields an object)
+   - Rvalue may apear on the right but not left-hand side of an
+     assignment.
+   - The address-of operator may be applied only to an lvalue.
+   - Prefix increment yields an lvalue.
+     Postfix increment yields an rvalue.
+
+** A definition is also a declaration.
+   If an initializer is present, the declaration is treated as a
+   definition even if the declaration is labeled extern.
+
+
+** Type and operators
+*** sizeof
+    - The sizeof operator returns a value of type size_t.
+    - sizeof(ia)/sizeof(*ia) returns the number of element in ia.
+    - sizeof char or an expression of type char is guaranteed to
+      be 1.
+
+*** The integers, int, short, and long, are all signed by default.
+    - The char type is respresented using either the signed char or
+      unsigned char version.(compiler-dependent)
+
+*** Every literal has an associated type and exists only for the built-in type.
+    - There are no literals of type short.
+    - By default, floating-point literals are type double.
+    - The type of a wide string literal is an array of constant wide
+      character. Also terminated by wide null character.
+    - The result is undefined when concatenate a string literal and a
+      wide string literal.
+    #+begin_src c++ :tangle yes
+     std::cout << "string here" L"wide string here" << std::endl;
+     std::cout << "string here again" << std::endl;
+     std::cout << L"wide string here again" << std::endl;
+    #+end_src
+    - Example table:
+    | type                       | Example                 |
+    |----------------------------+-------------------------|
+    | unsigned                   | 123u                    |
+    | unsigned long              | 1024UL, 8LU             |
+    | long                       | 1L                      |
+    | double                     | 0., 0e0                 |
+    | float                      | 3.14F, 3.1415E0f, .001f |
+    | bool                       | true, false             |
+    | char                       | 'a'                     |
+    | char*(String literal)      | "string"                |
+    | wchar_t                    | L'a'                    |
+    | wchar_t*(w-string literal) | L"wide string"          |
+
+*** Using wide-character literal of type wchar_t by 
+
+*** Escape sequence form:
+    - \ooo(three octal digits.)
+      - \7 (bell) \12 (newline) \40 (blank)
+      - \0 (null) \062 (`2`)    \115 (`M`)
+    - \xddd(hexadecimal escape sequence.)
+
 
 ** An istream becomes invalid when we hit end-of-file or encounter an invalid input.
 
@@ -32,5 +225,3 @@
    2. Where is it defined?
    3. What operations does it support?
 
-
- 
