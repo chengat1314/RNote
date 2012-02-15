@@ -1,0 +1,11 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-15 10:14:05 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   When To Refactoring
+
+
+* Priciples
+  1. In most cases a method should be on the object whose data it uses.
+  2. Temps are often a problem in that they cause a lot of parameters
+     to be passed around when they don't have to be.
+  3. BAD IDEA: todo a switch based on an attribute of another object.

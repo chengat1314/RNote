@@ -1,0 +1,15 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-15 10:08:05 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   Overview of Refactoring
+
+* Tips:
+  1. When add features met ugly code, first refactor the program to
+     make it easy to add the feature, then add the feature.
+  2. Refactoring changes the programs in small steps.
+* First Step of refactoring
+  Build a solid set of tests for that section of code.
+  The tests must be self-checking.
+
+* Refacoring
+  
