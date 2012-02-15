@@ -1,0 +1,48 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-15 09:57:45 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   Debugging Tools
+
+* Hosted Solutions.
+  - SourceForge
+  - GitHub
+  - Lighthouse
+  - Unfuddle
+  - Rally
+  - VersionOne
+  - Pivotal Tracker.
+
+* Build tools
+  - GNU make.
+  - Autoconf
+  - jam
+  - Boost.Build
+    + www.boost.org/doc/tools/build/
+  - SCons(replacement of Autoconf)
+  - Ant(For java)
+  - Maven (For java)
+
+* Debugging memory allocators
+  - libcwd
+  - mudflap
+  - Electric Fence.
+
+* Logging
+  - syslog-ng
+
+* TESTing tools
+  - FITNesse.(Input and output data)
+  - QuickTest
+  - Load runner
+  - Peach Fuzzing platform
+
+* Runtime-analysis tools
+  - Valgrind
+
+* Network Analyzers
+  - TCPDUMP
+  - Wireshark
+
+* Debugging proxies
+  - Charles
+  - Fiddler

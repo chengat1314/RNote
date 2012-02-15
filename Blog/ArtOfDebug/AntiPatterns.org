@@ -1,0 +1,40 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-15 08:34:21 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   AntiPatterns
+
+* Anti-patterns:
+** Priority Inflation.
+   Remedies:
+   1. Scrub your bugs regularly.
+   2. Control bug priorities.
+      Allow users to specify severity but notpriority, and have a
+      well-defined process by which priorities are allocated.
+   3. Switch away from numeric priorities, and keep your bugs as a
+      simple list in priority order.
+
+** Prima donnas destroy teams.
+   Remedies:
+   1. Ensure that "done means done".
+   2. Break large tasks up into small, concrete chunks.
+   3. Whoever caused a bug fixes it.(polluter pays)
+
+** Maintenance team.
+   Remedies:
+   Keep one teeam from initial concept through to deployment.
+
+** Rewrite:
+   Remedies:
+   1. Be very suspicious of any proposal to rewrite, take time to
+      prove this to yourself.
+   2. Minimiz you exposure as much as possible.(avoid big-bang)
+   3. Be particularly carful to find the corner cases that the
+      existing code handles correctly and that you need to replicate.
+      
+** Firefighting will never fix a quality problem. 
+   Take the time to identify and fix the root cause.
+
+** Ensure that your code ownership strategy is clear.
+
+** Treat anything you don't understand as a bug.
+

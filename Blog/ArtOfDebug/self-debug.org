@@ -1,0 +1,131 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-15 08:20:03 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   self-debug
+
+* Tips:
+1. Unit tests can't dectect a bug that isn't invoked by a test.
+2. Assertions can detect a bug at any time, whether during testing or
+   otherwise.
+3. Make sure that your error messages aid in debugging and don't just
+   tell you that you need to debug.
+4. Ensure the user interface layer is as thin as possible.
+   It should contain no business logic whatsoever.
+
+
+* Automatically using assertion when build on assumptions.
+
+* Assertion
+
+** In java, we using application command.
+
+** In C or C++, we do so at build time using conditional compilation.
+
+** If the software is functioning correctly, none of the assertions should ever do anything.
+
+** An assertion's task is to check that the code is working a it should, not to affect how it works.
+   - Test with assertions disabled as well as with assertions enabled.
+
+** assertions are a bug dection mechanism, not an error-handling mechanism.
+
+* Defensive programming
+
+** Production software should be written to be fault tolerant or to fail safe as appropriate.
+
+** Software should be robust in production and fragile when debugging.
+
+* Debugging Memory Allocator
+
+** Advantage (Allocator behavoir)
+
+*** Detect memory leaks.(By kepping track of memory allocation and deallocation)
+
+*** Detect buffer overflows and memory corruuption.(By placing guard before and after allocated memory)
+
+*** Detect instances where memory is used without being initializaed.(By filling memory regions with known patterns)
+
+*** Detect where memory is written to after it has been deallocated.(By filling memory regions with known patterns and holding onto it)
+
+* Resource Leaks and Exception handling.
+
+** Don't wait for resource leaks to manifect-- detect then automatically and early.
+
+** Automatically throwing Exceptions in Tests.
+   - Override global operator new() and operator delete().
+   #+begin_src c++ :tangle yes
+void* operator new(size_t size){
+    TEST_ERROR(bad_alloc());
+    void *p = malloc(size);
+    if (!p){
+        throw bad_alloc();
+    }
+    return p;
+}
+
+void operator delete(void *p){
+    free(p);
+}
+   #+end_src
+
+* Test framework.
+
+** Test class, each instance of wich represents a single test.
+   #+begin_src c++
+
+#define TEST_ERROR(e)                           \
+    if(Test::testError())                       \
+        throw e;
+
+
+class Test
+{
+  public:
+    Test(const char*name, void (*testFunction()));
+    ~Test();
+
+    void run(){
+        std::cout << "Running test:" << m_name << std::endl;
+        m_throwOnError = 0;
+        runInternal();
+
+        int addtionalTestRuns(m_errorCount);
+        for(int i = 0; i != additionalTestRuns; ++i)
+        {
+            std::cout << "\tException run:\t" << i << std::endl;
+            m_throwOnError = i;
+            runInternal();
+        }
+
+    }
+
+    static bool testError(){
+        ++m_errorCount;
+        return m_errorCount == m_throwOnError;
+    }
+
+  private:
+    const char* m_name;
+    void (*m_testFunction)();
+
+    void runInternal(){
+        m_errorCount = 0;
+        takeMemorySnapshot();
+
+        try {
+            (*m_testFunction)();
+        } catch (exception& e) {
+            if (m_throwOnError == 0){
+                std::cerr << "Unhandled exception in test: " << m_name << "\n" << e.what() << std::endl;
+
+            }
+        }
+        reportMemoryLeaks();
+    }
+
+    static int m_errorCount;
+    static int m_throwOnError;
+
+};
+   #+end_src
+
+
