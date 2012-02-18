@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-02-15 23:11:07 Wednesday by richard>
+# Last modified: <2012-02-18 10:44:33 Saturday by richard>
 #+STARTUP: showall
 #+TITLE:   C++ Details
 
@@ -16,11 +16,16 @@ int ival(2048);  //direct-initialization
 * Good habits
   1. Define an object near the point at which the object is first
      used, and then initialize it.
-  2. Using != in preference to < as a matter of habit.
-  3. in multi-comment style, Begin each line in the comment with
+  2. Arguments should not need casts when calling oer-loaded
+     functions: the need for a cast means that the parameter sets are
+     designed poorly.
+  3. It is usually a good idea to define array parameters as opinters,
+     rather than using the array syntax.
+  4. Using != in preference to < as a matter of habit.
+  5. in multi-comment style, Begin each line in the comment with
      asterisk, thus indicating that the entire range is part of a
      multi-line comment.
-  4. Headers for declarations, not definitions.(will be included
+  6. Headers for declarations, not definitions.(will be included
      multiple times)
      But except:
      1. classes;
@@ -28,27 +33,32 @@ int ival(2048);  //direct-initialization
      3. inline functions.
      4. When a const is initialized by a value that is not a constant
         expression, then it shouldn'tbe defined in header file.
-  5. We should always use the fully qualified library names: inside
+  7. We should always use the fully qualified library names: inside
      header files.
-  6. Any variable used to store the result from string size operation
+  8. Any variable used to store the result from string size operation
      ought to be of type class::size_type, It is particularly
      important not to assign the return from size to an int.
-  7. It was almost right to use double.
-  8. Programs that use undefined behavior are in error.
-     Programs also shouldn't rely on machine-dependent behavior.
-  9. Identifiers shouldn't
-     - contain two consecutive underscores
-     - begin with an underscore followed immediately by an upper-case
-       letter.
-     - begin with an underscore, when defined outside a function.
-     - Using Operator alternative names.(table:)
-     | C++ Operator Alternative names       |
-     |--------------------------------------|
-     | and     bitand  compl  not_eq  or_eq |
-     | xor_eq  and_eq  bitor  not     or    |
-     | xor                                  |
-  10. 
-
+  9. It was almost right to use double.
+  10. Programs that use undefined behavior are in error.
+      Programs also shouldn't rely on machine-dependent behavior.
+  11. Identifiers shouldn't
+      - contain two consecutive underscores
+      - begin with an underscore followed immediately by an upper-case
+        letter.
+      - begin with an underscore, when defined outside a function.
+      - Using Operator alternative names.(table:)
+      | C++ Operator Alternative names       |
+      |--------------------------------------|
+      | and     bitand  compl  not_eq  or_eq |
+      | xor_eq  and_eq  bitor  not     or    |
+      | xor                                  |
+      |--------------------------------------|
+  12. A null statement should be commented, so that anyone reading the
+      code can see that the statement was omitted intentionally.
+  13. Use EXIT_FAILURE and EXIT_SUCCESS in the cstdlib header to make
+      return values machine-independent.
+  14. It is usually a bad idea to declare a function locally. Function
+      declarations should go in header files.
       
 * Details (Something we may overlooked)
 
@@ -58,10 +68,10 @@ int ival(2048);  //direct-initialization
     1. The library is not required to check the value of the index.
     2. Using difference_type to store :iter1 - iter2.
     3. size_t type is defined in the cstddef header.
+    4. the IO type can be used in a condition, but the vector and
+       string types may not be used as a condition.
 
 *** Boost:
-
-
 
 *** vector: 
     1. Vector makes existing iterators invalid.
@@ -93,6 +103,43 @@ int ival(2048);  //direct-initialization
        | strncpy(s1, s2, n)        | $4        |
        |---------------------------+-----------|
 
+*** IO library
+    - Hitting the end-of-file also sets the failbit.
+    - If we reuse a file stream to read or write more than one file,
+      we must clear the stream before using it to read from another
+      file.
+    - Mode is an Attribute of FILE, not a stream.
+    - File mode combination:
+      | combinations | affect                                                             |
+      |--------------+--------------------------------------------------------------------|
+      | out          | open for output; deletes existing data in the file                 |
+      | out app      | open for output; all writes at the end of file                     |
+      | out trunc    | same as out                                                        |
+      | in           | open for input                                                     |
+      | in out       | open for both input and output                                     |
+      | in out trunc | open for both input and output, deletes existing data in the file. |
+      |--------------+--------------------------------------------------------------------|
+    - condition state:
+      | Name             | Meaning                                                    |
+      |------------------+------------------------------------------------------------|
+      | strm::iostate    | Name of machine-dependent integral type                    |
+      | strm::badbit     | strm::iostate indicate that a stream is corrupted          |
+      | strm::failbit    | strm::iostate indicate that IO operation failed            |
+      | strm::odfbit     | strm::iostate indicate the a stream hit end-of-file        |
+      | s.eof()          | true if eofbit in the stream s is set                      |
+      | s.fail()         | true if failbit                                            |
+      | s.bad()          | true if badbit  in the stream s is set                     |
+      | s.good()         | true if stream s is in a valid state.                      |
+      | s.clear()        | Reset all condition values in the stream s to valid state. |
+      | s.clear(flag)    | Set specified condition(flag) state in s to valid.         |
+      | s.setstate(flag) | Add specified condition(flag) to s.                        |
+      | s.rdstate()      | Returns current condition of s as an strm::iostate value.  |
+      |------------------+------------------------------------------------------------|
+    - When testing IO you can use:
+      #+begin_src c++ :tangle yes
+      is.setstate(ifstream::badbit|ifstream::failbit)
+      #+end_src
+
 ** new and delete
    - delete [] pi;
      If the empty bracket pair is omitted, it is an error, but an
@@ -100,6 +147,30 @@ int ival(2048);  //direct-initialization
      at run time.
    - If the new expression cannot acquire the requested memory, it
      throws an exception named bad_alloc.
+
+** Compile details
+   - name lookup happens before typechecking.
+
+** Debug details
+*** four constants useful in debugging:
+    | name     | meaning                     |
+    |----------+-----------------------------|
+    | __FILE__ | name of the file.           |
+    | __LINE__ | current line number.        |
+    | __TIME__ | time the file was compiled. |
+    | __DATE__ | date the file was compiled. |
+    |----------+-----------------------------|
+    
+*** The assert macro 
+    assert macro is defined in the assert header, which we must
+    include in any file that uses assert.
+    #+begin_src c++ :tangle yes
+assert(word.size() > threshold);
+    #+end_src
+
+*** NDEBUG
+    We can write conditional debugging code using the NDEBUG preprocessor.
+
 
 ** bitwise operators
 *** left-shift and right-shift operand.
@@ -112,7 +183,40 @@ int ival(2048);  //direct-initialization
     bitv &= ~(1UL << 27); //turn off bit 27;
       #+end_src
 
+** Exception Handling mechanism
+*** try
+    - Once the catch clause finishes, executoin continues with the
+      statement immediately following the last catch clause of the try
+      block.
+*** throw
+    - A throw expression is usually followed by a semicolon, makeing
+      it into an expression statement.
 
+*** Standard Exceptions.
+    - Defined in 4 headers:
+      1. The exception header defines the most general kind of
+         exception class named exception.
+      2. The stdexcept header defines several general purpose
+         exception classes.
+         standard exception class in <stdexcept>
+         |------------------+--------------------------------------------------------------------------------------|
+         | type             | details                                                                              |
+         |------------------+--------------------------------------------------------------------------------------|
+         | exception        | The most general kind of problem                                                     |
+         | runtime_error    | problem only can be detected at runtime                                              |
+         | range_error      | outside the range of valuesthat are meaningful                                       |
+         | overflow_error   | computation that overflowed                                                          |
+         | underflow_error  | computation that underflowed                                                         |
+         | logic_error      | problem can be detected before runtime                                               |
+         | domain_error     | <logic_error>:argument for which no result exists                                    |
+         | invalid_argument | <logic_error>:inappropriate argument                                                 |
+         | length_error     | <logic_error>:attempt to create an object larger than the maximum size for that type |
+         | out_of_range     | <logic_error>:used a value outside the valid range.                                  |
+         |------------------+--------------------------------------------------------------------------------------|
+      3. The new header defines the bad_alloc exception type.
+      4. The type_info header defines the bad_cast exception type.
+    - The exception, bad alloc, and bad_case type define only a
+      default constructor.
 
 ** Enumerator
    1. An enumerator value need not be unique.
@@ -142,11 +246,14 @@ int array *ip;
       #+end_src
 
 
-** File scope:
-   - Nonconst variables are extern by default. To make a const
-     variable accessible to other files, we must explicitly specify
-     that it is extern.
-   - const variables declared at global scope are local to the file in which the object is defined.
+** Scope:
+*** Statement scope:
+    - Variables defined in a condition must be initialized.
+*** File scope:
+    - Nonconst variables are extern by default. To make a const
+      variable accessible to other files, we must explicitly specify
+      that it is extern.
+    - const variables declared at global scope are local to the file in which the object is defined.
 ** Lvalue and Rvalue:
    - lvalue may appear as either the left-hand or right-hand side of
      an assignment.(an lvalue yields an object)
@@ -161,6 +268,16 @@ int array *ip;
    definition even if the declaration is labeled extern.
 
 
+** switch and case
+  1. It can be useful always to define a default label even if there
+     is no processing to be done in the default case.
+  2. case labels must be constant integral expressions.
+     Expression will be determined at compile time.
+  3. Variables can be defined following only the last case or default
+     label.
+     - One smart way to surround this point is using bracket.
+
+
 ** Type and operators
 *** sizeof
     - The sizeof operator returns a value of type size_t.
@@ -171,6 +288,12 @@ int array *ip;
 *** The integers, int, short, and long, are all signed by default.
     - The char type is respresented using either the signed char or
       unsigned char version.(compiler-dependent)
+
+*** Ellipsis paramter
+    - Ellipsis parameters are in C++ in order to compile C programs
+      that use varargs.
+    - Only simple data types from the C++ program should be passed to
+      functions with ellipses parameters.
 
 *** Every literal has an associated type and exists only for the built-in type.
     - There are no literals of type short.
@@ -206,14 +329,20 @@ int array *ip;
       - \0 (null) \062 (`2`)    \115 (`M`)
     - \xddd(hexadecimal escape sequence.)
 
-
+*** return
+    - failing to provide a return after a loop that does contain a
+      return is particularly insidious because many compilers will not
+      detect it. The behavior at run time is undefined.
 ** An istream becomes invalid when we hit end-of-file or encounter an invalid input.
 
 ** Buffers:
 
+*** Output buffers are not flushed if the program terminates abnormally.
+
 *** Output buffers usually must be explicitly flushed to force the buffer to be written.
 
-*** reading cin flushes cout; cout is also flushed when the program ends normally.
+*** cin and cout are binded default;that is cin.tie(&cout)
+    reading cin flushes cout; cout is also flushed when the program ends normally.
 
 *** By default, writes to cerr are not buffered and clog are buffered.
 
