@@ -1,0 +1,75 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-17 09:33:24 Friday by richard>
+#+STARTUP: showall
+#+TITLE:   ComposingMethods
+
+* Extract Method
+  When you have a code fragment that can be grouped together.
+  Turn the fragment into a method whose name explains the purpose of
+  the method.
+
+** Condition
+   The key is semantic distance between the method name and the method
+   body. 
+   - too long.
+   - needs a comment.
+
+
+* Inline Method
+  A method's body is just as clear as its name.
+  Put the method's body into the body of its callers and remove the
+  method.
+
+** Condition
+   - A group of methods that seem badly factored.
+     inline them and reextract the methods.
+
+* Inline Temp
+  You have a temp that is assigned to once with a simple expression,
+  and the temp is getting in the way of other refactorings.
+  Replace all references to that temp with the expression.
+
+** Condition
+   - When find a temp that is assigned the value of a method call.
+
+** Use case
+   - always used as a part of Replace Temp with Query.
+
+* Replace Temp with Query
+  You are using a temporary variable to hold the result of an
+  expression.
+  Exreact the expression into a method. Replace all references to the
+  temp with the new method. The new method can then be used in other
+  methods.
+
+** Use case
+   - Replace Temp with Query is a vital step before Extract Method.
+
+* Introduce Explaining Variable.
+  You have a sophisticated expression.
+  Put the result of the expression, or parts of the expression, in a
+  temporary variable with a name that explains the purpose.
+
+** Condition
+   - long algorithm(esp. have lots of local variables)
+
+* Split Temporary Variable
+  You have a temporary variable assigned to more than once, but is not
+  a loop variable nor a collecting temporary variable.
+  Make a separate temporary variable for each assignment.
+
+* Remove Assignments to Parameters
+  The code assigns to a parameter.
+  Use a temporary variable instead.
+
+* Replace Method with Method Ojbect.
+  You have a long method that uses local variables in such way that
+  you cannot apply Extract Method.
+  Turn the method into its own object so that all the local variables
+  becomes fields on that object. You can then decompose the method
+  into other methods on the same object.
+
+* Substitute Algorithm
+  You want to replace an algorithm with one that is clearer.
+  Replace the body of the method with the new algorithm.
+
