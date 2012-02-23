@@ -1,0 +1,67 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-23 22:25:36 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   Exception
+1. The exception object is created by copying the result of the thrown
+   expression; that reslut must be of a type that can be copied.
+2. When an exception is thrown, the static, compile-time type of the
+   thrown object determines the type of the exception object.
+3. It is usually a bad idea to throw a pointer.
+4. The compiler guarantees that the local objects are properly
+   destroyed, also destructor for this object is called
+   automatically(Even if the object is partilly constructed). 
+5. Destructors Should never throw exceptions.
+6. Usually, a catch clause that handles an exception of a type related
+   by inheritance ought to define its parameter as a reference.
+7. An empty throw can *ONLY* appear in a catch or in a function called
+   from a catch.
+   Ex 17.4 - 17.5
+8. The only way for a constructor to handle an exception from a
+   constructor initializer is to write the constructor as a function
+   try block.
+9. If a function throws an exception not listed in its specification,
+   the library function =unexpected= is invoked.
+10. We must define our own destructor to reinstate the promise that
+    the destructor will not throw.(all std destructor will not throw.)
+11. The specification of the source pointe rmust be at least as
+    restrictive as the specification of the destination pointer.
+    #+begin_src c++ :tangle yes
+void recoup(int) throw(runtime_error);
+void (*pf1)(int) throw(runtime_error) = recoup;              //OK
+void (*pf2)(int) throw(runtime_error, logic_error) = recoup; //OK
+void (*pf2)(int) throw() = recoup;                           // Error here
+    #+end_src
+12. Standard Exception Hierarchy.
+13. Good habit, Using class for resources ensures the resource freed
+    if an exception occurs.
+* auto_ptr
+1. Assignments deletes the object pointer to by the left operand.
+2. get should be used only to interrogate an =auto_ptr= or to use the
+   returned pointer value. get shold not be used as an argument to
+   create another auto_ptr.
+3. Do not use an auto_ptr to hold a pointer to a statically allocated object.
+4. Never use two auto_ptr to refer to the same object.
+5. Don't bind to dynamically alocated array.
+6. Don't store in a container.
+
+* P737 Copycontrol warning here.
+* Virtual base classes are always contructed prior to nonvirtual base classes regardless where they appear in the inheritance hierarchy
+
+* Unnamed namespace
+Prefer to use unnamed namespace. 
+The definition of an unnamed namespace is local to a particular file
+and never spans multiple text files. 
+* WARNING: 
+1. If a header defines an unnamed namespace then the names in that
+   namespace will define different local entities in each file that
+   includes the header.
+2. To provide our own specializations of templates defined in a
+   namespace, we must ensure that eh specialization definition is
+   defined as being in the namespace containing the original template
+   definition.
+
+* Good points: One place where using directives are usefulo is in the implementation filrs for the namespace itself.
+Ex 17.13-Ex 17.28
+Ex 17.30-Ex 17.32(17.31 have some typo errors) 
+Ex 17.33 
+Ex 17.36

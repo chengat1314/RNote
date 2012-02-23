@@ -1,0 +1,77 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-23 21:55:00 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   Template
+
+* Details
+
+1. Using typename to force size_type a type.
+   When use types inside a function template.
+   #+begin_src c++ :tangle yes
+template<typename Class>
+Class fcn(Class *a)
+{
+Class::size_type * p;
+}
+typename Class::size_type * p;
+   #+end_src
+   We tell the compiler to treat a member as a type by prefixing uses
+   of the member name with the keyword =typename=.
+   There is no harm to specify a typename.
+2. We can use a function template to initialize or assign to a
+   function pointer.
+   #+begin_src c++ :tangle yes
+template<typename T>
+int compare(const T&, const T&);
+int (*pf1)(const int&, const int&) = compare;
+   #+end_src
+3. Instantiation
+   - A class template is instantiated when we refer to an actual
+     template class type;
+   - A function template is instantiated when we call it or use it to
+     initialize or assign to a pointer to function.
+   - Each instantiation of a class constitues an independent class.
+   - ONLY allowed conversion in C++
+     * const conversions
+     * Array or functoin to pointer conversions.
+       WARN: When the parameter is a reference, the arrays are not
+       converted to pointers.
+4. In the separate compilation model, the compiler keeps track of the
+   associated template definitions for us. But if they don't, we
+   should using *export keyword* to do so.
+5. If a function in a class is never used, then that member function
+   is never instantiated.
+6. When we want to restrict friendship to a specific instantiation,
+   then the class or function must have been declared before it can be
+   used in a friend declaration.
+7. P659 Last Program.
+8. Member templates may not be virtual .. (Good habit.)
+9. Specializing a Function template 
+   using empty braket as =template<>=.
+10. It was always better to define a functoin-template specialization
+    than to use a nontemplate version.
+
+* Principle in writing templates.
+** Two important principles for writing generic code:
+   - The parameters to the template are const references.
+   - The tests in the body use only < comparisons.
+
+
+* BACKSLIDE:
+** compile stage about C++
+   Instantiation will be detected at link-time.
+   
+
+
+
+* Unfinished Exercise:
+** Ex 16.12-16
+** Ex 16.21-26
+** Ex 16.32-35
+** Ex 16.38-42
+** Ex 16.43-44
+** Ex 16.45-48
+** Ex 16.49-51
+** Ex 16.52-54(Need to correct some errors here. pdf error.)
+** Ex 16.55-end.(all questions here.)
+
