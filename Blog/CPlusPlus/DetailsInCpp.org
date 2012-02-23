@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-02-18 10:44:33 Saturday by richard>
+# Last modified: <2012-02-20 10:23:38 Monday by richard>
 #+STARTUP: showall
 #+TITLE:   C++ Details
 
@@ -12,6 +12,9 @@ int ival(2048);  //direct-initialization
      #+end_src
   2. Every object of built-in type should be initialized.
   3. Use const_cast almost always indicates a design flaw.
+  4. When not certain which container the application should use, try
+     to write your code so that it uses only operations common to both
+     bevctors and lists.
 
 * Good habits
   1. Define an object near the point at which the object is first
@@ -59,6 +62,22 @@ int ival(2048);  //direct-initialization
       return values machine-independent.
   14. It is usually a bad idea to declare a function locally. Function
       declarations should go in header files.
+  15. When dealing with the algorithms, it is best to think of the
+      iterators on associative containers as if they were input
+      iterators that also support decrement, not as full bidirectional
+      iterators.
+  16. It's a good idea to write constructor initilizers in the same
+      order as the members are declared. Moreover, when possible,
+      avoid using members to initilize other members.
+  17. If a class contains datamember of built-in or compound type,
+      then the class should not rely on the synthesized default
+      constructor.
+  18. It is almost always right to provide a default constructor if
+      other constructors are being defined.
+  19. Makeing constructor =explicit= may avoid mistakes, and a user
+      can explicitly construct an object when a conversion is useful.
+  20. It is a good idea to group friend declarations together either
+      at the beginning or end of the class definition.
       
 * Details (Something we may overlooked)
 
@@ -70,15 +89,58 @@ int ival(2048);  //direct-initialization
     3. size_t type is defined in the cstddef header.
     4. the IO type can be used in a condition, but the vector and
        string types may not be used as a condition.
+    5. Don't cache the iterator from the end.
+       #+begin_src c++ :tangle yes
+    std::vector<int>::iterator first = vint.begin(),
+                                last = vint.end();// cache the end.
+       #+end_src
+    6. using at(n) method in vector and deque when need check to check
+       out-of-range error.
+
+**** pair type
+     defined in utility header.
+     operations p1 < p2: is 
+     #+begin_src c++ :tangle yes
+(p1.first < p2.first) || (p1.second < p2.second)
+     #+end_src
+
+**** Iterators
+    1. Invalidate the iterators' operations.(Be aware!)
+       - insert
+         (Exception: insert front and back in deque)
+       - push_back
+       - push_front
+       - resize
+       - assign
+       - erase(but erase will return the iterator after the one
+         deleted)
+       - etc.
+    2. Operation on iterator but not invalidate.
+       - Swap(iterators will refer to diff. object)
+
+**** Which container to use.
+     1. FIXME:
+
+
 
 *** Boost:
 
+*** priority_queue
+    A priority_queue requires random access and so can be built on a
+    vector or a deque but not on a list.
+
 *** vector: 
-    1. Vector makes existing iterators invalid.
-    2. It is always to let the vector grow by adding elements to it
+    1. It is always to let the vector grow by adding elements to it
        dynamically as the element values are known.
-    3. If vector is empty, then the iterator returned from begin does
+    2. If vector is empty, then the iterator returned from begin does
        not denote any element.
+
+*** map 
+    The key type needs to support *only* the < operator. 
+
+*** multimap
+    The version of erase that take a key removes all elements with
+    that key.
 
 *** Arrays:
     1. The right type to use for the index is size_t.
@@ -91,7 +153,15 @@ int ival(2048);  //direct-initialization
 *** String Library:
     1. Caller is respondible for size of a destination string.
     2. Using strn- series functions.
-    3. function table:
+    3. Different between c_str() and data():
+       - Use c_str() if you want a null terminated string.
+       - Use data() if you don't need the string to be null
+         terminated. It may turn out to perform better than c_str().
+         (Especially when deal with arbitrary binary data use string.)
+
+         
+
+    4. function table:
        | <25>                      |           |
        | common functions          | head file |
        |---------------------------+-----------|
@@ -335,6 +405,8 @@ int array *ip;
       detect it. The behavior at run time is undefined.
 ** An istream becomes invalid when we hit end-of-file or encounter an invalid input.
 
+** Name are resolved where thay appear within the file.
+
 ** Buffers:
 
 *** Output buffers are not flushed if the program terminates abnormally.
@@ -353,4 +425,5 @@ int array *ip;
    1. What is its name?
    2. Where is it defined?
    3. What operations does it support?
+
 

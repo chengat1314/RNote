@@ -1,0 +1,47 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-20 10:14:03 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Generic Programming
+
+* Iterators.
+
+** *ATTENTION*
+   * Errors in passing an invalid category of iterator to an algorithm
+     are not guaranteed to be caught at compile time.
+   * When calling algorithms, it is essential to ensure that the
+     output container is sufficiently large to hold the output.
+   
+** Categories
+   | Iterator Type           | Description                             | Example                               |
+   |-------------------------+-----------------------------------------+---------------------------------------|
+   | Input Iterator          | Read, but not write; Increment only     | istream_iterator                      |
+   | Output Iterator         | Write, but not read; increment only     | ostream_iterator                      |
+   | Forward Iterator        | Read and write; increment only          |                                       |
+   | Bidirectional iterator  | Read and write increment and decrement  | map, set, list                        |
+   | Randdom access iterator | Read and write full iterator arithmetic | vector, deque, string, array pointers |
+
+** Requirements
+  1. back_inserter(), front_inserter() requires push_back and
+     push_front correspondingly.
+  2. We can create an istream_iterator for any type for which an input
+     operator (>>) exists.
+
+** How to use
+  1. When we deal with the reverse order, we can using base() function
+     to require normal order.
+     #+begin_src c++ :tangle yes
+    string a("My name is Richard Wong");
+    cout << a << endl;
+    string::reverse_iterator R = find(a.rbegin(), a.rend(), 'R');
+    cout << string(R.base(), a.end());
+
+     #+end_src
+
+
+
+
+* Algorithms
+  1. Algorithms don't check write operation.
+  2. Algorithms never directly change the size of a container. If we
+     want to add or remove elements, we must use a container operation.
+  3. 
