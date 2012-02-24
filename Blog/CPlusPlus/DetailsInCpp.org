@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-02-24 18:14:05 Friday by richard>
+# Last modified: <2012-02-24 18:52:46 Friday by richard>
 #+STARTUP: showall
 #+TITLE:   C++ Details
 
@@ -15,36 +15,47 @@ int ival(2048);  //direct-initialization
   4. When not certain which container the application should use, try
      to write your code so that it uses only operations common to both
      bevctors and lists.
+  5. Modern C++ program ordinarily ought to use the allocator class to
+     allocate memory. It is more type-safe and more flexible.
 
 * Good habits
   1. Define an object near the point at which the object is first
      used, and then initialize it.
-  2. Arguments should not need casts when calling oer-loaded
+  2. It is always best to defer optimization until the program is
+     known to work and when rnu-time measurements indicate that
+     improving memory allocation will solve known performance problems.
+  3. Often all members of a local class should public.
+  4. Performing a dynamic_cast in a condition ensures that the cast
+     and test of its result are done in a sigle expression.
+  5. Good habit, Using class for resources ensures the resource freed
+     if an exception occurs.
+  6. Where using directives are useful is in the implementation for the namespace itself.
+  7. Arguments should not need casts when calling oer-loaded
      functions: the need for a cast means that the parameter sets are
      designed poorly.
-  3. It is usually a good idea to define array parameters as opinters,
+  8. It is usually a good idea to define array parameters as opinters,
      rather than using the array syntax.
-  4. Using != in preference to < as a matter of habit.
-  5. in multi-comment style, Begin each line in the comment with
-     asterisk, thus indicating that the entire range is part of a
-     multi-line comment.
-  6. Headers for declarations, not definitions.(will be included
-     multiple times)
-     But *except*:
-     1. classes;
-     2. const objects whose value is known at compile time;
-     3. inline functions.
-     4. When a const is initialized by a value that is not a constant
-        expression, then it shouldn'tbe defined in header file.
-  7. We should always use the fully qualified library names: inside
-     header files.
-  8. Any variable used to store the result from string size operation
-     ought to be of type class::size_type, It is particularly
-     important not to assign the return from size to an int.
-  9. It was almost right to use double.
-  10. Programs that use undefined behavior are in error.
+  9. Using != in preference to < as a matter of habit.
+  10. in multi-comment style, Begin each line in the comment with
+      asterisk, thus indicating that the entire range is part of a
+      multi-line comment.
+  11. Headers for declarations, not definitions.(will be included
+      multiple times)
+      But *except*:
+      1. classes;
+      2. const objects whose value is known at compile time;
+      3. inline functions.
+      4. When a const is initialized by a value that is not a constant
+         expression, then it shouldn'tbe defined in header file.
+  12. We should always use the fully qualified library names: inside
+      header files.
+  13. Any variable used to store the result from string size operation
+      ought to be of type class::size_type, It is particularly
+      important not to assign the return from size to an int.
+  14. It was almost right to use double.
+  15. Programs that use undefined behavior are in error.
       Programs also shouldn't rely on machine-dependent behavior.
-  11. Identifiers shouldn't
+  16. Identifiers shouldn't
       - contain two consecutive underscores
       - begin with an underscore followed immediately by an upper-case
         letter.
@@ -56,41 +67,41 @@ int ival(2048);  //direct-initialization
       | xor_eq  and_eq  bitor  not     or    |
       | xor                                  |
       |--------------------------------------|
-  12. A null statement should be commented, so that anyone reading the
+  17. A null statement should be commented, so that anyone reading the
       code can see that the statement was omitted intentionally.
-  13. Use EXIT_FAILURE and EXIT_SUCCESS in the cstdlib header to make
+  18. Use EXIT_FAILURE and EXIT_SUCCESS in the cstdlib header to make
       return values machine-independent.
-  14. It is usually a bad idea to declare a function locally. Function
+  19. It is usually a bad idea to declare a function locally. Function
       declarations should go in header files.
-  15. When dealing with the algorithms, it is best to think of the
+  20. When dealing with the algorithms, it is best to think of the
       iterators on associative containers as if they were input
       iterators that also support decrement, not as full bidirectional
       iterators.
-  16. It's a good idea to write constructor initilizers in the same
+  21. It's a good idea to write constructor initilizers in the same
       order as the members are declared. Moreover, when possible,
       avoid using members to initilize other members.
-  17. If a class contains datamember of built-in or compound type,
+  22. If a class contains datamember of built-in or compound type,
       then the class should not rely on the synthesized default
       constructor.
-  18. It is almost always right to provide a default constructor if
+  23. It is almost always right to provide a default constructor if
       other constructors are being defined.
-  19. Makeing constructor =explicit= may avoid mistakes, and a user
+  24. Makeing constructor =explicit= may avoid mistakes, and a user
       can explicitly construct an object when a conversion is useful.
-  20. It is a good idea to group friend declarations together either
+  25. It is a good idea to group friend declarations together either
       at the beginning or end of the class definition.
-  21. It is a good idea to write constructor initializers in the same order as the members are declared. Moreover, when possible, avoid using members to initialize other members.
-  22. We prefer to use a default argument because it reduces code duplication.
-  23. If a class contains data members of built-in or compound type, then it should define it's own constructor to initialize these members.
-  24. Making constructors explicit may avoid mistakes, and a user can explicitly construct an object when a conversion is useful.
-  25. DONOT overload the comma, address-of, logical AND, or logical OR operators.
-  26. When the meaning of an overloaded operator is not obvious, it is better NOTTO give the operation a name. It is also usually better to use a named function rather than an operator for operations that are rarely done.
-  27. Generally, output operators shuold print the contents of the object with minimal formatting. They should not print a newline.
-  28. When designing an input operator, it is important to decide what to do about error-recovery, if anything.
-  29. Two important principles for writing generic code:
+  26. It is a good idea to write constructor initializers in the same order as the members are declared. Moreover, when possible, avoid using members to initialize other members.
+  27. We prefer to use a default argument because it reduces code duplication.
+  28. If a class contains data members of built-in or compound type, then it should define it's own constructor to initialize these members.
+  29. Making constructors explicit may avoid mistakes, and a user can explicitly construct an object when a conversion is useful.
+  30. DONOT overload the comma, address-of, logical AND, or logical OR operators.
+  31. When the meaning of an overloaded operator is not obvious, it is better NOTTO give the operation a name. It is also usually better to use a named function rather than an operator for operations that are rarely done.
+  32. Generally, output operators shuold print the contents of the object with minimal formatting. They should not print a newline.
+  33. When designing an input operator, it is important to decide what to do about error-recovery, if anything.
+  34. Two important principles for writing generic code:
       - The parameters to the template are const references.
       - The tests in the body use only < comparisons.
 
-      
+        
 * Details (Something we may overlooked)
 
 ** C++ Library
@@ -229,6 +240,17 @@ int ival(2048);  //direct-initialization
      at run time.
    - If the new expression cannot acquire the requested memory, it
      throws an exception named bad_alloc.
+   - We should both or neither define member new and delete.
+     We can still using global new and delete using a global operator.
+     #+begin_src c++ :tangle yes
+void *operator new(std::size_t);
+void operator delete(void *, std::size_t);
+     #+end_src
+   - placement new expression.
+     #+begin_src c++ :tangle yes
+new (place_address) type
+new (place_address) type (initializer-list)
+     #+end_src
 
 ** Compile details
    - name lookup happens before typechecking.
@@ -434,14 +456,24 @@ int array *ip;
 
 ** Class
 
-   1. To prevent copies, a class must explicitly declare its copy constructor as private.
-   2. It is crucially important for assignment operators to consider when an object is assigned to itself.
+   1. To prevent copies, a class must explicitly declare its copy
+      constructor as private.
+   2. It is crucially important for assignment operators to consider
+      when an object is assigned to itself.
    3. Operators that cannot be overloaded.
       | <7>     | <7>     | <7>     | <7>     |
       | ::      | .*      | .       | ?:      |
-   4. Input operators must deal with the possibility of errors and end-of-file.
-   5. The relational operators, like the equality operators, shuold be defined as nonmember functions.
-   6. If a virtual is called from inside a constructor or destructor, then the version that is run is the one defined for the type of the constructor or destructor itself.
+   4. Input operators must deal with the possibility of errors and
+      end-of-file.
+   5. The relational operators, like the equality operators, shuold be
+      defined as nonmember functions.
+   6. If a virtual is called from inside a constructor or destructor,
+      then the version that is run is the one defined for the type of
+      the constructor or destructor itself.
+   7. Virtual base classes are always contructed prior to nonvirtual
+      base classes regardless where they appear in the inheritance
+      hierarchy.
+
 *** Static 
   1. =static= function have no this pointer.
   2. =static= member functions may not be declared as const.
@@ -481,9 +513,9 @@ const int Account::period; // static members
     2. Making class assignment operator virual is likely to be confusing and unlikely to be useful.
     3. We should define neither or both prefix and postfix Increment/Decrement operator.
     4. Prefix Increment/Decrement should return a reference to the incremented or decremented object.
-      operator++()
+       operator++()
     5. Postfix Increment/Decrement should return the old value. and that is not a reference.
-      operator++(int)
+       operator++(int)
     6. To be consistent with the built-in operator, addition returns an rvalue, not a reference.
     7. Classes that define both an arithmetic operator and the related compound assignemtn ordinarily ought to inpliment the arithmetic operator by using the compound assigment.
     8. The equality and inequality operators shouldalmost always be defined in teerms of each other. (We should define both or neither)
@@ -495,7 +527,7 @@ const int Account::period; // static members
         Conversion operators usually should be defined as const members. *(Conversion operations ordinarily should not change the object they are converting)*
 
 
-      
+    
 ** Template
 
 1. Using typename to force size_type a type.
@@ -537,12 +569,120 @@ int (*pf1)(const int&, const int&) = compare;
 6. When we want to restrict friendship to a specific instantiation,
    then the class or function must have been declared before it can be
    used in a friend declaration.
-7. P659 Last Program.
-8. Member templates may not be virtual .. (Good habit.)
+7. Opeartor << .
+#+begin_src c++ :tangle yes
+template <class T>
+std::ostream& operator<<(std::ostream&, const Queue<T>&);
+template <class Type> class QueueItem {
+friend class Queue<Type>;
+// needs access to item and next
+friend std::ostream&
+operator<< <Type> (std::ostream&, const Queue<Type>&);
+// ...
+};
+template <class Type> class Queue {
+// needs access to head
+friend std::ostream&
+operator<< <Type> (std::ostream&, const Queue<Type>&);
+};
+#+end_src
+8. Member templates may not be virtual.
 9. Specializing a Function template 
    using empty braket as =template<>=.
-10. It was always better to define a functoin-template specialization
+10. It was always better to define a function-template specialization
     than to use a nontemplate version.
+
+** Exception
+1. The exception object is created by copying the result of the thrown
+   expression; that reslut must be of a type that can be copied.
+2. When an exception is thrown, the static, compile-time type of the
+   thrown object determines the type of the exception object.
+3. It is usually a bad idea to throw a pointer.
+4. The compiler guarantees that the local objects are properly
+   destroyed, also destructor for this object is called
+   automatically(Even if the object is partilly constructed). 
+5. Destructors Should never throw exceptions.
+6. Usually, a catch clause that handles an exception of a type related
+   by inheritance ought to define its parameter as a reference.
+7. An empty throw can *ONLY* appear in a catch or in a function called
+   from a catch.
+8. The only way for a constructor to handle an exception from a
+   constructor initializer is to write the constructor as a function
+   try block.
+9. If a function throws an exception not listed in its specification,
+   the library function =unexpected= is invoked.
+10. We must define our own destructor to reinstate the promise that
+    the destructor will not throw.(all std destructor will not throw.)
+11. The specification of the source pointe rmust be at least as
+    restrictive as the specification of the destination pointer.
+    #+begin_src c++ :tangle yes
+void recoup(int) throw(runtime_error);
+void (*pf1)(int) throw(runtime_error) = recoup;              //OK
+void (*pf2)(int) throw(runtime_error, logic_error) = recoup; //OK
+void (*pf2)(int) throw() = recoup;                           // Error here
+    #+end_src
+12.  Copy control in multiple-inheritance.
+     if a class with multiple bases defines its own destructor, that
+     destructor is responsible only for cleaning up the derived
+     class. If the derived class defines its own copy constructor or
+     assignment operator, then the class is responsible for copying
+     (assigning) all the base class subparts. The base parts are
+     automatically copied or assigned only if the derived class uses
+     the synthesized versions of these members.
+
+*** Standard Exception Hierarchy
+    [file://exception.png]
+** auto_ptr
+1. Assignments deletes the object pointer to by the left operand.
+2. get should be used only to interrogate an =auto_ptr= or to use the
+   returned pointer value. get shold not be used as an argument to
+   create another auto_ptr.
+3. Do not use an auto_ptr to hold a pointer to a statically allocated object.
+4. Never use two auto_ptr to refer to the same object.
+5. Don't bind to dynamically alocated array.
+6. Don't store in a container.
+
+** Unnamed namespace
+   Prefer to use unnamed namespace. 
+   The definition of an unnamed namespace is local to a particular file
+   and never spans multiple text files. 
+   *WARNING:*
+   1. If a header defines an unnamed namespace then the names in that
+      namespace will define different local entities in each file that
+      includes the header.
+   2. To provide our own specializations of templates defined in a
+      namespace, we must ensure that eh specialization definition is
+      defined as being in the namespace containing the original
+      template definition.
+
+** Bit-field
+7. Ordinarily it is best to make a bit-field an unsigned type. The
+   behavior of bit-fields stored in a signed type is implementation-defined.
+   #+begin_src c++ :tangle yes
+typedef unsigned int Bit;
+class File
+{
+    Bit mode: 2;
+    Bit modified: 1;
+    Bit prot_owner: 3;
+    Bit prot_group: 3;
+    Bit prot_world: 3;
+    // ...
+};
+   #+end_src
+   usage:
+   #+begin_src c++ :tangle yes
+void File::write()
+{
+    modified = 1;
+}
+void File::close()
+{
+    if(modified){
+        //...
+    }
+}
+   #+end_src
 
 * Methods
 
