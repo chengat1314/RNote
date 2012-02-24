@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-02-20 10:23:38 Monday by richard>
+# Last modified: <2012-02-24 18:14:05 Friday by richard>
 #+STARTUP: showall
 #+TITLE:   C++ Details
 
@@ -30,7 +30,7 @@ int ival(2048);  //direct-initialization
      multi-line comment.
   6. Headers for declarations, not definitions.(will be included
      multiple times)
-     But except:
+     But *except*:
      1. classes;
      2. const objects whose value is known at compile time;
      3. inline functions.
@@ -78,6 +78,18 @@ int ival(2048);  //direct-initialization
       can explicitly construct an object when a conversion is useful.
   20. It is a good idea to group friend declarations together either
       at the beginning or end of the class definition.
+  21. It is a good idea to write constructor initializers in the same order as the members are declared. Moreover, when possible, avoid using members to initialize other members.
+  22. We prefer to use a default argument because it reduces code duplication.
+  23. If a class contains data members of built-in or compound type, then it should define it's own constructor to initialize these members.
+  24. Making constructors explicit may avoid mistakes, and a user can explicitly construct an object when a conversion is useful.
+  25. DONOT overload the comma, address-of, logical AND, or logical OR operators.
+  26. When the meaning of an overloaded operator is not obvious, it is better NOTTO give the operation a name. It is also usually better to use a named function rather than an operator for operations that are rarely done.
+  27. Generally, output operators shuold print the contents of the object with minimal formatting. They should not print a newline.
+  28. When designing an input operator, it is important to decide what to do about error-recovery, if anything.
+  29. Two important principles for writing generic code:
+      - The parameters to the template are const references.
+      - The tests in the body use only < comparisons.
+
       
 * Details (Something we may overlooked)
 
@@ -220,6 +232,7 @@ int ival(2048);  //direct-initialization
 
 ** Compile details
    - name lookup happens before typechecking.
+   - Template instantiation will be detected at link-time.
 
 ** Debug details
 *** four constants useful in debugging:
@@ -418,6 +431,118 @@ int array *ip;
 
 *** By default, writes to cerr are not buffered and clog are buffered.
 
+
+** Class
+
+   1. To prevent copies, a class must explicitly declare its copy constructor as private.
+   2. It is crucially important for assignment operators to consider when an object is assigned to itself.
+   3. Operators that cannot be overloaded.
+      | <7>     | <7>     | <7>     | <7>     |
+      | ::      | .*      | .       | ?:      |
+   4. Input operators must deal with the possibility of errors and end-of-file.
+   5. The relational operators, like the equality operators, shuold be defined as nonmember functions.
+   6. If a virtual is called from inside a constructor or destructor, then the version that is run is the one defined for the type of the constructor or destructor itself.
+*** Static 
+  1. =static= function have no this pointer.
+  2. =static= member functions may not be declared as const.
+  3. =static= data members must be defined exactly once outside the
+     class body.
+  4. =static= keywords used only on the declaration inside the class.
+  5. When a =const static= datamember is initialized in the class
+     body, the data member must still be defind outside the class
+     definition.
+     #+begin_src c++ :tangle yes
+const int Account::period; // static members
+     #+end_src
+
+
+
+*** Conversions and operators.
+    No conversion is best.
+   1. Only one Class-Type conversion may be applied.(more than one is an error)
+   2. Needing to use a constructor or a cast to convert an argument in a call to an overloaded function is a sign of bad design.
+   3. Never define mutually converting classes.
+   4. Avoid conversions to the built-in arithmetic types.
+      - Do not define overloaded versions of the operators that take arithmetic types.
+      - Do not define a conversion to more than one arithmetic type.
+
+*** Function Adaptor
+    The function adapters are divided into the following two categories.
+     - Binders:
+       A *binder* is a function adaptor that converts a binary function object into a unary function object by binding one of the operands to a given name.
+     - Negators:
+       A *negator* is a function adaptor that reverses the truth value of a predicate function object.
+*** Rule of Three
+    We need none or all of these three copy-control members.
+    Assignment-operator, copy-constructor, default-constructor
+
+*** Operator overload
+    1. Assignment and compound-assignment operators ought to returns a reference to its left-hand operand.
+    2. Making class assignment operator virual is likely to be confusing and unlikely to be useful.
+    3. We should define neither or both prefix and postfix Increment/Decrement operator.
+    4. Prefix Increment/Decrement should return a reference to the incremented or decremented object.
+      operator++()
+    5. Postfix Increment/Decrement should return the old value. and that is not a reference.
+      operator++(int)
+    6. To be consistent with the built-in operator, addition returns an rvalue, not a reference.
+    7. Classes that define both an arithmetic operator and the related compound assignemtn ordinarily ought to inpliment the arithmetic operator by using the compound assigment.
+    8. The equality and inequality operators shouldalmost always be defined in teerms of each other. (We should define both or neither)
+    9. The subscript operator must be defined as a class member function.
+    10. A class that defines subscript needs to define two versions: one that is a non- =const= member and returns a reference and one that is a =const= member and returns a =const= reference.
+    11. Operator arrow must be defined as a class member function. 
+    12. The dereference operator is not required to be a member ,but it is usually right to make it a member as well.
+    13. A conversion function must be a member function. The function may not specify a return type, and the parameter list must be empty.
+        Conversion operators usually should be defined as const members. *(Conversion operations ordinarily should not change the object they are converting)*
+
+
+      
+** Template
+
+1. Using typename to force size_type a type.
+   When use types inside a function template.
+   #+begin_src c++ :tangle yes
+template<typename Class>
+Class fcn(Class *a)
+{
+Class::size_type * p;
+}
+typename Class::size_type * p;
+   #+end_src
+   We tell the compiler to treat a member as a type by prefixing uses
+   of the member name with the keyword =typename=.
+   There is no harm to specify a typename.
+2. We can use a function template to initialize or assign to a
+   function pointer.
+   #+begin_src c++ :tangle yes
+template<typename T>
+int compare(const T&, const T&);
+int (*pf1)(const int&, const int&) = compare;
+   #+end_src
+3. Instantiation
+   - A class template is instantiated when we refer to an actual
+     template class type;
+   - A function template is instantiated when we call it or use it to
+     initialize or assign to a pointer to function.
+   - Each instantiation of a class constitues an independent class.
+   - ONLY allowed conversion in C++
+     * const conversions
+     * Array or functoin to pointer conversions.
+       WARN: When the parameter is a reference, the arrays are not
+       converted to pointers.
+4. In the separate compilation model, the compiler keeps track of the
+   associated template definitions for us. But if they don't, we
+   should using *export keyword* to do so.
+5. If a function in a class is never used, then that member function
+   is never instantiated.
+6. When we want to restrict friendship to a specific instantiation,
+   then the class or function must have been declared before it can be
+   used in a friend declaration.
+7. P659 Last Program.
+8. Member templates may not be virtual .. (Good habit.)
+9. Specializing a Function template 
+   using empty braket as =template<>=.
+10. It was always better to define a functoin-template specialization
+    than to use a nontemplate version.
 
 * Methods
 
