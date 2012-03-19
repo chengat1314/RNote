@@ -1,0 +1,6 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-29 10:04:36 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   cppunit
+
+1. CPPUNIT_TEST_SUITE (for starting Test suite definition), CPPUNIT_TEST (for defining a test case) or CPPUNIT_TEST_SUITE_END(for ending our test suite definition).

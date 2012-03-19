@@ -1,0 +1,47 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-28 23:31:52 Tuesday by richard>
+#+STARTUP: showall
+#+TITLE:   testing
+
+1. Unit testing verifies that the software does what the programmer
+   expects, while integration testing satisfies the client that the
+   software addresses their needs.
+2. If your code depends on an unreliable resource, such as a database,
+   file system, or network, consider using stub or mock objects to
+   produce more robust unit tests.
+3. Performance testing of your key use cases helps you avoid
+   introducing speed or memory regressions unknowingly.
+
+* What to test:
+  - Condition testing.
+  - Equivalence classes.
+  - Boundary conditions.
+  - Parameter testing.
+  - Return value assertion.
+  - Getter/setter pairs.
+  - Operation order.
+  - Regression testing.
+  - Negative testing.
+  - Buffer overruns.
+  - Memory ownership.
+    Any API calls that return dynamically allocated memory should
+    document whether the API owns the memory or if the client is
+    responsible for freeing it.
+  - NULL input. 
+  - 
+
+
+
+* Features of TEST:
+1. Fast
+   Unit tests should always be very fast: in the order of fractions of a second per test.
+2. Stable
+
+3. Portable
+
+4. High coding standards
+
+5. Reproducible failure.
+
+
+
