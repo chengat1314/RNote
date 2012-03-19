@@ -1,0 +1,13 @@
+# -*- mode: org -*-
+# Last modified: <2012-03-17 10:26:07 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   FaQ
+
+* C-l
+  最近有一些人问我在别人写的代码中有的时候会见到^L，'\014' 即为
+  Control-L (formfeed)，
+  这是干什么用的？
+  我在查看python编译器的时候发现的，专门针对他有一个处理项目，将其认为
+  成blankspace的一种，主要作用就是为了走纸或者换页。可能是因为更方便进
+  行换页操作，应该是为了更方便的写doc文档。如果各位有更精准答案的话，
+  请电邮本人，一定回复，不胜感激。
