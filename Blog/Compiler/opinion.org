@@ -1,0 +1,108 @@
+# -*- mode: org -*-
+# Last modified: <2012-03-17 10:14:11 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   My Python 
+
+* 触动
+** 细节
+   编写Python编译器最大得感触就是细节，细节，数之不尽的细节。
+   这可能跟我没有写过很大得项目有关，也可能是因为我很少写工业级的代码，
+   总之，看的很开心，写的更开心！霍霍:)
+   在这里，我拿出一些有共性的例子，以飨读者。
+*** 在分配内存的时候，你是否使用malloc就完事？
+    #+begin_src c++ :tangle yes
+#define PyMem_MALLOC(n)		((size_t)(n) > (size_t)PY_SSIZE_T_MAX ? NULL \
+				: malloc((n) ? (n) : 1))
+#define PyMem_REALLOC(p, n)	((size_t)(n) > (size_t)PY_SSIZE_T_MAX  ? NULL \
+				: realloc((p), (n) ? (n) : 1))
+#define PyMem_FREE		free
+/* Largest positive value of type Py_ssize_t. */
+#define PY_SSIZE_T_MAX ((Py_ssize_t)(((size_t)-1)>>1))
+/* Smallest negative value of type Py_ssize_t. */
+#define PY_SSIZE_T_MIN (-PY_SSIZE_T_MAX-1)
+// >> pyport.h
+/* Py_hash_t is the same size as a pointer. */
+typedef Py_ssize_t Py_hash_t;
+    #+end_src
+
+*** 在文件文本操作时候，你是否比较过文本编码？
+    #+begin_src c++ :tangle yes
+    if (strcmp(buf, "utf-8") == 0 ||
+        strncmp(buf, "utf-8-", 6) == 0)
+        return "utf-8";
+    else if (strcmp(buf, "latin-1") == 0 ||
+             strcmp(buf, "iso-8859-1") == 0 ||
+             strcmp(buf, "iso-latin-1") == 0 ||
+             strncmp(buf, "latin-1-", 8) == 0 ||
+             strncmp(buf, "iso-8859-1-", 11) == 0 ||
+             strncmp(buf, "iso-latin-1-", 12) == 0)
+        return "iso-8859-1";
+    else
+        return s;
+    #+end_src
+
+*** 对首行缩进的考虑：
+    #+begin_src c++ :tangle yes
+    if (tok->atbol) {
+        register int col = 0;
+        register int altcol = 0;
+        tok->atbol = 0;
+        for (;;) {
+            c = tok_nextc(tok);
+            if (c == ' ')
+                col++, altcol++;
+            else if (c == '\t') {
+                col = (col/tok->tabsize + 1) * tok->tabsize;
+                altcol = (altcol/tok->alttabsize + 1)
+                         * tok->alttabsize;
+            }
+            else if (c == '\014') /* Control-L (formfeed) */
+                col = altcol = 0; /* For Emacs users */
+            else
+                break;
+        }
+        tok_backup(tok, c);
+    #+end_src
+    其中 /* For Emacs users */ 让我感动并且震惊了一段时间，这代码写的太尼马小心谨慎了。
+
+*** 注释与缩进：
+    #+begin_src c++ :tangle yes
+/* Lines with only whitespace and/or comments
+shouldn't affect the indentation and are
+not passed to the parser as NEWLINE tokens,
+except *totally* empty lines in interactive
+mode, which signal the end of a command group. */
+
+    #+end_src
+
+*** 为了代码的整洁： 看到了。。。。goto，goto，goto。
+    #+begin_src c++ :tangle yes
+
+    #+end_src
+
+*** 看到了一个400行的函数。。
+    传说中每个函数写40-60line是出错率比较底下的情况。
+    #+begin_src c++ :tangle yes
+static int
+tok_get(register struct tok_state *tok, char **p_start, char **p_end)
+
+    #+end_src
+
+*** PGEN
+    仅仅一个小例子。
+    #+begin_src c++ :tangle yes
+#ifdef PGEN
+        PySys_WriteStderr("inconsistent use of tabs and spaces "
+                          "in indentation\n");
+#else
+        PySys_FormatStderr("%U: inconsistent use of tabs and spaces "
+                           "in indentation\n", tok->filename);
+#endif
+        tok->altwarning = 0;
+    #+end_src
+
+
+
+
+** C or C++?
+   而且如果针对某项特定工程而言，如果单纯的为效率而考虑得话，纯C的确是一个非常合适的考虑。
