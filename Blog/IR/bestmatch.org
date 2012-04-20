@@ -1,0 +1,88 @@
+# -*- mode: org -*-
+# Last modified: <2012-04-17 18:49:16 Tuesday by richard>
+#+STARTUP: showall
+#+TITLE:   bestmatch
+
+
+* Classical Sementation method
+  分为三类
+** 基于字符串匹配的分词方法
+   1. 正向匹配。
+      ( forward maximum matching (FMM) technique)
+   2. 逆向匹配。(RMM)
+   3. 双向匹配。
+   4. 最大匹配。
+   5. 最小匹配。
+   6. 最少切分法。
+   7. 3元交叉切分法。
+*** 分词总：结
+    于中文单字成词的特点,最大匹配的效果远远高于最小匹配。据统计分析,逆向匹配的正确率高于正向匹配。
+
+*** 缺点
+    对于歧义问题不能很好的处理。
+
+
+
+
+** 基于理解的分词方法
+   基本思想就是在分词的同时进行语法，语义分析，利用句法信息和语义信息
+   来处理歧义。
+   通常包括：
+   1. 分词子系统；
+   2. 句语法义子系统；
+   3. 总控部分。
+
+*** 难点：
+    分词是理解的第一步，而理解又是分词的方法之一。
+    还处于理论研究阶段。
+
+** 基于统计的分词方法
+   可以有效的识别歧义和未登录词。
+   1. 最常见的是根据字与字之间的结合频率来计算。
+   2. 专家系统法
+   3. 神经网络方法
+
+*** 缺点：
+    需要庞大的运算量。
+    对于高频非词组性习惯用语不能正确切分。
+
+* Difficulties
+** Common Ambiguous
+   1. 交叉歧义（交集型歧义）
+      (ABC -> A, AB, BC, C)
+   2. 组合歧义(AB -> A, B, AB)
+
+** No login words.
+   1.
+
+* Segmentation Procedure
+  1. 预处理过程粗切分，
+  2. 切分排歧，
+  3. 未登录词识别。
+
+
+* ref:
+** Chinese Segmentation and New Word Detection using Conditional Random Fields
+   Fuchun Peng, Fangfang Feng, Andrew McCallum
+   Computer Science Department, University of Massachusetts Amherst
+   140 Governors Drive, Amherst, MA, U.S.A. 01003
+   ffuchun, feng, mccallumg@cs.umass.edu
+** A Morpheme-based Part-of-Speech Tagger for Chinese
+   Guohong Fu
+   School of Computer Science and Technology
+   Heilongjiang University
+   Harbin 150080, P.R. China
+   ghfu@hotmail.com
+   Jonathan J. Webster
+   Department of Chinese, Translation and Linguistics
+   City University of Hong Kong
+   83 Tat Chee Avenue, Hong Kong, P.R. China
+   ctjjw@cityu.edu.hk
+
+**
+
+* to be ref:
+  1. Peng Fuchun,Dale Schuurmans.Self-Supervised Chinese Word Segmentation[D].Department of Computer Science University of Waterloo.
+  2. Cohen W, Levinthal D. Absorptive capacity: a new perspective on learning and innovation[ J] . Administrative Science Quarterly,
+  3.
+

@@ -1,0 +1,9 @@
+# -*- mode: org -*-
+# Last modified: <2012-04-09 14:31:40 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   goto-tibeten
+
+
+魔术头巾
+
+

@@ -1,0 +1,68 @@
+# -*- mode: org -*-
+# Last modified: <2012-04-05 10:30:02 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   Mar 26 - 33 (Week 13)
+
+* Relationship
+** TODO:
+   * [X] email to 5 companion.
+
+* Professional Skills
+  * [ ] Build My Website.
+    * [] Learn Html.
+    * [] link org file to html.
+    * [] Apply new domain.
+
+  * [ ] GSOC
+    * [ ] Select 2 GSOC project.
+    * [ ] Write some snippet.
+    * [ ] Mail to Mentor.
+
+  * [ ] Finish my current job's task.
+
+* Family
+
+
+* 2012-03-28 Tasks. [13:49:37]
+  * [ ] Download and install new haskell file manager.
+  * [ ] Configure the Emacs' python environment.
+  * [ ] Install zsh. and find/download a reference book.
+  * [ ] Official Projects:
+    * [ ] Manage the WeiboMaster_v2/extensions architecture
+    * [ ] Draw the arch in paper.
+
+* Conclusion:
+
+  上周工作总结：
+  * 完成事项：
+    1. Python koans，这个是上上个星期的任务了，本周也占用了一天
+    2. git练习。
+       中间就因为忘记分一个develop br. 被贺贺强制练习了一遍，
+    3. 完成了一个简单的youku demo。
+    4. 学习了一部分Social Master的内容。
+    5. 参加了MongoDB的大会。
+       很多囧事，被丹峰同学同情了，被凯凯同学记住了。:(
+  * 本周任务：
+    1. 继续研究Social Master的源码。
+    2. 学习django。
+    3. 学习bottle，简单开发一点好玩的东西。
+    4. 各种leader可能安排的任务。
+  * 心得：
+    + 教练中午出题目是最有意思的一个事情，就是强调了TDD在帮助开发中是
+      非常有用的。这个真心有用。
+    + 每周总结是非常有意义的一件事，跟代码一样，没有提交就等于什么都没
+      写。不总结，是不是就等于本周什么都没做。
+    + 知道了不少新名词，做为资深土星人，激动了一番。
+
+  * 自我评价：
+    1. 感觉自己写的代码距离成熟太远。（除了大量看别人代码以外，没有什么头绪）
+    2. 各种工具使用还是差的很远。
+    3. 上周可能因为各种进入北京的麻烦事情耽搁了不少时间，不过状态很好，
+       ，感觉进步很快。
+  * 吐槽：
+    能不能吐槽？我还是自己偷偷的吐槽吧。。。
+    微软回来的感觉也不是楼大，也不是宽敞，而是凳子太舒服了。每天近8个
+    小时在工作室吧，但是那凳子真心伤不起啊。我这个脖子，这个腰啊，虽然
+    没问题，我也不想让他有问题啊。
+
+

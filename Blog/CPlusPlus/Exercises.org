@@ -1,0 +1,15 @@
+# -*- mode: org -*-
+# Last modified: <2012-02-25 19:19:08 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   Undone Exercises
+
+* Unfinished Exercise:
+** Ex 17.13-Ex 17.28
+** Ex 17.30-Ex 17.32(17.31 have some typo errors) 
+** Ex 17.33 
+** Ex 17.36
+
+   all excersices in Chapter 18
+   Except 18.13,14,16.
+   Some errors in 18.28, 29.
+

@@ -1,0 +1,13 @@
+# -*- mode: org -*-
+# Last modified: <2012-04-12 14:55:38 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   The Term Vocabulary And Posting Lists
+
+* Jargons
+  1. Stop word:
+     some extremely common words which would appear to be of little
+     value in helping select documents matching a user need are
+     excluded from the vocabulary entirely.
+     The general strategy for determining a stop list is to sort the
+     terms by collection frequency.
+

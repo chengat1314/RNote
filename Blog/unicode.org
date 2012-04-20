@@ -1,0 +1,19 @@
+# -*- mode: org -*-
+# Last modified: <2012-04-16 19:36:23 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Unicode
+
+文本格式这个问题什么时候都不可避免，各种不同的函数总是采用不同的格式来
+处理，最好的解决方案就是一定要指明该函数究竟使用哪一种字符格式。
+
+* 在python程序中只使用Unicode，将所有UTF-8格式的文档和字符串统一转换成utf-8。
+* python 如何处理unicode：
+** 发现形如： "\x0e\x12\x44" 则为utf-8格式的文档。
+   转换方案：
+   1. 使用unicode(str)
+   2. 使用.encode("UTF-8")
+
+** 形如："\u4561\u1547" 则为unicode格式的文档。
+   转换方案：(to utf-8)
+   1. 使用.decode("UTF-8")
+

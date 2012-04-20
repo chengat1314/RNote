@@ -1,0 +1,11 @@
+# -*- mode: org -*-
+# Last modified: <2012-04-05 14:10:10 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   note1
+
+* FAQ:
+** Why not grep, but IR?
+   Slow (for large collections)
+   grep is line-oriented, IR is document-oriented
+   “not Calpurnia” is non-trivial
+   Other operations (e.g., find the word Romans near countryman) not feasible

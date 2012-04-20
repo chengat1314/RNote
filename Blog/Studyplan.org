@@ -1,0 +1,13 @@
+# -*- mode: org -*-
+# Last modified: <2012-03-19 09:45:04 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Studyplan
+
+* Books need to read.
+
+** 程序员的自我修养:链接、装载与库
+
+
+* Courses need to study.
+
+** NLP stanford.

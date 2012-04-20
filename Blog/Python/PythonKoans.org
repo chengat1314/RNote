@@ -1,0 +1,18 @@
+# -*- mode: org -*-
+# Last modified: <2012-03-26 15:54:58 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   PythonKoans
+
+These days I have done python koans, and met lots of questions. I will
+show my own answer in github in these days.
+Because I learn some code from other guys, I have to ask for his
+permission to publish. :) also, I have my own answer.
+
+
+* Introduction
+  Python Koans is really a good start for a post-beginer. It share a
+  lot of python-tasks. At the same time, it shows us what is TDD method.
+  
+* Lessons from Python Koans:
+1. 
+2. 

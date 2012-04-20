@@ -1,0 +1,40 @@
+# -*- mode: org -*-
+# Last modified: <2012-04-16 11:10:31 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Apr 09 - 16 (Week 15)
+
+* Relationship
+** TODO:
+   上周完成：
+   1. 信息检索导论已经初步阅读完毕。
+      阅读了各种论文。
+   2. 实现了一部分分词和单词权重算法（还没有测试）。
+
+   本周任务
+   1. 将一些常用的权重算法如(Okapi BM25, tf-idf, etc..) 折合并测试。
+      继续查找各种论文辅助实现。
+   2. 贺贺的各种临时任务。
+   3. 学习tornado，danfeng推荐的一个框架。
+   4. 实现自己的分词和权重算法。（If possible..）
+
+心得：
+很多算法将各种数学内容很习惯性的就带入到程序当中，一会求导，一会统计。
+非常的smooth。数学很重要。接下来可能每天都要复习点数学。
+
+PS：
+周六有个google codejam，前三道题很快就搞定了，复杂度基本都是O(kn)第四道题有点小复杂，求经验求共享，
+
+^_^ 2012-04-09
+吐槽没多久，Mars就带着书下来了，囧。
+
+
+
+* TODO :
+reading
+S. Fine, Y. Singer and N. Tishby, "The Hierarchical Hidden Markov Model: Analysis and Applications", Machine Learning, vol. 32, p. 41–62, 1998
+K.Murphy and M.Paskin. "Linear Time Inference in Hierarchical HMMs", NIPS-01 (Neural Info. Proc. Systems).
+H. Bui, D. Phung and S. Venkatesh. "Hierarchical Hidden Markov Models with General State Hierarchy", AAAI-04 (National Conference on Artificial Intelligence).
+
+
+
+
