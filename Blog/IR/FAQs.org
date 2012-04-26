@@ -1,7 +1,7 @@
 # -*- mode: org -*-
-# Last modified: <2012-04-05 14:10:10 Thursday by richard>
+# Last modified: <2012-04-23 11:29:22 Monday by richard>
 #+STARTUP: showall
-#+TITLE:   note1
+#+TITLE:   FAQs
 
 * FAQ:
 ** Why not grep, but IR?

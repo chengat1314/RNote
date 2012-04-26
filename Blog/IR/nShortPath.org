@@ -1,0 +1,25 @@
+# -*- mode: org -*-
+# Last modified: <2012-04-23 17:41:40 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   nShortPath
+
+* Definition
+The shortest path problem consists of determining a path p∗ ∈ P such
+that f (p∗) ≤ f (q), ∀q ∈ P. In a similar way, in the k-shortest path
+problem one is looking for k paths (p1 , . . . , pk ) verifying f (pi
+) ≤ f (pi+1 ), 1 ≤ i < k, and f (pk ) ≤ f (q), ∀q ∈ P − {p1 , . . . ,
+pk }.
+
+* algorithm description
+** Removing path algorithm
+   1. remove the shortest path in the current network.
+   2. determining the shortest path in the resulting network.
+
+** Deviation path algorithm
+
+
+* reference:
+
+** K shortest path algorithms JoséL. Santos
+
+

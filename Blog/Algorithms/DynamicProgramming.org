@@ -1,0 +1,9 @@
+# -*- mode: org -*-
+# Last modified: <2012-04-24 00:21:38 Tuesday by richard>
+#+STARTUP: showall
+#+TITLE:   DynamicProgramming
+
+
+* Key Point:
+
+Optimal Substructure.

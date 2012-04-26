@@ -1,0 +1,34 @@
+# -*- mode: org -*-
+# Last modified: <2012-04-23 11:01:28 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Apr 23 - 30 (Week 17)
+
+* Relationship
+** TODO:
+
+**
+* 上周总结：
+  * 研究学习了ICTCLAS结构的HHMM。
+  * 学习了NLTK库，研究了一定英语初步分词处理的方法。
+
+* 本周计划概览：
+  * 学习NLTK库。
+  * 本周要实现ICTCLAS的核心算法。
+    两个：NSP，class-tag.
+  * 学习CRF，MEM模型。(If possible.)
+  * 各种可能的贺贺的新鲜任务。
+
+补充：
+上周讲解有个词语，POS处理，那时没弄清楚，最后的POS处理周末看了，发现里
+面也是没有具体的解释，但是后来看书的时候发现，POS是一个常用术语，是
+Part-Of-Speech的意思，其实还是分词的一种标记而已。也是Catagorize分类的
+一种方式。
+
+吐槽：
+1. 上周给几位同学讲了一点点我的理解。发现都不是很理解，可能准备的还是
+   不是很充分。- -
+2. 本周如果理解了CRF或者MEM，希望讲给各位啊，希望各位捧场啊。。。霍霍，
+   讲课综合征了。。
+
+
+

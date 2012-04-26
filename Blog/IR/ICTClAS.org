@@ -1,527 +1,123 @@
 # -*- mode: org -*-
-# Last modified: <2012-04-18 12:25:43 Wednesday by richard>
+# Last modified: <2012-04-23 17:15:45 Monday by richard>
 #+STARTUP: showall
 #+TITLE:   ICTClAS
 
 
 * Intro
 
-基本思路:先进行原子切分,然后在此基础上进行N-最短路径粗切分,找出前N个最符合的切分结果,生成二元分词表,然后生成分词结果,接着进行词性标注并完成主要分词步骤.
+  基本思路:先进行原子切分,然后在此基础上进行N-最短路径粗切分,找出前N个最符合的切分结果,生成二元分词表,然后生成分词结果,接着进行词性标注并完成主要分词步骤.
 
-下面是对源代码的主要内容的研究：
+* Analysis CDynamicArray
+** ARRAY_CHAIN
+*** basic element is ARRAY_CHAIN,
+    Contains:
+     * row and col number.
+     * value(double)
+     * POS value.
+     * Word Length.
+     * Word string.(GB2312 format)
+     * A pointer which point to next element.(ARRAY_CHAIN)
 
-１.首先，ICTCLAS分词程序首先调用CICTCLAS_WinDlg::OnBtnRun()开始程序的执行.并且可以从看出它的处理方法是把源字符串分段处理。并且在分词前，完成词典的加载过程，即生成m_ICTCLAS对象时调用构造函数完成词典库的加载。关于词典结构的分析，请参加分词系统研究（二）。
+    #+begin_src c++ :tangle yes
+#define ELEMENT_TYPE double//the type of element
 
-void CICTCLAS_WinDlg::OnBtnRun()
+//#define ROW_FIRST 0//Row first in the array store
+
+struct tagArrayChain{
+    unsigned int col,row;//row and column
+    ELEMENT_TYPE value;//The value of the array
+    int nPOS;
+    int nWordLen;
+    char *sWord;
+    //The possible POS of the word related to the segmentation graph
+    struct tagArrayChain *next;
+};
+typedef struct tagArrayChain ARRAY_CHAIN,*PARRAY_CHAIN;
+
+    #+end_src
+
+*** 这个动态数组主要分为RowFirst和ColomnFirst两种状态，通过一个
+    m_bRowFirst来控制。True则为rowFirst, false otherwise.
+    SetRowFirst
+**** Property functions:
+     * GetTail
+     * GetHead
+     * GetElement/SetElement (from row and colomn number, ret value, and Pos, ret
+       word.)
+**** Normal Function:
+    * SetEmpty
+    * assignment function.
+
+     #+begin_src c++ :tangle yes
+class CDynamicArray
 {
+  public:
+    bool SetRowFirst(bool RowFirst=true);
+    unsigned int GetTail(PARRAY_CHAIN *pTailRet);
+    //Get the tail Element buffer and return the count of elements
+    PARRAY_CHAIN GetHead();
+    //Get the head Element
+    bool GetElement(int nRow, int nCol,ELEMENT_TYPE  *pRetValue,int *pRetPOS=0,char *sRetWord=0);
+    void SetEmpty();
+    CDynamicArray(bool bRowFirst=false);
+    virtual ~CDynamicArray();
+    const CDynamicArray & operator =(const CDynamicArray &);
+    bool operator ==(const CDynamicArray &array);
 
-   ......
+    ELEMENT_TYPE GetElement( int nRow, int nCol,PARRAY_CHAIN pStart=0,PARRAY_CHAIN *pRet=0);
+    int SetElement(unsigned int nRow, unsigned int nCol, ELEMENT_TYPE fValue,int nPOS,char *sWord=0);
+    unsigned int m_nCol,m_nRow;//The row and col of the array
+    bool m_bRowFirst;
+  private:
+    PARRAY_CHAIN m_pHead;//The head pointer of array chain
+};
 
- //在此处进行分词和词性标记
+     #+end_src
 
-  if(!m_ICTCLAS.ParagraphProcessing((char *)(LPCTSTR)m_sSource,sResult))
-         m_sResult.Format("错误：程序初始化异常！");
-   else
-        m_sResult.Format("%s",sResult);//输出最终分词结果
+*** Structure
+    |---------------+---+---+---+---|
+    | pCur(m_pHead) |   |   |   |   |pPre = NULL
+    |---------------+---+---+---+---|
 
-    ......
+** Queue
+*** tagQueueElem
+    #+begin_src c++ :tangle yes
+struct tagQueueElem{
+    unsigned int nParent;//the weight
+    unsigned int nIndex;//number of index in the parent node
+    ELEMENT_TYPE eWeight;//the weight of last path
+    struct tagQueueElem *next;
+};
+    #+end_src
 
-}
 
-２.在OnBtnRun()方法里面调用分段分词处理方法bool CResult::ParagraphProcessing(char *sParagraph,char *sResult)完成分词的整个处理过程，包括分词的词性标注.其中第一个参数为源字符串，第二个参数为分词后的字符串.在这两个方法中即完成了整个分词处理过程，下面需要了解的是在此方法中，如何调用其它方法一步步按照上图所示的分析框架完成分词过程.为了简单起见，我们先不做未登录词的分析。
+** CNShortPath
 
-//Paragraph Segment and POS Tagging
-bool CResult::ParagraphProcessing(char *sParagraph,char *sResult)
+   #+begin_src c++ :tangle yes
+class CNShortPath
 {
-
-   ........
-
-   Processing(sSentence,1); //Processing and output the result of current sentence.
-  Output(m_pResult[0],sSentenceResult,bFirstIgnore); //Output to the imediate result
-
-  .......
-
-}
-
-３.主要的分词处理是在Processing()方法里面发生的，下面我们对它进行进一步的分析.
-
-bool CResult::Processing(char *sSentence,unsigned int nCount)
-{
-
-......
-
- //进行二叉分词
-
-m_Seg.BiSegment(sSentence, m_dSmoothingPara,m_dictCore,m_dictBigram,nCount);
-
-......
-
- //在此处进行词性标注
-
-m_POSTagger.POSTagging(m_Seg.m_pWordSeg[nIndex],m_dictCore,m_dictCore);
-
-......
-
-}
-
-４.现在我们先不管词性标注，把注意力集中在二叉分词上，因为这个是分词的两大关键步骤的第一步.
-
-参考文章:
-
-1.<<基于层叠隐马模型的汉语词法分析>>,刘群 张华平等
-
-2.<<基于N-最短路径的中文词语粗分模型>>,张华平 刘群
+  public:
+    int m_nResultCount;
+    int Output(int **nResult,bool bBest,int *npCount);
+    int ShortPath();
+    CNShortPath(CDynamicArray *aCost,unsigned int nValueKind=1);
+    virtual ~CNShortPath();
+  private:
+    void GetPaths(unsigned int nNode,
+                  unsigned int nIndex,int **nResult=0,bool bBest=false);
+    CDynamicArray *m_apCost;
+    unsigned int m_nValueKind;//The number of value kinds
+    unsigned int m_nVertex;//The number of vertex in the graph
+    CQueue   **m_pParent;//The 2-dimension array for the nodes
+    ELEMENT_TYPE **m_pWeight;//The weight of node
+};
+   #+end_src
 
 
 * dict data-structure
-ICTCLAS的词典结构是理解分词的重要依据，通过这么一个数据结构设计合理访问速度高效的词典才能达到快速准备的分词的目的。
-
-通过阅读和分析源代码，我们可以知道，是程序运行初，先把词典加载到内存中，以提高访问的速度。源代码在Result.cpp的构造函数CResult（）内实现了词典和分词规则库的加载。如下代码所示:
-
-CResult::CResult()
-{
- ……
-
- m_dictCore.Load("data//coreDict.dct");
- m_POSTagger.LoadContext("data//lexical.ctx");
-
-……
-
-}
-
-我们再跳进Load方法具体分析它是怎样读取数据词典的,看Load的源代码:
-
-bool CDictionary::Load(char *sFilename,bool bReset)
-{
-   FILE *fp;
-   int i,j,nBuffer[3];
-
-    //首先判断词典文件能否以二进制读取的方式打开
-   if((fp=fopen(sFilename,"rb"))==NULL)
-    return false;//fail while opening the file
-
-   //为新文件释放内存空间
-   for( i=0;i<CC_NUM;i++)
- {//delete the memory of word item array in the dictionary
-  for( j=0;j<m_IndexTable[i].nCount;j++)
-   delete m_IndexTable[i].pWordItemHead[j].sWord;
-  delete [] m_IndexTable[i].pWordItemHead;
- }
-    DelModified();//删除掉修改过的,可以先不管它
-
-  //CC_NUM:6768,应该是GB2312编码中常用汉字的数目6763个加上5个空位码
-   for(i=0;i<CC_NUM;i++)
-   {
-
-   //读取一个整形数字(词块的数目)
-    fread(&(m_IndexTable[i].nCount),sizeof(int),1,fp);
-       if(m_IndexTable[i].nCount>0)
-              m_IndexTable[i].pWordItemHead=new WORD_ITEM[m_IndexTable[i].nCount];
-    else
-    {
-     m_IndexTable[i].pWordItemHead=0;
-     continue;
-    }
-       j=0;
-
-   //根据前面读到的词块数目,循环读取一个个词块
-    while(j<m_IndexTable[i].nCount)
-    {
-
-        //读取三字整数,分别为频度(Frequency)/词内容长度(WordLen)/句柄(Handle)
-         fread(nBuffer,sizeof(int),3,fp);
-         m_IndexTable[i].pWordItemHead[j].sWord=new char[nBuffer[1]+1];
-
-        //读取词内容
-         if(nBuffer[1])//String length is more than 0
-         {
-            fread(m_IndexTable[i].pWordItemHead[j].sWord,sizeof(char),nBuffer[1],fp);
-         }
-        m_IndexTable[i].pWordItemHead[j].sWord[nBuffer[1]]=0;
-        if(bReset)//Reset the frequency
-           m_IndexTable[i].pWordItemHead[j].nFrequency=0;
-        else
-              m_IndexTable[i].pWordItemHead[j].nFrequency=nBuffer[0];
-         m_IndexTable[i].pWordItemHead[j].nWordLen=nBuffer[1];
-         m_IndexTable[i].pWordItemHead[j].nHandle=nBuffer[2];
-         j+=1;//Get next item in the original table.
-    }
-   }
-   fclose(fp);
-   return true;
-}
-
-
-
-看完上面的源代码,词典的结构也应该基本清楚了,如下图一所示:
-
-
-
-                                                                                                            图一
-
-修改表的数据结构和上图差不多,但是在词块数目后面多了一个nDelete数目,即删除的数目,数据结构如下图二所示:
-
-
-
-                                                                                                    图二
-
-GB2312(1980年)一共收录了7445个字符，包括6763个汉字和682个其它符号。汉字区的内码范围高字节从B0-F7，低字节从A1-FE，占用的码位是72*94=6768。其中有5个空位是D7FA-D7FE。词典库图一所示的6768个块即对应GB2312编码中的这个6768个区位.图一中每一个大块代表以该字开头的所有词组,括号内的字为区位码对应的汉字,词典表中并不存在,为了说明方便才添加上去的.如下所示:
-
- 块6759
-    count:5
-    wordLen:2 frequency:0 handle:24832 word:(黯)淡
-    wordLen:2 frequency:1 handle:24942 word:(黯)淡
-    wordLen:2 frequency:3 handle:31232 word:(黯)然
-    wordLen:6 frequency:0 handle:27648 word:(黯)然神伤
-    wordLen:6 frequency:0 handle:26880 word:(黯)然失色
-块6760
-    count:1
-     wordLen:2 frequency:0 handle:28160 word:(鼢)鼠
-
- 块6761
-    count:2
-     wordLen:4 frequency:0 handle:28160 word:(鼬)鼠皮
-     wordLen:2 frequency:0 handle:28160 word:(鼬)獾
-
-
-
-对修改后如何保存的源代码进行分析:
-
-bool CDictionary::Save(char *sFilename)
-{
-   FILE *fp;
-   int i,j,nCount,nBuffer[3];
-   PWORD_CHAIN pCur;
-   if((fp=fopen(sFilename,"wb"))==NULL)
-    return false;//fail while opening the file
-
-  //对图一中所示的6768个数据块进行遍历
-   for(i=0;i<CC_NUM;i++)
-   {
-    pCur=NULL;
-    if(m_pModifyTable)
-    {
-
-     //计算修改后有效词块的数目
-
-      nCount=m_IndexTable[i].nCount+m_pModifyTable[i].nCount-m_pModifyTable[i].nDelete;
-     fwrite(&nCount,sizeof(int),1,fp);
-     pCur=m_pModifyTable[i].pWordItemHead;
-     j=0;
-
-     //对原表中的词块和修改表中的词块进行遍历,并把修改后的添加到原表中
-     while(pCur!=NULL&&j<m_IndexTable[i].nCount)
-     {
-
-      //如果修改表中的词长度小于原表中对应位置的词的长度或者长度相等但nHandle值比原表中的小,则把修改表中的写入到词典文件当中.
-
-      if(strcmp(pCur->data.sWord,m_IndexTable[i].pWordItemHead[j].sWord)<0||(strcmp(pCur->data.sWord,m_IndexTable[i].pWordItemHead[j].sWord)==0&&pCur->data.nHandle<m_IndexTable[i].pWordItemHead[j].nHandle))
-      {//Output the modified data to the file
-     nBuffer[0]=pCur->data.nFrequency;
-           nBuffer[1]=pCur->data.nWordLen;
-        nBuffer[2]=pCur->data.nHandle;
-                 fwrite(nBuffer,sizeof(int),3,fp);
-     if(nBuffer[1])//String length is more than 0
-            fwrite(pCur->data.sWord,sizeof(char),nBuffer[1],fp);
-                 pCur=pCur->next;//Get next item in the modify table.
-      }
-
-     //频度nFrequecy等于-1说明该词已被删除,跳过它
-      else if(m_IndexTable[i].pWordItemHead[j].nFrequency==-1)
-      {
-       j+=1;
-      }
-
-      //如果修改表中的词长度比原表中的长度大或  长度相等但句柄值要多,就把原表的词写入的词典文件中
-      else if(strcmp(pCur->data.sWord,m_IndexTable[i].pWordItemHead[j].sWord)>0||(strcmp(pCur->data.sWord,m_IndexTable[i].pWordItemHead[j].sWord)==0&&pCur->data.nHandle>m_IndexTable[i].pWordItemHead[j].nHandle))
-      {//Output the index table data to the file
-     nBuffer[0]=m_IndexTable[i].pWordItemHead[j].nFrequency;
-     nBuffer[1]=m_IndexTable[i].pWordItemHead[j].nWordLen;
-     nBuffer[2]=m_IndexTable[i].pWordItemHead[j].nHandle;
-     fwrite(nBuffer,sizeof(int),3,fp);
-     if(nBuffer[1])//String length is more than 0
-       fwrite(m_IndexTable[i].pWordItemHead[j].sWord,sizeof(char),nBuffer[1],fp);
-     j+=1;//Get next item in the original table.
-      }
-     }
-
-     //把原表中剩余的词写入的词典文件当中
-     if(j<m_IndexTable[i].nCount)
-     {
-      while(j<m_IndexTable[i].nCount)
-      {
-       if(m_IndexTable[i].pWordItemHead[j].nFrequency!=-1)
-       {//Has been deleted
-      nBuffer[0]=m_IndexTable[i].pWordItemHead[j].nFrequency;
-      nBuffer[1]=m_IndexTable[i].pWordItemHead[j].nWordLen;
-      nBuffer[2]=m_IndexTable[i].pWordItemHead[j].nHandle;
-      fwrite(nBuffer,sizeof(int),3,fp);
-      if(nBuffer[1])//String length is more than 0
-        fwrite(m_IndexTable[i].pWordItemHead[j].sWord,sizeof(char),nBuffer[1],fp);
-       }
-      j+=1;//Get next item in the original table.
-      }
-     }
-     else////原表已到尾部但修改表还没有遍历完,把修改表中剩余的词写入到词典文件当中
-      while(pCur!=NULL)//Add the rest data to the file.
-      {
-     nBuffer[0]=pCur->data.nFrequency;
-           nBuffer[1]=pCur->data.nWordLen;
-        nBuffer[2]=pCur->data.nHandle;
-                 fwrite(nBuffer,sizeof(int),3,fp);
-     if(nBuffer[1])//String length is more than 0
-       fwrite(pCur->data.sWord,sizeof(char),nBuffer[1],fp);
-                 pCur=pCur->next;//Get next item in the modify table.
-      }
-    }
-
-
-
-   //不是修改标记,则把原表的数据全部写入到词典文件当中
-    else
-    {
-     fwrite(&m_IndexTable[i].nCount,sizeof(int),1,fp);
-     //write to the file
-           j=0;
-     while(j<m_IndexTable[i].nCount)
-     {
-    nBuffer[0]=m_IndexTable[i].pWordItemHead[j].nFrequency;
-       nBuffer[1]=m_IndexTable[i].pWordItemHead[j].nWordLen;
-    nBuffer[2]=m_IndexTable[i].pWordItemHead[j].nHandle;
-             fwrite(nBuffer,sizeof(int),3,fp);
-    if(nBuffer[1])//String length is more than 0
-       fwrite(m_IndexTable[i].pWordItemHead[j].sWord,sizeof(char),nBuffer[1],fp);
-     j+=1;//Get next item in the original table.
-     }
-    }
-   }
-   fclose(fp);
-   return true;
-}
-
-增加一个词条目:
-
-bool CDictionary::AddItem(char *sWord, int nHandle,int nFrequency)
-{
-
-   char sWordAdd[WORD_MAXLENGTH-2];
-   int nPos,nFoundPos;
-   PWORD_CHAIN pRet,pTemp,pNext;
-   int i=0;
-
-   //预处理,去掉词的前后的空格
-   if(!PreProcessing(sWord, &nPos,sWordAdd,true))
-    return false;
-
-    //查找词典原表中该词是否存在
-   if(FindInOriginalTable(nPos,sWordAdd,nHandle,&nFoundPos))
-   {//The word exists in the original table, so add the frequency
-    //Operation in the index table and its items
-       if(m_IndexTable[nPos].pWordItemHead[nFoundPos].nFrequency==-1)
-    {//The word item has been removed
-       m_IndexTable[nPos].pWordItemHead[nFoundPos].nFrequency=nFrequency;
-        if(!m_pModifyTable)//Not prepare the buffer
-    {
-      m_pModifyTable=new MODIFY_TABLE[CC_NUM];
-      memset(m_pModifyTable,0,CC_NUM*sizeof(MODIFY_TABLE));
-    }
-    m_pModifyTable[nPos].nDelete-=1;
-    }
-    else
-    m_IndexTable[nPos].pWordItemHead[nFoundPos].nFrequency+=nFrequency;
-    return true;
-   }
-
-   //如果修改表为空,为它初始化空间
-
-   if(!m_pModifyTable)//Not prepare the buffer
-   {
-    m_pModifyTable=new MODIFY_TABLE[CC_NUM];
-    memset(m_pModifyTable,0,CC_NUM*sizeof(MODIFY_TABLE));
-   }
-
-  //在修改表中查询该词是否存在,如果存在增加该词的频度
-   if(FindInModifyTable(nPos,sWordAdd,nHandle,&pRet))
-   {
-    if(pRet!=NULL)
-     pRet=pRet->next;
-    else
-     pRet=m_pModifyTable[nPos].pWordItemHead;
-    pRet->data.nFrequency+=nFrequency;
-    return true;
-   }
-
-
-   //如果没有在修改表中找到,则添加进去
-
-   pTemp=new WORD_CHAIN;//Allocate the word chain node
-   if(pTemp==NULL)//Allocate memory failure
-    return false;
-   memset(pTemp,0,sizeof(WORD_CHAIN));//init it with 0
-   pTemp->data.nHandle=nHandle;//store the handle
-   pTemp->data.nWordLen=strlen(sWordAdd);
-   pTemp->data.sWord=new char[1+pTemp->data.nWordLen];
-   strcpy(pTemp->data.sWord,sWordAdd);
-   pTemp->data.nFrequency=nFrequency;
-   pTemp->next=NULL;
-
-   //插入到修改表中
-   if(pRet!=NULL)
-   {
-    pNext=pRet->next;//Get the next item before the current item
-    pRet->next=pTemp;//link the node to the chain
-   }
-   else
-   {
-    pNext=m_pModifyTable[nPos].pWordItemHead;
-    m_pModifyTable[nPos].pWordItemHead=pTemp;//Set the pAdd as the head node
-   }
-   pTemp->next=pNext;//Very important!!!! or else it will lose some node
-   //把词块数目加一
-   m_pModifyTable[nPos].nCount++;//the number increase by one
-   return true;
-}
-
-
-
-删除修改过的词条
-
-bool CDictionary::DelModified()
-{
-  PWORD_CHAIN pTemp,pCur;
-  if(!m_pModifyTable)
-   return true;
-
-
-  for(int i=0;i<CC_NUM;i++)
-  {
-      pCur=m_pModifyTable[i].pWordItemHead;
-
-  //删除链表上的节点
-   while(pCur!=NULL)
-   {
-    pTemp=pCur;
-    pCur=pCur->next;
-    delete pTemp->data.sWord;
-    delete pTemp;
-   }
-  }
-  delete [] m_pModifyTable;
-  m_pModifyTable=NULL;
-  return true;
-}
-
-//采用二分法进行查找
-
-bool CDictionary::FindInOriginalTable(int nInnerCode,char *sWord,int nHandle,int *nPosRet)
-{
-    PWORD_ITEM pItems=m_IndexTable[nInnerCode].pWordItemHead;
- int nStart=0,nEnd=m_IndexTable[nInnerCode].nCount-1,nMid=(nStart+nEnd)/2,nCount=0,nCmpValue;
- while(nStart<=nEnd)//Binary search
- {
-       nCmpValue=strcmp(pItems[nMid].sWord,sWord);
-
-       //如果中间那个正好是要查找的
-       if(nCmpValue==0&&(pItems[nMid].nHandle==nHandle||nHandle==-1))
-    {
-     if(nPosRet)
-     {
-      if(nHandle==-1)//Not very strict match
-      {//Add in 2002-1-28
-          nMid-=1;
-
-           //Get the first item which match the current word
-            while(nMid>=0&&strcmp(pItems[nMid].sWord,sWord)==0)
-                     nMid--;
-             if(nMid<0||strcmp(pItems[nMid].sWord,sWord)!=0)
-                      nMid++;
-      }
-      *nPosRet=nMid;
-               return true;
-     }
-         if(nPosRet)
-           *nPosRet=nMid;
-         return true;//find it
-    }
-    else if(nCmpValue<0||(nCmpValue==0&&pItems[nMid].nHandle<nHandle&&nHandle!=-1))
-    {
-     nStart=nMid+1;
-    }
-    else if(nCmpValue>0||(nCmpValue==0&&pItems[nMid].nHandle>nHandle&&nHandle!=-1))
-       {
-     nEnd=nMid-1;
-    }
-    nMid=(nStart+nEnd)/2;
- }
-    if(nPosRet)
- {
-  //Get the previous position
-  *nPosRet=nMid-1;
- }
- return false;
-}
-
-
-
-//在修改表中查询
-
-bool CDictionary::FindInModifyTable(int nInnerCode,char *sWord,int nHandle,PWORD_CHAIN *pFindRet)
-{
-   PWORD_CHAIN pCur,pPre;
-   if(m_pModifyTable==NULL)//empty
-    return false;
-   pCur=m_pModifyTable[nInnerCode].pWordItemHead;
-   pPre=NULL;
-
-   //sWord相等且句柄(nHandle)相等
-   while(pCur!=NULL&&(_stricmp(pCur->data.sWord,sWord)<0||(_stricmp(pCur->data.sWord,sWord)==0&&pCur->data.nHandle<nHandle)))
-   //sort the link chain as alphabet
-   {
-       pPre=pCur;
-       pCur=pCur->next;
-   }
-   if(pFindRet)
-     *pFindRet=pPre;
-   if(pCur!=NULL && _stricmp(pCur->data.sWord,sWord)==0&&(pCur->data.nHandle==nHandle||nHandle<0))
-   {//The node exists, delete the node and return
-    return true;
-   }
-   return false;
-}
-
-
-
-得到词的类型,共三种汉字、分隔符和其他
-
-int CDictionary::GetWordType(char *sWord)
-{
-   int nType=charType((unsigned char *)sWord),nLen=strlen(sWord);
-   if(nLen>0&&nType==CT_CHINESE&&IsAllChinese((unsigned char *)sWord))
-    return WT_CHINESE;//Chinese word
-   else if(nLen>0&&nType==CT_DELIMITER)
-       return WT_DELIMITER;//Delimiter
-   else
-    return WT_OTHER;//other invalid
-}
-
+  ICTCLAS的词典结构是理解分词的重要依据，通过这么一个数据结构设计合理访问速度高效的词典才能达到快速准备的分词的目的。
 
 * 原子分词
 
-ICTCLAS分词的第一步就是原子分词。但在进行原子切分之前，首先要进行断句处理。所谓断句，就是根据分隔符、回车换行符等语句的分隔标志，把源字符串分隔成多个稍微简单一点的短句，再进行分词处理，最后再把各个分词结果合起来，形成最终的分词结果。
-
-分成短句之后，即可进行原子分词，所谓原子,是指该短句中不可分割的最小语素单位。一个汉字、短句前后的开始结束标识字段、全角标点符号、连在一起的数字字母单字节字符等。最后一种情况可以举例说明，比如：三星SHX-132型号的手机1元钱，则SHX-132、1都是一个原子，其它的每个汉字是一个原子。
-
-按照这种方式，通过简单的汉字分割就形成了原子分词的结果，并对每个原子单位进行词性标注。nPOS＝1表示是开始标记，nPOS＝4表示结束标记，nPOS=0表示未识别词。原子分割后的数据结构如下图一所示:
-
-
-
-                                                                            图一
-
-原子分词后的实例如下图二所示:
-
-
-
-                                                                                                    图二
-
-经过原子分词之后，下面即可进行初次分词。参见分词系统研究（四）。
-
+  ICTCLAS分词的第一步就是原子分词。但在进行原子切分之前，首先要进行断句处理。所谓断句，就是根据分隔符、回车换行符等语句的分隔标志，把源字符串分隔成多个稍微简单一点的短句，再进行分词处理，最后再把各个分词结果合起来，形成最终的分词结果。
