@@ -1,0 +1,18 @@
+# -*- mode: org -*-
+# Last modified: <2012-05-14 12:01:35 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   javascript
+
+* content
+  JavaScript is part of the triad of technologies that all Web developers must learn.
+  HTML to specify the content of web pages, CSS to specify the presentation of web pages, and JavaScript to specify the behavior of web pages.
+
+* programming specific
+  JavaScript is a high-level, dynamic, untyped interpreted programming
+  language that is well-suited to object-oriented and functional
+  programming styles.
+
+* version
+
+** EC3 and EC5
+

@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-04-12 17:30:27 Thursday by richard>
+# Last modified: <2012-04-26 12:02:54 Thursday by richard>
 #+STARTUP: showall
 #+TITLE:   Scoring, term weighting and the vector space model
 
@@ -26,7 +26,14 @@
       retrieval operations ranging from scoring documents on a query,
       document classification and document clustering.
    10. cosine similarity
-   11. Bayes Optimal decision Rule
+   11. TF(Term frequency Weights)
+       The more often a term occurs in the text of the document d, the
+       higher its term frequency weight TF is.
+   12. Exhaustivity is a property of document desciptions
+   13. specificity is a property of index terms. The specificity of an
+       index term is interpreted as how well the term describes a
+       dcument topic.
+   15. Bayes Optimal decision Rule
        Optimal Decision Rule, the decision which minimizes the risk of
        loss, is to simply return documents that are more likely
        relevant than non-revelent:

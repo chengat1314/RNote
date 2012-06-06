@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-04-23 11:29:22 Monday by richard>
+# Last modified: <2012-05-18 10:42:17 Friday by richard>
 #+STARTUP: showall
 #+TITLE:   FAQs
 
@@ -9,3 +9,8 @@
    grep is line-oriented, IR is document-oriented
    “not Calpurnia” is non-trivial
    Other operations (e.g., find the word Romans near countryman) not feasible
+
+** 误差
+   更严格的说，误差的累积叫做风险
+
+

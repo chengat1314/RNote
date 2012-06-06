@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-01-20 20:06:25 Friday by richard>
+# Last modified: <2012-05-03 23:32:40 Thursday by richard>
 #+STARTUP: showall
 #+TITLE:   2012plan
 
@@ -40,3 +40,121 @@
    瞬间，C++就已经定义为专家级语言了，PC开始下坡了，android称霸市场了。
    nokia玩完了。为了自己不落后，我要更努力才行啊！！
    现在就想到这么多，之后得再说咯。。
+
+* 具体的计划：
+  我的希望，我希望自己是一个有用的人。对于全世界而言，我都是一个有用的人。
+  我希望全世界的人可以生活的更幸福，生产效率可以更高，有更多的时间去关注
+  生活之外的事情。
+  所以，我要努力学习和努力工作，除了工作之外的内容我还希望有一定空闲的内
+  容存在。当然，早期成长的时间很关键，我也不希望空闲的时间被过多无用的东
+  西所占据。希望cc也是这么想的。
+
+** 已经达成的计划：
+   1. python到现在为止已经基本就位。
+
+** 需要学习的内容。
+   1. 系统的学习现代信息检索方案。（NLP内容）
+      Modern IR. <-> Toefl
+   2. 学习各类数学方法。
+      Paro. nlp
+   3. 英语分数105照旧。
+# 川藏行
+   但六、八、九、十月为最佳
+
+   论文June.-->
+
+
+
+
+* 2012计划表：
+   1. 系统的学习现代信息检索方案。（NLP内容）
+      Modern IR. <-> Toefl
+   2. 学习各类数学方法。
+      Paro. nlp
+   3. 英语分数105照旧。
+
+** 计划目标：
+
+   May 11 会确定Plan A 还是Plan B。
+
+** Plan A
+   |------------+-----------------------------------------+----------------------+------------------------|
+   | <10>       |                                         | <20>                 |                        |
+   | date       | Career/Study                            | Main focus           | Study                  |
+   |------------+-----------------------------------------+----------------------+------------------------|
+   | May  25    | In Admaster -> 5.25 2 months            |                      |                        |
+   | June 25    | 6.25 3 months                           | 川藏?                | EN everyday?           |
+   | July       | stay or goto Sougou/baidu or somewhere? | EN,                  |                        |
+   | Aug.       |                                         | toefl                | NLP BookI[2]/Basic[1]  |
+   | Sept.      | Next job in USA                         | toefl                | NLP BookI/Basic[1]     |
+   | Octo.      | Next job in USA                         | toefl? NLP           | NLP BookII[3]/Basic[1] |
+   | Nov.       | Next job in USA/Abroad App.             | NLP                  | Basic                  |
+   | Dec.       | JOBS oppo in USA/Abroad App.            | Abroad               | Basic                  |
+   |------------+-----------------------------------------+----------------------+------------------------|
+   | 2013       | JOBS in USA cont.                       |                      |                        |
+
+** Plan B
+   |------------+-----------------------------------------+----------------------+---------------------|
+   | <10>       |                                         | <20>                 |                     |
+   | date       | Career/Study                            | Main focus           | Study               |
+   |------------+-----------------------------------------+----------------------+---------------------|
+   | May  25    | In Admaster -> 5.25 2 months            |                      |                     |
+   | June 25    | 6.25 3 months                           | toefl                | NLP BookI/Basic[1]  |
+   | July       | stay or goto Sougou/baidu or somewhere? | toefl                | NLP BookI/Basic[1]  |
+   | Aug.       |                                         | 川藏?                | EN everyday?        |
+   | Sept.      | None.                                   | toefl? NLP           | NLP BookII/Basic[1] |
+   | Octo.      | Next job in USA                         | EN,                  |                     |
+   | Nov.       | Next job in USA/Abroad App.             | NLP                  | Basic               |
+   | Dec.       | JOBS oppo in USA/Abroad App.            | Abroad               | Basic               |
+   |------------+-----------------------------------------+----------------------+---------------------|
+   | 2013       | JOBS in USA cont.                       |                      |                     |
+
+[1]:basic contains Mathmatics, Probabilities, etc.
+[2]:Search Engines Information Retrieval in Practice
+[3]:Modern Information Retrieval:The Concepts and Technology Behind Search Second Edition
+
+* 每日目标。
+  | <10>       | <10>       |
+  | Tasks      |            |
+  | EN:        |            |
+  |            |            |
+  | FINANCE:   |            |
+  |            |            |
+  | IT:        |            |
+  |            |            |
+  | JOBS:      |            |
+  |            |            |
+
+
+* 对cc的想法。
+** 首先是确定工作不工作。
+   1. chuanyejingyinghui...
+   2.
+
+** 经验很重要，推荐信很重要，推荐人更重要。
+
+** 工作之余，背词典吧亲。词典真有用。
+   看英文原著。每个星期看10000words的文章看10篇左右吧。
+
+** After graduate theorem.
+   每天早上锻炼口译，我联系英语，你练习口译。good job。
+
+** 人事能力，IT能力。
+   1. 要学习微观经济学。（写笔记哦。）
+   2. 要学习VBA，或者Python。都是编程的一种，（也是统计相关的知识，不
+      希望你是花瓶，My Love）
+   3. 要学习一点统计相关的东西。（金融知识）
+
+** 现代真正精英的能力：（大前研一）
+   1. 金融
+   2. IT
+   3. 英语
+
+
+
+* 进步评定：
+  从今天开始，每天写总结，每周会议(放假前一日下午7点到8点)，说出本周干
+  了什么。我会写一个表格，然后，咱们两个相互监督，谁写的少了，从吃饭上
+  面监控。因为咱们两个都是吃货。
+
+

@@ -1,0 +1,419 @@
+# -*- mode: org -*-
+# Last modified: <2012-05-07 11:45:10 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   A Practical System of Keywords（主题词） Extraction for weibos
+
+
+* ABSTRACT
+  主题词常被用来方便用户提取文本的主题内容。本系统实现了展示了微博中不
+  同权重算法对自动主题词提取的影响。在系统中，首先使用了基本权重算法：
+  tf-idf来实现最基本的比较效果。然后采用了BM25等后来广泛采用的权重算法。
+  以及采用了tf-iwf-iwf算法，以及推广算法[6-8]。
+  系统的成果则是主要用来自动对新微博进行主题词的提取。参考了[10]
+
+* Categories and Subject Descriptors
+  [Information System Application], [Pattern Recognition]
+  * General Terms:
+    Algorithms, Experimentation, Comparement
+  * Keywords:
+    Keyphrase extraction, weibo message processing, weighting method measure.
+
+* INTRODUCTION
+  本次工作的目标是比较各类权重算法在微博主题词提取的效果，并总结归纳最
+  优算法。微博主题词提取主要是从输入的微博文本中提取最明显最能反映此微
+  博主题信息的内容。提取主题词可以有效帮助系统分类或者用户迅速理解文章
+  内容[3]。主流的权重算法和改进，主要是将权重分为tf部分算法和idf部分算
+  法。其中df值主要通过分词算法训练过程中计算得出，而tf值则是在新输入的
+  特定微博进行计算得出。然后分别对其进行改进[5]。本文参考了常见的tf和
+  idf算法和相应的扩展，并对其在微薄的应用方面进行了一定的研究和探讨，
+  并在最后进行了总结。
+
+* Processing
+
+  程序的主要过程分为三步：首先通过分词算法进行统计训练，然后对新文档进
+  行权重运算。最后通过排名来计算出算法结果。
+** Segmentation Methods
+   本节我们主要介绍在权重微博主题词时所采用的分词算法以及系统的训练方
+   法。
+   #+BEGIN_LaTeX
+   分词算法主要使用了两种已经实现了的分词系统，
+   假设其中输入为某一条微博：s, 则输出的分词结果即为词项w组成的集合
+   \{w,w\in s\}
+   #+END_LaTeX
+*** mmseg
+    其中mmseg为主要是采用传统的统计方法和简单的语法规律。
+
+*** ICTCLAS
+    ICTCLAS采用了HHMM模型进行分词。
+
+*** Stanford Segmenter（暂未采用）
+    Stanford Segmenter主要采用了CRFs模型进行分词。
+
+*** 总结
+    因为分词系统对其影响非常大[12]，所以在对比了mmseg之后，发现mmseg的分词
+    能力极其有限，因此在后面的分词中主要使用ICTCLAS.
+*** df的训练方法：
+    采用从微博中提取的2M条评论进行训练。
+    训练结果：
+    1. 总的微博数目N，
+    2. 在训练过程中，主题词w出现在某条微博s中，则次数加1。
+       训练结果的总次数为df_w。
+
+
+** Weighting Method
+   本节我们主要介绍在权重微博主题词时所采用的各类算法。
+
+*** tf-related method:
+    主要实现的列表如下所示：
+    |---------------------+-------------------------+-------|
+    | tf(Term frequency): | df(Document frequency): | iwf   |
+    |---------------------+-------------------------+-------|
+    | n_tf                | nodf                    | iwf   |
+    | logarithm           | idf                     | iwf_2 |
+    | augmented           | prob idf                | iwf_3 |
+    | boolean             | RSV                     | iwf_4 |
+    | log ave             |                         |       |
+    | BM25_weightingpart  |                         |       |
+    |---------------------+-------------------------+-------|
+
+    主题词w在需要提取主题词的某一条微博s中所出现的次数即为tf_w。
+    1. n_tf(natural term frequency).
+       n_tf即是最基本的tf算法。
+       即为tf_w
+    2. logarithm是采用公式1+log(tf_w)
+    3. augmented是采用公式0.5+(0.5 * tf_w)/max(tf_w)
+    4. boolean 采用公式：int(no_tf>0)
+    5. log ave采用公式：
+       (1+log(tf_w))/(1+log(ave(tf)))
+       其中ave(tf)是\Sigma{tf_w for \all w \in s}/n得出的结果。
+    6. BM25_weightingpart则是BM25中所改进的tf算法。
+
+    使用所有上表中的tf系列函数以及df函数
+
+*** df-related method.
+    1. noDF 则权重不计算简单设成1.(此时学习过程没有任何效果，作对比用。)
+    2. idf 是利用公式：log(N/df_w)计算出的结果。
+    3. prob_idf是利用公式:max(0, log((N-df_w)/df_w))计算出来的结果。
+    4. RSV算法为BM25的前置函数。需要剔除所有呈现负值的词语。（停用词）
+       采用公式：
+       log(N - df + 1 / 2) / (df + 1 / 2)
+
+*** iwf method
+    1. iwf 根据公式log(weight(w)/N)来计算。
+       其中weight(w)是词组w的在所有文档中出现的次数。N是所有词组的数量。
+    2. iwf_2, iwf_3, iwf_4.
+       分别是iwf的2次方，3次方和4次方。
+
+*** 主题词的选取：
+    1. tf-idf
+       每个被对应分词算法提取出的主题词w的权重使用公式：
+       W=tf * idf
+       来计算。
+    2. tf-iwf-iwf
+       每个被对应分词算法提取出的主题词w的权重使用公式：
+       W=tf * iwf()
+       来计算。
+
+    设定n 是微博s所提取的关键词语总数量。
+    我们使用公式进行主题词提取：
+    则对所有权重W_i i \in n的进行逆排序，得出的列表记为Lw
+    总共提取min{n, 5} 个来表现信息中有效的内容。
+
+*** 测量选取
+    提供4句话：
+    s_1 =“今年开始喜欢昆曲和京剧，惊叹于她们的高度抽象。”
+    s_2 =“南都记者核实，多家业内厂商、代理公司确认，已收到官方通知，5月3日起移动终端产品出厂不允许有Google字样及相关应用,违者不进行任何行政审批。工信部要求，所有移动终端产品，包括手机，PAD等设备出厂都不允许带有Google标识、应用。据悉，很多公司软件工程师都在紧急做相关修改、屏蔽。”
+    s_3 =“麦肯锡:企业如何利用社会化媒体来影响消费者决策。”
+    s_4 =“下午四点喝的咖啡到现在还有效。辗转难眠！真狠！莫非还能坚持到天明？！”
+
+    | 语句 | 期待结果                                           | 无意义词组                     |
+    |      | <50>                                               | <30>                           |
+    |------+----------------------------------------------------+--------------------------------|
+    | s_1  | 昆曲 京剧 抽象 高度 惊叹                           | 她们 今年 喜欢 开始 和         |
+    | s_2  | Google 核实 终端 官方 审批 通知 南都 记者          | 很多 要求 允许 据悉            |
+    | s_3  | 麦肯锡 社会化媒体 消费者 企业 影响 决策            | 如何                           |
+    | s_4  | 辗转 咖啡 有效 真狠 天明                           | 能 到 喝 莫非                  |
+    其中任意结果包含各类符号。模式采用添加停用词的方式处理：
+    满足任何一个期待结果，则+0.25的提取能力。有无意义词组则-0.1的提取能力。
+
+* Experiments
+
+** 测量结果。
+   weighting method\seg system   mmseg_segfun(stoplist added)  ICTCLAS_segfun(stoplist added)
+   tf n_df:                  京剧 昆曲 惊叹 今年 开始0.55             京剧 昆曲 惊叹 今年 开始0.55
+#           tf idf:                  昆曲 京剧 惊叹 抽象 高度1.25             昆曲 京剧 惊叹 抽象 高度1.25
+#         tf prob_idf:                昆曲 京剧 惊叹 抽象 高度1.25             昆曲 京剧 惊叹 抽象 高度1.25
+   log_tf n_df:                京剧 昆曲 惊叹 今年 开始0.55             京剧 昆曲 惊叹 今年 开始0.55
+#         log_tf idf:                昆曲 京剧 惊叹 抽象 高度1.25             昆曲 京剧 惊叹 抽象 高度1.25
+#       log_tf prob_idf:              昆曲 京剧 惊叹 抽象 高度1.25             昆曲 京剧 惊叹 抽象 高度1.25
+   a_tf n_df:                 京剧 昆曲 惊叹 今年 开始0.55             京剧 昆曲 惊叹 今年 开始0.55
+#          a_tf idf:                 昆曲 京剧 惊叹 抽象 高度1.25             昆曲 京剧 惊叹 抽象 高度1.25
+#        a_tf prob_idf:               昆曲 京剧 惊叹 抽象 高度1.25             昆曲 京剧 惊叹 抽象 高度1.25
+   b_tf n_df:                 京剧 昆曲 惊叹 今年 开始0.55             京剧 昆曲 惊叹 今年 开始0.55
+#          b_tf idf:                 昆曲 京剧 惊叹 抽象 高度1.25             昆曲 京剧 惊叹 抽象 高度1.25
+#        b_tf prob_idf:               昆曲 京剧 惊叹 抽象 高度1.25             昆曲 京剧 惊叹 抽象 高度1.25
+   L_tf n_df:                 京剧 昆曲 惊叹 今年 开始0.55             京剧 昆曲 惊叹 今年 开始0.55
+#          L_tf idf:                 昆曲 京剧 惊叹 抽象 高度1.25             昆曲 京剧 惊叹 抽象 高度1.25
+#        L_tf prob_idf:               昆曲 京剧 惊叹 抽象 高度1.25             昆曲 京剧 惊叹 抽象 高度1.25
+    
+   weighting method\seg system   mmseg_segfun(stoplist added)  ICTCLAS_segfun(stoplist added)
+   tf n_df:                   有 不 应用 移动 相关0.0               不 都 应用 移动 相关0.0
+#           tf idf:                出厂 Google 终端 允许 相关0.4         出厂 Google 终端 允许 相关0.4
+#         tf prob_idf:              出厂 Google 终端 允许 相关0.4         出厂 Google 终端 允许 相关0.4
+   log_tf n_df:                 有 不 应用 移动 相关0.0               不 都 应用 移动 相关0.0
+#         log_tf idf:              出厂 Google 终端 允许 日起0.4         出厂 Google 终端 允许 相关0.4
+#       log_tf prob_idf:            出厂 Google 终端 允许 日起0.4         出厂 Google 终端 允许 相关0.4
+   a_tf n_df:                  有 不 应用 移动 相关0.0               不 都 应用 移动 相关0.0
+   a_tf idf:                 日起 都在 都不 南都 业内0.25           违者 出厂 Google 家业 据悉0.15
+   a_tf prob_idf:               日起 都在 都不 南都 业内0.25           违者 出厂 Google 家业 据悉0.15
+   b_tf n_df:                  很多 要求 所 有 月-0.2               很多 要求 内 有 不-0.2
+   b_tf idf:                 日起 都在 都不 南都 业内0.25            违者 家业 据悉 PAD 审批0.15
+   b_tf prob_idf:               日起 都在 都不 南都 业内0.25            违者 家业 据悉 PAD 审批0.15
+   L_tf n_df:                  有 不 应用 移动 相关0.0               不 都 应用 移动 相关0.0
+#          L_tf idf:               出厂 Google 终端 允许 日起0.4         出厂 Google 终端 允许 相关0.4
+#        L_tf prob_idf:             出厂 Google 终端 允许 日起0.4         出厂 Google 终端 允许 相关0.4
+    
+   weighting method\seg system   mmseg_segfun(stoplist added)  ICTCLAS_segfun(stoplist added)
+   tf n_df:                   锡 社会 消费 来 媒体0.0               锡 来 消费者 麦 媒体0.25
+   tf idf:                  麦肯 决策 锡 利用 媒体0.25             决策 社会化 锡 肯 利用0.25
+   tf prob_idf:                麦肯 决策 锡 利用 媒体0.25             决策 社会化 锡 肯 利用0.25
+   log_tf n_df:                 锡 社会 消费 来 媒体0.0               锡 来 消费者 麦 媒体0.25
+   log_tf idf:                麦肯 决策 锡 利用 媒体0.25             决策 社会化 锡 肯 利用0.25
+   log_tf prob_idf:              麦肯 决策 锡 利用 媒体0.25             决策 社会化 锡 肯 利用0.25
+   a_tf n_df:                  锡 社会 消费 来 媒体0.0               锡 来 消费者 麦 媒体0.25
+#   a_tf idf:                 麦肯 决策 锡 利用 媒体0.25             决策 社会化 锡 肯 利用0.25
+#   a_tf prob_idf:               麦肯 决策 锡 利用 媒体0.25             决策 社会化 锡 肯 利用0.25
+   b_tf n_df:                  锡 社会 消费 来 媒体0.0               锡 来 消费者 麦 媒体0.25
+#   b_tf idf:                 麦肯 决策 锡 利用 媒体0.25             决策 社会化 锡 肯 利用0.25
+#   b_tf prob_idf:               麦肯 决策 锡 利用 媒体0.25             决策 社会化 锡 肯 利用0.25
+   L_tf n_df:                  锡 社会 消费 来 媒体0.0               锡 来 消费者 麦 媒体0.25
+#   L_tf idf:                 麦肯 决策 锡 利用 媒体0.25             决策 社会化 锡 肯 利用0.25
+#   L_tf prob_idf:               麦肯 决策 锡 利用 媒体0.25             决策 社会化 锡 肯 利用0.25
+    
+   weighting method\seg system   mmseg_segfun(stoplist added)  ICTCLAS_segfun(stoplist added)
+   tf n_df:                   到 咖啡 下午 四点 辗转0.4                到 还 咖啡 辗转 难0.4
+#           tf idf:                  还能 难眠 辗转 四点 天明0.5              辗转 四点 天明 莫非 眠0.4
+#         tf prob_idf:                还能 难眠 辗转 四点 天明0.5              辗转 四点 天明 莫非 眠0.4
+   log_tf n_df:                 到 咖啡 下午 四点 辗转0.4                到 还 咖啡 辗转 难0.4
+#         log_tf idf:                还能 难眠 辗转 四点 天明0.5              辗转 四点 天明 莫非 眠0.4
+#       log_tf prob_idf:              还能 难眠 辗转 四点 天明0.5              辗转 四点 天明 莫非 眠0.4
+   a_tf n_df:                  到 咖啡 下午 四点 辗转0.4                到 还 咖啡 辗转 难0.4
+#          a_tf idf:                 还能 难眠 辗转 四点 天明0.5              辗转 四点 天明 莫非 眠0.4
+#        a_tf prob_idf:               还能 难眠 辗转 四点 天明0.5              辗转 四点 天明 莫非 眠0.4
+   b_tf n_df:                  咖啡 下午 到 四点 辗转0.4                咖啡 辗转 难 到 喝0.3
+#          b_tf idf:                 还能 难眠 辗转 四点 天明0.5              辗转 四点 天明 莫非 眠0.4
+#        b_tf prob_idf:               还能 难眠 辗转 四点 天明0.5              辗转 四点 天明 莫非 眠0.4
+   L_tf n_df:                  到 咖啡 下午 四点 辗转0.4                到 还 咖啡 辗转 难0.4
+#          L_tf idf:                 还能 难眠 辗转 四点 天明0.5              辗转 四点 天明 莫非 眠0.4
+#        L_tf prob_idf:               还能 难眠 辗转 四点 天明0.5              辗转 四点 天明 莫非 眠0.4
+
+   综上所述，L_tf和idf或者prob_idf的配合是最好的。
+   因为例子有限，得出结论未免偏颇。但是n_df的排名明显反映了机器
+   学习过程对数据产生是非常有帮助的。
+
+*** 新的测量方案。
+    将所有的停用词添加到一个list中。然后计算出所有词汇的权重，记初始为
+    0，设词w在该算法下排名为i，每一个算法最后的权重结果为r：\Sigma{i^2 all i \in
+    list}
+    最后将r结果按照大小排列。
+    按照最后的权重计算结果。
+
+    | Combination                     |  results |
+    |---------------------------------+----------|
+    | b_tf and prob_idf               |  -267090 |
+    | b_tf and RSV                    |  -267090 |
+    | b_tf and idf                    |  -268960 |
+    | b_tf and iwf_4                  |  -268960 |
+    | b_tf and iwf_3                  |  -268960 |
+    | b_tf and iwf_iwf                |  -268960 |
+    | a_tf and iwf_4                  |  -273782 |
+    | a_tf and iwf_3                  |  -276183 |
+    | BM25_weightingpart and iwf_4    |  -277720 |
+    | a_tf and RSV                    |  -278646 |
+    | a_tf and iwf_iwf                |  -282848 |
+    | BM25_weightingpart and iwf_3    |  -282877 |
+    | log_tf and iwf_4                |  -283632 |
+    | L_tf and iwf_4                  |  -283632 |
+    | BM25_weightingpart and RSV      |  -285055 |
+    | L_tf and RSV                    |  -294163 |
+    | log_tf and RSV                  |  -294163 |
+    | L_tf and iwf_3                  |  -295928 |
+    | log_tf and iwf_3                |  -295928 |
+    | BM25_weightingpart and iwf_iwf  |  -299198 |
+    | tf and iwf_4                    |  -305242 |
+    | a_tf and prob_idf               |  -318183 |
+    | a_tf and idf                    |  -320672 |
+    | tf and RSV                      |  -323301 |
+    | L_tf and iwf_iwf                |  -324817 |
+    | log_tf and iwf_iwf              |  -324817 |
+    | tf and iwf_3                    |  -325559 |
+    | BM25_weightingpart and prob_idf |  -362882 |
+    | BM25_weightingpart and idf      |  -370403 |
+    | tf and iwf_iwf                  |  -387689 |
+    | L_tf and prob_idf               |  -435323 |
+    | log_tf and prob_idf             |  -435323 |
+    | L_tf and idf                    |  -447926 |
+    | log_tf and idf                  |  -447926 |
+    | tf and prob_idf                 |  -609787 |
+    | tf and idf                      |  -628415 |
+    | b_tf and n_df                   | -2070119 |
+    | L_tf and n_df                   | -2512131 |
+    | tf and n_df                     | -2512131 |
+    | BM25_weightingpart and n_df     | -2512131 |
+    | a_tf and n_df                   | -2512131 |
+    | log_tf and n_df                 | -2512131 |
+    |---------------------------------+----------|
+
+    有结果我们可以看到。b_tf系列最容易得到最好的结果，而由于RSV和
+    prob_idf的差距过小。仅仅添加了一个值为0.5的平衡参数。所以在测试集
+    为1500的微薄评论集合中并没有体现出任何优势。
+    本方法对于本微薄中出现的多次词影响很大。即使词应该被提出来，但是还
+    是被扣分。所以判断惩罚不正当。
+    由于词典获得方式不同，iwf在实验中的作用也非常有限。简单调用idf来当
+    作iwf使用。
+
+# ** 对idf和prob_idf函数曲线的观察：
+#    有数据可知在测试中，tf函数的选取对其有较大影响，而idf和prob_idf的选
+#    取对其影响很小，因此是否因为两函数选取差距不大引起的：
+
+#    采用代码1，进行两函数图形对比，
+#    可以发现prob_idf比idf的分布更广，对词频高的主题词惩罚更多。但是由于
+#    数据稀疏所导致670k数据左右的时候优化很少了。
+#    而根据zipf定理以及对2M数据的分析来看,微博数据近90%(200K后)的词汇都
+#    是集中在发生一次的情况下。
+#    如代码2展示：
+#    进一步思考：可能是由于微博只包含少量的几句话，因此数据密度极其稀疏，所以在
+#    选取N值的权重选取则更需考究才能使各个词语的权重差增大从而改进排名。
+#    PS：可能初始假设的时候假设为阶乘关系会加大学习过程对新微博主题词提
+#    取权重的影响。
+#    但是这个贺贺认为阶乘不行，以为不够连续，可能iwf-3在文献中的表现最
+#    好，可以加以利用。
+
+* CONCLUSION
+
+  其中OOV对本次测量的影响较大，对OOV的识别将会是微博中非常重要的一点。
+  比如“fw，转发，评论”等一类常用词汇可能在其他类文章有很重要意义，但在
+  微博中则无法表现主题的任何内容。
+** 选取测试模型太重要。
+   刚开始选取的是stopword形的测试，即按照无效关键字的排名来进行比较，但
+   是有的算法对stopword列表的依赖比较高。如果直接采用本排名来确定算法是
+   否有效则会丢失很大一部分的精度。而且，将高频主题字排在最后，本来就是
+   统计学的结果，并不是我们平常意义上所认为的最优结果，无法判断统计性能
+   的优劣。
+   我之后想到的方法主要是先判断是否长度为1，然后判断是否在停用词之中。
+   其中，权重可能计算为负的此项直接略去。
+
+   进一步探索，应该人肉处理一定量的数据（200-2000条）通过[9]来评定算法
+   的优劣。进一步数据源处理，根据微薄长度的不同应该分别对待分为少于70字
+   的，多余70字的。
+
+
+* 关于算法改进的展望
+  暂时考虑评论就是微薄，事实上，评论，转发和原创微薄是截然不同的类别。
+  在下一步的tf运算的时候是需要考虑的内容。文献[8]分析可能是因为数据集
+  偏斜引起的无法分开差距。其中因为类别不同而改进tf-idf算法会获得很好的
+  效果提升。
+
+* REFERENCES
+  [1] 基于增量词集频率的文本主题词提取算法研究  刘兴林 ,彭宏 ,马千里
+  [2] 赵鹏,蔡庆生,王清毅, 一种基于复杂网络特征的中文文档关键词抽取算法
+  [3] Why Keywording Matters http://library.web.cern.ch/library/Webzine/10/papers/2/
+  [4] 曾元显. 关键词自动提取技术与相关词反馈. 中国图书馆学会会报,
+  1997, 59: 59-64.
+  [5] 施聪莺,徐朝军,杨晓江. TFIDF 算法研究综述[J] 计算机应用,
+
+  研究发现对大于200个词的文章利用TFIDF分类效果比较理想,而聊天文本通常
+  每次输入都是很简短的文本,用传统的TFIDF算法效果不好。
+  如何在实验中调节TFIDF的各项参数以适应实际需求,目前仍无一个通用法则,
+  需要读者自己在实践中尝试。
+
+  [6]基于大规模真实文本的平衡语料分析与文本分类方法
+  [7].王宇 基于TFIDF的文本分类算法研究 2006
+  [8].景丽萍;黄厚宽;石洪波 用于文本挖掘的特征选择方法TFIDF及其改进 2003(03)
+  对TF-IWF-IWF进行了改进。
+  TF 采用频率立方根时效果最好,但是在小规模类型数据的时候，并没有体现出
+  来优势。
+
+  [9]关键词抽取方法的研究
+  本文献使用的是中国科学院上海文献中心所提供的具体的文献，其产生的要领
+  并不是尽如人意。毕竟微薄和文献无论是长度还是文本分布都有较大区别，但
+  是有一定的借鉴意义。
+
+  [10]一种基于TFIDF的网络聊天关键词提取算法
+  这种算法,既突出了文档中出现频数较高的词, 又除去了在各文档中出现次数
+  都很高的常用词的影响。对于单词数大于200同的静态文本,其效果比较令人满
+  意.
+  在实验过程中,主观感觉到,改进后的算法提取出来的关键词可以比较好地表达
+  聊天者当前的意图。
+
+  [11]自动标隐的回顾与展望
+  自动抽词标引即由计算机自动从文本中抽取词或短语来表达信息资源的主题内容
+
+  [12]一种基于词汇链的关键词抽取方法。
+  分词对关键词的影响较大。
+
+
+* APPENDIX
+
+** 代码1
+   #+begin_src python
+import matplotlib.pyplot as plt
+from math import log
+
+def prob_idf(N, df):
+    term2 = log((N - df)/df)
+    return max(0, term2)
+
+def show_prob_idf(MIN, MAX, n=2000000):
+    """
+    show prob_idf curve, in MIN and MAX
+    """
+    y1 = []
+    y2 = []
+    for i in xrange(MIN, MAX):
+        y = prob_idf(n, i)
+        if y == 0:
+            break
+            print i
+        y1.append(y)
+        y2.append(log(n / i))
+    print y
+    plt.plot(y1, "b")
+    plt.plot(y2, "k")
+
+    plt.show()
+
+if __name__ == '__main__':
+    show_prob_idf(1, 1900000)
+   #+end_src
+
+** 代码2
+
+   #+begin_src python
+def show_range(MIN, MAX):
+    colorlist = "bcgkmrwy"
+    # blue,cyan,green,black,magenta,red,white,yellow
+
+    filelist = ["mmseg_save.bak", "ICTCLAS_save.bak", "mmseg_save_with_stopwords.bak", "ICTCLAS_save_with_stopwords.bak"]
+    #                 blue,         cyan                     green                    black
+    i = 0
+    for f in filelist:
+        we = WeightEngine()
+        we.load_record(f)
+        x = [item[1] for item in sort_dict(we._dict)[MIN:MAX]]
+        plt.plot(x, colorlist[i]);
+        i += 1
+
+    plt.show()
+    return
+if __name__ == '__main__':
+    show_range(100, 10000)
+    #zipf
+    # for a in [100, 2000, 20000, 200000]:
+    #     print a
+    #     show_range(a, a + 100)
+    a = 200000
+    show_range(a, a + 100)
+
+   #+end_src
+
