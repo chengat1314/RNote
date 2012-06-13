@@ -1,0 +1,38 @@
+# -*- mode: org -*-
+# Last modified: <2012-06-11 22:00:09 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   关于我
+
+我是王润潮，欢迎访问我的网站。
+
+* 如何联系到我
+
+My Email: chao78787@gmail.com
+
+粉我新浪微博吧，亲：
+http://weibo.com/wangrunchao
+你要是用非死不可，或者推特，就请访问英文版本的本页面，谢谢啦。
+
+
+本网站是开源的，由heroku云平台支持，源码可以从github访问：
+https://github.com/chao787
+
+本人所有的开源项目都会不定期更新，如果有人发现bug或者有很nb的想法，可以通过以上方式联系到我。
+
+* PS
+1. 主要关注于计算机语言学，自然语言处理，以及人工智能相关的领域。
+2. 主要使用emacs，基本不用其他的编辑器。
+3. mongoDB不错，我喜欢用。
+4. 一般使用4种语言解决问题：
+   1. C
+   2. C++
+   3. Python
+   4. elisp
+5. 偶尔使用这些语言处理问题：
+   1. bash shell
+   2. javascript.
+   3. java.
+   4. HTML(只是写一些很酷的东西，现在你看到的这个就是咯。)
+6. 偶尔关注大规模并行开发等内容，暂时没空关注。：）
+
+

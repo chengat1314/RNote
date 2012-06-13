@@ -1,0 +1,86 @@
+# -*- mode: org -*-
+# Last modified: <2012-06-13 10:19:21 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   whyWebsite
+
+1. For Lazyness.
+   - I prefer to use git to manage my articles.
+   - I use org to record all my articles.
+   - I use my local folder to manage my System.
+
+哪里有需求，哪里有目标。
+为什么选取tornado
+首先希望选取一个轻量级的架构。排除了最常用的django。
+之前其实更多参考的是bottle，但是考虑到tornado有FB在后面对其维护，而且
+版本号已经到了2.x，更加稳定。之后不可能对主体结构不断的更改。
+
+想到使用HTML5会干掉大多数人的浏览器，我就很开心。。。汗ing
+
+
+* 主要实现功能列表：
+
+** TODO :WSGI显示部分，主要包括： [0%]
+   - [ ] 各种网页的模板，评论结构。
+   - [ ] 自动获取数据库中的数据，首先是结构，决定显示内容，然后是数据信息，
+      决定网站的整体结构。
+   - [ ] 订阅结构
+
+** TODO :数据库的链接部分，主要表结构：[0%]
+   - [ ] 文章部分
+   | Key              | Value    |
+   |------------------+----------|
+   | _id              | title?   |
+   | content          |          |
+   | Original file    | org file |
+   | date             |          |
+   | folder(category) |          |
+   | tag system       | tag list |
+
+   - [ ] 评论：
+   | Key     | Value |
+   |---------+-------|
+   | _id     |       |
+   | comment |       |
+
+   - [ ] 结构：
+   | key        | Value           |
+   | _id        | folder          |
+   | sub folder | sub_folder_list |
+   *: 考虑转发结构，包含sina, webqq等内容。
+
+** org-mode 文档的解析部分，主要分为3个子部分：[50%]
+   org-mode 是一个面向行的语法模型
+   主要需要实现的功能有
+   1. [ ] :题目
+      #+TITLE
+   2. [ ] :其他注释参数
+      #
+   3. [ ] :主题等级 *
+   4. [X] :表
+      |   |   |
+      |---+---|
+      |   |   |
+   5. [X] :序号
+   6. [X] :bulletin.
+
+** 控制部分，主要包括：[0%]
+   步骤：
+   1. [ ] 手动上传到数据库中。
+   2. [ ] 当监听到不同时，自动上传本地文本内容，包括结构到数据库中。
+   3. [ ] emacs插件，自动上传机制。。。。It depends...
+   4. [ ] 数据存储过程可以考虑远程git操作。
+
+* Official Description about org mode.
+  Org is a toolbox and can be used in different ways and for different
+  ends, an outline extension with visibility cycling and structure
+  editing.
+  - an ASCII system and table editor for taking structured notes.
+  - a TODO list editor.
+  - a full agenda and planner with deadlines and work scheduling.
+  - an environment in which to implement David Allenfls GTD system.
+  - a simple hypertext system, with HTML and L TEX export.
+  - a publishing tool to create a set of interlinked webpages.
+  - an environment for literate programming.
+
+
+

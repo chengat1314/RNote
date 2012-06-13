@@ -1,0 +1,118 @@
+# -*- mode: org -*-
+# Last modified: <2012-06-07 15:39:27 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   text_similarity
+
+Related work can roughly be classified into four major categories:
+* Classification
+** Word co-occurrence/vector-based document model methods.(Unsupervised methods)
+
+1. co-occurrence:
+   The vector-based document model methods are commonly used in
+   Information Retrieval (IR) systems [Meadow et al. 2000], where
+   the document most relevant to an input query is determined by
+   representing a document as a word vector, and then queries are
+   matched to similar documents in the document database via a
+   similarity metric [Salton and Lesk 1971].
+   One extension of word co-occurrence methods leads to the
+   pattern matching methods which are commonly used in text mining and
+   conversational agents [Corley and Mihalcea 2005]. This technique
+   relies on the assumption that more similar documents have more words
+   in common. But it is not always the case that texts with similar
+   meaning necessarily share many words. Again, the sentence
+   representation is not very efficient as the vector dimension is very
+   large compared to the number of words in a short text or sentence,
+   thus, the resulting vectors would have many null components.
+
+
+** Corpus-based methods.
+
+*** Latent Semantic Analysis(LSA)
+    The underlying idea is that the aggregation of all the word
+    contexts in which a given word does or does not appear provides
+    a set of mutual constraints that largely determines the
+    similarity of meaning of words and sets of words to each other.
+
+    It uses Singular Value Decomposition (SVD) to find the semantic
+    representations of words by analyzing the statistical
+    relationships among words in a large corpus of text.
+    When LSA is used to compute sentence similarity, a vector for each
+    sentence is formed in the reduced-dimensional space; similarity is
+    then measured by the cosine of the angle between their
+    corresponding row vectors.
+    As a result the vector is fixed and is thus likely to be a very
+    sparse representation of a short text such as a sentence. LSA does
+    not take into account any syntactic information and is thus more
+    appropriate for longer texts.
+
+*** Hyperspace Analogues to Language
+    The HAL method uses lexical co-occurrence to produce a
+    high-dimensional semantic space. A semantic space is a space in
+    which words are represented as points, and the position of each
+    word along the axes is related to the word’s meaning. Once the
+    space is constructed, a distance measure can be used to determine
+    relationships between words. In HAL, this space is con structed by
+    first passing a window over a large corpus and recording weighted
+    lexical co-occurrences (words closer to the target word are given
+    a higher weight than words farther away). These results are
+    recorded in an n × n co-occurrence matrix with one row and one
+    column for each unique word appearing in the corpus. Once this is
+    complete, a vector representing each word in 2n dimensional space
+    is formed by concatenating the transpose of a word’s column to its
+    row. Subsequently, a sentence vector is formed by adding together
+    the word vectors for all words in the sentence. Similarity between
+    two sentences is calculated using a metric such as Euclidean
+    distance. However, the authors’ experimental results showed that
+    HAL was not as promising as LSA in the computation of similarity
+    for short texts [Burgess et al. 1998]. HAL’s drawback may be due
+    to the building of the memory matrix and its approach to forming
+    sentence vectors: The word-by-word matrix does not capture
+    sentence meaning well and the sentence vector becomes diluted as a
+    large number of words are added to it [Liet al. 2006].
+
+
+** Hybrid methods
+   Hybrid methods use both corpus-based measures [Turney 2001] and
+   knowledge-based measures [Leacock and Chodorow 1998; Wu and Palmer
+   1994] of word semantic similarity to determine the text similarity.
+
+** Descriptive feature-based methods.
+   Feature-based methods try to represent a sentence using a set of
+   predefined features. Similarity between two texts is obtained
+   through a trained classifier. But finding effective features and
+   obtaining values for these features from sentences make this
+   category of methods more impractical.
+
+* the STS(Semantic Text similarity)
+  Combining string similarity, semantic similarity and common-word
+  order similarity with normalization.
+
+
+
+
+
+
+
+
+
+
+
+* some thing more about sentence-level input.
+  Based on subject:
+1. Some of those studies interpret the similarity from the pure
+   mathematical perspective based on statistics or probability theory.
+
+2. Some estimate it from the perspective of semantics contained in the
+   paragraph or whole document using lexical resource;
+
+3. Some other methods combine the ideas mentioned above to achieve the
+   goal.
+
+   Three draw backs of traditional text similarity method:
+1. Some methods represent a sentence as a high-dimensional vector
+   which leads to the sparse data problem and computational inefficiency [20].
+2. Some methods are not totally automatic and need active human involvement [9].
+3. Some methods are domain-limited, and cannot be applied in general.
+
+
+

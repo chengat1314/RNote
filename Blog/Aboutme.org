@@ -1,0 +1,39 @@
+# -*- mode: org -*-
+# Last modified: <2012-06-11 21:56:44 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Aboutme
+
+I am Richard Wong, Welcome everybody to my website.
+
+* How to contact Richard?
+
+My Email: chao78787@gmail.com
+Follow Richard on twitter. https://twitter.com/chao787
+Follow Richard on Facebook. https://facebook.com/chao787
+Follow Richard on sina weibo. http://weibo.com/wangrunchao
+My Github repos link
+
+This website is hosted on heroku, and you can get source code from:
+https://github.com/chao787
+
+I am going to fix my github repos in 3 months.
+All projects are under maintained in a long term(by me).
+repos will update if someone ask me to fix some bugs or add some new
+and cool features, or I get bugs and fix it.
+
+* PS
+1. Focus on computing linguistic, or Natural Language Processing, some research area AI-related.
+2. Using emacs as my main editor.
+3. mongoDB is a good choice. My under-graduate project is use mongoDB as
+   a backend.
+4. Using 4 language to hack problems:
+   1) C
+   2) C++
+   3) Python
+   4) elisp
+5. I use these language sometimes.
+   1) bash shell.
+   2) javascript.
+   3) java.
+   4) HTML. (writing some cool project, as you have seen now.)
+

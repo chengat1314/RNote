@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-05-03 23:32:40 Thursday by richard>
+# Last modified: <2012-06-06 16:09:19 Wednesday by richard>
 #+STARTUP: showall
 #+TITLE:   2012plan
 
@@ -112,6 +112,38 @@
 [1]:basic contains Mathmatics, Probabilities, etc.
 [2]:Search Engines Information Retrieval in Practice
 [3]:Modern Information Retrieval:The Concepts and Technology Behind Search Second Edition
+
+* According to Dragon's plan, I use plan B as my main plan.
+
+now I plan a explained plan for the latter part of 2012
+from 2012-06-06 to 2012-12-31
+Considering my next job, I just do my best to have a great job to
+learn and write cool things.
+
+| Project List:                               | Lasting times                  | Expect date from | Expect date to | done? |
+|---------------------------------------------+--------------------------------+------------------+----------------+-------|
+| Personal web page                           | 1-2 weeks about 1-2 hrs a day. |       2012-06-06 |     2012-06-20 | [ ]   |
+| Text Clustering.                            | 1 week about 6 hrs a day.      |       2012-06-06 |     2012-06-13 | [ ]   |
+| Linux pinyin input method.                  | 4-6 weeks about 2-3 hrs a day. |       2012-06-11 |     2012-07-24 | [ ]   |
+| - Combine baidu pinyin dict and sougou dict |                                |                  |                | [ ]   |
+| Chanllenging the  Chuan-Zang path.          | 4 weeks                        |       2012-08-01 |     2012-08-30 | [ ]   |
+| Search engine.(Next big project)            | 8-12 Weeks about 4 hrs a day   |       2012-09-01 |     2012-12-31 | [ ]   |
+| - Web Crawler.                              |                                |                  |                | [ ]   |
+| - Web Retrieval.                            |                                |                  |                | [ ]   |
+| - Indexing and Searching                    |                                |                  |                | [ ]   |
+| Machine Translation                         |                                |                  |                | [ ]   |
+
+English plan:(frequency is the most important.)
+1. Join the July Toefl test. comm. with cc for more info.
+
+Math plan:
+1. Basic model skills.
+2. probability skills.
+2. Linear Algebra skills.
+3. more skills.
+4. Calculus Skills.
+
+
 
 * 每日目标。
   | <10>       | <10>       |

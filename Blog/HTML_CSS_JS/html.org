@@ -1,0 +1,32 @@
+# -*- mode: org -*-
+# Last modified: <2012-06-07 16:25:51 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   html5
+
+
+* basic structure about HTML5
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+</head>
+
+<body>
+The content of the document......
+</body>
+
+</html>
+
+* ...
+
+
+
+
+
+
+
+
+
+
+
