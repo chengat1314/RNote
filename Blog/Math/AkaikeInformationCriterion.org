@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-08-13 18:27:33 Monday by richard>
+# Last modified: <2012-08-14 22:23:49 Tuesday by richard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -25,9 +25,117 @@
      requires an extension of the traditional likelihood paradigm.
   7.
 * Outline:
-  - Model Selection Framework
-  - Kullback-leibler Information
-  - Derivation of AIC.
-  - Properties and Limitations of AIC.
-  - Use of AIC.
-  - Application.
+** Model Selection Framework
+   * Suppose a collection of data y has been generated according to an
+     unknown model or density g(y).
+   * We endeavor to find a fitted parametric model which provides a
+     suitable approximation to g(y).
+   * Let F(k)={f(y|θ_k)|θ_k \in Θ(k)} denote a
+     k-dimensional parametric class, i.e., a class of densities in
+     which the parameter space Θ(k) consists of k-dimensional
+     vectors whose components are functionally independent.
+   * Let θˆ_k denote a vector of estimates obtains by maximizing the
+     likelihood function f(y|θ_k) over Θ(k).
+   * Let f(y|θˆ_k) denote the corresponding the corresponding fitted
+     model.
+   * Suppose our goal is to search among a collection of classes
+     F={F(k1), F(k2), ..., F(Kl)} for the fitted model f(y|θˆ_k),
+     k∈{k1, k2, ..., kl}, which serves as the "best" approximation to
+     g(y).
+   * Note: AIC may be used to delineate between different fitted
+     models having the same dimension.
+   * For simplicity, we assume that each candidate model class F(k)
+     and the corresponding fitted model f(y|θˆ_k) are distinguished by
+     the dimension k.
+   * Our model selection problem can therefore be viewed as a problem
+     of dimensoin determination.
+
+*** Conclusion:
+    - True or generating model: g(y)
+    - Candidate or approximating model: f(y|θ_k)
+    - Fitted model: f(y|θˆ_k)
+    - candidate family: F
+
+*** Determine fitted models
+    To determine which of the fitted models {f(y|θˆ_k1),
+    f(y|θˆ_k2),..., f(y|θˆ_k_L)} best approximates g(y), we require a
+    measure which provides a suitable reflection of the disparity
+    between the true model g(y) and an approximating model f(y|θ_k)
+*** The /Kullback-leibler Information/ is one such measure.
+
+** Kullback-leibler Information
+   For two arbitrary parametric densities g(y) and f(y), the
+   *Kullback-Leibler information* or *Kullback's directed divergence*
+   between g(y) and f(y) wich respect to g(y) is defined as:
+
+   I(g, f)= E{ln(g(y)/f(y))},
+
+   which E denotes the expectation under g(y).
+     * I(g, f)>= 0 with equality if and only if g and f are the same
+       density.
+     * I(g, f) reflects the separation between g and f.
+     * I(g, f) is not a formal distance measure.
+
+*** Next Step:
+    Consider the KL Information between the true model g(y) and the
+    approximating model f(y|θ_k) with respect to g(y), which we will
+    denote as I(θ_k):
+
+     I(θ_k) = E{ln(g(y)/f(y|θ_k)))}.
+     * In the preceding expression and henceforth, E denotes the
+       expectation under the true density or model.
+
+*** Kullback discrepancy
+    Let
+    d(θ_k) = E{-2ln(f(y|θ_k))}.
+    * d(θ_k) is often called the *Kullback discrepancy*.
+    * Note we can write:
+      2I(θ_k) = d(θ_k) - E{-2ln(g(y))}.
+      * Since E{-2ln(g(y))} does not depend on θ_k, any ranking of a
+        set of candidate models corresponding to values of I(θ_k)
+        would be identical to a ranking corresponding to values of
+        d(θ_k).
+      * Hence, d(θ_k) serves as a valid substitute for  I(θ_k).
+      * Evaluating d(θ^_k) is not possible, since doing so requires
+        knowledge of g(y).
+      * The work of Akaike suggests that -2lnf(y|θ^_k) serves as a
+        biased estimator of d(θ^_k). and that the bias adjustment:
+        E{d(θ^_k)} - E{-2ln(f(y|θ^_k))}
+        can often be asymptotically estimated by twice the dimension
+        of θ_k.
+
+** Derivation of AIC.
+   Since k denotes the demension of θ_k, under appropriate conditoins,
+   the expected value of :
+   AIC = -2ln(f(y|θ_k)) + 2k
+   should asymptotically approach the expected value of d(θ^_k), say:
+   ∆(k) = E{d(θ^_k)}.
+   * Specifically, one can establish that:
+     E{AIC} + o(1) = ∆(k)
+   * AIC therefore provides an asymptotically unbiased estimator of
+     ∆(k).
+   * ∆(k) is often called the *expected Kullback discrepancy*.
+   * ∆(k) reflects the average separation between the generating model
+     g(y) and fitted models having the same structure as f(y|θ^_k)
+
+
+** Properties and Limitations of AIC.
+** Use of AIC.
+   * A substantial advantage in using infomation-theoretic criteria is
+     that they are valid for nonnested models. Of course, traditional
+     likelihood ratio tests are defined only for nested models, and
+     this represents another substantial limitation in the use of
+     hypothesis testing in model selection.
+   * AIC can be used to compare models based on different probalitity
+     distributions.
+   * However, when the criterion values are computed, no constants
+     should be discarded from the goodness-of-fit term -2 ln(f(y|θ_k)).
+   * Keep in mind that certain statistical software packages routinely
+     discard constants in the evaluation of likelihood-based selection
+     criteria.
+   * In a model selection application, the optimal fitted model is
+     identified by the minimum value of AIC. However, the criterion
+     values are important, models with similar values should receive
+     the same "ranking" in assessing criterion preferences.
+
+** Application.
