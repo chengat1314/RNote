@@ -1,0 +1,106 @@
+# -*- mode: org -*-
+# Last modified: <2012-07-24 16:41:08 Tuesday by richard>
+#+STARTUP: showall
+#+TITLE:   Jul 23 - 30 (Week 30)
+
+* Relationship
+* 上周总结
+  1. 分布式结构的服务框架，优化API的结构。
+     与@nipeng交互，处理API。
+  2. 优化分词服务，貌似太慢。
+     原因：本来应该很快的，但是机器问题是主要的，现在更换机器后，速度
+     还是非常快的。
+  3. 写服务器的deploy过程。
+  4. 总结处理分词的一些小问题。
+
+*  本周任务。
+1. github自动部署过程。
+2. 总结python的测试。（包含大体结构）
+   刚刚完成一部分，之后会系统的整理python的测试框架和具体的用法。内容
+   还是有不少的。比想象的还要多一点。
+3. 和@nipeng，@lihe一起code review。
+4. 总结结构，能否设计出自动生成的python tornado服务过程。
+5. 继续改进分词结构。
+6. 看完release it。
+
+* 吐槽1
+  大家都不好意思吐槽，我今天吐槽一下。
+  网速啥时候能够改进啊，感觉很影响我的开发效率啊。我都感觉自己很少操作
+  服务器了，经常操作服务器的不疯掉了？？我反正hold不住了。
+  FaQ：
+  1. 需要那么快的网速吗？
+     特别需要，各种文档，各种服务器访问，各种操作都需要，今天发送邮件，
+     写邮件没用多少时间，发邮件服务器404了很久。
+     断水断电不断网！
+  2. 多快的网速比较合适？
+     听说咱们这里还不到20M，不可接受。
+     平均每人1M宽带，今天数数，大概35人，至少35M宽带。
+     我家里面6个人就20M。5个人还经常不在家。让我这个喜欢加班的人情何以
+     堪？
+  3. 网速慢是否是带宽问题？或者说根因何在？
+     跟写代码一样，root cause才是最重要的地方。
+     路由设置是否有问题？运算能力是否足够？这个都是应该考虑的问题。
+     但是这个不能草草了事，网速依然缓慢，你让我等请何以堪？
+
+  最后，一定要为我们加班的人做主啊。T T
+
+* 吐槽2
+  另外，分享文件的途径是通过redmine上面的wiki共享，但是事实上，更新之
+  后并没有提醒，是否应该更改共享途径还是，就是redmine的设置问题？
+
+
+* 分享
+  如果有兴趣可以参考我的附件，是到现在为止对test常用的框架总结和个人的
+  一些小经验。但是因为网速慢安装不上转pdf的插件，所以各位只能看org文档。
+
+
+
+#!/usr/bin/env python2
+# coding=utf-8
+
+# Last modified: <2012-07-24 16:26:39 Tuesday by richard>
+
+# @version 0.1
+# @author : Richard Wong
+# Email: chao787@gmail.com
+/package
+module...
+/ packagename
+- - - setup.py
+- - -/ module name.
+     / __init__.py
+     a.py -->  import module.b....
+     b.py
+- - -/ bin
+- - - execute python files.
+- - -/ test(s) / kjdfdkjfdjkf_test.py
+- - -/ lib(C Module.)
+
+/ bin...
+/ __main__.py
+insert....
+/ lib / module
+___ > __init__.py
+bin --->/ kdkd
+server from dddd
+lib / ldsslkd
+package.NN
+NLP... NLP...
+
+
+/ py.test
+/ unittest2
+xUnit..
+setUpModule.
+
+/ mox
+Mocking in python.
+
+/ unittest pyUnit.
+setUp.tearDown.
+  Unit Test.
+/ nose.
+/ pydoc
+
+
+# abc.py ended here

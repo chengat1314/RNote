@@ -1,0 +1,10 @@
+# -*- mode: org -*-
+# Last modified: <2012-07-01 09:04:08 Sunday by richard>
+#+STARTUP: showall
+#+TITLE:   Emacs Documentation
+
+* Intro to Emacs..(For vim programmer.)
+  emacs主要分为
+
+
+* Emacs 进阶。

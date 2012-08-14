@@ -1,0 +1,14 @@
+# -*- mode: org -*-
+# Last modified: <2012-07-20 08:58:24 Friday by richard>
+#+STARTUP: showall
+#+TITLE:   Intro
+
+
+* Production and realworld.
+  Prodcution is the only place to learn how the software will response
+  to real-world stimuli.
+  Do any approach that begins the leraning process as soon as possible. 
+
+* Time trade-off.x
+  Don't avoid one-time development expenses at 
+  the cost of recurring operational expenses.

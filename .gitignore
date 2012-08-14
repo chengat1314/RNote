@@ -1,2 +1,8 @@
 *~
 *#
+*.tex
+*.pdf
+*.log
+*.md
+*.markdown
+*auto*

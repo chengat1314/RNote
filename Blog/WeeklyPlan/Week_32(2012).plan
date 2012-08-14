@@ -1,0 +1,158 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-13 08:17:48 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Aug 06 - 13 (Week 32)
+
+* Relationship
+** TODO
+
+* Professional Skill
+
+  上一周没有写工作总结，因为记录性质的东西太少，没有什么干货，主要就是那
+  个测试，你们都看到咯。详见pdf了。
+  看了赵stone的周报，感觉就是粒度很小，很容易看出来时间是如何利用，有没
+  有浪费了。这是一个非常好的习惯。曾经看过时间管理的一些书，即使每天只是
+  严格记录自己在什么时间做什么的流水帐，也会逐渐提高自己的效率，发现自己
+  的不足。粒度很关键！
+
+** <2012-08-06 Mon>
+   1. 今天看到很多人用emacs很开心，但是有的时候发现每个人的使用习惯不
+      一样，基本的操作还是先看手册比较合适，
+      另外，hehe问我emacs的操作有没有什么标准的方法，我个人对于emacs的
+      理解是符合你的操作习惯，我到现在为止大概看了reference也就大半，
+      里面内容繁杂众多，即使是插件，看过ref之后，也会发现写的不标准，
+      emacs的ref可以作为进阶的目标，看到它，它会告诉你推荐方法。
+      比如获得emacs版本，有n种方法，但是只有一种方法是最标准的。
+
+      但事实上你写出来的插件不一定好用，除了一些经常用到的插件，自己多
+      多使用emacs形成自己的行为习惯才最重要。
+      emacs在打开的buffer中进行跨buffer搜索确实没有vim方便，但是那是你
+      没有添加自己的函数的，可以自己定义一些函数，牛逼的写出这些函数。
+      入门级别的文章可以参考这个：
+      + [[http://ergoemacs.org/emacs/elisp.html][Xah Emacs Lisp Tutorial]]
+   2. 今天强调使用redmine非常有意义，这将会加强每个人的执行力，虽然往
+      上面写是那么的浪费时间。
+      那么redmine的其他问题就出来了：
+      1. 每天是否应该都更新，如何更新？
+      2. 有没有一些指导性的原则？
+      3. 其他具体问题。
+
+** <2012-08-07 Tue>
+   1. 今天修复了bug，本来计划使用5个小时解决这个问题的，代码中暴露出来
+      的各种问题总是让人各种困扰，模糊不清python的底层机制将人麻痹。如
+      果使用C++一定不会出现这些问题，关键的问题就是没有系统的处理这个
+      问题。
+   2. 不要调用你不知道接口特性的库：
+      （在苦逼的中国大学出来的同学肯定知道，绝大多数的老师就会教你用
+      IDE的代码生成功能）
+      真正的开始学习的时候，则被人强调一个概念，==不要调用你不知道接口
+      特性的库==，更不要使用你不知道其中原因的代码，我想这也是为什么
+      C++被广大菜鸟认为垃圾不好掌握的原因。
+      要了解其中的坑，才能知道bug的root cause，不懂root cause即使看似
+      修正了bug留下的问题更多。
+   3. 最近腰很痛，是不是咱们更新一下办公椅，现在的很不爽，不要embody太
+      贵了，给咱来吧areon吧。
+   4. 选取tornado做base server的原因：
+      python in a nutshell的作者认为：什么时候去使用twisted
+      Twisted is an excellent choice in a vast number of cases, often
+      the best when you need to integrate multiple aspects of
+      functionality and/or implement some protocol for which there is
+      no fully packaged solution. "Simple sockets" are not -- they're
+      just a low-level component out of which higher-functionality,
+      higher-level ones are built, and there rarely is a good reason
+      (except learning, of course) to "roll your own" higher level
+      components built "from scratch" on top of sockets (rather than
+      picking powerful, well-built existing ones) -- just like you'd
+      rarely be justified in building your own computer out of
+      transistors, resistors, capacitors, etc, rather than picking
+      appropriate integrated circuits;-).
+   5. 关于指出对方错误:
+      如果指出对方的bug，可能最好先建立一个稳定输出错误的test最好。或
+      者至少规定清楚正常输出错误的可能。
+      对方给出接口，也是经过严格测试的。如果对方没有测试案例，你可以考
+      虑拒绝使用对方的接口。
+
+** <2012-08-08 Wed>
+   1. debug
+      除了pdb之外，有其他妙用的debug工具么。人肉法太费脑子了。
+   2. 理论和实践
+      最近变成nipeng抛出了一个很一般的问题，结果最后发现了不少更深层次
+      的问题，直到牵扯到理论方面，最一开始KMeans的方法选取就应该有更家
+      优雅的方法。
+      最近看paper的时候也有很多奇妙的问题出现，或许保持每天看5篇左右的
+      paper并且时常总结是个非常好的解决方案。
+
+** <2012-08-09 Thu>
+   1. 今天给上海那里讲解分词。在刚开始的时候准备了很多东西。
+      其实有的时候稍微比平时准备的多一点，现在就不会有那么多的压力。想
+      起来GTD理论的三分钟原则，就是你发现一个小问题之后，发现这个问题
+      难度不是很大，可以在几分钟内解决，那么就着手去解决他吧，相反，一
+      旦发现这个问题比较繁琐，或者没有什么思路的时候，就先放下，记录到
+      你的行程表中。这样可以节约很多的时间。（时间管理方面各位有什么心
+      得共享一下啊）
+   2. 咱们这里和上海那里具体是什么关系？有没有活动可以让员工到上海玩几
+      天的？：P每天都有奢求啊。。。。。。
+
+
+** <2012-08-10 Fri>
+   1. 今天优化了xmeans算法。基本已经弄清楚了。估计会比K-means快一点。
+      但是数量级不同也说不准呢。
+   2. 简单的升级nginx过程。为啥nginx是工具就觉着很简单，不需要讲一下呢，
+      我在网上查文档或者书籍都是模模糊糊的。
+      求@凯桑给研究院的人上nginx课程。
+   3. 网速太慢，严重影响心情and开发效率。
+
+** 本周工作：
+
+*** 实现x-means算法，提升聚类性能。
+
+*** 处理mongodb的链接方式
+
+**** 提取搜狗词库
+
+*** 改进整体nlp项目的结构
+
+*** nginx 是否会接受tornado回馈信息。上周打开了链接，太卡了。。
+
+* Family
+
+** reply to mengjiangjun
+
+   今天下午15:00能不能请你帮我讲一下NLP 和分词 系统，具体包括但是不限于
+   功能点
+   系统架构
+   服务的调用方式
+   发布流程
+   相关文档
+
+* 分词和NLP之间的关系：
+** 功能点；
+1. 分词模块基本上是NLP系统中的一个模块。并不是同级关系。
+2. NLP主要包含了常用的数学统计模型和NLP常用的计算方法。
+   其中分词模块是基础模块中的一部分。
+
+* 系统架构：
+1. 系统是一个相对松散的结构，各个模块间的独立性比较高，基本已经从业务
+   上分离。
+2. 大体结构如下：
+   1. 基本算法。
+   2. 学习模型。（如分类模型，聚类模型，相似度模型）
+   3. 具体成型模块。（如分词模块，文本摘要模块）
+   4. 具体算法。（如剽窃算法）
+3. 语言：
+   整个系统部分是由python写成，部分是由C写成，分词部分现阶段在实验部分
+   代码是基于java的代码。
+4. 提供的接口：
+   在NLP系统之上，我们专门建立了一个NLP_SERVER进行服务器建立。对NLP各
+   个接口进行具体的实现和封装，相当于是对具体业务的实现，但也尽可能做
+   到了模块独立。
+
+* 服务的调用方式：
+  NLP现在已经完全采用RPC的形式提供服务，所提供的均为RESTful接口。
+  现阶段提供了接口包含但不限于：
+  1. 分词
+  2. 文本摘要
+  3. 情感分析
+
+* 相关文档
+  具体的文档和访问协议已经在redmine上。

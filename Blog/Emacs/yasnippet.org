@@ -1,0 +1,149 @@
+# -*- mode: org -*-
+# Last modified: <2012-07-02 09:49:22 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   yasnippet
+
+主要有三部分：
+基础。插件扩展和bug问题。
+* emacs Essentials.
+  emacs主要有三种mode。
+  1. 后台mode，主要是显示某一个插件或者是程序的输出。
+  2. 交互mode，主要是使用shell等交互程序。
+  3. 文本mode，这种类型最多，会根据编程种类不同，使用不同的mode.
+
+* 插件扩展。
+** auto-insert 是emacs自带的插件.
+   auto-insert 是自己定义扩展名来展开的。所以需要添加关于扩展名和mode间关系。
+
+
+
+*** 下面是我的auto-insert的配置。
+(auto-insert-mode 1)
+
+(defun auto-insert-settings ()
+  "Settings for `auto-insert'."
+  (setq auto-insert-query nil)
+  (setq auto-insert-directory template-path-r)
+  ;; CMakeLists.txt (CMake file)
+
+  (define-auto-insert "CMakeLists.txt$"                 '(lambda()
+                                                           (insert-snippet "headx")))
+  ;; C/C++ head file.
+  (define-auto-insert "\\.\\([Hh]\\|hh\\|hxx\\|hpp\\)$" '(lambda()
+                                                           (insert-snippet "headxh")))
+  ;; Add plan Snippet.
+  (define-auto-insert "\\.\\(todo\\|do\\|plan\\)$"      '(lambda()
+                                                           (insert-snippet "headxplan")))
+  ;; Flex snippet.
+  (define-auto-insert "\\.l[l]?$"                       '(lambda()
+                                                           (insert-snippet "headxflex")))
+
+  (defun expand-template (template)
+    "Expand template."
+    (template-expand-template (concat template-path-r template)))
+
+  ;; auto-insert和yasnippet互操作的方法就是在yasnippet的对应目录下面添
+  加headx就可以，细看源码。这里：
+  (defun insert-headx-snippet ()
+    "Insert headx snippet."
+    (insert-snippet "headx"))
+
+  (defun insert-abbrev (abbrev-name)
+    "Insert abbrev ABBREV-NAME"
+    (interactive "s")
+    (insert abbrev-name)
+    (expand-abbrev))
+
+  (defun insert-snippet (snippet)
+    "Insert snippet SNIPPET."
+    (interactive "s")
+    (insert snippet)
+    (yas/expand))
+
+    ;; 这里是添加mode对应扩展进行添加扩展headx的方法。
+  (mapc
+   (lambda (suffix)
+     (define-auto-insert (concat "\\." suffix "$") 'insert-headx-snippet))
+   '("[Cc][Pp][Pp]"                ;; C++
+     "[Cc][Xx][Xx]"                ;; C++
+     "[Tt]?[Cc][Cc]"               ;; C++
+     "i"                           ;; C++
+     "makefile"                    ;; makefile
+     "headx"                       ;; snippet
+     "y[s]?"                       ;; yassnippet
+     "yy"                          ;; bison
+     "el"                          ;; elisp
+     "sh"                          ;; shell
+     "org"                         ;; org
+     "pl"
+     "py"                          ;; python
+     "htm\\(l\\)?")))              ;; html
+
+(eval-after-load "autoinsert"
+  `(auto-insert-settings))
+
+(provide 'auto-insert-settings)
+** yasnippet是依据mode来展开的，所以调用插入模板时候可以插入对应mode的headx（我上面设置的那样）。
+
+
+*** 我定义的mode关系。（不一定需要这么长，很多他都已经定义好了。）
+(setq auto-mode-alist
+      (append '(("\\.[Cc][Xx][Xx]$" . c++-mode)
+                ("\\.[Cc][Pp][Pp]$" . c++-mode)
+                ("\\.[Hh][Xx][Xx]$" . c++-mode)
+                ("\\.[Tt][Cc][Cc]$" . c++-mode)
+                ("\\.h$" . c++-mode)
+                ("\\.i$" . c++-mode)    ; SWIG
+                ("\\.mm?$" . objc-mode)
+                ("_emacs" . lisp-mode)
+                ("\\.el\\.gz$" . emacs-lisp-mode)
+                ("\\.mak$" . makefile-mode)
+                ("\\.conf$" . conf-mode)
+                ("\\.go$" .  go-mode)
+                ("Doxyfile.tmpl$" . makefile-mode)
+                ("Doxyfile$" . makefile-mode)
+                ("CMakeLists\\.txt\\'" . cmake-mode)
+                ("\\.cmake\\'" . cmake-mode)
+                ("\\.uncompressed$" . hexl-mode)
+                ("\\.y[s]?$" . snippet-mode)
+                ("headx$" . snippet-mode)
+                ("\\.ke$" . kepago-mode)
+                ("\\.markdown$" . markdown-mode)
+                ("\\.md$" . markdown-mode)
+                ("\\.textile$" . textile-mode)
+                ("\\.kfn$" . kfn-mode)
+                ("\\.rb$" . ruby-mode)
+                ("\\.cml$" . xml-mode)
+                ("\\.cg$" . cg-mode)
+                ("\\.yy$" . bison-mode)
+                ("\\.l[l]?$" . flex-mode)
+                ("\\.lua$" . lua-mode)
+                ("\\.org$" . org-mode)
+                ("\\.\\(todo\\|do\\|plan\\)$". org-mode)
+                ("\\.scons$" . python-mode)
+                ("SCons\\(cript\\|truct\\)" . python-mode)
+                ("\\.gclient$" . python-mode)
+                ) auto-mode-alist))
+*** 我的yasnippet配置。
+
+(require 'yasnippet)
+
+(setq yas/snippet-dirs (concat emacs-root-path "snippets/"))
+
+(yas/load-directory yas/snippet-dirs)
+(yas/global-mode 1)
+
+(global-set-key (kbd "\t")                     'yas/next-field-or-maybe-expand)
+(global-set-key (kbd "M-k")                    'yas/prev-field)
+(define-key yas/minor-mode-map (kbd "C-c C-f") 'yas/find-snippets)
+
+很简单的几行。主要就是yasnippet的目录。
+
+之后可以共享一下yasnippet的代码。这个还是比较有意思的。不懂的可以上来
+讨论一下。。
+
+
+* 最近用arch linux 中emacs24 调用ibus mode找不到python2的bug，需要手动指定变量。
+添加一个这个就好。
+(setq ibus-python-shell-command-name "python2")
+(require 'ibus)

@@ -1,0 +1,261 @@
+# -*- mode: org -*-
+# Last modified: <2012-07-31 21:54:20 Tuesday by richard>
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [presentation]
+#+MACRO: BEAMERMODE presentation
+#+MACRO: BEAMERTHEME Antibes
+
+#+MACRO: BEAMERCOLORTHEME lily
+#+MACRO: BEAMERSUBJECT RMRF
+#+MACRO: BEAMERINSTITUTE rdbj@Admaster
+#+BEAMER_FRAME_LEVEL: 2
+#+BEAMER_HEADER_EXTRA: \usetheme{Berlin} \usecolortheme{default}
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %10BEAMER_envargs(Env Args) %4BEAMER_col(Col) %8BEAMER_extra(Extra)
+
+#+STARTUP: showall
+#+LaTeX_CLASS: latex-org-report-article
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Unittests with Richard
+
+* 结构
+  为了更加正确的使用单元测试，标准的结构是不可或缺的，
+  怎么算是比较标准的结构？
+
+** package style
+
+
+*** example 1
+    #+begin_src bash
+module_style_1
+├── imported_name
+│   ├── __init__.py
+│   ├── module_a.py
+│   ├── module_b.py
+│   └── tests
+│       ├── a_test.py
+│       ├── b_test.py
+│       └── __init__.py
+└── setup.py
+
+2 directories, 13 files
+    #+end_src
+
+*** example 2
+    #+begin_src bash
+
+module_style_2
+├── imported_name
+│   ├── __init__.py
+│   ├── module_a.py
+│   └── module_b.py
+├── setup.py
+└── tests
+    ├── a_test.py
+    ├── b_test.py
+    └── __init__.py
+
+2 directories, 13 files
+    #+end_src
+
+** executable style(Make a executable project)
+   #+begin_src bash
+executable_style_1
+├── module_style_folder
+├── print_size
+└── tests
+    └── print_size_test.py
+
+2 directories, 2 files
+
+   #+end_src
+
+
+** note:
+   1. 所有应用方式应该采用根包目录.本文件名的结构进行引用。而非因为
+      在一个文件夹应该少引用就不使用全局引用路径，这样会减少很多问题。
+   2. 可执行文件不应该有.py后缀，用来表明其应该被执行的方式去运行，而
+      非使用普通python解析方式去运行。
+      但是有不少常用的库违反了这个约定。如supervisor
+   3. 执行方式。
+      测试和可执行文件的不同。
+      测试文件应该用测试的方式去执行，可执行文件应该用执行的方式去进行。
+   4. 标准过程，可执行文件必须要有main，而其他所有文件都不应该有main
+      过程。
+   5. __init__.py文件主要用来用来制定包的结构以及暴露出的接口。
+      面向接口设计将会十分方便，在这里很容易的体现出来。
+
+
+* 标准测试流程(test-oriented)
+
+** 建立
+   pip, virtualenv
+  1. use virtualenv to control python runtime environment.
+     tornado==1.7.3
+  2. use it to create a clean environment.(Using --no-site-packages)
+  3. activate the environment.
+  4. verify the environment is active by checking the path of pip.
+  5. python setup.py test
+     这个过程会自动根据virtual evn来建立测试环境。
+     For more info:
+  1. [[http://iamzed.com/2009/05/07/a-primer-on-virtualenv/][a primer on virtualevn]]
+
+* 工具简介
+
+** pytest
+   * cons:
+     On py.test, I find multiple levels of setup/teardowns very
+     confusing. I also find that it leads to highly unstructured
+     and hard to read unit tests.
+   * pros:
+     1. funcargs
+     2. test generators (not yield tests)
+     3. local plugins.
+     4. Distributed testing.
+     5. py.test has higher overhead for executing a single tests than
+        nose or unittest.
+
+** doctest
+   doctest is OK for simple things, but I find that it's very
+   limiting and doesn't really scale for complex and highly
+   interactive code.
+
+** unittest(pyUnit)
+   It's similar to other xUnit frameworks and is easy to relate to
+   for people without python background. There is also pretty good
+   support for it in Eclipse/PyDev.
+   * pros:
+     1. available in the Python standard library
+     2. easy to use by people familiar with the xUnit frameworks
+     3. flexibility in test execution via command-line arguments
+     4. support for test fixture/state management via set-up/tear-down hooks
+     5. strong support for test organization and reuse via test suites
+   * cons:
+     1. xUnit flavor may be too strong for "pure" Pythonistas
+     2. API can get in the way and can make the test code intent hard to understand
+     3. tests can end up having a different look-and-feel from the code under test
+     4. tests are executed in alphanumerical order.
+     5. assertions use custom syntax.
+
+** nose
+   * nose isn't really a unit testing framework.
+     It's a test runner and can run any function in a module whose
+     name starts with "test" and it will fail if the function raises
+     an AssertionError which makes writing simple tests really simple.
+   * Arcane but powerful.
+   * It can run tests created using pyUnit, py.test or doctest.
+
+
+** Running Automated Test Suites With Nose
+*** UNDERGOING Getting nosy with testing.
+    1. embed nose inside python.
+
+*** TODO Embedding nose inside python.
+*** TODO Writing a nose extension to pick tests based on regular expressions.
+*** TODO Writing a nose extension to generate a CSV report.
+*** TODO Writing a project-level script that lets you run different test suites.
+
+** unittest2(most xUnit-style)
+   unittest2 add some new ability make unittests more xUnit-ize.
+   1. Add setUpModule, tearDownModule.
+   2. Add setUpClass, tearDownClass.
+
+   Yet, unittest2 still under a version 0.5.1, which means it is under
+   a beta version. So it shuoldn't be used as a module in mature
+   project.
+** nose2
+   * nose2 is nose for unittest2
+
+** mox:
+   Mox is a mock object framework for Python.
+   Mox is based on EasyMock, a Java mock object framework.
+   Stop Mocking, start testing.
+
+** Zope and Zope2
+   网络测试框架，暂时没有涉及。
+
+
+* Dive into unittests
+  Now, get your hands dirty.
+
+** prerequisites:
+   First divide these 2:
+   1. errors
+   2. failures
+
+** unittest and Unit Tests also Integrated tests.
+   unittest can easily help us write both unit tests as well as
+   integration tests. Unit tests exercise smaller blocks of code. When
+   writing unit tests, it is best to keep the testing as small and
+   fine grained as possible.
+   It can fit to write many types of tests including integration
+   tests, smoke tests, and other types of tests as well.
+
+** py.test
+   | DIRECTIVE                      | when to use                             |
+   |--------------------------------+-----------------------------------------|
+   | py.test tests/test_app.py      | for external test dirs                  |
+   | py.test mypkg/test/test_app.py | for inlined test dirs                   |
+   | py.test mypkg                  | run tests in all below test directories |
+   | py.test                        | run all tests below current dir         |
+
+** Testing corner cases.
+   1. testing one past boundary.
+   2. testing bad inputs.(None, etc)
+
+** Where is print info?
+   Not every arch capture print info.
+   My preferred method, however, isn't to spent a lot of time on
+   debugging, but spend it writing more fine-grained tests to expose
+   the problem.
+   #+begin_src python
+
+class SomeTest( unittest.TestCase ):
+    def testSomething( self ):
+        log= logging.getLogger( "SomeTest.testSomething" )
+        log.debug( "this= %r", self.this )
+        log.debug( "that= %r", self.that )
+        # etc.
+        self.assertEquals( 3.14, pi )
+
+if __name__ == "__main__":
+    logging.basicConfig( stream=sys.stderr )
+    logging.getLogger( "SomeTest.testSomething" ).setLevel( logging.DEBUG )
+    unittest.main()
+
+   #+end_src
+
+* something more about unittests.
+** Some Python unit test good examples.
+   1. [[https://github.com/garybernhardt/dingus]]
+   2. [[https://github.com/garybernhardt/expecter]]
+
+** Live examples:
+   please talk to me or Mars. :)
+   Thank you.
+
+** More dirty examples
+   1. 举一个例子：
+      self.assertEqual(first, second[, Msg])p
+      如果失败了则打印消息内容。
+   2. When possible, use assertEquals instead of assertTrue and assertFalse.
+      It prints more message than just a failure report.
+   3. Use self.assertRaises but not self.fail([msg]).
+   4. FunctionTestCase is a temporary measure.
+   5. Breaking down obscure tests into simple ones.
+   6. Using iteration to test boundary settings.
+      Make it all input and output a list, Iterate it.
+
+* reference
+
+ 1. python cookbook Publisher: O'Reilly Media; Second Edition edition (March 25, 2005)
+ 2. [[http://stackoverflow.com/questions/250038/how-can-i-add-post-install-scripts-to-easy-install-setuptools-distutils][how-can-i-add-post-install-scripts-to-easy-install-setuptools-distutils]]
+ 3. [[http://stackoverflow.com/questions/191673/preferred-python-unit-testing-framework][preferred-python-unit-testing-framework]]
+ 4. [[http://docs.python.org/library/unittest.html][unittest documentation]]
+ 5. [[http://thread.gmane.org/gmane.comp.python.testing.general/3748][why do you use py.test?]]
+ 6. [[http://www.quora.com/Unit-Testing/What-is-a-good-example-of-an-open-source-Python-project-with-good-unit-tests][What-is-a-good-example-of-an-open-source-Python-project-with-good-unit-tests]]
+ 7. [[http://stackoverflow.com/questions/61151/where-do-the-python-unit-tests-go][where-do-the-python-unit-tests-go]]
+ 8. [[http://stackoverflow.com/questions/284043/outputting-data-from-unit-test-in-python][outputting-data-from-unit-test-in-python]]
+ 9. [[http://agiletesting.blogspot.com/2005/01/python-unit-testing-part-1-unittest.html][python-unit-testing-part-1-unittest]]
+ 10. [[http://pytest.org/latest/pytest.pdf][pytest documentation]]
+ 11. [[http://code.google.com/p/pymox/][pymox]]
+ 12. A lots materials

@@ -1,0 +1,172 @@
+# -*- mode: org -*-
+# Last modified: <2012-07-13 17:48:30 Friday by richard>
+#+STARTUP: showall
+#+TITLE:   RESTful Service API doc
+
+* Prerequisites/约定
+
+** HTTP HEAD
+   所有的HTTP head如不特别说明，均需要以下参数
+    1. "Content-Type": "application/json"
+
+** HTTP BODY
+   1. 所有的HTTP body如不特别说明，所传输数据均需要使用UTF-8进行编码。
+   2. []表示基于特定的规则所表示的特定的URI。
+      eg:
+      [word] 表示一个词汇，而非字符串[word]本身。
+   3. body 中以*（星号）结尾注释的为可选key。
+
+** 截止到目前，所有body中的project项目还没有效果。需要heck hehe的代码，所以先别加词，先耍耍分词玩吧吧。：）
+
+* Adding Words/加词过程
+
+** 加入一个新词
+
+*** HTTP METHOD
+    #+begin_src HTTP
+    POST      /segment/words
+    #+end_src
+
+*** head structure
+    "Content-Type": "application/json"
+
+*** Body structure
+    {
+    "word": "action words"   # 需要添加的词
+    "project": "weibomaster" # 需要分词服务的项目名
+    "frequency": frequency_count (*)
+    }
+
+*** return HTTP status
+    | codes              | meaning                 |
+    | 201                | word added successfully |
+    | * more code status |                         |
+
+*** return Body
+    * if success
+    return:
+    {
+    "Status": true
+    }
+    * else
+    return :
+    {
+    "Status": false
+    }
+
+
+** 修改新词的频率（暂未实现）
+
+*** HTTP METHOD
+    #+begin_src HTTP
+    PATCH      /segment/words/[exsiting_word]
+    #+end_src
+
+*** head structure
+    "Content-Type": "application/json"
+
+*** Body structure
+    {
+    "word": "action words"
+    "project": "weibomaster"       # 添加词服务的项目名
+    "frequency": frequency count # 分词的频率 (*)
+    }
+
+** 获得新词的频率（暂未实现）
+
+*** HTTP METHOD
+    #+begin_src HTTP
+    GET      /segment/words/[exsiting_word]
+    #+end_src
+
+*** head structure
+    "Content-Type": "application/json"
+
+*** Body structure
+    {
+    "word": "actual words"   # 等待获取频率的词
+    "project": "weibomaster" # 需要分词服务的项目名
+    }
+
+** 增加词频
+
+*** HTTP METHOD
+    #+begin_src HTTP
+    POST      /segment/words/[exsiting_word]/frequence
+    #+end_src
+
+*** head structure
+    "Content-Type": "application/json"
+
+*** Body structure
+    {
+    "word": "action words"         # 待添加的词
+    "project": "weibomaster"       # 提供需要分词服务的项目名
+    "frequency": frequency count # 需要添加的频率(*)
+    }
+
+
+* Segmentation/分词过程
+** 分词
+
+*** HTTP METHOD
+    #+begin_src HTTP
+    POST      /segment/seg
+    #+end_src
+
+*** head structure
+    "Content-Type": "application/json"
+
+*** Body structure
+    {
+    "text": [article]
+    "project": "weibomaster"    # 需要分词服务的项目名
+    "stopwordid": "wordlist_id" # 停用词list的id， 这个需要具体约定(*)
+    }
+
+*** return HTTP status
+    | codes              | meaning                         |
+    | 200                | article segmented succuessfully |
+    | * more code status |                                 |
+
+*** return Body
+    {
+    "word_list": [, , ] # 分词结果
+    "Status": boolean   # 分词状态
+    }
+
+* 情感分析过程
+** 情感分析
+
+*** HTTP METHOD
+    #+begin_src HTTP
+    POST      /sentiment
+    #+end_src
+
+*** head structure
+    "Content-Type": "application/json"
+*** Body structure
+    {
+    "text": [article]           # （优先使用）
+    "token_list": [token list]" # 分词后的队列
+    "stopwordid": "wordlist_id" # 停用词list的id， 这个需要具体约定(*)
+    }
+
+*** return HTTP status
+    |              codes | meaning                         |
+    |                200 | article segmented succuessfully |
+    |                506 | No providing tokenlist or text  |
+    |                405 | Wrong Header                    |
+    | * more code status |                                 |
+
+*** return Body
+    {
+    "word_list": [, , ]   # 分词结果
+    "Status": boolean     # 分词状态
+    "sentiment": float    # 情感分析结果
+    }
+
+
+*** 如果传入的参数同时使用text和tokenList，则只根据text返回结果。
+*** 如果传入的参数使用text，则返回情感结果，和分词结果。
+*** 如果传入的参数使用token_list则只返回分词结果。

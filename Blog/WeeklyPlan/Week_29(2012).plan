@@ -1,0 +1,44 @@
+# -*- mode: org -*-
+# Last modified: <2012-07-18 18:23:31 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   Jul 16 - 23 (Week 29)
+
+* Relationship
+** TODO:
+* 上周总结：
+  1. 写一个可以快速判定的转载（剽窃）算法。
+  2. 和@nipeng一起处理了一些其他NLP restful API。
+  3. 学习了PYTHON的几个小工具：
+     supervisor的一些过程，很有趣也很有用，我问了几个，但咱们这里貌似
+     没有人有体系了解的，麻烦guru给我讲讲，如果都不懂，是否咱们聚居，
+     可以抛我自己去引玉。
+
+* 本周计划
+  1. 分布式结构的服务框架，优化API的结构。
+     与@nipeng交互，处理API。
+  2. 优化分词服务，貌似太慢。（原因未知）
+  3. 写服务器的deploy过程。
+  4. 分词的一些小问题。
+  5. 看完release it。
+
+* 求讲解
+  emacs中abl-mode（关于python的TDD开发的）有没有人懂的，给讲一下咯。。。
+
+  上周乱七八糟的事情非常多。没有什么好玩的可以分享的。
+
+
+* Professional Skill
+* Family
+
+
+* 本周总结
+  1. 分布式结构的服务框架，优化API的结构。
+     与@nipeng交互，处理API。
+  2. 优化分词服务，貌似太慢。
+     原因：本来应该很快的，但是机器问题是主要的，现在更换机器后，速度
+     还是非常快的。
+  3. 写服务器的deploy过程。
+  4. 分词的一些小问题。
+  5. 看完release it。
+* TODO
+   Database connection pool on applying asychronous

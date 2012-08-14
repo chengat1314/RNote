@@ -1,0 +1,24 @@
+# -*- mode: org -*-
+# Last modified: <2012-07-05 16:52:00 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   NLP Lib structure
+
+
+| root                  | sub-directory      |
+|-----------------------+--------------------|
+| /lib                  | weighting method   |
+|                       | Similarity         |
+|                       | Segmentation(Note) |
+|                       | Stopword           |
+|-----------------------+--------------------|
+| /learning_model       | SVM                |
+|                       | CRF                |
+|                       | HMM                |
+|-----------------------+--------------------|
+| Auto_Extraction       |                    |
+| Text_Categorization   |                    |
+| Keyword_Extraction    |                    |
+| Text_Clustering       |                    |
+| Information Retrieval |                    |
+| * Machine Translation |                    |
+|-----------------------+--------------------|

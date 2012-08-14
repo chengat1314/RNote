@@ -1,0 +1,37 @@
+# -*- mode: org -*-
+# Last modified: <2012-07-03 09:05:48 Tuesday by richard>
+#+STARTUP: showall
+#+TITLE:   auto-color
+
+* 听到xudi说他需要，这根本没有必要，只需要设置package的地址就行，一个添加包的方法：
+(setq package-archives '(("ELPA" . "http://tromey.com/elpa/")
+                         ("gnu"  . "http://elpa.gnu.org/packages/")))
+
+* auto-color设置
+  auto-color可以选择使用emacs24的包rainbow-mode，但是今天早上测试一直出问题。
+  后来查了一下，发现emacs24不能自动加载rainbow-mode，之前xhalee已经向GNU反馈了这个内容。GNU team给了一个手动的解决反感，但是并不是很好，这是一个bug，所以我问了xhalee现在是如何处理的，他还没有给我回复。所以可以先考虑用我写的这个颜色。
+
+** 对所需要颜色的mode加上hook即可：如
+(add-hook 'emacs-lisp-mode-hook 'hexcolour-add-to-font-lock)
+(add-hook 'html-mode-hook 'hexcolour-add-to-font-lock)
+
+** 主要的两个函数
+(defun hexcolour-luminance (color)
+  "Calculate the luminance of a color string (e.g. \"#ffaa00\", \"blue\").
+  This is 0.3 red + 0.59 green + 0.11 blue and always between 0 and 255."
+  (let* ((values (x-color-values color))
+         (r (car values))
+         (g (cadr values))
+         (b (caddr values)))
+    (floor (+ (* .3 r) (* .59 g) (* .11 b)) 256)))
+(defun hexcolour-add-to-font-lock ()
+  (interactive)
+  (font-lock-add-keywords nil
+                          `((,(concat "#[0-9a-fA-F]\\{3\\}[0-9a-fA-F]\\{3\\}?\\|"
+                                      (regexp-opt (x-defined-colors) 'words))
+                             (0 (let ((colour (match-string-no-properties 0)))
+                                  (put-text-property
+                                   (match-beginning 0) (match-end 0)
+                                   'face `((:foreground ,(if (> 128.0 (hexcolour-luminance colour))
+                                                             "white" "black"))
+                                           (:background ,colour)))))))))

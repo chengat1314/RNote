@@ -1,7 +1,20 @@
 # -*- mode: org -*-
-# Last modified: <2012-06-07 16:25:51 Thursday by richard>
+# Last modified: <2012-08-14 09:22:39 Tuesday by richard>
 #+STARTUP: showall
 #+TITLE:   html5
+
+* Benefits of HTML5
+  1. Retains backward scompatibility with previous versions of HTML.
+  2. HTML5 contains many features to facilitate the development of
+     applications.
+  3. The HTML5 specification contains explicit rules about parsing
+     documents and error handling.
+
+* Faq:
+  - Its a framework but not implementation.
+  - why do we need new structural elements.
+
+
 
 
 * basic structure about HTML5
@@ -17,16 +30,3 @@ The content of the document......
 </body>
 
 </html>
-
-* ...
-
-
-
-
-
-
-
-
-
-
-

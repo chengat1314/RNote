@@ -1,0 +1,183 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-13 18:21:21 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE: Intro statistical
+#+AUTHOR: Richard Wong
+
+* FaQs
+  1. What is a statistical model?
+     ANS:
+     + The Oxford Dictionary defines a *model* as a simplified or
+       idealized description of a particular system, situation, or
+       process, often in mathematical terms, that is put forth as a
+       basis for theoretical or empirical understanding, or for
+       calculations predictions, etc.
+     + In a statistical application, the "particular system, situation
+       or process" is some random phenomenon of interest.
+     + The phenomenon cannot be described or predicted with complete
+       accuracy.
+     + We believe that the phenomenon consists of a deterministic
+       component which is predictable, and that this component can
+       ultimately be characterized and represented.
+     + One of the primary goals of statistical modeling is to obtain a
+       quantitative description of the deterministic component.
+     + This description should be realistic, yet also interpretable and
+       concise.
+     + Many random phenomena, such as those arising in biological and
+       ecological applications, are extremely complex, potentially
+       involving an endless assortment of variables and interactions.
+       + Any interpretable :: concise description of a complex
+         phenomenon will invariably be simpolified or idealized.
+     + The non-deterministic component of a random phonomenon, the
+       stochastic component, represents aspects of the phenomenon that
+       are not predictable.
+     + In the formulation of a static model, one usually attempts to
+       specify a probabilistic mechanism that provides and adequate
+       reflection of how the stochastic component behaves.
+       + This aspect of statistical modeling implies that the model
+         description is cast in probabilistic terms.
+     + OUR ANSWER:
+       A simplified or idealized description of a random phenomenon,
+       generally in probabilistic terms, that is put forth as a basis
+       for theoretical or empirical understanding, or for
+       calculations, predictions, etc.
+  2. What properties are associated with a good statistical model?
+     + An optimal statistical model is characterized by three
+       fundamental attributs:
+       1. Parsimony (Model simplicity).
+       2. Goodness-of-fit (conformity of the fitted model to the data
+          at hand).
+       3. Generalizability (applicability of the fitted model to
+          describe or predict new data).
+  3. What statistical procedures can guide us towards a model that
+     possesses these properties?
+     1. Philosophical Basis for Model Selection:
+        Occam's Razor
+     2. Bias and Variability
+     3. Statistical Procedures for Model Selection
+        - Hypothesis Testing.
+        - Automatic variable Selection Algorithms.
+        - Model Selection Criteria.
+
+* Occam's Razor
+  - Law of parsimony :: No more causes should be assumed than those
+       that will account for the effect.
+** Quote:
+   Plurality shuold not be posited without necessity.
+   Shave off extraneous ideas to better reveal the truth.
+
+** An important concept in statistical modeling:
+   *underfitting induces bias*
+   whereas:
+   *overfitting induces incresed variability*
+
+** Statistical precedures to search for a fitted model that complies with Occam's Razor
+   1. Hypothesis Testing.
+   2. Automatic Variable Selection Algorithms.
+   3. Model Selection Criteria.
+
+* Hypothesis Testing
+
+** In practice, hypothesis testing is often used for model selection.
+
+** For variable determination in multivariable models, a two-step procedure is often employed.
+   1. Single variable models are fit to the response.
+      Those convariates that exhibit statistical significance are
+      included in the fit of a multivariable model.
+   2. In the multivariable model, backwards elimination is employed by
+      systematically eliminating convariates with large p-values.
+
+** In considering hypothesis testing for model selection, several important points bear consideration.
+
+   1. Classical hypothesis testing procedures are generally based on
+      the asumption of nested models, with the larger model being
+      initially regarded as correct.
+   2. In many statistical modeling applications, especially those in
+      the biomedical and health sciences, the notion of any model
+      being correct is difficult to defend.
+
+* Automatic Variable Selection Algorithms
+  - Extensively used for model selection, especially in applications
+    where a large number of potential explanatory variables must be
+    considered.
+  - The most popular procedures are backwards elimination and forward
+    selection.
+
+** backwards elimination algorithm
+   - fit the model containing all of the explanatory variables of
+     interest.
+   - Based on the size of the partial-test p-values, systematicaly
+     remove explanatory variables from the model until all remaining
+     variables have p-values beneath a pre-defined threshold.
+
+** The forward selection algorithm
+   - For each explanatory variable, fit a model containing only this
+     variable.
+   - Based on the size of the partial-test p-values, systematically
+     add explanatory variables to the model. Stop when the p-value
+     associated with any remaining variable inclusion exceeds a
+     pre-defined threshold.
+
+** pros and cons
+   * The main advantages of automatic variable selection algorithms
+     are that they are simple to apply and they are computationally
+     efficient.
+   * disadvantages
+     - they exclude consideration of many candicate models based on
+       many different possible subsets of explanatory variables, and
+       may lead one to a final fitted model based on an inferior
+       subset.
+     - the steps are generally based on hypothesis testing.
+     - an automatic algorithm cannot take into accound scientific or
+       clinical considerations that may be import from a practical
+       perspective.
+
+* Model Selection Criteria
+  A model selection criterion is a measure that assesses the propriety
+  of a fitted model by gauging how well the model balances the
+  competing objectivesd of conformity to the data and parsimony.
+  - The smaller the value of the criterion, the better the fitted
+    model balancesd these objectives.
+  - Given a set of fitted candicate models, the model corresponding to
+    the minimum value of the criterion is preferred.
+
+** Akaike Information Criterion
+   AIC is applicable in a broad array of modeling framewords, since
+   its justification only requires conventional large-sample
+   properties of maximum likelihood estimators.
+
+   For a candidate model of interest, let f(y|0) denote the
+   likelihood, and let k denote the number of model parameters.
+
+   Definition:
+      AIC = -2lnf(y|0) + 2k
+
+      * -2 ln f(y|0) is called the "goodness-of-fit" term. This term
+        decreases as the fit of the model improves.
+      * 2k is called the "penalty" term. This term increases as the
+        complexity of the model grows.
+*** pros
+    1. Advantages to the use of AIC.
+    2. The application of the criterion does not require the
+       assumption that one of the candidate models is the "true" or
+       "correct" model.
+    3. AIC can be used to compare non-nested models.
+    4. AIC can be used to compare models based on different
+       probability distributions.
+
+*** cons
+    1. If the class of candidate models is large, the AIC values for
+       several fitted models may be close to the minimum AIC value,
+       meaning that an "optimal" fitted model is not clearly identified.
+    2. The successful application of AIC requires large samples,
+       especially in complex modeling frameworks.
+
+** other popular model
+   1. Corrected Akaike information criterion, AICc.
+   2. Takeuchi information criterion, TIC.
+   3. Mallows' conceptual predictive statistic, C_p.
+   4. Akaike's final prediction error, FPE.
+   5. The predictive sum of squares static, PRESS.
+   6. The Bayesian information criterion, BIC.

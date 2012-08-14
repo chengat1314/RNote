@@ -1,0 +1,33 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-13 18:27:33 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Akaike Information Criterion
+#+AUTHOR: Richard Wong
+
+* Introduction
+  1. The traditional maximum likelihood paradigm, as applied to
+     statistical modeling, provides a mechanism for estimating the
+     unknown parameters of a model having a specified dimension and
+     structure.
+  2. Akaike extended this paradigm by considering a framework in which
+     the model dimension is also unknown, and must therefore be
+     determined from the data.
+  3. For a parametric candidate model of interest, the likelihood
+     function reflects the conformity of the model to the observed data.
+  4. As the complexity of the model is increased, the model becomes
+     more capable of adapting to the characteristics of the data.
+  5. Thus, selecting the fitted model that maximizes the empirical
+     likelihood will invariably lead one to choose the most complex
+     model in the candidate collection.
+  6. Model selection based on the likelihood principle, therefore,
+     requires an extension of the traditional likelihood paradigm.
+  7.
+* Outline:
+  - Model Selection Framework
+  - Kullback-leibler Information
+  - Derivation of AIC.
+  - Properties and Limitations of AIC.
+  - Use of AIC.
+  - Application.

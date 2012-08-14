@@ -1,0 +1,34 @@
+# -*- mode: org -*-
+# Last modified: <2012-07-30 23:05:03 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Jul 30 - 37 (Week 31)
+
+* Professional Skill
+* 上周总结
+  1. 总结了包结构，测试框架，步骤等问题。
+  2. 分词的一些细节问题。今天已经和@cui交流了。可能建立一个专门处理加词的
+     过程服务更加合适。
+  3. 和@nipeng，@lihe一起各种code review。
+  4. release it看了一半左右，感觉自己差距还不少，不少地方都似懂非懂。
+
+* 本周任务。
+  1. 总结结构，能否设计出自动生成的python tornado服务过程。
+  2. 周三处理完成一个python的测试框架，
+  3. 将python最标准的测试结构加入到nlp服务中。
+  4. deploy过程。
+
+* 分享一个标准的python包结构。
+└── package-name
+    ├── setup.py
+    ├── module
+    │   ├── module1.py
+    │   ├── module2.py
+    │   └── many_part.py
+    └── tests
+        ├── a_test.py
+        ├── b_test.py
+        └── ...
+注1：        这个东西其实咱们做的都不是很标准，这还用我说么。
+注2：        开发时候需要启用virtual environment，类似ruby中RVM的东西。
+注3：        周三我和@tutu会用几个简单的例子谈下python测试的应用过程和
+    一般采用的技巧，给捧场哟。
