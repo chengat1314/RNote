@@ -1,0 +1,15 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-14 11:45:41 Tuesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   readme
+#+AUTHOR: Richard Wong
+
+
+* RNote.
+  RNote is Richard's Note. Welcome here.
+
+* Happy Note.
+This Project is the note(may contain some private things) for myself.
+Welcome to digg my private data.:)
