@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-08-14 22:23:49 Tuesday by richard>
+# Last modified: <2012-08-15 11:22:25 Wednesday by richard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -23,7 +23,7 @@
      model in the candidate collection.
   6. Model selection based on the likelihood principle, therefore,
      requires an extension of the traditional likelihood paradigm.
-  7.
+
 * Outline:
 ** Model Selection Framework
    * Suppose a collection of data y has been generated according to an
@@ -137,5 +137,3 @@
      identified by the minimum value of AIC. However, the criterion
      values are important, models with similar values should receive
      the same "ranking" in assessing criterion preferences.
-
-** Application.

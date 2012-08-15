@@ -1,0 +1,24 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-15 11:36:25 Wednesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   AIC and Corrected AIC(AICc)
+#+AUTHOR: Richard Wong
+
+* Intro
+  * In instances where the sample size is large and the dimension of
+    the candidate model is relatively small, AIC serves as an
+    approximately unbiased estimator of the Kullback discrepancy.
+  * In other settings, AIC may be characterized by a large negative
+    bias, which limits its effectiveness as a model selection
+    ceriterion.
+  * The negative biasd of AIC arises when the penalty term of the
+    criterion, which is justified asymptotically, provides an
+    inadequate approximation to the bias adjustment it is designed to
+    estimate.
+  * In small-sample applications, better estimators of the bias
+    adjustment are available.
+
+* Bias Investigation of AIC:
+  AIC provides us with an approximately unbiased estimator of
