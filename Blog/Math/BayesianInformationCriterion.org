@@ -1,0 +1,73 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-15 16:02:38 Wednesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Bayesian Information Criterion
+#+AUTHOR: Richard Wong
+#+KEYWORDS: BIC, SIC, SBC, SC
+
+* Intro to BIC
+  An asymptotic approximation to a transformation of the Bayesian
+  posterior probability of a candidate model.
+  * In large-sample settings, the fitted model favored by BIC ideally
+    corresponds to the candidate model which is a /posteriori/ most probable
+  * The computation of BIC is based on the empirical log-likelihood
+    and does not require the specification of priors.
+  * In Bayesian applications, pairwise comparisons between models are
+    often based on Bayes factors.
+  * Assuming two candidate models are regarded as equally probable a
+    priori, a Bayes factor represents the ratio of the posterior
+    probabilities of the models. The model which is a posteriori most
+    probable is determined by whether the Bayes factor is less than
+    or greater than one.
+  * In certain settings, model selection based on BIC is roughly
+    equivalent to model selection based on Bayes factors.
+  * Thus, BIC has appeal in many Bayesian modeling problems where
+    priors are hard to set precisely.
+
+* Overview of BIC
+
+** Key Constructs:
+   - True or generating model: g(y)
+   - Candidate or approximating model: f(y|0_k)
+   - Candidate class:
+     F(k) = {f(y|0_k)|0_k\in \theta{k}}.
+   - Fitted model:
+     f(y|0^_k).
+   - AIC:
+     AIC = −2 ln f (y |0ˆ_k) + 2k
+   - BIC:
+     BIC = −2 ln f (y |0ˆ_k) + k ln n
+   - AIC and BIC feature the same goodness-of-fit term.
+   - The penalty term of BIC is more stringent than the penalty term
+     of AIC.(for n>=8, k ln n exceeds 2k)
+   - BIC tends to favor small models than AIC.
+
+* Derivation of BIC
+  - Let y denote the observed data.
+  - Assume that y is to be described using a model M_k selected from a
+    set of candidate models M_k_1, M_k_2,..., M_k_L.
+  - Assume that each M_k is uniqauely parameterized by a vector 0_k,
+    where 0_k is an element of the parameter space \theta(k)(k\in{k_1,
+    k_2, ..., k_L})
+  - Let L(0_k|y) = f(y|0_k)
+  - Note: L(0_k|y) = L(y|0_k).
+  -
+
+* BIC and Bayes Factors
+
+* Use of BIC
+  - Recall the definitions of consistency and symptotic efficiency.
+  - Suppose that the generating model is of a finite dimension, and
+    that this model is represented in the candidate collection under
+    consideration. A *consistent* criterion will asymptotically select
+    the fitted candidate model having the correct structure with
+    probability one.
+  - On the other hand, suppose that the generating model is of an
+    infinite dimension, and therefore lies outside of the candidate
+    collection under consideration. An asymptotically efficient
+    criterion will asymptotically select the fitted candidate model
+    which minimizes the mean squared error of prediction.
+  - AIC is asymptotically efficient yet not consistent.
+  - BIC is consistent yet not asymptotically efficient.
