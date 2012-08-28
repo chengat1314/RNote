@@ -1,0 +1,15 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-28 08:45:20 Tuesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Lisp philosiphy
+#+AUTHOR: Richard Wong
+
+* Faq
+1. 为何使用common lisp
+   没有任何迹象表明采用 lisp可以立即得到诸如C，C++那样显而易见的好处。
+   使用Lisp的好处很大程度上取决于使用经验。
+2. zen
+   可编程的编程语言。
+   凡利于语言设计者的也利于语言使用者。

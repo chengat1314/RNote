@@ -1,0 +1,33 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-23 16:13:24 Thursday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Anderson Darling test
+#+AUTHOR: Richard Wong
+
+* intro
+  It is a modification of the Kolmogorov-Smirnov (K-S) test and gives
+  more weight to the tails than does the K-S test.
+
+* Use
+  to test if a sample of data came from a population with a specific
+  distribution.
+
+* tables of critical values available:
+  1. normal.
+  2. lognormal.
+  3. exponential.
+  4. Weibull
+  5. extreme value type I.
+  6. Logistic distributions.
+
+* Compare with K-S test
+  - The K-S test is distribution free in the sense that the critical
+    values do not depend on the specific distribution being tested.
+  - The Anderson-Darling test makes use of the specific distribution
+    in calculating critical values.
+
+* Conclusion:
+  The Anderson-Darling test is an alternative to the chi-square and
+  Kolmogorov-Smirnov goodness-of-fit tests.

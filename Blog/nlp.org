@@ -1,0 +1,21 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-25 22:03:57 Saturday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   nlp
+#+AUTHOR: Richard Wong
+
+现在对nlp的理解，
+NLP和数据挖掘等大数据项目有很多交集。
+NLP大概包含如下学科：
+数学模型，语言学，
+这些底层的学科包括。
+统计学，概率等相关的知识。
+
+可以用到的辅助方法包括人工智能的方法。（难怪于NLP是AI的一个分支）
+主要包括：
+1. 分类。
+2. 聚类。
+3. 索引。
+4. 分词。

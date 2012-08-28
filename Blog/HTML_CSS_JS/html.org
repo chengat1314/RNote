@@ -1,7 +1,89 @@
 # -*- mode: org -*-
-# Last modified: <2012-08-14 09:22:39 Tuesday by richard>
+# Last modified: <2012-08-26 10:32:30 Sunday by richard>
 #+STARTUP: showall
 #+TITLE:   html5
+
+* Jargons
+  - ancestor :: when one tag contains another tag.
+  - desendent :: when one tag contained by another tag.
+
+* Tags types:
+  [fn:1]
+** page tags:
+*** DOCTYPE
+    DOCTYPE is not an HTML tag, is an XML tag.
+
+*** <head>
+    1. Contains no web content
+    2. Contains the meta information
+       - meta info :: information about your information.
+    3. Contains the title tag.
+
+*** <body>
+    All of the visible content of a web page should be contained in
+    the <body> tag.
+
+** block tags.
+   - block level tags are used to define regions on the page.
+   - All visible content must be the descendent of a block-level tag.
+   - block-level tags are all contained in the <body> tag which is
+     one of the page tags.
+   - block-level tags which expand to fill the entire width of their
+     containing block.
+   - You should not put a space between the name of the tag and the
+     <.
+   - block-level tags can contain other block-level tags.
+
+*** p
+    paragraphs.
+
+*** h1...h6
+    head tag.
+
+*** Lists.
+    - ol :: ordered list.
+    - ul :: unordered list.
+#+begin_src html
+<ol>
+  <li>  </li>
+  <li>  </li>
+  <li>  </li>
+</ol>
+#+end_src
+
+*** div
+    the <div> tag defines a group of regions on your page.
+
+*** table
+
+*** Forms.
+
+
+** inline tags.
+   - inline tags take up only as much width as does their contained contents.
+   - you cannot have a block-level tag inside of an inline tag.
+
+*** a
+    anchor
+    + target :: which window in which the link will be opened.
+      - _self :: the same window as the link
+      - _blank :: a new window.
+    + href :: hypertext reference
+
+*** em, string and span.
+    + em :: text that is different or noticeable in some way.
+            (/italicized/ in default.)
+    + strong :: text is important in some way.
+                (*bold* in default.)
+    + span :: span is like div, don't make your text any different but
+              can with class attribute and make up our own tags.
+
+*** self closing tag:
+    1. There is no closing tag
+    2. There is a */* before the *>* to indicate that the tag is
+       self-closing.
+
+** element level tags
 
 * Benefits of HTML5
   1. Retains backward scompatibility with previous versions of HTML.
@@ -19,14 +101,19 @@
 
 * basic structure about HTML5
 
-<!DOCTYPE html>
-<html>
-<head>
-<title>Title of the document</title>
-</head>
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <title>Title of the document</title>
+  </head>
 
-<body>
-The content of the document......
-</body>
+  <body>
+  The content of the document......
+  </body>
 
-</html>
+  </html>
+
+
+* reference.
+[fn:1]: [[http://www.washington.edu/lst/help/web/html/inlinetags][inline-tags]]
+[fn:2]: [[Head First HTML and CSS]]

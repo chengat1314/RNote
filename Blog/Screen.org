@@ -1,6 +1,7 @@
 # -*- mode: org -*-
-# Last modified: <2012-03-19 11:49:39 Monday by richard>
+# Last modified: <2012-08-17 15:45:45 Friday by richard>
 #+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
 #+TITLE:   Screen of programmer
 
 
@@ -8,12 +9,14 @@
 172字符每行。
 假设使用mono字体并且字符宽度为t。
 一般工业级代码标准一般每行不大于79t。这样加上侧边栏的一个字符。加上行
-数5t。加上分割栏2t。不需要行数的同志同理就少10t，只需要162t了。
-假设使用1080p的屏幕，（1920x1080）
+数5t。加上分割栏2t。不需要行数的同志同理就少10t，只需要162t了。假设使
+用1080p的屏幕，（1920x1080）
 那么假设编程界面全屏，不包含系统所生成得边界框。每字符占据宽为：
 1920/172=11.16.
 一般而言1080p得24寸屏，使用11-12号字是比较合适的字号。
 点距和字号关系大概就是：。。。。。。未完待续
+
+
 ref：
    1. http://blog.itman.cc/archives/common-specifications-lcd-display-size-pitch-resolution/
-   2. 
+   2.

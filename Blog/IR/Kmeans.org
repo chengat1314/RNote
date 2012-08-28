@@ -1,0 +1,26 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-16 11:17:13 Thursday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   KMeans and beyond
+#+AUTHOR: Richard Wong
+
+* Category
+** Center-based clustering algorithms
+   1. K-means
+   2. Gaussian expectation-maximization.
+
+
+* Extending KMeans.
+** Gaussian-means.[fn:1]
+*** Complexity: O(k) times that of k-means.
+
+
+* Use of Clustering
+  Clustering algorithms are useful tools for data mining, compression,
+  probability density estimation, etc.
+
+* Footnotes
+
+[fn:1] :Learning the k in k-means

@@ -1,0 +1,84 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-28 13:19:16 Tuesday by richard>
+#+STARTUP: showall
+#+TITLE:   Aug 26 - 33 (Week 35)
+
+* Relationship
+** TODO:
+** 工作计划
+   1. 和倪鹏交流Gmeans相关的东西，继续配置服务器。
+   2. 求上海的UX。
+   3. 分析SG的词库。
+   4. 学习scipy和numpy库。
+   5. 学统计学的基本东西。
+
+* 再往下面是一些笔记，有兴趣的可以看看。
+  1. mongo应该专门建立一个用户来管理mongo。
+
+
+* Professional Skill
+** At first：
+   我发邮件一般不会写重复的东西，所以基本上，已经发送过的内容，如果不仔
+   细看，就过去了哦。
+
+** <2012-08-27 Mon>
+   今天不是很在状态，头晕忽忽的，中午一下休息到3点05分，周末去taobao拍
+   一个检查去做做。（推荐你们也去试试看）
+   今天写了一个压力测试。压力测试要和集成测试分开。而且可以没有必要用
+   python写，既然是网络上面的东西，没有必要真的用python写压力测试，之
+   后再寻寻觅觅一个成熟的压力测试工具吧。我简单总结了一下python的WSGI
+   测试的模型。
+   综合选取了WebTest.
+   选取原因：
+   1. 版本已经1.6，足够稳定。
+   2. 使用不同的工具更容易检测他是否满足标准。（这也是采用不同语言测试
+      的优点，其他语言的选手有没有最优解？）
+   3. 方便好用，你看他名字就知道。（弱爆了的解释）
+   当然，像django之类的库，可以调用专门的测试库。
+   常见的python测试WSGI模型的库：[fn:1][fn:2]
+   1. WSGI Intercept
+      Intercepts normal Python calls to httplib, and redirects them to
+      a WSGI application running in-process. Any testing tools written
+      in Python can be made to test WSGI applications in-process.
+   2. Twill
+      See Testing WSGI Apps with twill for a description of the
+      specifics on plugging these together. WSGI Intercept was
+      originally written for Twill.
+   3. WebTest
+      Extraction of paste.fixture.TestApp, rewriting portions to use
+      WebOb.
+      Allows for testing WSGI applications without having to start a
+      WSGI server.
+   4. cherrypy.test.webtest
+      Extensions to unittest for web frameworks.
+   5. webunit
+      Unit test your websites with code that acts like a web browser.
+   6. zope.testbrowser
+      An easy to use programmatic web browser with special focus on
+      testing. Used in Zope 3, but not Zope specific.
+
+   今天配置了一些mongo 地址服务的问题，有点意思。
+
+
+** <2012-08-28 Tue>
+   今天问上海要反馈，突然想到了新的分词结构。昨天晚上wubin在我旁边看到
+   我手动启动服务之类的都崩溃了，突然间我想起来，是啊，好弱啊，应该请
+   教一下的，这就又反馈到上周的周报，没人给我推荐书诶。不过武斌给我发
+   了脚本了今天。。。。
+
+
+
+
+
+* reference
+[fn:1]: [[http://stackoverflow.com/questions/2630843/best-way-to-run-functional-tests-of-a-wsgi-application][best way to run wsgi applications]]
+[fn:2]: [[http://blip.tv/pycon-us-videos-2009-2010-2011/pycon-2011-wsgi-working-together-to-solve-the-web-s-problems-4895590][working together to solve the web problem]]
+[fn:3]: [[http://video.google.com/videoplay?docid=-872784530622495809][ReUsable Web Components with Python and Future Python Web Development (Google TechTalk, 2006, Ben Bangert)]]
+
+* Family
+* 对自己微薄的要求
+  1. 推荐一首歌曲。（不一定）
+  2. 发表一个技术微薄。（不一定）
+  3. 一个吐槽。（最有可能是3个吐槽）
+  4. 求助。
+  5. 极少转发。（我很生气，或者没注意按下去的时候就会转发了）

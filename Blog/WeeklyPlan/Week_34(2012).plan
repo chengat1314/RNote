@@ -1,0 +1,213 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-27 12:03:34 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Aug 20 - 27 (Week 34)
+
+* Relationship
+** TODO:
+
+   本周开始我的工作周报就不叫上周总结了，改名工作记录了，主要记录我每天工
+   作的内容和遇到的问题，以及具体的解决方案，我权衡的方法。很开心哟。
+   Happy today.
+
+* 周总结：
+  本周主要处理了分词服务，和gmeans相关的东西。具体可以参考下文，有一些
+  是编程得到的经验，用python的要看看这几个链接哦，非常不错。
+
+* 工作记录
+** <2012-08-20 Mon>
+   有的时候会用到在参数中设定默认参数。参数比如是[]，这时候就会出现提示，
+   这样不安全。为什么。。。
+   #+begin_src python
+>>> def foo(x=[]):
+...     x.append(1)
+...     print x
+...
+>>> foo()
+[1]
+>>> foo()
+[1, 1]
+>>> foo()
+[1, 1, 1]
+   #+end_src
+   给大家共享一个链接：不看后悔。
+   http://stackoverflow.com/questions/101268/hidden-features-of-python
+   今天的这个案例给我的直接感想就是，准备把python在stackoverflow上面的
+   问题都挖一边。。。
+** <2012-08-21 Tue>
+   今天实现了分词的加词功能，按照不同的服务加词可能还需要更多的经验，
+   因为mmseg天生有残缺，看了里面的代码，STL简直胡乱使用，我想，之后还
+   是找一找算法，然后自己实现一个稳定一点的比较好。
+   看到这么垃圾的代码，实在没有想法再进行hack。。或者改进mmseg也行。
+   今天在用python设计类的时候发现的一些问题。
+   这个回答2非常好，分享给各位。
+   http://stackoverflow.com/questions/222877/how-to-use-super-in-python
+
+** <2012-08-22 Wed>
+   今天上午完成了分词服务，
+   配置服务器感觉非常爽啊。学习了不少东西。
+   下午着手实现G-means。
+
+** <2012-08-23 Thu>
+   趁着上午网速比较快配置了服务器，但是简单配置还是有的。自从@胖凯给
+   我留下了阴影之后，我配置服务器就非常谨慎了。学到不少东西。但是可能
+   还是需要系统的研究一下比较好，求书籍。
+
+** <2012-08-24 Fri>
+   在实现G-means的时候发现，很多功能都已经在scipy中被实现了，想必之前
+   已经重复了不少轮子，所以有打算一起和nipeng系统的学习一下scipy的内容。
+   上传了一本书，要好好看哟。
+   另外我觉着有一个非常好的学习数学计算的方法是直接学习scipy。配合教科
+   书一起学习。
+   但是今天发现了由于样本稀疏仍然带来的0分类的问题。所以样本很多，有明
+   显的聚类倾向才是非常重要的。之后会更加的着重于代码稳定性，选择初始
+   点在G-means中依然是不可或缺的。（尤其是在样本稀疏的时候）
+
+   * 我为什么选择scipy，而丢弃我自己的代码
+     并不是对我自己所写代码的不自信，
+   使用scipy的好处就是代码有很多人维护，不停的有人更新。坏处就是你
+   需要学习他们那个体系的结构，我觉着对于研究院这边的人来说，学习我上
+   传的那本书是必须的。
+   比如在测试的时候的一个聚类问题，提示很全面如：
+   warnings.warn("One of the clusters is empty. ")
+   # 这个是Kmeans我专门写出一个可能会导致0分类的情况。自己写的话也可以，
+   但是之后设计到的算法必定会非常多而且繁杂，咱们可以抽出更多的时间去
+   研究更牛逼的算法，你说是不？
+   至于如何配合咱们的代码，可以直接简单的增加一层映射关系就可以。
+
+
+* 服务器学习笔记
+  服务器上面用vi用不习惯，但新的emacs太过臃肿，所以使用jed来简单代替
+  emacs在服务器上面使用，大部分时间在本地使用emacs tramp到服务器就可以
+  了。
+** 服务器需要配置的东西
+
+*** 配置mongo
+
+*** 管理器安装
+   1. git
+   2. mongo
+   3. nginx
+   4. openssh-server
+   5. openssh
+   6. zsh
+   7. python
+   8. pip
+   9. language-pack-zh-hans
+
+*** pip 安装
+   1. distribute
+   2. upgrade pip
+   3. etc. 其他必要的库
+
+
+*** NLP lib by pip.
+    #+begin_src bash
+sudo apt-get install libamd2.2.0 libblas3gf libc6 libgcc1 libgfortran3
+sudo apt-get install liblapack3gf libumfpack5.4.0 libstdc++6 build-essential gfortran
+sudo apt-get install libatlas-dev libatlas3-base python python-all-dev gcc g++ libblas-dev
+sudo apt-get install liblapack-dev
+    #+end_src
+
+*** 配置locale
+    #+begin_src conf
+LANG="zh_CN.UTF-8"
+LANGUAGE="zh_CN:zh"
+LC_NUMERIC="zh_CN"
+LC_TIME="zh_CN"
+LC_MONETARY="zh_CN"
+LC_PAPER="zh_CN"
+LC_NAME="zh_CN"
+LC_ADDRESS="zh_CN"
+LC_TELEPHONE="zh_CN"
+LC_MEASUREMENT="zh_CN"
+LC_IDENTIFICATION="zh_CN"
+LC_ALL="zh_CN.UTF-8"
+    #+end_src
+
+
+*** 配置zsh
+    #+begin_src bash
+    sudo curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+    #+end_src
+
+*** 添加密钥
+    .ssh/authorized_keys
+
+* 本周工作
+  1. 分词服务结构搭建。（前两天内搞定）
+  2. 实现Gmeans算法。
+  3. 学习牛逼一点的统计学知识。我有一本书，没看呢。
+
+
+* Family
+** mom
+   已经给老妈打了不少电话了呢。。
+
+** cc
+
+   最近需要讨论的事情。
+*** 需要达成的共识
+   1. 每天学习一点新东西。（1.5h）
+      每天学习一节公开课，大概30-60分钟不等，然后做完联系，两个人之后
+      一起讨论。学习*一旦开始*，就必须坚持到底。
+   2. 占用对方的时间，只是为了理解对方的想法和思维。
+      占用对方的时间不可避免，所以，先商量好，希望对方为你做什么。每天
+      占用1个小时，不少了。
+      - 这时候，要给你推荐的书
+      http://www.amazon.com/Complete-Idiots-Guide-Statistics-Edition/dp/1592576346/ref=sr_1_1?ie=UTF8&qid=1345694894&sr=8-1&keywords=statistic
+   3. 关于英语。（1h以上）
+      英语是个非常重要的东西，抽时间，怎么抽？抽哪里？做什么。可行性多
+      高，都需要认真讨论。否则很难坚持，写了计划就一定要坚持去做。否则
+      执行力会一降千里。
+   4. 关于家务。
+      - CC工作的时候，cc休息，cc做家务。
+      - cc工作的时候，CC休息，CC做家务。
+      - CC和cc同时工作的时候，轮流做家务。（家务也要说好，主要有那几
+        项，同时工作可以少做那些项目，写了就一定做，不要因为不是那么肮
+        脏，就不做，你也爱干净，我也爱干净。）
+      - cc和CC同时不工作的时候，一起做家务。
+
+*** 每天计划（工作日）
+    1. 10点前所有工作都应该做完了。除了下面的
+    2. 10点钟定闹钟。然后去洗澡。
+    3. 每天晚上10点半要一起写计划，然后讨论进度。（15分钟足够了）
+    4. 周日抽出一个小时，咱们相互反省。这个都是必须的。否则怎么一起进
+       步。
+    5. 11点钟准时睡觉。
+
+*** 周末计划（休息日，即非工作日）
+    1. 每天都要保证运动。打乒乓球。
+    2. 连续两天以上的休息日第二天逛街。（同时是休息日）
+
+*** 最后
+    这个表，咱们每天需要看，然后逐步完善。一起进步哟，babe。
+
+*** 另外
+    即使你认为你每天都很累，如果做不到上面的东西导致咱们生气的话，我是
+    不会安慰你的，你没有任何资格生气。你浪费了我的付出。
+
+* 明天
+  做好主页，开启服务，打开域名服务。并调试结构。
+  jade+jinja2+tornado
+
+
+* 下周计划
+  1. 切记，报名toefl。
+     每天过4次单词list。
+  2. 英语1小时：
+     看美剧2集：
+     清单：
+     - 兄弟姐妹。
+     - 办公室。
+     - 南方公园（美式幽默）
+  3. First OCW class:
+     Statistics 35 lectures. and 35 days. to <2012-09-30 Sat>
+  4. 一起看的OCW：justice。
+
+
+* PUSH
+**
+  把所有的想学的公开课程准备好，写成一个list，然后一个一个的去学咯。：）
+  http://www.csc.kth.se/utbildning/kth/kurser/DH2321/ivis12/
+** [[http://www.stanford.edu/class/cs246/handouts.html][Mining Massive Data Sets]]

@@ -1,0 +1,23 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-23 14:26:12 Thursday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   passionate_programmer
+#+AUTHOR: Richard Wong
+如果我想和能让我进步的人在一起，就得成为他们中的一员，而在某个公司工作
+或者在大学进修是无法让我走向卓越的。
+我要做的是弄明白成为他们中的一员意味着什么，然后努力去做。
+
+
+1. 风险收益平衡。
+2. Both ends of the technology adoption curve might prove to be
+   lucrative.
+3. You can't afford to compete on price.
+4. Exploit market imbalances.
+5. Be the worst guy in every band you are in.
+6. Now is the time to think about business domains you invest your
+   time in.
+7. Generalists are rare and precious.
+8. Too many of us seem to believe that specializing in something
+   simply means not knowing about other things.
