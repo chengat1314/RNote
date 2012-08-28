@@ -1,15 +1,30 @@
 # -*- mode: org -*-
-# Last modified: <2012-08-23 14:26:12 Thursday by richard>
+# Last modified: <2012-08-28 14:10:01 Tuesday by richard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
 #+TITLE:   passionate_programmer
 #+AUTHOR: Richard Wong
-如果我想和能让我进步的人在一起，就得成为他们中的一员，而在某个公司工作
-或者在大学进修是无法让我走向卓越的。
-我要做的是弄明白成为他们中的一员意味着什么，然后努力去做。
+
+* Bulletins
+ - 如果我想和能让我进步的人在一起，就得成为他们中的一员，而在某个公司工作
+   或者在大学进修是无法让我走向卓越的。
+ - 我要做的是弄明白成为他们中的一员意味着什么，然后努力去做。
+
+ - 有一种知识既不属于技术范畴，也不是特定于某一行业的，而且也不会很快过时，
+   他就是财务基本知识。
+
+ - 如果在练习的时候，总能演奏出悦耳的音符，那就证明你一直无法突破自己的极
+   限。这就是练习的意义所在。
+
+ - 一个成功的软件开发步骤，必须是由使用它的人来参与制定的。（包括你！）
+
+ - 将现有的程序当作一面放大镜来检查你自己的编程风格和能力。
+
+ - 计划和跟踪工作成绩，对我们每个人都有益。
 
 
+* Zens
 1. 风险收益平衡。
 2. Both ends of the technology adoption curve might prove to be
    lucrative.
@@ -21,3 +36,21 @@
 7. Generalists are rare and precious.
 8. Too many of us seem to believe that specializing in something
    simply means not knowing about other things.
+9. Don't wait to be told, ask!
+10. It's OK to depend on someone. Just make sure it's the right
+    person.
+11. Practice at your limits.
+12. If you want to feel you own a process, help implement it.
+13. Mine existing code for insights.
+14. Have an accomplishment to report everyday.
+
+
+
+* Practice, Practice, Practice!
+  身体与协调。
+  1. 学习网络编程。
+  2. 学习多线程编程。
+  3. 学习stream库使用。
+  习题
+  1. Topcoder.com
+  2. [[codekata.pragprog.com][code Kata]]
