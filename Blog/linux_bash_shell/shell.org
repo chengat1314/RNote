@@ -1,0 +1,10 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-30 16:54:59 Thursday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   shell Cookbook
+#+AUTHOR: Richard Wong
+* basic points
+*** get length of character.
+    length=$(PATH：/home/user/bin)

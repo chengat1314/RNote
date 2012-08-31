@@ -1,22 +1,27 @@
 # -*- mode: org -*-
-# Last modified: <2012-07-13 17:48:30 Friday by richard>
+# Last modified: <2012-08-31 11:58:44 Friday by richard>
 #+STARTUP: showall
 #+TITLE:   RESTful Service API doc
 
-* Prerequisites/约定
+* 分词 API 说明
+
+** 现在的地址。
+   请联系相关人员获得现在API地址。@runchao即可
 
 ** HTTP HEAD
-   所有的HTTP head如不特别说明，均需要以下参数
-    1. "Content-Type": "application/json"
+   所有的HTTP head *均需要* 以下参数：
+
+   #+begin_src html_head
+   "Content-Type": "application/json"
+   #+end_src
+
 
 ** HTTP BODY
-   1. 所有的HTTP body如不特别说明，所传输数据均需要使用UTF-8进行编码。
+   1. 所有的HTTP BODY所传输数据均需要使用UTF-8进行编码。
    2. []表示基于特定的规则所表示的特定的URI。
       eg:
       [word] 表示一个词汇，而非字符串[word]本身。
    3. body 中以*（星号）结尾注释的为可选key。
-
-** 截止到目前，所有body中的project项目还没有效果。需要heck hehe的代码，所以先别加词，先耍耍分词玩吧吧。：）
 
 * Adding Words/加词过程
 
@@ -32,9 +37,8 @@
 
 *** Body structure
     {
-    "word": "action words"   # 需要添加的词
-    "project": "weibomaster" # 需要分词服务的项目名
-    "frequency": frequency_count (*)
+    "word": "new words"   # 需要添加的词
+    "project": "weibomaster" # 需要分词服务的项目名(现在分词不能按服务分词)
     }
 
 *** return HTTP status
@@ -55,57 +59,6 @@
     }
 
 
-** 修改新词的频率（暂未实现）
-
-*** HTTP METHOD
-    #+begin_src HTTP
-    PATCH      /segment/words/[exsiting_word]
-    #+end_src
-
-*** head structure
-    "Content-Type": "application/json"
-
-*** Body structure
-    {
-    "word": "action words"
-    "project": "weibomaster"       # 添加词服务的项目名
-    "frequency": frequency count # 分词的频率 (*)
-    }
-
-** 获得新词的频率（暂未实现）
-
-*** HTTP METHOD
-    #+begin_src HTTP
-    GET      /segment/words/[exsiting_word]
-    #+end_src
-
-*** head structure
-    "Content-Type": "application/json"
-
-*** Body structure
-    {
-    "word": "actual words"   # 等待获取频率的词
-    "project": "weibomaster" # 需要分词服务的项目名
-    }
-
-** 增加词频
-
-*** HTTP METHOD
-    #+begin_src HTTP
-    POST      /segment/words/[exsiting_word]/frequence
-    #+end_src
-
-*** head structure
-    "Content-Type": "application/json"
-
-*** Body structure
-    {
-    "word": "action words"         # 待添加的词
-    "project": "weibomaster"       # 提供需要分词服务的项目名
-    "frequency": frequency count # 需要添加的频率(*)
-    }
-
-
 * Segmentation/分词过程
 ** 分词
 
@@ -120,8 +73,6 @@
 *** Body structure
     {
     "text": [article]
-    "project": "weibomaster"    # 需要分词服务的项目名
-    "stopwordid": "wordlist_id" # 停用词list的id， 这个需要具体约定(*)
     }
 
 *** return HTTP status

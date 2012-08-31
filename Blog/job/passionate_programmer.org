@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-08-28 14:10:01 Tuesday by richard>
+# Last modified: <2012-08-29 18:32:57 Wednesday by richard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -43,6 +43,7 @@
 12. If you want to feel you own a process, help implement it.
 13. Mine existing code for insights.
 14. Have an accomplishment to report everyday.
+15. Heros never panic.
 
 
 

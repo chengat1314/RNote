@@ -1,0 +1,11 @@
+# -*- mode: org -*-
+# Last modified: <2012-08-29 18:57:17 Wednesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   load test
+#+AUTHOR: Richard Wong
+
+* Procedure
+  1. Coding a data simulator.
+  2.
