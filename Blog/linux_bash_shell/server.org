@@ -1,0 +1,74 @@
+# -*- mode: org -*-
+# Last modified: <2012-09-04 17:54:24 Tuesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   server
+#+AUTHOR: Richard Wong
+
+* settings.
+  服务器上面用vi用不习惯，但新的emacs太过臃肿，所以使用jed来简单代替
+  emacs在服务器上面使用，大部分时间在本地使用emacs tramp到服务器就可以
+  了。
+** 服务器需要配置的东西
+
+*** 配置mongo
+
+*** 管理器安装
+   1. git
+   2. mongo
+   3. nginx
+   4. openssh-server
+   5. openssh
+   6. zsh
+   7. python
+   8. pip
+   9. language-pack-zh-hans
+
+*** pip 安装
+   1. distribute
+   2. upgrade pip
+   3. etc. 其他必要的库
+
+
+*** NLP lib by pip.
+    #+begin_src bash
+sudo apt-get install libamd2.2.0 libblas3gf libc6 libgcc1 libgfortran3
+sudo apt-get install liblapack3gf libumfpack5.4.0 libstdc++6 build-essential gfortran
+sudo apt-get install libatlas-dev libatlas3-base python python-all-dev gcc g++ libblas-dev
+sudo apt-get install liblapack-dev
+    #+end_src
+
+*** 配置locale
+    #+begin_src conf
+LANG="zh_CN.UTF-8"
+LANGUAGE="zh_CN:zh"
+LC_NUMERIC="zh_CN"
+LC_TIME="zh_CN"
+LC_MONETARY="zh_CN"
+LC_PAPER="zh_CN"
+LC_NAME="zh_CN"
+LC_ADDRESS="zh_CN"
+LC_TELEPHONE="zh_CN"
+LC_MEASUREMENT="zh_CN"
+LC_IDENTIFICATION="zh_CN"
+LC_ALL="zh_CN.UTF-8"
+    #+end_src
+
+
+*** 配置zsh
+    #+begin_src bash
+    sudo curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+    #+end_src
+
+*** 添加密钥
+    .ssh/authorized_keys
+
+
+*** 配置mongo，
+    1. 添加管理mongo的用户。
+    2. 使得用户只能通过本机登陆。
+
+
+** examples:
+   [[file:examples.sh][examples file]]
