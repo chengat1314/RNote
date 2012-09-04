@@ -1,10 +1,29 @@
 # -*- mode: org -*-
-# Last modified: <2012-08-30 16:54:59 Thursday by richard>
+# Last modified: <2012-09-04 16:50:31 Tuesday by richard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
 #+TITLE:   shell Cookbook
 #+AUTHOR: Richard Wong
+linux mumbo-jumbos chacha:)
+
 * basic points
 *** get length of character.
     length=$(PATH：/home/user/bin)
+
+*** /dev/null
+    bit bucket. black hole.
+
+*** /dev/stdin
+    standard input.
+
+*** /dev/stderr
+    standard error.
+
+*** tee
+    bidirectional message transport.
+    - -a :: append content in a file.
+    - - :: stdin
+
+*** redirection
+    - text block :: [[file:file][example]]

@@ -1,0 +1,19 @@
+# -*- mode: org -*-
+# Last modified: <2012-09-04 14:20:43 Tuesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   FaQ
+#+AUTHOR: Richard Wong
+
+* what si SOA
+  SOA是一个战略性的技术框架，它促使企业内部及外部所有相关的系统公开和
+  访问良好的服务以及绑定于那些服务的信息，他们又进一步抽象成流程层和组
+  合应用，从而形成心解决方案。从本质上来说，SOA为架构添加了灵活性，使
+  得我们可以灵活的通过配置层完成系统的更改，而不是重新开发系统。
+
+* Pros
+  1. 服务与行为的重用。
+  2. 敏捷。
+  3. 监控。
+  4. 范围延伸。

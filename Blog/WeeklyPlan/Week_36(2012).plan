@@ -1,0 +1,27 @@
+# -*- mode: org -*-
+# Last modified: <2012-09-04 15:42:36 Tuesday by richard>
+#+STARTUP: showall
+#+TITLE:   Sep 03 - 10 (Week 36)
+
+* Relationship
+** TODO:
+** 本周任务。
+   1. 研究POS技术和工具。
+   2. 和nipeng对接Gmeans接口。
+   3. 分析SG的词库。
+   4. 学习scipy和numpy。（long term）
+   5. 学统计学的基本东西。（long term）
+
+** <2012-09-03 Mon>
+   1. 今天与nipeng，hehe交流了CSR相关的问题。
+      提取了CSR的公式。（去递归优化问题）
+
+** <2012-09-04 Tue>
+   突发任务。
+   1. 自然语言处理矫正模块。
+   2. 测试数据量。
+
+* Professional Skill
+**
+
+* Family
