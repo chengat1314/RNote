@@ -1,0 +1,18 @@
+# -*- mode: org -*-
+# Last modified: <2012-09-05 16:25:55 Wednesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Safe and Danger
+#+AUTHOR: Richard Wong
+
+下周就会出发骑行川藏，自行车已经准备好。
+
+* 哪里安全，哪里危险？
+  有人以安全打头。
+
+
+
+我有一种感觉，只要我幸运的回来了。这个世界会因我而改变。如果我不去，则
+一事无成，郁郁终生。心里就是这种感应！！
+Go ahead!

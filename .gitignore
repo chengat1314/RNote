@@ -3,6 +3,8 @@
 *.tex
 *.pdf
 *.log
+*.aux
+*.toc
 *.md
 *.html
 *.markdown

@@ -1,0 +1,79 @@
+# -*- mode: org -*-
+# Last modified: <2012-10-17 14:28:45 Wednesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   API doc correct handler
+#+AUTHOR: Richard Wong
+
+* 人工矫正API 说明
+
+** 现在的地址。
+   请联系相关人员获得现在API地址。@Richard即可
+
+** HTTP HEAD
+   所有的HTTP head *均需要* 以下参数：
+
+   #+begin_src html_head
+   "Content-Type": "application/json"
+   #+end_src
+
+** HTTP BODY
+   1. 所有的HTTP BODY所传输数据均需要使用UTF-8进行编码。
+   2. []表示基于特定的规则所表示的特定的URI。
+      eg:
+      [word] 表示一个词汇，而非字符串[word]本身。
+   3. body 中以*（星号）结尾注释的为可选key。
+
+* Adding Words/加词过程(用来控制加词多少)
+
+** 升级一个新词
+   本质上是直接将这个词添加到词库里面，然后将其优先级升为最高。
+*** HTTP METHOD
+    #+begin_src HTTP
+    POST      /rectify_weibos/key
+    #+end_src
+
+*** head structure
+    "Content-Type": "application/json"
+
+*** Body structure
+    {
+    "key": "new words" # 需要添加的key/features（key会被当作features添加）
+    "date":            # 这个key的日期(可选)
+    "num":             # 期望处理的key的数量，默认为5
+    }
+
+** 获取weibo
+
+*** HTTP METHOD
+    #+begin_src HTTP
+    GET        /rectify_weibos/weibo/count/(\d+)
+    #+end_src
+    - (\d+):
+      需要获取微博的数量（测试阶段，最多为初始化词库的数量x2）
+
+** 修正weibo
+   返回人工矫正之后的结果。
+*** HTTP METHOD
+    #+begin_src HTTP
+    POST      /rectify_weibos/weibo
+    #+end_src
+
+*** head structure
+    "Content-Type": "application/json"
+
+*** Body structure
+    {
+    "doc_id": doc_id   # weibo的id编号
+    "pan": pan         # weibo的人工纠正后的值
+    "old_pan": old_pan # weibo的原始数值
+    }
+
+** 按照词来获取weibo
+   这个需要等待开发，写在这里仅仅是为了确认需求。
+
+* About more
+  （之后在head中会考虑加密需求）
+
+现在服务在93:8000上面。

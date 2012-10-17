@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-09-04 16:50:31 Tuesday by richard>
+# Last modified: <2012-09-06 11:31:26 Thursday by richard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -27,3 +27,11 @@ linux mumbo-jumbos chacha:)
 
 *** redirection
     - text block :: [[file:file][example]]
+
+*** 所谓 source 就是让 script 在当前 shell 内执行、而不是产生一个 sub-shell 来执行。
+
+*** exec 也是让 script 在同一个行程上执行,但是原有行程则被结束了。
+
+*** $10 不是替换第 10 个参数,而是替换第一个参数($1)然后再补一个 0 于其后!
+
+*** Return Value(RV) 的取值为 0-255 之间,由程序(或 script)的作者自行定议:

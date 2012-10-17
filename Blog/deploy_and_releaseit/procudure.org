@@ -1,0 +1,9 @@
+# -*- mode: org -*-
+# Last modified: <2012-09-07 17:43:01 Friday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   procudure
+#+AUTHOR: Richard Wong
+
+using hostname to recogonize server. test ip to ensure server.
