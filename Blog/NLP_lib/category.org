@@ -1,0 +1,288 @@
+# -*- mode: org -*-
+# Last modified: <2012-12-10 17:07:16 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   category
+#+AUTHOR: Richard Wong
+
+* Category tag selection standard:
+  分类以用户的兴趣点为主，然后尽量覆盖可能的其他第三方提供的tag，使得
+  用来做横向对比.
+  里面包含了我对于分类标签的具体定义。包含哪些东西。
+  选取网址是通过baidu和google排名以及个人经验获得的几个推荐网站，选取1-2个就可以。
+  主要以新闻为主。
+* 消费数码
+  消费数码主要指的是非专业人群所关注的数码类产品。
+  1. [[http://digi.sina.com.cn/][sina digit]]
+  2. [[http://digi.zol.com.cn/][zol digit]]
+
+** 电脑
+   电脑包括笔记本，家用电脑，一体机，上网本，电脑硬件。
+   1. http://nb.zol.com.cn/
+   2. http://tech.sina.com.cn/hardware/
+   3. http://tech.sina.com.cn/notebook/
+
+
+** 手机
+   手机是包含手机和平板机在内的。
+   1. http://pad.zol.com.cn/
+   2. http://mobile.zol.com.cn/manu_list.html
+   3. http://mobile.sina.com.cn/
+
+** 相机
+
+   1. http://dcdv.zol.com.cn/
+   2. http://tech.sina.com.cn/digital/
+** 音频设备(音响)
+   包含耳机和音响设备。
+   1. http://sound.zol.com.cn/
+   2. http://www.erji.net/
+
+* IT
+** 通信
+   通信指的是通信以及电信方面的内容。
+   1. http://tech.sina.com.cn/tele/
+
+** 互联网
+   互联网包括传统软件，互联网软件，以及互联网创业相关的内容。
+   1. http://tech.sina.com.cn/internet/
+   2. http://www.36kr.com/
+
+* 汽车
+  1. http://www.autohome.com.cn/
+  2. http://auto.sina.com.cn/
+  3. http://bitauto.com/
+
+* 金融
+  金融财经相关的内容和信息。
+  1. http://www.zgjrw.com/
+  2. http://finance.qq.com/
+
+* 服装
+  1. http://www.efu.com.cn/
+  2. http://www.cloth.hc360.com/
+  3. http://www.ef360.com/
+
+* 首饰饰品
+  1. http://www.loepo.com/index.html
+  2. http://www.jewelry.hc360.com/
+  3. http://gold.hexun.com/jewels/
+  4. http://www.wto168.net/
+
+* 美容
+  包括美容减肥化妆等内容
+  1. http://face.39.net/
+  2. http://beauty.pclady.com.cn/
+
+* 教育培训
+  1. http://training.jinti.com/
+  2. http://www.tolearn.com.cn/
+
+
+* 游戏
+  包含小游戏，网页游戏，单机游戏，电视游戏，网络游戏等内容。
+  1. http://www.4399.com/
+  2. http://www.tgbus.com/
+  3. http://game.yesky.com/
+  4. http://www.17173.com/
+  5. http://games.sina.com.cn/
+  6. http://game.d.cn/
+  7. http://www.duowan.com/
+  8. http://games.qq.com/
+
+* 健康医疗
+  包含养生知识，医疗保健等内容
+  1. http://www.39.net/
+  2. http://health.sohu.com/
+  3. http://www.99.com.cn/
+  4. http://health.pclady.com.cn/
+
+* 家居生活
+
+** 家电
+   指大家电
+   1. http://www.homea.hc360.com/
+   2. http://elec.it168.com/
+   3. http://tech.sina.com.cn/elec/
+
+** 装修
+   1. http://zhuangxiu.pchouse.com.cn/
+   2. http://jiaju.sina.com.cn/
+   3. http://home.house365.com/
+   4. http://tuku.letfind.com.cn/
+
+** 宠物
+   1. http://pet.pclady.com.cn/
+   2. http://www.chinapet.com/
+   3. http://www.edeng.cn/13/chongwu/
+
+* 母婴
+  1. http://baobao.sohu.com/
+  2. http://www.muyingzhijia.com/
+  3. http://club.baby.sohu.com/
+
+* 运动健身
+** 足球
+   1. http://sports.sina.com.cn/global/
+   2. http://sports.sohu.com/guoneizuqiu.shtml
+   3. http://soccer.hupu.com/
+
+** 篮球
+   1. http://sports.sina.com.cn/basketball/
+   2. http://sports.sohu.com/lanqiu.shtml
+   3. http://nba.hupu.com/
+
+** 排球
+   1. http://sports.sohu.com/1/1102/74/subject204187448.shtml
+   2. http://sports.qq.com/others/volleyball.htm
+
+** 乒乓球
+   1. http://sports.sina.com.cn/others/pingpang.shtml
+   2. http://sports.sohu.com/s2012/ittfpro2012/
+
+** 羽毛球
+   1. http://sports.sina.com.cn/others/badmin.shtml
+   2. http://sports.sohu.com/1/1102/47/subject204254723.shtml
+
+** 网球
+   1. http://sports.sina.com.cn/tennis/
+   2. http://sports.sohu.com/wangqiu.shtml
+
+** 其他
+   1. http://sports.sina.com.cn/others/
+   2. http://sports.sohu.com/zonghe.shtml
+
+** 健身
+   1. http://sports.39.net/
+   2. http://js.9939.com/
+
+** 户外
+   1. http://www.8264.com/
+   2. http://outdoor.lotour.com/
+   3. http://travel.ifeng.com/outdoor/list_0/0.shtml
+
+* 文化娱乐
+** 读书
+   包含书籍等内容，这里面东西可有一点多。不过没啥思路还。（考虑去douban跑简介：）
+   1. http://book.sina.com.cn/
+   2. http://book.douban.com/
+   3. http://book.qq.com/
+   4. http://book.ifeng.com/
+
+** 视频
+   包含电影，电视剧等内容。（这个不会怎么选）
+   1. http://www.youku.com/
+   2. http://tv.sohu.com/
+   3. http://v.qq.com/
+
+** 音乐
+   1. http://www.kugou.com/
+   2. http://music.baidu.com/
+   3. http://www.1ting.com/
+** 彩票
+   1. http://sports.qq.com/lottery/
+   2. http://www.zhcw.com/
+   3. http://caipiao.163.com/
+   4. http://www.lottery.gov.cn/
+
+** 摄影
+   1. http://bbs.fengniao.com/
+   2. http://dp.pconline.com.cn/
+   3. http://ww.xitek.com/
+   4. http://www.heiguang.com/
+
+** 文化
+   这个不好取舍，我搞不懂。
+   1. http://cul.book.sina.com.cn/
+   2. http://culture.gmw.cn/
+   3. http://cul.sohu.com/
+
+* 美食
+  这个应该就是菜名地名之类的。做饭方法应该也比较有用。
+  1. http://www.meishichina.com/
+  2. http://www.meishij.net/
+  3. http://www.dianping.com/
+  4. http://eat.sina.com.cn/
+
+* 旅游
+  这个感觉跟上面的文化有不少关系
+  1. http://www.lotour.com/
+  2. http://travel.sina.com.cn/
+  3. http://www.cncn.com/
+  4. http://go.huanqiu.com/
+  5. http://fashion.ifeng.com/travel/
+
+* 烟酒
+  我觉着烟和酒是应该分开的，不过都找了，抓把先。
+  1. http://brand.ppsj.com.cn/index4.html
+  2. http://www.yanyue.cn/
+  3. http://m.jiuxian.com/
+
+* 房屋租赁
+  包括二手房，购买房屋等问题。
+  1. http://www.58.com/zufang/
+  2. http://www.soufun.com/
+  3. http://esf.sina.com.cn/
+  4. http://bj.ganji.com/fang1/
+
+* 工业
+  工业领域的东西不是很懂。
+** 化工
+
+   1. http://www.chem.hc360.com/
+   2. http://china.chemnet.com/
+   3. http://info.china.alibaba.com/news/community/c7.html
+
+** 金属
+   1. http://www.smm.cn/
+   2. http://www.ometal.com/
+   3. http://www.metalchina.com/
+
+** 煤炭(combined to 能源)
+   1. http://energy.people.com.cn/GB/71898/index.html
+   2. http://www.chemcp.com/news/price/meitan/
+
+** 能源
+   1. http://energy.people.com.cn/
+   2. http://www.in-en.com/
+   3. http://www.energy.hc360.com/
+
+** 石油
+   1. http://oil.in-en.com/
+   2. http://www.oil.hc360.com/
+   3. http://energy.people.com.cn/GB/71897/index.html
+
+** 电力
+   1. http://www.bjx.com.cn/
+   2. http://www.sp.com.cn/
+   3. http://finance.sina.com.cn/nz/dianli/
+
+** 环境
+   1. http://www.ep.hc360.com/
+   2. http://www.epun.cn/
+   3. http://www.cenews.com.cn/
+
+* 农业
+  农业的网站真tmd垃圾，不过也好抓，抗住抗不住爬虫啊亲。
+  1. http://www.agri.gov.cn/
+  2. http://www.d288.com/
+  3. http://www.99inf.com/ny/
+
+* 咨询
+** 物流
+   这个网站不知道怎么处理。
+   1. http://www.chinawutong.com/
+   2. http://www.02156.cn/
+   3. http://www.jctrans.com/
+
+** 生活服务
+   生活服务是包含地图服务，地方服务，税务，人力，社保，考试，宽带等日常生活方面的内容
+   1. http://www.cgn.ac.cn/
+   2. http://qhs.mca.gov.cn/
+
+** 法律
+   主要是看那些网站可以包含更多的法律方面的名词。
+   1. http://www.chinalawedu.com/
+   2. http://www.mylegist.com/
+   3.

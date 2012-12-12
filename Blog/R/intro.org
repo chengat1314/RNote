@@ -1,0 +1,31 @@
+# -*- mode: org -*-
+# Last modified: <2012-11-23 12:11:29 Friday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   intro
+#+AUTHOR: Richard Wong
+
+* Datatype
+  R(S 语言)没有标量, 它通过使用各种类型的向量来存储数据。
+
+** type table
+   | type      | description                      |
+   |-----------+----------------------------------|
+   | charactor | inside ""                        |
+   | numeric   | real number vector               |
+   | integer   | integer vector                   |
+   | logical   | logical vector (TRUE=T, FALSE=F) |
+   | complex   |                                  |
+   | list      | S Object Vector                  |
+   | factor    |                                  |
+
+** like python and js:
+   Everything in S is an object;
+   Every object is S has a class.
+
+** data frame
+   data frame(数据框)可以理解是一个松散的数据集。它可以是由不同类型的列
+   (数字、因子、字符等)组成的类矩阵(matrix-like)
+
+* dist : 如何得到函数的代码?

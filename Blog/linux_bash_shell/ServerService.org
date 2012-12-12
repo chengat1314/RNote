@@ -1,0 +1,21 @@
+# -*- mode: org -*-
+# Last modified: <2012-11-02 14:05:35 Friday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   ServerService
+#+AUTHOR: Richard Wong
+
+* 到现在为止，已经实现的
+
+对每台机器的部署方案：
+** 统一nginx配置
+   依靠ubuntu server的工具service来完成nginx 的使用。如：reload，restart，start，stop操作。
+
+** 分布supervisor配置。
+   1. 分布supervisor配置，而不去使用ubuntu 提供的脚本，方便开启新的服
+      务和分散管理。
+   2. 将所有service启动方式使用supervisor管理。（是否交付给nginx管理需要具体权衡。）
+
+** 注：
+   以上考虑到系统兼容性和效率来权衡的方案。

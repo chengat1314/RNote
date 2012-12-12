@@ -1,0 +1,9 @@
+# -*- mode: org -*-
+# Last modified: <2012-11-04 14:28:49 Sunday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   parallelranking
+#+AUTHOR: Richard Wong
+
+* ....

@@ -1,0 +1,40 @@
+# -*- mode: org -*-
+# Last modified: <2012-11-05 14:46:23 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Nov 04 - 11 (Week 45)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+**
+
+
+
+* Notes
+** Important MOdel problems
+
+*** Matrix Completion (MC)
+
+*** Robust PCA
+    min rank(A) - lambda(E)l_0.
+
+*** MC + RPCA
+
+*** Low Rank Representation
+
+
+* Daily Journal
+
+** <2012-11-05 Mon>
+
+*** deadbeef cannot convert music to specific format..
+    1. for ogg
+       vorbis-tools
+    2. For AAC
+       faac
+    3. For FLAC - flac package.
+    4. For MP3 - lame package.
+    5. For MS RIFF WAV - No package is needed
+    6. For MusePack - musepack-tools package.
+    7. For wavpack - wavpack package.

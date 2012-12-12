@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-10-17 14:28:45 Wednesday by richard>
+# Last modified: <2012-11-12 11:43:30 Monday by richard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -10,6 +10,10 @@
 
 ** 现在的地址。
    请联系相关人员获得现在API地址。@Richard即可
+   + 正式地址：
+     93:8001
+   + 测试地址：
+     93:8000
 
 ** HTTP HEAD
    所有的HTTP head *均需要* 以下参数：
@@ -53,6 +57,19 @@
     - (\d+):
       需要获取微博的数量（测试阶段，最多为初始化词库的数量x2）
 
+*** HTTP返回body(节选)
+    #+begin_src json
+    {
+    u'_id': 3502133313519575,
+    u'collection': u'status_4fb919265d4262ea3c62d754_201210',
+    u'content': u'微薄正文内容',
+    u'feature': 内部排序使用（暂时和keyword为同一内容，暂时应该忽略，之后考虑从feature提交priority，应该也是一个接口）
+    u'time': 内部过期时间，现在限定120s
+    u'keyword': 指定的关键字
+    u'processing': 0,
+    }
+    #+end_src
+
 ** 修正weibo
    返回人工矫正之后的结果。
 *** HTTP METHOD
@@ -64,16 +81,104 @@
     "Content-Type": "application/json"
 
 *** Body structure
+    #+begin_src json
     {
-    "doc_id": doc_id   # weibo的id编号
-    "pan": pan         # weibo的人工纠正后的值
-    "old_pan": old_pan # weibo的原始数值
+    "doc_id"  : doc_id  # weibo的id编号
+    "pan"     : pan     # weibo的人工纠正后的值
+    "old_pan" : old_pan # weibo的原始数值
+    "keyword" : keyword # 获取weibo的keyword：从get处返回
+    "date"    : %Y%m    # eg: 201210, 201108
     }
+    #+end_src
+    注： keyword 和date 主要是用来访问结合确定表位置（从此服务器不需要
+    记录哪个表）但是这里就有可能造成某些不安全因素。切记，这里会对表进
+    行写操作，有风险！
 
 ** 按照词来获取weibo
    这个需要等待开发，写在这里仅仅是为了确认需求。
 
-* About more
-  （之后在head中会考虑加密需求）
+* 如何增加去重的准确度。
+  对双重否定和转意词的增加。
+  比如你妹。
+  philips真好啊。
+  philips真好你妹啊。
 
-现在服务在93:8000上面。
+* 去重测试用例example
+  #+begin_src python2
+
+    def test_content_one_has_url_but_another_do_not_have(self):
+        s1 = U'Gartner：2013年移动设备销量将达12亿，IT消费化势不可挡\
+| 未来几年企业部署智能手机和平板电脑的规模将会大幅提高。 http://t.cn/zjvXpJA by @boxi'
+        s2 = U'Gartner：2013年移动设备销量将达12亿，IT消费化势不可挡\
+| 未来几年企业部署智能手机和平板电脑的规模将会大幅提高。 by @boxi'
+
+        self.assertTrue(same_mean(pre_process(s1), pre_process(s2)))
+
+    def test_content_one_has_negative_words_but_another_do_not_have(self):
+        s1 = U'回复@海尔家电服务:对不起让大家误会了，产品缺陷服务跟垃圾一样\
+的是@海信集团 ！！！把海尔放在后面是让大家有个比较；@海尔集团 的服务是非常真诚\
+的，到家的！ //@海尔家电服务:尊敬的用户您好，给您带来的不便我们深表歉意，希望\
+您能将您的联系电话发送给我们，我们会尽快联系处理，竭诚为您服务。'
+        s2 = U'回复@海尔家电服务:对不起让大家误会了，产品缺陷服务跟垃圾一样的\
+是@海信集团 ！！！把海尔放在后面是让大家有个比较；@海尔集团 的服务是非常真诚的，\
+到家的！ //@海尔家电服务:尊敬的用户您好，给您带来的不便我们深表歉意，希望您能\
+将您的联系电话发送给我们，我们会尽快联系处理，竭诚为您服务。'
+        self.assertTrue(same_mean(pre_process(s1), pre_process(s2)))
+
+    def test_content_one_word_diff(self):
+        s1 = U'Gartner：2013年移动设备销量将达12亿，IT消费化势不可挡\
+| 未来几年企业部署智能手机和平板电脑的规模将会大幅提高。 http://t.cn/zjvXpJA by @boxi'
+        s2 = U'Gartner：2013年移动设备销量将达12亿，IT消费化势不可挡\
+| 未来几年企业部署智能手机和平板电脑的规模将会大幅提高。 by @boxi'
+        self.assertTrue(same_mean(pre_process(s1), pre_process(s2)))
+
+    def test_content_both_have_same_negate_word(self):
+        s1 = U'海尔是垃圾还是不是垃圾呢，元芳，你怎么看？看看毛看。'
+        s2 = U'海尔是不是垃圾呢，元芳，你怎么看？看看毛看。'
+        self.assertTrue(same_mean(pre_process(s1), pre_process(s2)))
+
+    def test_content_both_have_multiple_negate_word(self):
+        s1 = U'海尔是垃圾还是不是垃圾呢，元芳，你怎么看？看看毛看。'
+        s2 = U'海尔是不是垃圾呢，元芳，你怎么看？看看毛看。'
+        self.assertTrue(same_mean(pre_process(s1), pre_process(s2)))
+
+    def test_content_totally_same(self):
+        s1 = U'做个优秀的开发工程师，入手前做两年测试还是挺好的路径，\
+看过好代码见过烂代码，再作开发有见贤思齐的潜移默化的影响'
+        s2 = U'做个优秀的开发工程师，入手前做两年测试还是挺好的路径，\
+看过好代码见过烂代码，再作开发有见贤思齐的潜移默化的影响'
+        self.assertTrue(same_mean(pre_process(s1), pre_process(s2)))
+
+    def test_content_partial_same(self):
+        s1 = U'要做个优秀的开发工程师，入手前做两年测试还是挺好的路径，看过好代码见过烂代码，再作开发有见贤思齐的潜移默化的影响'
+        s2 = U'做个优秀的开发工程师，入手前做两年测试还是挺好的路径，看过好代码见过烂代码，再作开发有见贤思齐的潜移默化的影响'
+        self.assertTrue(same_mean(pre_process(s1), pre_process(s2)))
+
+    # Falses
+    # -------------------------------------------------------[Falses]
+
+    def test_content_both_have_diff_negate_word(self):
+        s1 = U'我不是不认同海尔是垃圾，元芳，你怎么看？看看毛看。'
+        s2 = U'我不认同海尔是垃圾，元芳，你怎么看？看看毛看。'
+        self.assertFalse(same_mean(pre_process(s1), pre_process(s2)))
+
+    def test_content_both_have_diff_negate_word(self):
+        s1 = U'飞利浦的电器不错，元芳，你怎么看？'
+        s2 = U'飞利浦的电器不错你妹，元芳，你怎么看？'
+        self.assertFalse(same_mean(pre_process(s1), pre_process(s2)))
+
+    def test_content_only_one_word_diff(self):
+        s1 = U'海尔是垃圾，元芳，你怎么看？看看毛看。'
+        s2 = U'海尔不是垃圾，元芳，你怎么看？看看毛看。'
+        self.assertFalse(same_mean(pre_process(s1), pre_process(s2)))
+        s1 = U'做个优秀的开发工程师，入手前做两年测试还是挺好的路径，\
+看过好代码见过烂代码，再作开发有见贤思齐的潜移默化的影响'
+        s2 = U'不做个优秀的开发工程师，入手前做两年测试还是挺好的路径\
+，看过好代码见过烂代码，再作开发有见贤思齐的潜移默化的影响'
+        self.assertFalse(same_mean(pre_process(s1), pre_process(s2)))
+
+    def test_content_big_diff(self):
+        s1 = U'做个优秀的开发工程师，入手前做两年测试还是挺好的路径，看过好代码见过烂代码，再作开发有见贤思齐的潜移默化的影响'
+        s2 = U'看过好代码见过烂代码，再作开发有见贤思齐的潜移默化的影响'
+        self.assertFalse(same_mean(pre_process(s1), pre_process(s2)))
+  #+end_src

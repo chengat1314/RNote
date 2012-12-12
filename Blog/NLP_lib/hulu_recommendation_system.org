@@ -1,0 +1,97 @@
+# -*- mode: org -*-
+# Last modified: <2012-12-04 17:17:30 Tuesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   hulu_recommendation_system
+#+AUTHOR: Richard Wong
+
+* facebook的推荐系统
+  1) long term value
+  2) short term value
+  3) CTR预估模型: logistic regression, boosting
+     LR for online learning. (More Practical)
+  4) facebook刚开始做推荐系统
+     关于盈利和排序的一些小tricky，用来使得广告赚更多的钱。
+     里面提到的用1%的用户去做推荐系统的试验，非常类似于douban的feature switch。
+  5) 特征提取:
+     用户特征
+     用户基本信息，年龄性别等
+     用户行为，点击行为
+     联系人信息，关注者
+     推荐候选的特征
+     使用bigram来刻画特征之间的关系
+  6) 系统架构
+     独立的特征服务器
+     学习服务器，记录用户点击的推荐候选，不断的学习，并更新用户的profile
+  7) 特征比模型更重要
+  8) 根据业务设定规则，选取特征。
+
+  facebook的系统一个明显的技术特点就是控制成本。
+  为什么不选用boost而选用LR是一个非常有趣的问题。他说的很简单，看了一些
+  论文，发现boost不适合ONLINE learning，profile updating.
+  关于验证方案就是一个典型的用户驱动的TDD.选取1%去验证新学习的模型是否正确。：）
+  反正boosting也是learning，
+
+** 使用关系链来描述推荐的特征
+
+* 腾讯(王益)
+  王益主要讲的都是一些算法的细节，以及关于LDA一些非常具体的问题。尤其
+  是对算法的优化谈了很多.
+  1. query rewrite很重要
+  2. query比较短，信息量少，有语义歧异
+  3. 需要进行语义分析，topic model
+  4. 聚类的标准
+     rephil，GaP, NOCA, peacock 发掘小众topic，每一个聚出来的类都代表一个语义，超越词表
+  5. 聚类算法的结果可以用来分类训练
+  6. 啤酒和尿布，聚类，向量化再做聚类
+  7. 雅虎的mo什么系统，最大的分布式LDA,矩阵分解
+  8. facebook，qq都通过用户的人口学属性来做广告的定向投放
+  9. 腾讯搜索只覆盖了qq5%的用户
+  10. 特征分类再回归，使用GO语言，摆脱了mapreduce框架，hadoop读写很费时
+  11. 计算广告学 刘鹏 周末清华
+      weak-end，standard boolin
+  12. rethinking lda 论文，ldp
+  13. goole rephil & google pregel
+
+* 百度 刘其文 coreEngine 推荐引擎
+  1. 为每个用户推荐音乐，文章，新闻
+
+* Conclusion
+
+** domain knowledge & 模型可视化
+   hulu非常侧重模型可解释问题。
+   细节：他至少讲了关于3种将黑盒转化成白盒的工具。然后总结其中的规律，
+   来发现的某些领域内的特殊的规律着重强调了领域知识（IMHO，这点也必然
+   在领域内成为竞争力）
+
+   无论是boosting还是LR，完全依赖ML都有一个非常明显的劣势，那就是难以解释，
+   对于ML的中间结果（或者过程）很难完全相信一个未经过实践检验的系统。ML对
+   于hulu而言，更加像一个工具，而并非完全依赖他。（这也是hulu打算长途发展
+   的一个特征，谁都可能用ML，但是领域知识就大相径庭了）
+
+*** tag是无法转移的
+    同一个类属的人并不一定具有相同的兴趣爱好。但是这点却可以归结为领域
+    知识的范畴：比如：
+    1. 是否某些年龄阶段或者职业由于某些必要因素而必须结交一定数量或者比
+       例的好友。
+    2. 不同国家城市的人更有共同tag 的特征。这些如果ML可以得到，那么依然
+       算是一种ML辅助领域知识发展的一个特征。
+
+
+** 评价推荐系统好坏:  CTR
+   但是CTR仅仅是一个指标，不能完全依靠优化CTR来决定推荐系统的效果究竟如
+   何，但是在初始CTR明显差的情况下，判断CTR确实是一个主要的指标。
+   自动学习rule？
+
+** Always tradeoffs:
+*** 协同过滤(tradeoff)
+    logistic回归，决策树
+
+*** 用户行为
+    针对不同设备（pc，手机，平板），用户会有不同行为，设计不同算法。
+
+** 语料最重要
+   无论是soso羡慕baidu的query-log，还是Facebook选取LR而忽略boosting都
+   透漏了一个很大的特点，那就是学习语料非常重要。一个学习语料差距很多
+   的boosting一样比不上LR.

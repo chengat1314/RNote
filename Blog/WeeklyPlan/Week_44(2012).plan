@@ -1,0 +1,102 @@
+# -*- mode: org -*-
+# Last modified: <2012-11-02 11:11:31 Friday by richard>
+#+STARTUP: showall
+#+TITLE:   Oct 29 - 36 (Week 44)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+
+
+* Daily Journal
+** <2012-10-31 Wed>
+   Install ubuntu server 12.04 system
+   First package screen.(It's Aptitude settings)
+   1. step install software list:
+      OpenSSH server.
+   2. Manual Package selection
+      g -> g to continue install server.
+   3. add server config file(in python).
+   4. A Diff from product environment. installed emacs at first.:)
+
+
+*** Reset ubuntu 12.04 password to test123456
+    reset procedure:
+    1. enter recovery mode
+    2. choose root(drop to root shell prompt)
+    3. mount -o rw,remount /
+    4. ls /home
+    5. passwd :username
+    6. exit
+    7. choose resume.
+
+*** network for Virtual Box settings.
+    1. add local ip at your local machine:
+       #+begin_src bash
+    sudo ifconfig eth0:0 192.168.22.1/24
+       #+end_src
+    2. change network settings in virtualBox to bridged adapter.
+    3. Add ip in /etc/network/interfaces.
+       #+begin_src unix-conf
+    auto lo
+    iface lo inet loopback
+    # The primary network interface
+    auto eth0
+    iface eth0 inet static
+    address %s
+    netmask 255.255.255.0
+    gateway %s
+       #+end_src
+
+    4. start server ip
+       #+begin_src bash
+       sudo /etc/init.d/networking start
+       #+end_src
+       comment: here I don't know why service util doesn't work.
+       #+begin_src bash
+       sudo service networking start
+       #+end_src
+
+    5. add modprobe vboxnetadp to /etc/modules-load.d/vboxnetadp to
+       gain host adapter in my computer(maybe optional?)
+       need sudo modprobe vboxnetflt. added in <2012-11-01 Thu>
+
+
+    6. OPEN NAT:
+       1. change net.ipv4.ip_forward from 0 to 1 in /etc/sysctl.conf
+       2. Make it effect.
+          #+begin_src bash
+          sysctl -p
+          #+end_src
+       3. add NAT:
+       #+begin_src bash
+       iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -o eth0 -j MASQUERADE
+       #+end_src
+
+** <2012-11-01 Thu>
+   1. system crash.
+      start to gnome-shell 3.6.1, but gnome cannot start today.
+      log errors stored at the /home/richard/.xsession-errors.
+      deal with this error:
+      add to this file
+   #+begin_src unit-conf
+kernel /vmlinuz-linux root=/dev/disk/by-uuid/737b3069-a188-4bac-abce-6c3a1178bbaa init=/usr/lib/systemd/systemd ro
+   #+end_src
+
+   [[file:/boot/grub/menu.lst::kernel%20/vmlinuz-linux%20root%3D/dev/disk/by-uuid/737b3069-a188-4bac-abce-6c3a1178bbaa%20init%3D/usr/lib/systemd/systemd%20ro][file:/boot/grub/menu.lst::kernel /vmlinuz-linux root=/dev/disk/by-uuid/737b3069-a188-4bac-abce-6c3a1178bbaa init=/usr/lib/systemd/systemd ro]]
+
+** <2012-11-02 Fri>
+
+*** To deal with the warning in the start log of modesettings cannot be loaded.
+   To proceed, add the i915 module to the MODULES line in /etc/mkinitcpio.conf:
+   #+begin_src unix_conf
+MODULES="i915"
+   #+end_src
+
+   Now, regenerate the initramfs:
+   #+begin_src bash
+mkinitcpio -p linux
+   #+end_src
+
+   and reboot the system. Everything should work now.

@@ -1,0 +1,39 @@
+# -*- mode: org -*-
+# Last modified: <2012-10-20 13:31:03 Saturday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Conference NOTE of pycon
+#+AUTHOR: Richard Wong
+
+* openshift.
+  毛线……
+** PROMO CODE:
+   PYCONCHINA
+
+* GDG:
+  an intro to google I/O
+
+* SNDA cloud.
+  |------+------+------+------+------+------+------+------+------+------+------+------+------|
+  | java | java | java | java | java | java | java | java | java | java | java | java | java |
+  |------+------+------+------+------+------+------+------+------+------+------+------+------|
+  | java | java | java | java | java | java | java | java | java | java | java | java | java |
+  | java | java | java | java | java | java | java | java | java | java | java | java | java |
+  |------+------+------+------+------+------+------+------+------+------+------+------+------|
+
+
+* Douban 阅读
+** CI
+   - G :: jshint, yuicheck.
+   - git :: pre-commit hook.(jenkins hudsun)
+   - apitest :: nosy/tag:)
+   - webtest ::
+     + headless.webbsd
+     + webdriver
+   - badj ::
+
+* version control:
+  darc haskell.
+  1. distribution.
+  2. pip.

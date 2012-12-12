@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-10-16 11:11:43 Tuesday by richard>
+# Last modified: <2012-10-18 14:53:10 Thursday by richard>
 #+STARTUP: showall
 #+TITLE:   Oct 15 - 22 (Week 42)
 
@@ -27,5 +27,18 @@
 
 ** <2012-10-16 Tue>
 
+** <2012-10-17 Wed>
+   今天比较重要的一个体会就是，没写一个服务，就先写好他的启动脚本和关
+   联测试脚本，这个东西一直都很重要，而且就像是一个脚手架来帮助你设计
+   你的实现。
+
+** <2012-10-18 Thu>
+   今天遇到了一个问题，就是fabric不能够用nohup来启动服务，一下就扯到多
+   年前的一个纷争以及之后的一个版本，这些问题我将在下个星期逐步解决。
+
+*** 参考链接：
+1. http://docs.fabfile.org/en/1.4.3/#Background_command
+2. http://stackoverflow.com/questions/6379484/fabric-appears-to-start-apache2-but-doesnt/
+3. https://github.com/fabric/fabric/issues/395
 
 * Family

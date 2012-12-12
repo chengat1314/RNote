@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-09-06 11:31:26 Thursday by richard>
+# Last modified: <2012-10-17 15:32:21 Wednesday by richard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -35,3 +35,22 @@ linux mumbo-jumbos chacha:)
 *** $10 不是替换第 10 个参数,而是替换第一个参数($1)然后再补一个 0 于其后!
 
 *** Return Value(RV) 的取值为 0-255 之间,由程序(或 script)的作者自行定议:
+
+*** apropos (1)          - search the manual page names and descriptions
+
+** manual
+   1. 用户命令
+   2. 系统调用
+   3. 子例程
+   4. 设备
+   5. 文件格式
+   6. 游戏
+   7. 其他
+   8. 系统管理
+   9. 内核
+   10. 新增内容
+
+* tty组合键
+** ctrl 系列
+   q继续发送数据。
+   u删除至行首。

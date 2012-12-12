@@ -1,0 +1,24 @@
+# -*- mode: org -*-
+# Last modified: <2012-11-14 19:29:58 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   Nov 14 - 21 (Week 46)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+  **
+
+* Daily Journal
+
+** <2012-11-14 Wed>
+   白天处理了emacs在windows下工作的一些问题。
+
+   今天效率非常高，工作了大概8个番茄钟左右。
+   今天将所有的loadtest转化完毕。
+   1. 之后处理server 反馈的运行速度效率会非常高。
+   2. 集成测试将会反馈非常快。
+
+
+   今天学习了
+   http://newartisans.com/2009/02/building-a-better-pre-commit-hook-for-git/

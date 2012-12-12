@@ -1,0 +1,110 @@
+# -*- mode: org -*-
+# Last modified: <2012-12-12 12:09:27 Wednesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   about-org
+#+AUTHOR: Richard Wong
+
+#+TITLE: org 源码分析
+
+* 简介
+  Org is a mode for keeping notes, maintaining TODO lists, and doing project planning with a fast and effective plain-text system.
+  Org develops organizational tasks around NOTES files that contain lists or information about projects as plain text. Org is implemented on top of Outline mode, which makes it possible to keep the content of large files well structured. Visibility cycling and structure editing help to work with the tree. Tables are easily created with a built-in table editor. Org supports TODO items, deadlines, timestamps, and scheduling. It dynamically compiles entries into an agenda that utilizes and smoothly integrates much of the Emacs calendar and diary. Plain text URL-like links connect to websites, emails, Usenet messages, BBDB entries, and any files related to the projects. For printing and sharing of notes, an Org file can be exported as a structured ASCII file, as HTML, or (TODO and agenda items only) as an iCalendar file. It can also serve as a publishing tool for a set of linked web pages.
+  As a project planning environment, Org works by adding metadata to outline nodes. Based on this data, specific entries can be extracted in queries and create dynamic agenda views.
+  Org mode contains the Org Babel environment which allows you to work with embedded source code blocks in a file, to facilitate code evaluation, documentation, and literate programming techniques.
+  Org's automatic, context-sensitive table editor with spreadsheet capabilities can be integrated into any major mode by activating the minor Orgtbl mode. Using a translation step, it can be used to maintain tables in arbitrary file types, for example in LaTeX. The structure editing and list creation capabilities can be used outside Org with the minor Orgstruct mode.
+** online manual：
+   http://orgmode.org/org.html
+** 关于我自己
+   org mode是学习elisp非常好的材料，代码整齐，规划合理。而且加载迅速，如此多的功能却几乎没有拖慢emacs，看看网上常见的插件还没装上几个就开始卡的要死了。
+   当然，之后考虑将我的emacs配置进行进一步的优化，使得其更快准狠。
+   学习org mode还有一个好处，就是为了更好的完成我的python blog system。
+
+* overview
+  org代码结构非常简单。
+ 1. 主要源码在lisp里面，
+ 2. 测试在testing里面，
+ 3. 第三方的一些应用在contrib里面。
+
+
+* 首先说最重要的主要源码。
+** From structure
+   主要源码非常整齐
+   分为几类类
+   1. Makefile
+
+   2. ob-*系列
+      ob-asymptote.el ob-awk.el ob-calc.el ob-C.el ob-clojure.el
+      ob-comint.el ob-css.el ob-ditaa.el ob-dot.el ob.el ob-emacs-lisp.el
+      ob-eval.el ob-exp.el ob-fortran.el ob-gnuplot.el ob-haskell.el
+      ob-io.el ob-java.el ob-js.el ob-keys.el ob-latex.el ob-ledger.el
+      ob-lilypond.el ob-lisp.el ob-lob.el ob-makefile.el ob-matlab.el
+      ob-maxima.el ob-mscgen.el ob-ocaml.el ob-octave.el ob-org.el
+      ob-perl.el ob-picolisp.el ob-plantuml.el ob-python.el ob-ref.el
+      ob-R.el ob-ruby.el ob-sass.el ob-scala.el ob-scheme.el ob-screen.el
+      ob-sh.el ob-shen.el ob-sql.el ob-sqlite.el ob-table.el ob-tangle.el
+   3. org-*系列
+      org-agenda.el
+      org-archive.el
+      org-ascii.el
+      org-attach.el
+      org-bbdb.el
+      org-beamer.el
+      org-bibtex.el
+      org-capture.el
+      org-clock.el
+      org-colview.el
+      org-colview-xemacs.el
+      org-compat.el
+      org-crypt.el
+      org-ctags.el
+      org-datetree.el
+      org-docbook.el
+      org-docview.el
+      org.el
+      org-element.el
+      org-entities.el
+      org-eshell.el
+      org-exp.el
+      org-faces.el
+      org-feed.el
+      org-footnote.el
+      org-freemind.el
+      org-gnus.el
+      org-habit.el
+      org-html.el
+      org-icalendar.el
+      org-id.el
+      org-indent.el
+      org-info.el
+      org-inlinetask.el
+      org-install.el
+      org-irc.el
+      org-jsinfo.el
+      org-latex.el
+      org-list.el
+      org-lparse.el
+      org-mac-message.el
+      org-macs.el
+      org-mew.el
+      org-mhe.el
+      org-mks.el
+      org-mobile.el
+      org-mouse.el
+      org-odt.el
+      org-pcomplete.el
+      org-plot.el
+      org-protocol.el
+      org-publish.el
+      org-remember.el
+      org-rmail.el
+      org-special-blocks.el
+      org-src.el
+      org-table.el
+      org-taskjuggler.el
+      org-timer.el
+      org-vm.el
+      org-w3m.el
+      org-wl.el
+      org-xoxo.el

@@ -1,0 +1,120 @@
+# -*- mode: org -*-
+# Last modified: <2012-11-13 11:08:52 Tuesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   general_API
+#+AUTHOR: Richard Wong
+
+* General API contains about all port infos. API infos. for better management.
+
+* Service List:
+** Supervisord
+** mongo
+** jenkins
+** etc
+
+* 对于端口的处理
+** 默认启用的端口(无参数端口)
+   无参程序默认端口使用8050-8100之间的端口，但不要使用8008, 8080, 8081。
+
+   注：认为[8000, 8050)之间的端口是不稳定的还未升级适应新结构的脚本。
+
+** 手动测试的端口
+   测试端口使用8000-8300的端口来减少碰撞（随机一个）。
+*** Hehe
+    [8100-8200)
+
+*** Nipeng
+    [8200-8300)
+
+*** Richard
+    [8300-8400)
+
+** 对于supervisor测试端口的处理
+   测试端口使用9000-10000的端口来减少碰撞（随机一个）。
+*** Hehe
+    [9000, 9100)
+    ［Webshpere应用程序，默认的端口号为9080；
+    webshpere管理工具，默认的端口号为9090；］
+
+*** Nipeng
+    (9100, 9200)
+    注意9100 可能会造成冲突。
+
+*** Richard
+    [9200, 9300)
+
+
+** 正式部署对内的端口：（需要通过nginx转发的端口）
+   测试端口使用10000-20000的端口。
+*** Hehe
+    [18000, 18100)
+
+*** Nipeng
+    [18100, 18200)
+
+*** Richard
+    [18200, 18300)
+
+
+
+** 正式部署对外的端口：直接开放对外的端口
+   测试端口使用20000-30000的端口来减少攻击。
+*** Hehe
+    [28000, 28100)
+
+*** Nipeng
+    [28100, 28200)
+
+*** Richard
+    [28200, 28300)
+
+*** 常用端口号码，参考：
+    [[http://www.centos.org/docs/4/html/rhel-sg-en-4/ch-ports.html][common ports]]
+
+* Server Info:
+** Server01
+   All Open service table.
+   |-------+---------------+--------------------------------------+--------------------------|
+   |  port | provide APIs? | Description                          | For Outer/Inner use?     |
+   |-------+---------------+--------------------------------------+--------------------------|
+   |    22 |               | sshd address port                    | Inner                    |
+   |    53 |               | named address port                   | Inner                    |
+   |    80 |               | nginx address port                   | Outer                    |
+   |  3306 |               | mysqld address port                  | Inner(depends?)          |
+   |  8000 |               | nlp_main_server sid 0                | Inner                    |
+   |  8001 |               | nlp_main_server sid 1                | Inner                    |
+   |  8002 |               | nlp_main_server sid 2                | Inner                    |
+   |  8003 |               | nlp_main_server sid 3                | Inner                    |
+   |  8080 |               | sentiment_server sid 0               | Inner(upstream to nginx) |
+   |  8081 |               | sentiment_server sid 1               | Inner(upstream to nginx) |
+   |  8082 |               | sentiment_server sid 2               | Inner(upstream to nginx) |
+   |  8083 |               | sentiment_server sid 3               | Inner(upstream to nginx) |
+   |  8084 |               | sentiment_server sid 4               | Inner(upstream to nginx) |
+   |  8085 |               | sentiment_server sid 5               | Inner(upstream to nginx) |
+   |  9000 |               | word_server for segmentation add key | Outer                    |
+   | 12315 | /             | jenkins access address               | Outer                    |
+   | 27017 | NILL          | mongod address port                  | Inner(depends?)          |
+   |-------+---------------+--------------------------------------+--------------------------|
+
+
+** Server02
+   All Open service table.
+   |-------+---------------+-------------------------------+-------------|
+   |  port | provide APIs? | Description                   | Outer/Inner |
+   |-------+---------------+-------------------------------+-------------|
+   |    22 |               | sshd address port             | Inner       |
+   |    80 |               | nginx address port            | Outer       |
+   |  8000 |               | rectify_server test address   | Outer       |
+   |  8001 |               | rectify_server normal address | Outer       |
+   |  8080 |               | sentiment_server sid 0        | Inner       |
+   |  8081 |               | sentiment_server sid 1        | Inner       |
+   |  8082 |               | sentiment_server sid 2        | Inner       |
+   |  8083 |               | sentiment_server sid 3        | Inner       |
+   |  8084 |               | sentiment_server sid 4        | Inner       |
+   |  8085 |               | sentiment_server sid 5        | Inner       |
+   |  8086 |               | sentiment_server sid 6        | Inner       |
+   |  8087 |               | sentiment_server sid 7        | Inner       |
+   | 12315 | /             | jenkins access address        | Outer       |
+   |-------+---------------+-------------------------------+-------------|

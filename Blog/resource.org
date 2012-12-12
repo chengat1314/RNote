@@ -1,0 +1,15 @@
+# -*- mode: org -*-
+# Last modified: <2012-12-12 11:50:04 Wednesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   resource
+#+AUTHOR: Richard Wong
+
+A collection of python resources.
+
+https://developers.google.com/blogger/docs/1.0/developers_guide_python
+
+* Python APIs
+  1. [[https://code.google.com/p/gdata-python-client/][python google API]]
+  2. 
