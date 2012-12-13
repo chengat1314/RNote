@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-12-12 12:09:27 Wednesday by richard>
+# Last modified: <2012-12-12 17:07:07 Wednesday by richard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -33,8 +33,62 @@
    主要源码非常整齐
    分为几类类
    1. Makefile
+      选取makefile去查看是一个很好的思路。
+      lisp里面的makefile是通过root层的makefile调用过来的。
+      (ps:话说root层的makefile写的好认真。)
+   开始makefile了。
+   #+begin_src GNUmakefile
+LISPV 	:= org-version.el
+LISPI 	:= org-loaddefs.el
+LISPA 	:= $(LISPV) $(LISPI)
+LISPB 	:= $(LISPA:%el=%elc) org-install.elc
+LISPF 	:= $(filter-out $(LISPA),$(sort $(wildcard *.el) $(_ORG_ADD_EL_)))
+LISPC 	:= $(filter-out $(LISPB) $(LISPN:%el=%elc),$(LISPF:%el=%elc))
+_ORGCM_ := dirall single source slint1 slint2
+   #+end_src
+   编译顺序也大概就是如此
+   首先生成org版本文件。（org版本写了好多。）
+   然后生成大体的宏定义文件。
+   包含所有的el文件。
+   install文件。
+   猜测字母的含义：
+   v: version;
+   i: interface.
+   a: all;
+   b: basic install;
+   f: extension files;
+   c: compiled files.
 
-   2. ob-*系列
+   2. org-*系列
+
+   #+begin_src file
+      org-agenda.el  org-archive.el  org-ascii.el
+      org-attach.el  org-bbdb.el  org-beamer.el
+      org-bibtex.el  org-capture.el  org-clock.el
+      org-colview.el  org-colview-xemacs.el  org-compat.el
+      org-crypt.el  org-ctags.el  org-datetree.el
+      org-docbook.el  org-docview.el  org.el
+      org-element.el  org-entities.el  org-eshell.el
+      org-exp.el  org-faces.el  org-feed.el
+      org-footnote.el  org-freemind.el  org-gnus.el
+      org-habit.el  org-html.el  org-icalendar.el
+      org-id.el  org-indent.el  org-info.el
+      org-inlinetask.el  org-install.el  org-irc.el
+      org-jsinfo.el  org-latex.el  org-list.el
+      org-lparse.el  org-mac-message.el  org-macs.el
+      org-mew.el  org-mhe.el  org-mks.el  org-mobile.el
+      org-mouse.el  org-odt.el  org-pcomplete.el
+      org-plot.el  org-protocol.el  org-publish.el
+      org-remember.el  org-rmail.el  org-special-blocks.el
+      org-src.el  org-table.el  org-taskjuggler.el
+      org-timer.el  org-vm.el  org-w3m.el  org-wl.el
+      org-xoxo.el
+   #+end_src
+
+   3. ob-*系列
+      ob是指*O*rg-mode for code *B*lock。都是一些扩展包。
+      We just analysis ob.el and ob-org as an example.
+   #+begin_src file
       ob-asymptote.el ob-awk.el ob-calc.el ob-C.el ob-clojure.el
       ob-comint.el ob-css.el ob-ditaa.el ob-dot.el ob.el ob-emacs-lisp.el
       ob-eval.el ob-exp.el ob-fortran.el ob-gnuplot.el ob-haskell.el
@@ -44,67 +98,133 @@
       ob-perl.el ob-picolisp.el ob-plantuml.el ob-python.el ob-ref.el
       ob-R.el ob-ruby.el ob-sass.el ob-scala.el ob-scheme.el ob-screen.el
       ob-sh.el ob-shen.el ob-sql.el ob-sqlite.el ob-table.el ob-tangle.el
-   3. org-*系列
-      org-agenda.el
-      org-archive.el
-      org-ascii.el
-      org-attach.el
-      org-bbdb.el
-      org-beamer.el
-      org-bibtex.el
-      org-capture.el
-      org-clock.el
-      org-colview.el
-      org-colview-xemacs.el
-      org-compat.el
-      org-crypt.el
-      org-ctags.el
-      org-datetree.el
-      org-docbook.el
-      org-docview.el
-      org.el
-      org-element.el
-      org-entities.el
-      org-eshell.el
-      org-exp.el
-      org-faces.el
-      org-feed.el
-      org-footnote.el
-      org-freemind.el
-      org-gnus.el
-      org-habit.el
-      org-html.el
-      org-icalendar.el
-      org-id.el
-      org-indent.el
-      org-info.el
-      org-inlinetask.el
-      org-install.el
-      org-irc.el
-      org-jsinfo.el
-      org-latex.el
-      org-list.el
-      org-lparse.el
-      org-mac-message.el
-      org-macs.el
-      org-mew.el
-      org-mhe.el
-      org-mks.el
-      org-mobile.el
-      org-mouse.el
-      org-odt.el
-      org-pcomplete.el
-      org-plot.el
-      org-protocol.el
-      org-publish.el
-      org-remember.el
-      org-rmail.el
-      org-special-blocks.el
-      org-src.el
-      org-table.el
-      org-taskjuggler.el
-      org-timer.el
-      org-vm.el
-      org-w3m.el
-      org-wl.el
-      org-xoxo.el
+   #+end_src
+
+
+** org.el
+   这个文件是整个系统的核心基本上所有的文件都会调用这个文件。
+*** 依赖关系
+    这个文件主要依赖calendar, find-func, format-spec 三个库
+    编译时依赖cl和gnus-sum两个库。
+
+    #+begin_src emacs-lisp :tangle yes
+(eval-when-compile
+  (require 'cl)
+  (require 'gnus-sum))
+(require 'calendar)
+(require 'find-func)
+(require 'format-spec)
+    #+end_src
+
+*** 对org的编译过程
+    org是一个将近10000line的大文件，team之所以会选用这么大个的一个文件的好
+    处就是充分利用了大文件加载速度快，方便autoload。
+    可以看到defvar基本算是对orgmode进行的一个elisp实现，也侧面反映出我
+    的python_org库写的也是很符合规范的。
+    可以对此学习一下elisp的regexp.
+
+* Org syntax
+  Org syntax can be divided into three categories:
+** Elements
+   Elements are related to the structure of the document
+   An element always starts and ends at the beginning of a line.  With
+   a few exceptions (`clock', `headline', `inlinetask', `item',
+   `planning', `node-property', `quote-section' `section' and
+   `table-row' types), it can also accept a fixed set of keywords as
+   attributes.  Those are called "affiliated keywords" to distinguish
+   them from other keywords, which are full-fledged elements.  Almost
+   all affiliated keywords are referenced in
+   `org-element-affiliated-keywords'; the others are export attributes
+   and start with "ATTR_" prefix.
+
+*** element-type
+
+
+** Greater elements
+   Element containing other elements (and only elements) are called
+   greater elements.  Concerned types are: `center-block', `drawer',
+   `dynamic-block', `footnote-definition', `headline', `inlinetask',
+   `item', `plain-list', `property-drawer', `quote-block', `section'
+   and `special-block'.
+
+*** Other element types
+    `babel-call', `clock', `comment', `comment-block', `diary-sexp',
+    `example-block', `export-block', `fixed-width', `horizontal-rule',
+    `keyword', `latex-environment', `node-property', `paragraph',
+    `planning', `quote-section', `src-block', `table', `table-row' and
+    `verse-block'.  Among them, `paragraph' and `verse-block' types
+    can contain Org objects and plain text.
+
+** objects
+   Objects are related to document's contents.
+   Some of them are recursive.  Associated types are of the following:
+   `bold', `code', `entity', `export-snippet', `footnote-reference',
+   `inline-babel-call', `inline-src-block', `italic',
+   `latex-fragment', `line-break', `link', `macro', `radio-target',
+   `statistics-cookie', `strike-through', `subscript', `superscript',
+   `table-cell', `target', `timestamp', `underline' and `verbatim'.
+
+* org-element.el
+  #+begin_src emacs-lisp :tangle yes
+(defvar org-outline-regexp "\\*+ "
+(defvar org-outline-regexp-bol "^\\*+ "
+(defvar org-heading-regexp "^\\(\\*+\\)\\(?: +\\(.*?\\)\\)?[ \t]*$"
+  "Matches an headline, putting stars and text into groups.
+Stars are put in group 1 and the trimmed body in group 2.")
+  #+end_src
+    1. org-element-paragraph-separate.
+** org-element-type.
+
+   |              |                         |
+   |--------------+-------------------------|
+   | `plain-text' | for a string            |
+   | `org-data'   | for a complete document |
+   | nil          | in any other case."     |
+
+** greater element type.
+   For each greater element type, we define a parser and an interpreter.
+   All parser need these (limit affiliated) two arguments.
+   parser for headline, inlinetask, item, plainlist, is a little bit
+   complicated, so I'll describe it later.
+   | parser              | endtag                         | block                            |
+   |---------------------+--------------------------------+----------------------------------|
+   | center-block        | =^[ \t]*#\\+END_CENTER[ \t]*$= | =#+BEGIN_CENTER\n%s#+END_CENTER= |
+   | drawer              | =^[ \t]*:END:[ \t]*$=          | =:%s:\n%s:END:=                  |
+   | dynamic-block       | =^[ \t]*#\\+END:?[ \t]*$=      | =#+BEGIN: %s%s\n%s#+END:=        |
+   | footnote-definition | ll                             | =[%s] + contents=                |
+   | property-drawer     | =^[ \t]*:END:[ \t]*$=          | =:PROPERTIES:\n%s:END:=          |
+   | quote-block         |                                |                                  |
+   | section             |                                |                                  |
+   | special-block       |                                |                                  |
+
+
+*** footnote-definition end tag
+    #+begin_src regexp
+    ^\\*+
+    \\|
+    ^\\[\\([0-9]+\\|fn:[-_[:word:]]+\\)\\]
+    \\|
+    ^[ \t]*$
+    #+end_src
+
+
+*** org-element-center-block-parser
+    Return a list whose CAR is `center-block' and CDR is a plist
+    containing `:begin', `:end', `:hiddenp', `:contents-begin',
+    `:contents-end', `:post-blank' and `:post-affiliated' keywords.
+    Assume point is at the beginning of the block.
+
+*** org-element-drawer-parser
+    #+begin_src regexp
+
+    #+end_src
+
+
+* obsolete files:
+  org_install
+
+
+** bottom
+   elisp function you may met.
+   1. declare-function
+   2. defsubst
