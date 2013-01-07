@@ -1,0 +1,27 @@
+# -*- mode: org -*-
+# Last modified: <2012-12-17 20:26:09 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   nginx_privilege
+#+AUTHOR: Richard Wong
+
+* bug描述
+  在更新nginx配置的时候指定用户名为www-data之后，启用服务所遇到的长body发生问题。
+
+* 更长的情况描述
+  无论在upstream中，还是nginx直接做httpserver的时候，
+  在nginx中可能会遇到短链结没有任何问题，但是有一个长的http
+  就可能报错的情况，比如客户端访问大图像时候，服务端就会报错。
+  我在测试服务器的时候更新了所有的package，但是不能运行，但
+  是重启测试服务器之后就可以运行，是因为nginx没有及时的根据配置更改目录权限，
+  nginx的默认用户是nobody（1.1.19）但是推荐nginx的用户是www-data，
+  在重启服务器之后nginx就会根据配置来更改cache目录权限。
+  而本质上nginx应该在更改了用户之后，就应该可以根据配置更改cache目录权限。
+
+* 解决方案
+  将nginx对应的所有cache目录更改为对应用户的权限。
+  目录地址：
+  #+begin_src path
+  /var/lib/nginx/proxy/
+  #+end_src

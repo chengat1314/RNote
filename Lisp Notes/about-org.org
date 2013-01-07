@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-12-12 17:07:07 Wednesday by richard>
+# Last modified: <2012-12-13 15:18:30 Thursday by richard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -181,21 +181,41 @@ Stars are put in group 1 and the trimmed body in group 2.")
    | `org-data'   | for a complete document |
    | nil          | in any other case."     |
 
+*** Element Parser
+    | parser            | endtag                          | block                          |
+    |-------------------+---------------------------------+--------------------------------|
+    | babel             | ??                              | #+CALL:                        |
+    | clock             |                                 |                                |
+    | comment block     | =^[ \t]*#\\+END_COMMENT[ \t]*$= |                                |
+    | example block     | =^[ \t]*#\\+END_EXAMPLE[ \t]*$= |                                |
+    | export block      | =^[ \t]*#\\+END_%s[ \t]*$=      |                                |
+    | keyword           |                                 | =#+%s: %s=                     |
+    | latex-environment | =^[ \t]*\\\\end{%s}[ \t]*$=     |                                |
+    | paragraph         |                                 |                                |
+    | planning          |                                 |                                |
+    | quote section     |                                 |                                |
+    | src block         |                                 |                                |
+    | table             |                                 |                                |
+    | table row         |                                 |                                |
+    | verse-block       | =^[ \t]*#\\+END_VERSE[ \t]*$=   | =#+BEGIN_VERSE\n%s#+END_VERSE= |
+    |                   |                                 |                                |
+
 ** greater element type.
    For each greater element type, we define a parser and an interpreter.
    All parser need these (limit affiliated) two arguments.
    parser for headline, inlinetask, item, plainlist, is a little bit
    complicated, so I'll describe it later.
-   | parser              | endtag                         | block                            |
-   |---------------------+--------------------------------+----------------------------------|
-   | center-block        | =^[ \t]*#\\+END_CENTER[ \t]*$= | =#+BEGIN_CENTER\n%s#+END_CENTER= |
-   | drawer              | =^[ \t]*:END:[ \t]*$=          | =:%s:\n%s:END:=                  |
-   | dynamic-block       | =^[ \t]*#\\+END:?[ \t]*$=      | =#+BEGIN: %s%s\n%s#+END:=        |
-   | footnote-definition | ll                             | =[%s] + contents=                |
-   | property-drawer     | =^[ \t]*:END:[ \t]*$=          | =:PROPERTIES:\n%s:END:=          |
-   | quote-block         |                                |                                  |
-   | section             |                                |                                  |
-   | special-block       |                                |                                  |
+*** Greater Parser
+    | parser              | endtag                         | block                            |
+    |---------------------+--------------------------------+----------------------------------|
+    | center-block        | =^[ \t]*#\\+END_CENTER[ \t]*$= | =#+BEGIN_CENTER\n%s#+END_CENTER= |
+    | drawer              | =^[ \t]*:END:[ \t]*$=          | =:%s:\n%s:END:=                  |
+    | dynamic-block       | =^[ \t]*#\\+END:?[ \t]*$=      | =#+BEGIN: %s%s\n%s#+END:=        |
+    | footnote-definition | ll                             | =[%s] + contents=                |
+    | property-drawer     | =^[ \t]*:END:[ \t]*$=          | =:PROPERTIES:\n%s:END:=          |
+    | quote-block         | =^[ \t]*#\\+END_QUOTE[ \t]*$=  | =#+BEGIN_QUOTE\n%s#+END_QUOTE=   |
+    | section             | no                             | no                               |
+    | special-block       | =^[ \t]*#\\+END_%s[ \t]*$=     | =#+BEGIN_%s\n%s#+END_%s=         |
 
 
 *** footnote-definition end tag
@@ -219,6 +239,31 @@ Stars are put in group 1 and the trimmed body in group 2.")
 
     #+end_src
 
+
+** objects
+   | parser             | endtag      | block |
+   |--------------------+-------------+-------|
+   | code               | =~%s~=      |       |
+   | export snippet     | =@@%s:%s@@= |       |
+   | footnote reference |             |       |
+   | inline babel call  |             |       |
+   | linebreak          |             |       |
+   | link               |             |       |
+   | macro              |             |       |
+   | radio target       |             |       |
+   | statistics cookie  |             |       |
+   | strike-through     |             |       |
+   | subscript          |             |       |
+   | superscript        |             |       |
+   | table-cell         |             |       |
+   | target             | =<<%s>>=    |       |
+   | timestamp          |             |       |
+   | underline          |             |       |
+   | verbatim           |             |       |
+
+
+* Parsing Element:
+  org-element--current-element
 
 * obsolete files:
   org_install

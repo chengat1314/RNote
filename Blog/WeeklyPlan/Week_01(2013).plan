@@ -1,0 +1,40 @@
+# -*- mode: org -*-
+# Last modified: <2013-01-07 15:59:23 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   Jan 06 - 13 (Week 01)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+  **
+
+* Daily Journal
+** <2013-01-06 Sun>
+   每天4个小时推出org-mode for python tools，连续5天。
+   assigned today.
+** [1/5] <2013-01-07 Mon>
+   今天读完了整理的艺术。
+
+   发现： 练习了注释之后，记笔记的方式液有所改变啊。所谓万事皆通如是也。
+*** TODO python_org调整结构
+    * [2/3] Headline series
+      * [X] class TodoItemLine(HeadLine)
+      * [ ] class OverviewLine(HeadLine)
+      * [X] class TagsLine(HeadLine)
+    * [0/3]Change FunctionLine to one. (or somewhat adjusting?...)
+      * [ ] class TitleFuncLine(BasicFuncLine)
+      * [ ] class BeginSrcFuncLine(BasicFuncLine)
+      * [ ] class EndSrcFuncLine(BasicFuncLine)
+    * Add multiline parser.
+      * [ ]
+
+*** DONE 整理The Developer's Code
+*** TODO 去重算法
+*** TODO Element probability
+*** TODO 回家将cc电脑上面的笔记email到我的Gmail中。
+
+** <2013-01-08 Tue>
+
+
+*** TODO 首先将笔记email粘贴回我的笔记中。

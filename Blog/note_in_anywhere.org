@@ -1,0 +1,8 @@
+# -*- mode: org -*-
+# Last modified: <2013-01-02 09:56:15 Wednesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   note in anywhere
+#+AUTHOR: Richard Wong
+

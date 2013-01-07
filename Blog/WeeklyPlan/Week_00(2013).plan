@@ -1,0 +1,57 @@
+# -*- mode: org -*-
+# Last modified: <2013-01-05 14:01:47 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   Jan 04 - 11 (Week 00)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+  **
+* Daily Journal
+** 2013-01-04
+*** 报名了课程：
+**** [[https://www.canvas.net/courses/marathon-training][Marathon Training]]
+    Canvas Network
+    <2013-01-21 Mon> to <2013-02-18 Mon>
+
+***** TODO lack Book: Running a Marathon For Dummies
+
+**** [[http://work.caltech.edu/session.html][learning from data]]
+***** syllabus:
+     1: The Learning Problem       (analysis; conceptual)
+     2: Is Learning Feasible?      (theory; mathematical)
+     3: The Linear Model I         (technique; practical)
+     4: Error and Noise            (analysis; conceptual)
+     5: Training versus Testing    (theory; mathematical)
+     6: Theory of Generalization   (theory; mathematical)
+     7: The VC Dimension           (theory; mathematical)
+     8: Bias-Variance Tradeoff     (theory; mathematical)
+     9: The Linear Model II        (technique; practical)
+     10: Neural Networks           (technique; practical)
+     11: Overfitting               (analysis; conceptual)
+     12: Regularization            (technique; practical)
+     13: Validation                (technique; practical)
+     14: Support Vector Machines   (theory; mathematical) then (technique; practical)
+     15: Kernel Methods            (theory; mathematical) then (technique; practical)
+     16: Radial Basis Functions    (technique; practical)
+     17: Three Learning Principles (analysis; conceptual)
+     18: Epilogue                  (analysis; conceptual)
+
+***** forum: http://book.caltech.edu/bookforum/
+***** Lack pdf of this book
+
+**** Natual language processing
+     Feb 11th 2013 (10 weeks long)
+
+
+**** Practical lecture:Analyzing Big Data With Twitter
+     [[http://blogs.ischool.berkeley.edu/i290-abdt-s12/2012/12/13/uc-berkeley-course-lectures-analyzing-big-data-with-twitter/][course material]]
+**** more Deep learning
+     course material is in T-pan.
+
+** <2013-01-05 Sat>
+
+*** 今天看完了<<The Developer's Code>> 明天整理笔记，加深学习效果。
+
+*** 早起看了一段概率论，看来知识早上看，是不够的。

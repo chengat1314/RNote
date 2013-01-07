@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2012-06-11 22:00:09 Monday by richard>
+# Last modified: <2012-12-31 19:32:02 Monday by richard>
 #+STARTUP: showall
 #+TITLE:   关于我
 
@@ -11,8 +11,6 @@ My Email: chao78787@gmail.com
 
 粉我新浪微博吧，亲：
 http://weibo.com/wangrunchao
-你要是用非死不可，或者推特，就请访问英文版本的本页面，谢谢啦。
-
 
 本网站是开源的，由heroku云平台支持，源码可以从github访问：
 https://github.com/chao787
