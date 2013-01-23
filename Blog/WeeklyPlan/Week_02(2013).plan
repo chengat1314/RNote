@@ -1,0 +1,44 @@
+# -*- mode: org -*-
+# Last modified: <2013-01-18 16:34:56 Friday by richard>
+#+STARTUP: showall
+#+TITLE:   Jan 14 - 21 (Week 02)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+  **
+
+* Daily Journal
+** <2013-01-14 Mon>
+   - CATEGORY
+import
+#+begin_src hana
+IMPORT FROM CSV FILE '/usr/bala/balala.csv'
+INTO .. WITH .. ..;
+#+end_src
+   导入时候，大概500g，5分钟左右。
+   - integration with R.
+     R connector.
+   -
+** <2013-01-16 Wed>
+   Pythonic programming style that determines an object's type by
+   inspection of its method or attribute signature rather than by
+   explicit relationship to some type object ("If it looks like a duck
+   and quacks like a duck, it must be a duck.") By emphasizing
+   interfaces rather than specific types, well-designed code improves
+   its flexibility by allowing polymorphic substitution. Duck-typing
+   avoids tests using type() or isinstance(). Instead, it typically
+   employs the EAFP (Easier to Ask Forgiveness than Permission) style
+   of programming.
+** <2013-01-17 Thu>
+   整理接口。获取一个xlsx文件，然后读取，然后取出来。
+   http://t.163.com/chat/lidong
+** [1/4] <2013-01-18 Fri>
+*** DONE 调整redis 到92 mongo上面
+*** TODO 转接DB
+*** TODO 概率论和机器学习caltech 1 and 2.
+*** TODO 增加并测试去重
+
+** <2013-01-22 Tue>
+   - Homework 2 :: due at January 22nd 11:00am PT.

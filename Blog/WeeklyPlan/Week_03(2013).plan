@@ -1,0 +1,42 @@
+# -*- mode: org -*-
+# Last modified: <2013-01-23 11:21:10 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   Jan 22 - 29 (Week 03)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+  **
+
+* Daily Journal
+** <2013-01-22 Tue>
+   1. TONY's recommendation
+      [[http://www.oschina.net/p/storm-trident]]
+   2. http://github.com/facebook/scribe
+http://code.taobao.org/p/TimeTunnel/src/
+huolong / TimeTunnel - /
+
+TimeTunnel是一个高效的、可靠的、可扩展的实时数据传输平台，广泛应用于实时日志收集、数据实时监控、广告效果实时反馈、数据库实时同步等领域。TimeTun...
+1）Scribe：https://github.com/facebook/scribe
+
+2）Kafka：http://sna-projects.com/kafka/
+
+3）Flume：https://github.com/cloudera/flume/
+
+4）Chukwa：http://incubator.apache.org/chukwa/
+
+5）TimeTunnel：http://code.taobao.org/p/TimeTunnel/
+
+6）S4：http://s4.io
+
+7）StreamBase：http://www.streambase.com
+
+8）HStreaming：http://www.hstreaming.com/
+
+9）Esper：http://esper.codehaus.org/
+
+10）Storm：http://engineering.twitter.com/2011/08/storm-is-coming-more-details-and-plans.html
+http://www.alidata.org/p_d/tech
+
+** <2013-01-23 Wed>

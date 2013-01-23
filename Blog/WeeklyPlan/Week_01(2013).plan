@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-01-07 15:59:23 Monday by richard>
+# Last modified: <2013-01-10 17:58:35 Thursday by richard>
 #+STARTUP: showall
 #+TITLE:   Jan 06 - 13 (Week 01)
 
@@ -30,11 +30,20 @@
       * [ ]
 
 *** DONE 整理The Developer's Code
-*** TODO 去重算法
-*** TODO Element probability
-*** TODO 回家将cc电脑上面的笔记email到我的Gmail中。
-
 ** <2013-01-08 Tue>
 
+*** DONE 回家将cc电脑上面的笔记email到我的Gmail中。
+*** Note:
+    The important thing is understanding "What we are sampling" in statistics.
 
-*** TODO 首先将笔记email粘贴回我的笔记中。
+*** <2013-01-09 Wed>
+
+*** DONE 首先将笔记email粘贴回我的笔记中。
+** <2013-01-10 Thu>
+
+*** TODO 去重算法
+**** Function in setUp cannot be mocked.
+
+
+
+*** TODO Element probability

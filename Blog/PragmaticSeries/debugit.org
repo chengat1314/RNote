@@ -1,0 +1,64 @@
+# -*- mode: org -*-
+# Last modified: <2013-01-23 20:19:36 Wednesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Debug It! Find, Repair, and Prevent Bugs in Your Code
+#+AUTHOR: Richard Wong
+
+
+* 掩盖问题
+** 为毛
+  1. 这个缺陷是根植于结构的，涉及大面积修改，而且很危险。
+  2. 兼容问题
+  3. 做一次真正的修复比更新一个好的应用补丁需要付出更多的努力。
+
+* 分支 -- branching
+  1. 尽可能晚的使用分支。
+  2. 坚持分支的单一层级。别在自己的分支上面分支。
+  3. 设置持续集成服务器构建正处于活跃状态的分支。
+  4. 经常commit小的修改.
+     * diff before commit!
+     * One logic change, One check-in.
+     * lint before you commit.
+  5. 只把那些确实需要中分支中进行修改加入到分支中。
+  6. 将分支合并到主干中，而不是从主干加到分支中。
+  7. 立即将分支向主干合并。（避免遗忘合并）
+  8. 保持审计跟踪，使得你知道哪些变化已经被合并，什么时候被合并的。
+** 分支可能带来的问题     
+   1. 分支导致重复工作。
+** 避免责备文化
+   前瞻性的找出工作过程中出现的问题对总体质量的提高是非常有帮助的。
+   目标一定是汲取经验教训而非归纳责任。（正确的出发点和建设性）
+
+* CI
+  Automate your entire build process, from start to finish.
+  1. 软件构建时的源程序。
+  2. 用来构建他的工具。
+  3. 构建时对这些工具进行的选项测试。
+  4. 任何软件链接和附带的第三方库。
+** 构建机器
+   - Never release software built on a developer's machine.
+   - Run your tests every time you change the software.
+   - Integrate static analysis into your build process.
+
+* DEBUG
+** Your software's environment is anything that might affect its behavior. 
+
+** Assertion in DBC(especially in class)
+    - prerequisites
+    - postprocessing
+    - constants
+    - Assertion are not an error-handling mechanism.
+    - Make debuging fragile
+
+** Inner Control
+   - Disable Function
+   - Provide other implementation.
+
+** Test exceptions.
+** Debugging sessions are ephemeral; tests are permanent.
+** Software should be robust in production and fragile when debugging.
+
+* commit is git jargon of check-in.
+
