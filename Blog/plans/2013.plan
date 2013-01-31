@@ -1,12 +1,14 @@
 # -*- mode: org -*-
-# Last modified: <2013-01-03 21:42:28 Thursday by richard>
+# Last modified: <2013-01-31 11:38:04 Thursday by richard>
 #+STARTUP: showall
 #+TITLE:   plan of year 2013
 
 总结了一下希望2013年可以做到的事情：
 
 * 专业:
-  1. 明年希望学习两门新编程语言。R, erlang.
+  1. 明年希望学习两门新编程语言。+R, erlang+
+     <2013-01-31 Thu> added: 过年前学clojure。希望春节回来就有一个合理
+     的解释。
   2. 分析V8 engine和erlang解释器等编译相关的内容。
   3. 数学《初等概率论》，《牛逼一点的概率论》，《统计模型》
   4. ML方面的书：《MLAPP》，《PRML》。
@@ -183,6 +185,4 @@
    早上先烧开水，洗脸，然后喝一杯白水，一杯蜂蜜调和水。
    然后开始学习或者工作。
    晚上回家先烧开水，如果在外面没有运动，则训练膝关节和腰部。（即*晚上活动*）
-
-
 

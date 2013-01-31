@@ -1,0 +1,115 @@
+# -*- mode: org -*-
+# Last modified: <2013-01-31 11:36:25 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   Jan 28 - 35 (Week 04)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+  **
+
+* Daily Journal
+** <2013-01-28 Mon>
+   今天开始学习Clojure。
+*** clojure
+    (= 1 1.0) changes with 7 lang 7 weeks in P175.
+    * True:
+      |---+----+------|
+      | 0 | "" | true |
+      |---+----+------|
+    * False:
+      |-------+-----|
+      | false | nil |
+      |-------+-----|
+    * Quoting
+      '(1 2 3)
+    * treat list as code, vector as data.
+**** list operation
+     optimized for biteration.
+     1. (first '(:r2d2 :q3d9 :c4p6))
+     2. (last '(:r2d2 :q3d9 :c4p6))
+     3. (rest '(:r2d2 :q3d9 :c4p6))
+     4. (cons :battle-droid '(:r2d2 :q3d9 :c4p6))
+**** Vector []
+     optimized for random access.
+     1. [:hutt :wookie :ewok]
+     2. (concat [:hutt :wookie] [:ewok])
+**** Set. #{}
+     不能依赖set的顺序。
+**** map {}
+     | :atom in prolog/erlang | :keyword in clojure | :symbol in ruby |
+     keyword 指向自身，
+     symbol指向其他东西。
+     {:chewie :wookie :lea :human}
+**** defn 定义函数
+**** Destructuring
+     外层方括号定义形参向量，内层方括号指明将要绑定的是列表的元素还是
+     向量的元素。
+     #+begin_src clojure
+     (defn line-end [[_ second]] second)
+     #+end_src
+**** Conclusion
+     利用宏的语法抽象性创建用于机器学习和统计推理的DSL，利用和java互操
+     作能力来使用像hadoop和cascading这样的基础设施。
+     Scheme 的目的是通过一个很精炼的语言来捕捉计算的本质，而common
+     lisp则致力于标准化科研中所用到的各种lisp方言。
+     clojure更强调language-on-platform, but not language-is-platform.
+** <2013-01-29 Tue>
+*** Clojure
+   From clojure view, OO's best part is Type and interface. Worst
+   part is Inheritance from concrete implementation.
+   Using data show code, but just not string.
+   Code itself is a high-level data-structure.
+
+*** TODO [[wiki:]]sage
+*** <2013-01-30 Wed>
+
+**** 处理面向对象可变的方法。
+     面向对象可变是魔鬼。
+     1. Io 和scala使用基于actor的模型并提供了不可变编程结构，给予程序员在
+        不依赖可变状态下解决这些问题。
+     2. Erlang提供了actor和轻量级进程，以及一个支持高效监控和通讯的虚
+        拟机带来了前所未有的可靠性。
+     3. Clojure的并发之路也不同，使用了STM(Software transactional memory)
+
+**** 数据库使用事务来保证数据完整性。
+     1. 使用锁来保护一个线程的资源免遭其他竞争资源的破坏。（如java）
+        锁把并发控制的负担交给了程序员。
+     2.
+
+**** TODO Java集成
+
+**** TODO 多重方法
+
+**** TODO 线程状态
+
+**** STM
+     策略使用多版本维持一致性和完整性。
+     在clojure中如果想修改一个引用的状态，必须在事务内进行操作。
+
+**** 大部分代码使用函数式编程范性，而对那些最能通过可变性收益的问题则使用STM。
+
+**** 将一小块状态封装成包，而后用函数修改。修改引用需要事务，而原子不需要。
+
+**** 核心优势
+     1. A lisp。
+        1. 减少括号。
+        2. 生态系统。
+        3. 克制
+     2. STM
+     3. Integrated with Java.
+     4. Latent Computing.
+     5. Data is Code.
+
+*** <2013-01-31 Thu>
+     今天开始看<The joy of clojure>
+     
+**** Clojure
+     Don't try to cover all paradigms or provide every checklist
+     bullet-point feature.
+     provide feature needed to solve all kinds of real-world problems
+     the Clojure way.
+     
+
+
