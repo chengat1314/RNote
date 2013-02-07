@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-01-31 11:36:25 Thursday by richard>
+# Last modified: <2013-02-01 17:41:34 Friday by richard>
 #+STARTUP: showall
 #+TITLE:   Jan 28 - 35 (Week 04)
 
@@ -7,7 +7,18 @@
 ** TODO:
 
 * Professional Skill
-  **
+
+** Code is data(lisp core conception)
+   When your language is represented as the inherent data structures,
+   the language itself can manipulate its own structure and behavior.
+   - homoiconicity :: a property of some programming languages, in
+                      which the primary representation of programs is
+                      also a data structure in a primitive type of
+                      the language itself.
+** Immutability lies at the cornerstone of Clojure.
+
+** downside of OO(especially pure OO).
+   tight coupling between function and data.
 
 * Daily Journal
 ** <2013-01-28 Mon>
@@ -84,6 +95,8 @@
 
 **** TODO 线程状态
 
+**** 缺少宏读取器
+
 **** STM
      策略使用多版本维持一致性和完整性。
      在clojure中如果想修改一个引用的状态，必须在事务内进行操作。
@@ -104,12 +117,104 @@
 
 *** <2013-01-31 Thu>
      今天开始看<The joy of clojure>
-     
+
 **** Clojure
+***** The good parts.
      Don't try to cover all paradigms or provide every checklist
      bullet-point feature.
      provide feature needed to solve all kinds of real-world problems
      the Clojure way.
-     
+     A Tool for getting the job done.
+     |--------------------------------------------------------------------+------------------------------------------------------|
+     | Conflated                                                          | Separated                                            |
+     |--------------------------------------------------------------------+------------------------------------------------------|
+     | Object with mutable fields                                         | Values from identities                               |
+     | Class acts as namespace for methods                                | Function namespaces from type namespaces             |
+     | Inheritance hierarchy made of classes                              | Hierarchy of names from data and functions           |
+     | Data and methods bound together lexically                          | Data objects from functions                          |
+     | Method implementations embedded throughout class inheritance chain | Interface declarations from function implementations |
+     |--------------------------------------------------------------------+------------------------------------------------------|
+
+***** functional parts.
+      1. purity
+      2. immutability
+      3. recursion
+      4. laziness
+      5. referential transparency.
+
+***** The implications of functional programming.
+      - OO defining an application domain as a set of nouns(classes).
+      - FP see the solution as the composition or verbs(functions).
+
+***** Encapsulation Things.
+      Programming languages with closures automatically support a form
+      of encapsulation to group functions with their supporting data.
+
+**** 2013 Web Trends
+     1. More Responsive.
+     2. Typography will take center stage.
+     3. Buh-bye Flash.
+     4. Large Image.
+     5. More whitespace.
+     6. More sharing on social networks.
+     7. Calmer Color schemes.
+        whites, grays, and black.
+     8. King content will keep its crown.
 
 
+**** yak shaving
+     A word to show a diff. things in a simple way.
+
+**** TODO What's the “big idea” behind compojure routes?
+     [[http://stackoverflow.com/questions/3488353/whats-the-big-idea-behind-compojure-routes/3490479#3490479][compojure behind.]]
+
+*** <2013-02-01 Fri>
+**** Clojure
+
+***** scalar types
+      - Integers
+      - Strings
+      - floating-point numbers
+      - rationals
+      - Symbols
+        Symbols are typically used to refer to function parameters,
+        local variables, globals, and Java classes.
+      - keywords
+        Similar to symbols, except that always evaluate to themselves.
+      - strings
+      - characters
+      - booleans
+      - regex patterns.
+
+***** Issue for argument number
+      The implementation details of Clojure prevent the creation of
+      functions with an arity larger than 20.
+
+***** Collections
+      - Lists :: ()
+      - Vectors :: []
+      - Maps :: form {} dictionary or hashes. same as C++
+      - Sets :: #{}
+
+***** `arity'
+      The term "arity" is rarely employed in everyday usage.
+      - A nullary function takes no arguments.
+      - A unary function takes one argument.
+      - A binary function takes two arguments.
+      - A ternary function takes three arguments.
+      - An n-ary function takes n arguments.
+
+***** About nil
+      The empty list in clojure is () not nil as most lisp lang.
+      [] isn't same as nil.
+      {} isn't the same as nil
+      #{} isn't same as nil.
+
+***** Fake edu in maricopa
+      - Your MEID is  DEW2146373   <<-- Important
+      - Please note, it may take up to 20 minutes before you are able
+        to log on.
+      - Your StudentID is  35842391   <<-- Important
+      - You may use SPAT to look up your MEID and change your password
+        and/or your challenge questions.
+      - Your Maricopa Email is  DEW2146373@maricopa.edu   <<-- Important

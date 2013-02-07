@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-01-31 11:38:04 Thursday by richard>
+# Last modified: <2013-01-31 11:39:42 Thursday by richard>
 #+STARTUP: showall
 #+TITLE:   plan of year 2013
 
@@ -9,6 +9,8 @@
   1. 明年希望学习两门新编程语言。+R, erlang+
      <2013-01-31 Thu> added: 过年前学clojure。希望春节回来就有一个合理
      的解释。
+     之后将主要使用python去做科学实验，严谨的验证性实验使用C/C++.
+     Hacking problems 使用clojure(看效果).
   2. 分析V8 engine和erlang解释器等编译相关的内容。
   3. 数学《初等概率论》，《牛逼一点的概率论》，《统计模型》
   4. ML方面的书：《MLAPP》，《PRML》。

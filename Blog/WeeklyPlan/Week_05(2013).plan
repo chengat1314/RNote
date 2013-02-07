@@ -1,0 +1,97 @@
+# -*- mode: org -*-
+# Last modified: <2013-02-07 14:41:01 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   Feb 03 - 10 (Week 05)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+** clojure
+*** Vars
+    - def the most common way to create Vars in Clojure.
+    - Vars don't require a value; instead we can simply declare them
+      and defer the responsibility of binding their values to
+      individual threads.
+    - root binding
+      #+begin_src clojure
+(def x 42)
+;; By default all threads start with the root binding.
+(.start (Thread. #(println "Answer " x)))
+      #+end_src
+*** Locals, loop and block.
+    - No local variables, but have locals; they just can't vary.
+      Using let form.
+    - do loop
+      #+begin_src clojure
+(do
+  6
+  (+ 5 4)
+  3)
+      #+end_src
+    - When loop
+      #+begin_src clojure
+(when (pos? x)
+
+)
+      #+end_src
+
+
+
+** javascript
+   - eq:
+     #+begin_src clojure
+ $();
+ $(document).ready();
+     #+end_src
+   - Essentially, anything you can target with CSS, you can modify
+     with jQuery
+   - jQuery
+     - test loading jQuery or not
+       #+begin_src javascript
+jQuery;
+       #+end_src
+     - "ELEMENT#Id"
+     - "ELEMENT.class"
+     - DON'T USE ANONYMOUS CLASS/ID SELECTORS.
+     - Pseudo-classes.
+       1. "p:first".
+       2. $("body span")
+       3. $("body > span") :: directly descendants
+       4.
+     An abstract layer.
+   - Global functions.
+     + alert
+     + confirm
+     + prompt
+   - string functions.
+     + toLowerCase
+     + toUperCase.
+     + charAt
+     + replace
+     + split.
+   - operation
+     + :+
+     + :/
+     + parseInt
+     + toString
+   - Arrays
+     + [:n] :: pos of array.
+     + length :: length of the array
+     + reverse :: reverse list.
+   - css in jQuery.
+     !REMEMBER!
+     HTML->content.
+     CSS->presentation.
+     JS->Interactive.
+     so, use .css() with reservation.
+     More reliable and Maintainable.
+     + $("").css(, 42px)
+     + =toggleClass= is more common than =addClass= and =removeClass=.
+     + $().hide() + $().show() is $().toggle().
+     + $(document).ready() will waiting for whole DOM download.
+
+* Daily Journal
+** <2013-02-04 Mon>
+   - Morning: do some clojure training.
+   - Afternoon: do some Nlp training.
