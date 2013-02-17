@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-02-07 14:41:01 Thursday by richard>
+# Last modified: <2013-02-07 18:20:55 Thursday by richard>
 #+STARTUP: showall
 #+TITLE:   Feb 03 - 10 (Week 05)
 
@@ -95,3 +95,43 @@ jQuery;
 ** <2013-02-04 Mon>
    - Morning: do some clojure training.
    - Afternoon: do some Nlp training.
+** <2013-02-07 Thu>
+   js always triggerd by env or user act.
+   this refers to the current object.
+   usually just a plain DOM element.
+#+begin_src javascript
+   function (parameter){instructions}
+$(document).ready(
+
+);
+
+#+end_src
+   functions.
+*** Timing..
+    The js run when loaded.
+
+*** Hover
+    attached two function, in and out.
+    Using one function, invoke twice. (make use of toggle ability.)
+*** keypress.
+    #+begin_src javascript
+$(document).ready(function(){
+$("body").keypress(
+function(event){if (event.witch == 102) dosth})
+})
+    #+end_src
+*** event Object functions
+    just a hook before reaction.
+    1. preventDefault.
+    2. which.
+    3. pageX, pageY.
+*** ajax
+    - Animating translation.
+    - hide
+    - show
+    - toggle
+    - slideDown
+    - slideUp.
+    - slideToggle.
+    - load :: content.
+*** Done jQuery job.

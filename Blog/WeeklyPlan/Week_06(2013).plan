@@ -1,0 +1,91 @@
+# -*- mode: org -*-
+# Last modified: <2013-02-14 22:25:41 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   Feb 10 - 17 (Week 06)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+** 增长速度：
+   人类存储信息量的增长速度比世界经济的增长速度快4倍，而计算机数据处理
+   能力的增长速度则比世界经济的增长速度快9倍。
+** 大数据的三个转变
+   1. 我们可以分析更多的数据，甚至是某个特别现象相关的所有数据而不依赖
+      于随机采样。
+      大数据让我们更清楚的看到了样本无法解释的细节信息。(其实是人为的
+      限制)
+   2. 研究数据如此之多，以至于我们不再热衷追求精确度。
+      忽略微观层面的精确度会让我们在宏观层面有更好的洞察力。
+   3. 不再热衷寻找因果关系。
+      作为代替，会寻找相关关系。（让数据去解释，实践派）
+      比如zipf's law.
+      找到特定规律其实也很有意义。但是遵循一定观点去获得领域知识依然有
+      他的商业价值。
+** 大数据带来的问题。
+   这些信念正在被“更好”的证据所取代，从“经验”得来的与证据相矛盾的
+   直觉，信念和迷茫应该充当什么角色。能够既不损坏建立在因果推理基础之
+   上的社会繁荣和人类前行的基石，又取得实际的进步。
+
+* Daily Journal
+** <2013-02-10 Sun>
+*** Clojure
+    Using recursion somethimes requires thinking about your problem in
+    a different way than imperative languages encourage;
+    but recursion from a tail position like *structured* goto, and
+    has more in common with an imperative loop than it does with
+    other kinds of recursion.
+#+begin_src clojure
+(defn print-down-from [x]
+  (when (pos? x)
+    (println x)
+    (recur (dec x))))
+#+end_src
+** <2013-02-12 Tue>
+*** Clojure
+    The reasons to use when are:
+    1. No else-part is associated with the result of a conditional.
+    2. You require an implicit do in order to perform side-effects.
+*** LOOP
+    loop like exactly let but provides a target for recur to jump to.
+
+** <2013-02-13 Wed>
+*** Clojure
+**** Quoting
+     The most common to use quoting is that you can use a literal
+     list as a data collection without having Clojure try to call a
+     function.
+     1. Remember though =quote= affects all of its argument, not just
+       the top level, this may not always give you the results you want.
+     2. Quoting the empty list isn't idiomatic Clojure.
+**** Syntax Quote.
+     It has extra features that make it ideal for constructing
+     collections to be used as code.
+     using back-quote.
+     `(1 2 3)
+**** Symbol auto-qualification
+     If the symbol doesn't name a Var or class yet, syntax-quote will
+     use the current namespace.
+**** Unquote
+     An unquote is used to demarcate specific forms as requiring
+     evaluation by prefixing them with the symbol ~ within the body
+     of syntax-quote.
+**** Unquote splicing
+     add @ between ~ and symbol.
+**** Using auto-gensym to obtain unqualified symbol.
+     `potion#
+**** It shouldn't be assumed that their compiled structures are the same.
+**** Exception
+     The major diff of the way that java handles exceptions compared
+     to Clojure is that Clojure doesn't adhere to checked exception
+     requirements.
+**** Namespaces
+     Clojure provides a Var =*ns*= that holds the value of current namespace.
+
+**** Order of same var definition
+     When either of those functions are used, the last Var definition wins.
+
+**** You should always strive to eliminate the warnings that Clojure presents in these cases.
+** <2013-02-14 Thu>
+*** SSP
+    本质上是想给所有的合适的受众推广合理的产品理念或者品牌状态。哈。

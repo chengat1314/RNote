@@ -1,0 +1,50 @@
+# -*- mode: org -*-
+# Last modified: <2013-02-12 10:44:04 Tuesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:    朋友圈
+#+AUTHOR: Richard Wong
+* Senior I
+** 圈子a
+   单菲   （李建鹏这两个人不对付？）
+   赵荣飞 （刘浩这俩个人不对付？）
+   梁兆堃
+   齐立强 + 荆贝
+   马兵
+   林辉 +
+   孙伟岸 + 武守荣 + 李金峰 + 孙媛媛
+   冯伟
+   修栋波 + 余丁浩
+   宁小彬
+   贾兵
+   秦志龙
+   蒋文龙
+   申鹏
+   胡丙芳
+   孙钊--
+
+   * ++
+   康艳敏
+   赵波
+   薛芳
+   崔小琳
+   王璐
+   马琳
+
+** 圈子c
+   霍真真
+   蒋丽萍
+   张亚佩
+
+** 圈子d
+   菜丹
+   袁关通
+   柴建辉
+   王永利
+
+* Senior II
+
+
+* Big School
+  多了。。这个比较复杂。
