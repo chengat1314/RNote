@@ -1,0 +1,39 @@
+# -*- mode: org -*-
+# Last modified: <2013-02-28 17:25:19 Thursday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   clojure resources
+#+AUTHOR: Richard Wong
+
+* Books of clojure
+** Intro
+   - clojure in action :: maybe best for me. ("how")
+   - Clojure Programming :: A C++ style book. (more things about
+        clojure itself)
+   - Programming Clojure :: Succinct book. ("what")
+   - The joy of clojure :: Good book to continuous reading after an
+        intro one, but not good as intro one. ("why")
+   - Practical Clojure :: Good book to start today.
+
+* Online turtorials of clojure
+  - [[http://www.youtube.com/watch?v%3DAoeav%255FT1ARU&feature%3DPlayList&p%3DAC43CFB134E85266&index%3D0][Intro to Clojure]] :: intro level videos on youtube.
+  - [[http://clojure.blip.tv/][blip tv of Clojure]] :: misc videos.
+  - [[http://java.ociweb.com/mark/clojure/article.html][ociweb of clojure]] :: articles resource of clojure.
+  - [[http://fasttrackclojure.blogspot.com/][Fast Track Clojure]] :: a blog of clojure.
+  - [[http://disclojure.org/][disclojure]] :: a talking blog about clojure itself.
+  - [[http://java.ociweb.com/mark/clojure/article.html][clojure intro]] :: Functional Programming for the JVM
+  - [[http://moxleystratton.com/clojure/clojure-tutorial-for-the-non-lisp-programmer%20][Clojure Tutorial]] :: Clojure Tutorial For the Non-Lisp Programmer
+
+
+* practical videos
+  - [[http://datasciencelondon.org/practical-magic-clojure-for-data-scientists-bruce-durling-cto-mastodon-c/][DataScience London]]
+
+* When meet problems.
+  - [[http://www.4clojure.com/problems][4clojure]]
+
+* clojure scripts
+  - [[http://himera.herokuapp.com/index.html][heroku app]]
+
+* references
+  - [[http://stackoverflow.com/questions/2578837/comparing-clojure-books][compare clojure books]]

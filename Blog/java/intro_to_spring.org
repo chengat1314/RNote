@@ -1,0 +1,25 @@
+# -*- mode: org -*-
+# Last modified: <2013-03-04 15:08:22 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   intro_to_spring
+#+AUTHOR: Richard Wong
+
+* A short Intro
+  从 [[http://blog.sina.com.cn/s/blog_5d90e82f0101iiwl.html][漫谈 Linux，Windows 和 Mac]]说起。
+  王垠很早就跟我交流过一些内容，盲目自大。是我总结的。
+  从这个极端到另外一个极端，是别人总结的。
+  谈到linux中包含了一些非常糟糕的设计。这点我也很清楚。但是黑之前，至
+  少应该先了解他。
+  所以我竟然学了java。当然这个我自己也是很吃惊的。
+  java发展了这么多年，still there.
+  主要是学习AOP的概念。
+
+* Begin with Spring Source code.
+  我准备先从spring的源码学起。
+
+* book resource。
+  1. AspectJ in Action.
+  2. [[http://www.amazon.com/dp/1430241071][pro Spring]]
+  3. [[http://www.amazon.com/Spring-Action-Craig-Walls/dp/1935182358/ref%3Dpd_rhf_se_p_t_3_PD9D][spring in action]]

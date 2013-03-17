@@ -1,0 +1,49 @@
+# -*- mode: org -*-
+# Last modified: <2013-03-12 16:11:18 Tuesday by richard>
+#+TITLE:   Mar 10 - 17 (Week 10)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+  **
+
+* Daily Journal
+
+* 时间计划书
+** 6点起床->（9点半出发上班）
+*** 每天早上2个小时概率论。
+*** 1个小时NLP基础。
+*** 半个小时准备
+** 每日推荐上班时间（9:30出发，7点回家）
+*** 上班学习路线：
+    clojure first.
+    API design.
+** 7点半到家，10点半前休息。(2个小时的时间)
+*** 每天晚上1个小时概率题。
+*** 1个小时的NLP基础（题目）。
+
+* article here:
+  终于搬了新家，也很激动，也很迷茫。
+
+
+* 我有一个不好的习惯，就是墨墨de 。哈哈哈哈。
+  今天给运维老大发了好几个email，说hostname不一致，这种hostname在你忙
+  的时候是根本不会发现的嘛。就是来回尝试，我到底在做什么。。哈哈哈哈。
+
+
+
+
+* MySQL
+** User
+*** Add User privileges.
+   CREATE USER 'nlpmachine'@'%' IDENTIFIED BY '***************';
+   GRANT ALL PRIVILEGES ON nlp_lab.* TO 'nlpmachine'@'%' WITH GRANT OPTION;
+   GRANT ALL PRIVILEGES ON nlp_lab_online.* TO 'nlpmachine'@'%' WITH GRANT OPTION;
+   show grants for 'nlpmachine'@'%';
+   flush privileges;
+
+*** Change user password.
+    UPDATE mysql.user SET Password=PASSWORD('new-password-here') WHERE User='user-name-here' AND Host='host-name-here';
+
+    所谓规范，无非就是看起来绕了远路其实是绕过坑的过程。

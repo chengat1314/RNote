@@ -1,0 +1,23 @@
+# -*- mode: org -*-
+# Last modified: <2013-03-04 19:27:11 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   first_conclusion_on_clojure
+#+AUTHOR: Richard Wong
+
+* clojure
+** Package management of clj.
+   any Clojure library that does something interesting is going to
+   need some Java libraries beyond what the JDK provides.
+** Java has only one established dependency management system, Maven
+   Maven seems to work well for large organizations that can benefit
+   from setting up their own, private repositories, but it’s kind of
+   a headache for the independent developer.
+** Add REPL
+   Add REPL session to all projects.
+   =~/.lein/profiles.clj=
+   #+begin_src clojure
+{:user {:plugins [[lein-swank "1.4.4"]
+                 [lein-pprint "1.1.1"]]}}
+   #+end_src

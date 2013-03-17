@@ -1,0 +1,140 @@
+# -*- mode: org -*-
+# Last modified: <2013-03-01 11:23:45 Friday by richard>
+#+STARTUP: showall
+#+TITLE:   Feb 25 - 32 (Week 08)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+  **
+
+* Daily Journal
+** 关于保证update正确性的代码所采取的方案。
+   1. 在整个项目使用grep，grep 所有的update和insert等写的操作。
+   2. 分离操作符和写入数据。That is Code in Code part, Data is Data.
+   3. 使用锁，限制读取开启的进程。(防止数据库线程满)
+
+* Something of lisp
+  [[http://www.paulgraham.com/diff.html][diff (by paul graham)]]
+  * All variables are effectively pointers.
+    Values are what have types not variables, and assigning or binding
+    variables means copying pointers not what they point to.
+  * The whole language always available.
+    No real distinction between read-time, compile-time, and runtime.
+    You can compile or run code while reading, read or run code while
+    compiling, and read or compile code at runtime.
+
+* Resource of Clojure.
+  [[file:~/Documents/My%20Notes/Blog/clojure/clojure-resource.org][clojure-resource]]
+
+* Clojure
+   If you give someone Fortran, he has fortran. If you give someone
+   lisp, he has language he pleases.
+
+** impure functional language
+   - first-order functions
+   - function-like constructs
+     program more composable.
+   - stateless
+     value-input, value-output.
+     don't depend on outside states.
+
+** a lisp
+
+** macros
+
+** dynamic
+   but java is static lang.
+
+** lockless concurrency
+   you don't have to lock yourself.
+
+** implement for JVM
+   compile to java byte code.
+
+** Java interop
+   using existing java classes.
+
+** fast
+   3 - 4 times slower than C.
+
+** Persistent collections
+
+** easy to learn?
+   core of lang is small.
+   not so many syntax rules.
+
+* details of clojure
+
+*** proxy, on the fly with
+    Java programmers are accustomed to drawing a severe distinction
+    between development time and runtime. Clojure's proxy feature
+    allows you to blur this distinction.
+
+** `awkwardness`
+   awkwardness is a good since it's a strong signal to make the user
+   aware he is drifting away from the true path to clojure
+   enlightenment.
+
+** <2013-02-27 Wed>
+   download the clojure koans.
+   do some clojure koans from today.
+   Yesterday, Seen some house to lent. very expensive but I think it
+   is deserved to do.
+   And all plans should moved forward quickly after I move to new house.
+   * Martin Fowlers :: fluent Interface.
+
+** <2013-03-01 Fri>
+*** Clojure   
+    除了少数称为特殊形式 (special form) 的操作符之外,Lisp 的核心就是一
+    个函数的集合。
+    有经验的 Lisp 程序员两边都写一些,并不断调整语言和应用之间的界限,直
+    到它们彼此完美地配合在一起。
+
+
+** DSL
+   * Internal DSLs(embedded DSLs, or fluent interfaces)
+     using a host language to give the host language the feel of a
+     particular language.
+     eg: lisp, ruby.
+   * External DSLs
+     Have their own custom syntax and you write a full parser to
+     process them.
+     eg: xml, lang through lex/yacc.
+
+* Hammock-Driven Development.
+** Bugs
+   * Most expensive in production.
+   * Expensive in QA.
+   * Cheaper to fix in dev.
+   * Least expensive to avoid in design.
+   * Most of the biggest problems in software are problems of
+     misconception.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* 谈微博
+  我不是一个擅长写微博的人，擅长写的人确实不一样，如李开复，留一手，互
+  联网的那点事。但是这都不重要

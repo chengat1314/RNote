@@ -1,23 +1,270 @@
 # -*- mode: org -*-
-# Last modified: <2013-02-17 12:50:47 Sunday by richard>
+# Last modified: <2013-02-18 14:41:18 Monday by richard>
 #+STARTUP: showall
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c) | FUTURE(f)
 #+TITLE:   Feb 17 - 24 (Week 07)
 
 * Relationship
 ** TODO:
-   
+
 * Professional Skill
-  **
-  
+** It requires a very unusual mind to undertake the analysis of the obvious.
+** Programmers can think of programs.
+1. In OOP.
+   as a collection of interacting objects.
+2. Functional Programming.
+   as a sequence of stateless function evaluations.
+   * Pure Functional programming.
+     disallows the use of side-effects.
+   * Structured programming.
+     disallows the use of goto.
+
+** Programming paradigm
+
+*** Imperative programming
+*** Functional programming
+*** Procedural programming, structured programming.
+*** Event-driven programming.
+*** OO programming.
+*** Declarative programming.
+*** Automata-based programming.
+
+** NLP
+   Why hard? Mainly due to kinds of Ambiguities.
+*** App Cover
+    1. Machine Translation.
+    2. Info Extraction.(NLU problem)
+       Goal: Map ducument collection to structured databases.
+       - searches
+       - statistical queryies
+    3. Text summarization.
+    4. Dialogue Systems.
+
+*** Basic NLP problems.
+    1. tagging.
+       - POS-tagging.
+       - Name-Entity Recognition.
+    2. Parsing.
+
+* Small changes to sustainable.
+  1. 30 minutes ted per day.
+  2. sports per 2 hours.
+  3. A Small talk in weibo or blog.(30 min per day)
+
+
 * Daily Journal
 ** <2013-02-17 Sun>
-   TED
-   1. 每三十天改变一个习惯
+   from [[http://v.163.com/movie/2012/1/N/8/M8LD0V9UJ_M8M0VQON8.html][TED]]
+   - 每三十天形成一个小习惯.
+     Small changes = sustainable.(embrace changes.)
+   - poverty slums in city.
+     1. Out of poverty on the fatest step.
+     2. Education Oppotunity in city.
+     3. Fastest way to out of poverty.
+     4. Defuse population pump.
+   - Less Space
+     Less stuff, More freetime.
+     Stem the inflow.
+   - Share voice with more and enjoy smart ideas.
+     ideas and spreading, brief and tender.
+     your neibourhoods, families, friends, evenstrangers, netizens and
+     more.
+   - First follower have guts a lone nut into a leader.
+
+*** today meetings with Nipeng and Lihe.
+    1. CSR(nipeng need to do more)
+    2. Text-based categorization and clustering.
+       online learning and more discuss with BD(consultants).
+    3. followers categorization. (gender)
+    4. Data feeling.
+    5. Familiar with tools.
+    6. Richard Working plan:
+       - Categorization weibo or text
+         Final meet at <2013-03-15 Fri>
+         1. Online learning. to <2013-02-20 Wed> (10 hours or more)
+         2. A faster speed (less than 20 minutes/10k record.). to <2013-02-27 Wed> (10 hours or more)
+         3. Easy to use. 
+            talk with @ariel 3 times a week.(to define easy)
+            <2013-03-06 Wed> Something going to fixed this time.
+         4. <2013-03-13 Wed> summarize some domain knowledge II. and
+            make service more stable. (productable)
+       - Deduplication with a new machine signed key. need a talk
+         with @haiwen. (haiwen will return rdbj at <2013-02-19 Tue>)
+         (in One week need about 20 hours to finish this.)
+         <2013-02-22 Fri> <2013-03-01 Fri>
+       - update redmine markdown and layout.(using git to manage wiki)
+         No date plan right now.
+         time by myself <2013-03-22 Fri>
+
+* TODO Chou's Project schedule.
+** DONE SNS database schema. (2 hours) <2013-02-17 Sun>
+*** MainKey:
+   1. Movie Id.
+      Specific id to denote a movie.
+   2. Actor Id.
+      Actor Include any crew, productor, cast in any movie.
+
+*** Schema.
+   1. Movie Table
+      | MovieId | MovieName | MovieType | FilmSchedule | Director |
+      |---------+-----------+-----------+--------------+----------|
+   2. MovieName Table(optional Movie can have more names)
+      | MovieId | MoviesubName | othername? |
+      |---------+--------------+------------|
+   3. CAST Table.
+      | MovieId | ActorId | Pos |
+      |---------+---------+-----|
+   4. Actor Name Table. (optional?)
+      | ActorId | ActorName | Former Name(s) |
+      |---------+-----------+----------------+
+   5. Actor Detail Table.
+      | ActorId | e-mail | mail addr | birthdate | gender | quest from ActId           | password |
+      |---------+--------+-----------+-----------+--------+----------------------------+----------|
+      |         |        |           |           |        | (calculate from questcode) |          |
+   6. Actor Mark Table.
+      | ActorId | byActorId | Mark | Pos |
+      |---------+-----------+------+-----|
+   7. Calendar.
+      | ActorId | for specific pos. | schedule | open schedule |
+      |---------+-------------------+----------+---------------|
+   8. Message.
+      | FromId(ActorId) | ToId(ActorId) | Content(500words?) |
+      |-----------------+---------------+--------------------|
+   9. Relationships.
+      | ActorId1 | ActorId2 | following | followed |
+      |----------+----------+-----------+----------+
+   10. Broading words Table.
+       | ActorId | date+time | content(<140-words) | rawcontent?(Pic<2Mb) |
+       |---------+-----------+---------------------+----------------------|
+   11. Actor Mark View.
+       | ActorId | Mark | pos |
+       |---------+------+-----|
+   12. Cooperation View.
+       | ActorId1 | ActorId2 | MovieId |
+       |----------+----------+---------|
+**** Filemaking.
+The producer hires a crew. The nature of the film, and the budget,
+determine the size and type of crew used during filmmaking. Many
+Hollywood blockbusters employ a cast and crew of hundreds, while a
+low-budget, independent film may be made by a skeleton crew of eight
+or nine (or fewer).
+     Pre-production
+     1. director
+     2. illustrators
+     3. concept artists
+     4. Storyboard is a visualizing method that create a blueprint of
+        what the shot sequence should be. The visual images are drawn
+        or made by programs such as Photoshop. There may also be a
+        written caption as needed for each shot.
+     5.
+***** Typical crew positions (preproduction)
+      1. The director
+         primarily responsible for the storytelling, creative
+         decisions and acting of the film.
+      2. unit production manager
+         manages the production budget and production schedule. They
+         also report, on behalf of the production office, to the
+         studio executives or financiers of the film.
+      3. The assistant director (AD)
+         manages the shooting schedule and logistics of the
+         production, among other tasks. There are several types of AD,
+         each with different responsibilities.
+      4. The casting director
+         finds actors to fill the parts in the script. This normally
+         requires that actors audition.
+      5. The location manager
+         finds and manages film locations. Most pictures are shot in
+         the controllable environment of a studio sound stage but
+         occasionally, outdoor sequences call for filming on location.
+      6. The director of photography (DP)
+         the cinematographer who supervises the photography of the
+         entire film.
+      7. The director of audiography (DA)
+         the audiographer who supervises the audiography of the
+         entire film. For productions in the Western world this role
+         is also known as either sound designer or supervising sound
+         editor.
+      8. The production sound mixer
+         the head of the sound department during the production stage
+         of filmmaking. They record and mix the audio on set -
+         dialogue, presence and sound effects in mono and ambience in
+         stereo. They work with the boom operator, Director,
+         DoA, DoP, and First AD.
+      9. The sound designer
+         creates the aural conception of the film, working with the
+         supervising sound editor. On some productions the sound
+         designer plays the role of a director of audiography.
+      10. The composer
+          creates new music for the film. (usually not until post-production)
+      11. The production designer
+          creates the visual conception of the film, working with the
+          art director.
+      12. The art director
+          manages the art department, which makes production sets
+      13. The costume designer
+          creates the clothing for the characters in the film working
+          closely with the actors, as well as other departments.
+      14. The make up and hair designer
+          works closely with the costume designer in addition to
+          create a certain look for a character.
+      15. The storyboard artist
+          creates visual images to help the director and production
+          designer communicate their ideas to the production team.
+      16. The choreographer
+          creates and coordinates the movement and dance - typically
+          for musicals. Some films also credit a fight choreographer.
 
 
 
+***** most common roles in filmmaking (Production)
+      A director performing dual roles as director and camera operator
+      gives instructions during the filming of a scene.
+
+      1. property master,
+      2. script supervisor,
+      3. assistant directors,
+      4. stills photographer,
+      5. picture editor,
+      6. sound editors,
+      7. Cinematography,
+      8. Audiography,
+      the production office will be free to create any unique blend of
+      roles to suit the various responsibilities possible during the
+      production of a film.
+
+***** (Post-production)
+      This is the final stage, where the film is released to cinemas or,
+      occasionally, to consumer media (DVD, VCD, VHS, Blu-ray) or direct
+      download from a provider. The film is duplicated as required for
+      distribution to cinemas. Press kits, posters, and other advertising
+      materials are published and the film is advertised and promoted.
+
+      1. Film distributors
+         usually release a film with a launch party, press releases,
+         interviews with the press, press preview screenings, and film
+         festival screenings. Most films have a website. The film
+         plays at selected cinemas and the DVD typically is released a
+         few months later. The distribution rights for the film and
+         DVD are also usually sold for worldwide distribution.
+         The distributor and the production company share profits.
 
 
+*** Questions List
+    1. 同一个影片拥有多少影片名是常见？一般剧组中人多少？
+    2. 具体职能结构以及之间的关系？
+    3. 影片类型有多少种？
+    4. 演员曾用名几个是正常？设定灵活代价很大，3个是否足够？
+    5. 现在公安部已经姓名规定不可超过6字。演员艺名是否受此约束？
+
+*** TODO Schema layer. (4 hours) <2013-02-18 Mon>
 
 
+** TODO Internal structure. (8 hours) <2013-02-19 Wed +1d>
+*** FUTURE User register ensure process.
+*** FUTURE Administrator input matierial template and structure.
+*** TODO Method processings. (5 hours) <2013-02-21 Thu>
+*** TODO Request Code Generator. (2 hours)  <2013-02-22 Fri>
+** TODO Django Templates. (View part 8 hours) <2013-02-23 Sat>
+** TODO Integrate Test system. (5-hours) <2013-02-24 Sat>
+** TODO circle systems (10-hours)
 

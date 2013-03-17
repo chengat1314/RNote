@@ -1,0 +1,150 @@
+# -*- mode: org -*-
+# Last modified: <2013-03-07 16:09:01 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   Mar 04 - 11 (Week 09)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+
+* MYSQL
+  Reset Forgotten MySQL Root Password
+
+  Have you ever forgotten the root password on one of your MySQL
+  servers? No? Well maybe I’m not as perfect as you. This is a quick
+  h00tow (how to) reset your MySQL root password. It does require root
+  access on your server. If you have forgotten that password wait for
+  another article. Original article posted on reset mysql root
+  password.
+
+  First things first. Log in as root and stop the mysql daemon. Now
+  lets start up the mysql daemon and skip the grant tables which store
+  the passwords.
+
+
+  You should see mysqld start up successfully. If not, well you have
+  bigger issues. Now you should be able to connect to mysql without a
+  password.
+#+begin_src shell
+  mysqld_safe --skip-grant-tables
+  mysql --user=root mysql
+  update user set Password=PASSWORD('new-password') where user='root';
+  flush privileges;
+  exit;
+  mysqladmin -uroot - p shutdown
+#+end_src
+
+
+* Daily Journal
+** <2013-03-05 Tue>
+   Update system met warning:
+   warning: /usr/lib/avahi/service-types.db installed as /usr/lib/avahi/service-types.db.pacnew
+
+*** DONE done clojure koans.
+
+** <2013-03-06 Wed>
+
+*** DONE fix django settings.
+
+*** TODO haiwen's test suite. delay task from <2013-03-05 Tue>.
+
+*** TODO deduplication presentation today..
+
+*** TODO refactoring NLP_SERVER.
+
+*** DONE [3/3] Fix bug in MYSQL.
+    buglist:
+    - [X] IP binding in server203.
+    - [X] Update databases
+    - [X] Remote access.
+
+*** TODO 上海顾问的聚类问题。
+
+** <2013-03-07 Thu>
+
+*** Clojure in action
+    1. Functional programming.
+       treats computation as the application of mathematical functions.
+       Imperative programming.
+    2. Programming in functional languages is different from
+       programming in imperative languages, and it can take a little
+       getting used to. It’s different from procedural languages
+       (such as C), despite the superficial similarity of procedures
+       and functions.
+    3. Core datastructures are lazy, immutable. (Once created they
+       can't change.)
+    4. Explicit state management.
+    5. Clojure solve problem inside its core data structures.
+    6. Clojure is often the best choice, especially for new projects.
+
+* Terms
+  A valid S-expression is one that follows all the rules of Clojure
+  and is called a form. Valid Clojure programs are composed of one or
+  more Clojure forms.
+
+** S-expression
+
+** Forms
+
+** STM
+   Code becomes self-documenting.
+
+** Type Hints
+   it strives to be so without the typical cost associated with doing
+   everything at runtime.
+
+** Streams
+   lazyness.
+   infinite data structures are called streams.
+
+** Multithreading
+   At least two things are related to this issue: getting
+   multithreaded programs to behave correctly and using all available
+   cores to speed up the program.
+
+** In interpreted lang
+   If it's an interpreted language, each form is evaluated and
+   executed in sequence. If it's compiled, machine code is generated,
+   which can then be executed later.
+
+** something about lisp
+   Because it was born during a period of intense interest in
+   artificial intelligence, there was a specific need to represent
+   symbolic expressions as data.
+
+** homoiconicity
+   homo-iconic (same-representation)
+   is where a program's source code is written as a basic data
+   structure that the programming language knows how to access.
+   Code is written in the language's own data structures.
+
+
+* 在他们的领域是可以看到未来的。
+  在我们的时代，竟然有这样的怪物存在。
+  那就是第一和第二有着天壤职别。
+  # 日本对第一的渴求。
+  想上战场的话，就继续AA制把。AA制只会让男人失去斗志。
+  女人的钱包知识拿来做做样子，只供观赏。
+  其实很多再领域中可以预见的问题，到底是真的可以预见，还是假的，无得而
+  知，鸡汤里面的例子，不知道困难才克服掉，毕竟是鸡汤，跟现实还是有差距，
+  别希望你是主人公，你是你自己。电影里你最多是路人丁。
+
+
+* 我所遇到常见的正则
+#+begin_src python
+WEIBO_TOPIC_SPACE_STR = u'#([^#]+?)#'
+WEIBO_USER_LINK_AT_STR = u'@[\u4e00-\u9fa5A-Za-z0-9_-]{2,30}'
+WEIBO_SHORT_URL = u'http://t.cn/[A-Za-z0-9]{4,10}'
+URL_REGEXP = u'(https?:\/\/)?([0-9a-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?'
+L_STRIP_LIST = u'rtfw转载发'
+strip_inside_pattern = re.compile(u'我在(这里)?:?\\s?' + WEIBO_TOPIC_SPACE_STR,
+                                  re.U | re.I)
+CHINESE_REGEXP = ur'[\u4e00-\u9fff]+'
+
+topic_space_pattern = re.compile(WEIBO_TOPIC_SPACE_STR, re.U | re.I)
+user_link_pattern = re.compile(WEIBO_USER_LINK_AT_STR, re.U | re.I)
+short_url_pattern = re.compile(WEIBO_SHORT_URL, re.U | re.I)
+chinese_pattern = re.compile(CHINESE_REGEXP, re.U | re.I)
+empty_pattern = re.compile(u'\\s+', re.U | re.I)
+#+end_src
