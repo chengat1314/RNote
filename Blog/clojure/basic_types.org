@@ -1,0 +1,23 @@
+# -*- mode: org -*-
+# Last modified: <2013-03-18 09:29:34 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   basic types
+#+AUTHOR: Richard Wong
+
+* lists
+#+begin_src clojure
+(list 1 2 3 4 5)
+#+end_src
+** cons
+#+begin_src clojure
+(cons 1 [2 3 4 5])
+(cons 1 '(2 3 4 5))
+#+end_src
+
+** conj is diff in list and vector
+#+begin_src clojure :tangle yes
+(conj (list 1 2 3 4 5) 6)
+(conj (vector 1 2 3 4 5) 6)
+#+end_src

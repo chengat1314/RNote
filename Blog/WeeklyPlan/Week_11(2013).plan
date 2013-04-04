@@ -1,13 +1,29 @@
 # -*- mode: org -*-
-# Last modified: <2013-03-17 11:51:50 Sunday by richard>
+# Last modified: <2013-03-23 08:59:47 Saturday by richard>
 #+STARTUP: showall
 #+TITLE:   Mar 17 - 24 (Week 11)
 
 * Relationship
 ** TODO:
-   
+
 * Professional Skill
   **
-  
+
 * Daily Journal
-** 
+** Clojure in ACTION
+   这种入门书已经把TDD直接集成进来了，看来TDD真的已经是深入人心了。
+
+   语言的两个小change，1, re模块越来越自然的结合进语言，2, tdd越来越初级。
+
+** After emacs 24.3
+   突然发现版本改变可能对于开发人员很熟悉，但是对于使用人员而言却正好
+   相反。
+   emacs24.3进步是非常明显的，彻底的分开了CL库，重命名了众多变量。这些
+   都需要pluginer们操心啊。
+
+   就跟昨天使用Google Mail一样，感觉特别的不好，很难感觉到这种UI到底是
+   如何权衡才开始提交上线的。
+
+
+** We are governed not by armies and police but by ideas.
+   pass

@@ -1,0 +1,82 @@
+# -*- mode: org -*-
+# Last modified: <2013-03-20 22:38:39 Wednesday by richard>
+#+STARTUP: showall
+#+TITLE:   Resume
+#+AUTHOR: Richard Wong
+
+* 为什么选择AVOS
+
+** 尊重
+   恭听@Shenfeng在lisp大会上面的发言，后来在weibo上聊了几句，非常震撼。
+   让我觉着AVOS是一个真正意义上的尊重工程师的企业。
+   在中国生活的人们，少了一股尊重的感觉。
+
+** 专业
+   1. 看了AVOS Team的github，主要是@Shenfeng, 当然还有@SunNing的commit
+      记录，非常的专业，细节决定成功。
+   2. UX上非常用心。(including: meiwei.fm, mei.fm, readwise.net)
+
+** 聪明
+   聪明的人往往容易和聪明的人相处。
+
+** 价值
+   我觉着delicious在做很有意义的产品，至少美味这里是一个非常有意义的产
+   品。面向的人群和所做的产品可以做很多。Data is money.:)
+
+** 价值观
+   我所重视的，你也重视。
+
+* 凭什么加入AVOS
+
+** 扎实的技术
+   1. 用Python写了一些产品，有很多工程的经验，现在在做代码审核方面。
+      （节操感十足）
+   2. C++的功底。（性能优化好帮手）
+   3. 写过python的解释器(for fun)，不过现在写正则什么的，凑凑的。
+   4. 有机器学习，自然语言处理的功底。
+      比如：美味书签在处理的时候，或许可以Mining好多好玩的东西。
+      （至少现在tagging就需要手离开鼠标去键盘，就不是一个好的体验）
+
+** 90%的完美主义
+   十分追求完美，但是也接受1分妥协。
+   List some pitfalls:
+   1. 美味书签
+      主界面看源码IE9以下竟然是googlecode里面的东西。我大GFW可会时不时
+      墙googlecode的东西的，到时候，这个link可就完蛋拉。
+
+   2. 美味电台
+      http://fm.mei.fm/
+      这个好久每更新，为什么？
+      
+   3. AVOS 中国团队博客
+      http://team.mei.fm/
+      网页源码缩进都没有保障了。
+      虽然是博客，但也是态度
+
+   4. 美味书签+1
+      点击书签之后，右侧栏如果分享过多，则会有滚动条，两个滚动条，可不
+      是一个好的体验。
+
+** Growth Hacker
+   如果该书有英文版，拒绝看中文版。（已经坚持3年）
+   敢问谁没成长，无非成长快慢。
+
+** 独立，分享
+   善于解决各种疑难杂症。
+   有众多不成型的idea还需酝酿。不能读书太少而想得太多。
+   相信分享会一起进步，但一般需要在差不多的level，没有深意的让我讲小学数学是一定不干的。
+
+** 复杂的爱
+   1. Clojure. (Just start coding)
+   2. Python. (Fast coding)
+   3. Alg/Logic design. (Always Stable and better)
+   4. Emacs. (Master Level)
+
+** Talking is cheap. Let's Code.
+
+* 请联系我（王润潮）
+  - 电话 :: 15611395987
+  - 邮箱 :: chao787@gmail.com
+  - github :: https://github.com/chao787
+
+

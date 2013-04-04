@@ -1,0 +1,115 @@
+# -*- mode: org -*-
+# Last modified: <2013-03-27 20:04:30 Wednesday by richard>
+#+TITLE: A Short Introduction to Natural Language Processing.
+#+AUTHOR: Richard Wong
+
+* First Things First.
+  - DON'T believe what I am going to talk.
+    Things always made of prejudice.
+  - Get a NLP connection to your current work is on your own.
+    
+* What Covered?
+   - Problem Type using NLP.
+   - Common skills.
+   - Common difficulties.
+   - State-of-the-art effort.
+
+** How do you think of NLP?
+   
+** Position
+   It's a Field of
+  - Computer Science
+  - Computing Linguistics
+  - Subfield Of AI
+  - In fact, a specific tools of ML.
+  
+** Related fields
+   - Statistical ML
+   - CS
+   - Statistics
+     
+** Common Product
+   - Machine Translation.
+   - Information Extraction.
+     Map a document to structure.
+     searches as:
+     - Find me a car at least $5000 in CA.
+   - Text summarization.
+     - Google News. (add some automatic aggregation algorithm.)
+     - [[http://news.yahoo.com/][Yahoo news]].
+   - Dialogue Systems.
+     - Siri
+     - Voice Assistant.
+   - Recommendation Systems.
+   - Basic product but usefully
+     - NLP Parser.
+       
+** To China
+   In China, A successful product as:
+   - [[http://item.taobao.com/item.htm?id%3D15618562094][taobao]]
+   - [[http://www.baidu.com][baidu]]
+
+*** techniques inside.
+    - insteadof simply mapping, brute force ideas, we using models.
+    - Big company's patent? Just by you and me.
+       
+** What is NLP?
+   Design Program to using natural language as input and/or output.
+   NLU for understanding
+   NLG for generation
+   
+** Common product procedure using NLP.
+   1. Feature-able. ---> Segmentation.(featureable.)
+   2. Vectorization.
+   3. Send it to model.
+   4. Generating model.*
+   5. Make model do things.
+      
+** Why NLP is hard.
+   Kinds of Ambiguity.
+   - Don't like compiler, It may confuse computer.
+   - Hugely, Contexted-based.
+     
+* Concrete Examples.
+  We want to using tag directly in webpage in delicious. How?
+  Page have content, and we want to using tag directly, 
+    
+** A Gap to an excellent programmer to using NLP?
+   No GAP.
+   Gap is under NLP's related field method.
+   Cause we want to do nlp better.
+   - Basic mathmatics, more specifically, statistics.
+     - Mathmatics :: By yourself, and long time accumulation.
+     - Models :: Make a bold trial, Do presumptions, Connect to reality.
+                 
+** My Exp of models.
+   - Using models because problem cannot be discribed directly.
+   - Using assumptions to simplify problems.
+   - Using simplify solution to obtain more stable and reliable results.
+     
+* Simple Model cases.
+  
+** simple Case in chinese.
+   
+* Encore needed? (More than that, some ruminations in NLP)
+  
+** So, Why mining?
+   process of analyzing data from different perspectives and
+   summarizing it into useful information.
+   - In delicious, So, you can generating tags by NLP.
+   - Sharing pages Automatically.
+     
+** Are we (am I) doing all things wrong?
+   Easy to accept but imitate blindly.
+   First things first, recoginize the problem.
+   Just like, When refactoring, profile to find the bottleneck.
+   Do something bruteforce and wrong.
+   Who knows. But it provoke ideas. right?
+   
+** Ending: Still, There is no one silver bullet.
+   All things are Trade-offs.:)
+   - Bruteforce method & complicated codes.
+   - Well-managed & long time consumed.
+   - Smart idea & think thoroughly, carefully. (Mostly preferred)
+     
+* Always make your program massive, but more smart and useful.

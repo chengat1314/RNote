@@ -1,0 +1,156 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-04 10:23:24 Thursday by richard>
+#+STARTUP: showall
+#+TITLE:   Apr 02 - 9 (Week 13)
+
+* Relationship
+** TODO:买票去保定
+
+* Professional Skill
+
+* Conclusion of Q1.
+  本季度其实基本没有怎么实质性的学习，不过第二季度会有一个长期的进步。
+  参加了两次聚会，比较有意思的是lisp聚会，很有趣。
+  跟帝归吃饭也很有趣。
+
+* Q2 Plan.(to )
+** Programming Skills.
+   Q2 focus on functional programming.
+*** SICP (20 day here. 4 weeks)
+    1. Book:
+       Structure and Interpretation of Computer Programs - 2nd Edition
+       (MIT Electrical Engineering and Computer Science)
+       Video:
+       MIT SICP Lectures one per day.
+
+*** View all Current Clojure Books
+    1. Clojure in action.
+    2. Programming Clojure.
+    3. Clojure programming.
+
+** Mathmatics
+
+*** Machine Learning By Andrew Ng.(PASSMUST, DOWELL preferred)
+    (10 Weeks with Workload: 5-7 hours/week)
+
+*** Introduction to Mathematical Thinking.(TRY AND LERAN Something)
+    Mar 4th 2013 (10 weeks long)
+
+*** Statistics 110: Probability (Harvard)
+**** My own Syllabus.
+     HW1 - HW10 each per week
+     HW11 for last two week.
+     12 weeks = 84 days
+**** Details
+     - <2013-04-04 Thu> :: Lecture 1, sample spaces, naive definition of probability, counting, sampling
+     - <2013-04-05 Fri> :: Lecture 2, Bose-Einstein, story proofs, Vandermonde identity, axioms of probability
+     - <2013-04-06 Sat> :: SP 1 (naive definition of probability, story proofs)
+     - <2013-04-09 Tue> :: Lecture 3, birthday problem, properties of probability, inclusion-exclusion, matching problem
+     - <2013-04-10 Wed> :: Lecture 4, independence, Newton-Pepys, conditional probability, Bayes’ rule
+     - <2013-04-12 Fri> :: Lecture 5, law of total probability, conditional probability examples, conditional independence
+     - <2013-04-13 Sat> :: SP 2 (inclusion-exclusion, independence, thinking conditionally)
+     - <2013-04-14 Sun> :: HW2
+     - <2013-04-15 Mon> :: Lecture 6, Monty Hall problem, Simpson’s paradox
+     - <2013-04-16 Tue> :: Lecture 7, gambler’s ruin, first step analysis, random variables, Bernoulli, Binomial
+     - <2013-04-18 Thu> :: Lecture 8, random variables, CDFs, PMFs, discrete vs. continuous, Hypergeometric
+     - <2013-04-20 Sat> :: SP 3 (conditioning, Simpson’s paradox, gambler’s ruin, Bernoulli, Binomial)
+     - <2013-04-21 Sun> :: HW4
+     - <2013-04-22 Mon> :: Lecture 9, independence, Geometric, expected values, indicator r.v.s, linearity, symmetry, fundamental bridge
+     - <2013-04-24 Wed> :: Lecture 10, linearity, Putnam problem, Negative Binomial, St. Petersburg paradox
+     - <2013-04-25 Thu> :: Lecture 11, sympathetic magic, Poisson distribution, Poisson approximation
+     - <2013-04-27 Sat> :: SP 4 (distributions and expected values for
+          discrete r.v.s, indicator r.v.s, linearity of expectation),
+     - <2013-04-28 Sun> :: HW4
+     - <2013-04-29 Mon> :: Lecture 12, discrete vs. continuous
+          distributions, PDFs, variance, standarddeviation, Uniform,
+          universality
+     - <2013-04-30 Tue> :: Lecture 13, standard Normal, Normal
+          normalizing constant
+     - <2013-05-01 Wed> :: Lecture 14, Normal distribution,
+          standardization, LOTUS
+     - <2013-05-02 Thu> :: Lecture 15, midterm review, extra examples
+     - <2013-05-04 Sat> :: SP 5 (Poisson distribution and Poisson
+          paradigm, seeking sublime symmetry, continuous
+          distributions, LOTUS)
+     - <2013-05-05 Sun> :: HW 5
+     - <2013-05-06 Mon> :: midterm review handout
+     - <2013-05-07 Tue> :: midterm exam,
+     - <2013-05-08 Wed> :: Lecture 16, Exponential distribution,
+          memoryless property [this shorter lecture since the first
+          part of class was devoted to giving back and discussing
+          midterms]
+     - <2013-05-09 Thu> :: Lecture 17, moment generating functions
+          (MGFs), hybrid Bayes’ rule, Laplace’s rule of succession
+     - <2013-05-10 Fri> :: Lecture 18, MGFs to get moments of Expo and
+          Normal, sums of Poissons, joint distributions
+     - <2013-05-11 Sat> :: SP 6 (Exponential distribution and
+          memorylessness, moment generating functions (MGFs))
+     - <2013-05-12 Sun> :: HW 6
+     - <2013-05-13 Mon> :: Lecture 19, joint, conditional, and
+          marginal distributions, 2-D LOTUS, expected distance between
+          Uniforms, chicken-egg.
+     - <2013-05-14 Tue> :: Lecture 20, expected distance between
+          Normals, Multinomial, Cauchy
+     - <2013-05-15 Wed> :: Busy today
+     - <2013-05-16 Thu> :: SP 7 (joint, conditional, and marginal distributions),
+     - <2013-05-17 Fri> :: HW 7
+     - <2013-05-20 Mon> :: Lecture 21, Oct 26, 2011 covariance,
+          correlation, variance of a sum, variance of Hypergeometric
+     - <2013-05-22 Wed> :: Lecture 22, Oct 28, 2011 transformations,
+          LogNormal, convolutions, proving existence
+     - <2013-05-23 Thu> :: SP 8
+     - <2013-05-24 Fri> :: HW 8
+     - <2013-05-25 Sat> :: Lecture 23, Beta distribution, Bayes’
+          billiards, finance preview and examples
+     - <2013-05-27 Mon> :: Lecture 24, Gamma distribution, Poisson processes.
+     - <2013-05-28 Tue> :: Lecture 25, Beta-Gamma (bank-post office),
+          order statistics, conditional expectation, two envelope paradox
+     - <2013-05-30 Thu> :: Lecture 26, two envelope paradox (cont.),
+          conditional expectation (cont.), waiting for HT vs. waiting
+          for HH
+     - <2013-05-31 Fri> :: SP 9 (Beta and Gamma distributions, order statistics, conditional expectation),
+     - <2013-06-01 Sat> :: HW 9
+     - <2013-06-02 Sun> :: Lecture 27, conditional expectation
+          (cont.), taking out what’s known, Adam’s law, Eve’s law,
+          projection picture
+     - <2013-06-03 Mon> :: Lecture 28, Nov 14, 2011 sum of a random
+          number of random variables, inequalities (Cauchy-Schwarz,
+          Jensen, Markov, Chebyshev)
+     - <2013-06-04 Tue> :: SP 10 (conditional expectation and conditional variance, inequalities),
+     - <2013-06-05 Wed> :: HW 10
+     - <2013-06-06 Thu> :: Lecture 29, law of large numbers, central limit theorem
+     - <2013-06-07 Fri> :: Lecture 30, Chi-Square, Student-t, Multivariate Normal
+     - <2013-06-08 Sat> :: Lecture 31, Markov chains, transition matrix, stationary distribution
+     - <2013-06-09 Sun> :: Lecture 32, Markov chains (cont.),
+          irreducibility, recurrence, transience, reversibility,
+          random walk on an undirected network
+     - <2013-06-10 Mon> :: Lecture 33, Markov chains (cont.), Google PageRank as a Markov chain.
+     - <2013-06-11 Tue> :: SP 11 (law of large numbers, central limit
+          theorem, Multivariate Normal, Markov chains),
+     - <2013-06-12 Wed> :: HW 11
+     - <2013-06-13 Thu> :: Lecture 34, a look ahead, final review,
+          other statistics courses, regression example, sampling from
+          a finite population example.
+     - <2013-06-14 Fri> :: final review handout.
+     - <2013-06-15 Sat> :: final exam.
+
+**** a first course in probability as an extension to this course.
+     - Justify this book is hard and valuable and usable.
+       [[http://www.amazon.cn/%25E6%25A6%2582%25E7%258E%2587%25E8%25AE%25BA%25E5%259F%25BA%25E7%25A1%2580%25E6%2595%2599%25E7%25A8%258B-%25E7%25BD%2597%25E6%2596%25AF/dp/B002GKBAXS/ref%3Dsr_1_2?ie%3DUTF8&qid%3D1365038340&sr%3D8-2&keywords%3Da%2Bfirst%2Bcourse%2Bin%2Bprobability][A first course in probability]]
+       这本书叫概率论基础教程，但是它绝不是如其名字一样看上去是一本很
+       简单的书。这书把定义等写得很细，例题超级超级多。课后习题超级超
+       级多。但是如果你把它看下来了，你也会超级超级牛。有些地方不易理
+       解，需要查阅些别的资料，而且本书内容梯度很大，往往前两道例题看
+       上去还很简单，后面的两道就是得研究很长时间，甚至是根本不懂。总
+       之，我认为本书应该和MIT《概率导论》一并使用。
+
+** NLP.
+
+*** NLP
+
+
+** 计划不能没有人生
+   最近少了好多计划，好多时候都是这摸摸那里看看，所以有的时候需要做一
+   点计划，不能胡乱搞。而且计划要小而可完成。
+   所以今天就基本确定一下4月份的计划把。
+   从明天开始要保证早上早点起床，所以首先要保证今天可以早一点睡醒。

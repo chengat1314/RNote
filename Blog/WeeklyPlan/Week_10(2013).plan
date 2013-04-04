@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-03-12 16:11:18 Tuesday by richard>
+# Last modified: <2013-03-25 18:27:22 Monday by richard>
 #+TITLE:   Mar 10 - 17 (Week 10)
 
 * Relationship
@@ -33,17 +33,4 @@
 
 
 
-
-* MySQL
-** User
-*** Add User privileges.
-   CREATE USER 'nlpmachine'@'%' IDENTIFIED BY '***************';
-   GRANT ALL PRIVILEGES ON nlp_lab.* TO 'nlpmachine'@'%' WITH GRANT OPTION;
-   GRANT ALL PRIVILEGES ON nlp_lab_online.* TO 'nlpmachine'@'%' WITH GRANT OPTION;
-   show grants for 'nlpmachine'@'%';
-   flush privileges;
-
-*** Change user password.
-    UPDATE mysql.user SET Password=PASSWORD('new-password-here') WHERE User='user-name-here' AND Host='host-name-here';
-
-    所谓规范，无非就是看起来绕了远路其实是绕过坑的过程。
+  所谓规范，无非就是看起来绕了远路其实是绕过坑的过程。

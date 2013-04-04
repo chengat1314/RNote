@@ -1,0 +1,19 @@
+# -*- mode: org -*-
+# Last modified: <2013-03-25 18:27:48 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   mysql
+#+AUTHOR: Richard Wong
+
+
+* MySQL
+** User
+*** Add User privileges.
+   CREATE USER 'nlpmachine'@'%' IDENTIFIED BY '***************';
+   GRANT ALL PRIVILEGES ON nlp_lab.* TO 'nlpmachine'@'%' WITH GRANT OPTION;
+   show grants for 'nlpmachine'@'%';
+   flush privileges;
+
+*** Change user password.
+    UPDATE mysql.user SET Password=PASSWORD('new-password-here') WHERE User='user-name-here' AND Host='host-name-here';
