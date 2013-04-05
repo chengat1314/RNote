@@ -1,0 +1,16 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-05 09:13:47 Friday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   sampling_box_model
+#+AUTHOR: Richard Wong
+
+* choose k object out of n.
+  |                 | Order Matters  | Order don't matter |
+  |-----------------+----------------+--------------------|
+  | replace         | N^k            | (n+k-1 choose k)   |
+  | Without Replace | n(n-1)/(n-k+1) | (n choose k)       |
+
+* Don't lose common sense.
+  Calculator

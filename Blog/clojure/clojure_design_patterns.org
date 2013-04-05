@@ -1,0 +1,273 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-05 13:37:06 Friday by richard>
+#+STARTUP: showall
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Notes for Clojure design patterns
+#+AUTHOR: Richard Wong
+
+* Design Patterns in Dynamic Programming.[fn:1] [fn:2]
+
+* Granularity of Design patterns
+
+** Architectural pattern
+   - Expresses a fundamental structural organization schema for
+     software systems.
+   - provides a set of predefined subsystems
+   - specifies their responsiblities and includes rules and guidelines
+     for organizing the relationships between them
+
+** Design pattern
+   - Provides a scheme for refining the subsystem or components of a
+     software system, or the relationships between them.
+   - Describes a commonly-recurring structure of communicating
+     components that solves a general design problem within a
+     particular context.
+
+** Idiom
+   - low-level pattern specific to a programming language.
+   - describes how to implement particular aspects of components or
+     the replationships between them using the feature of a given
+     language.
+
+* Clojure Patterns [fn:3]
+** State Patterns
+*** State/Event Pattern
+**** Motivation
+     1. State is derived from previous state + input.
+     2. Many diverse inputs.
+     3. Need to recover past states.
+     4. Need to visualize the intermediate states.
+**** template
+     #+begin_src clojure
+(defn update-state [current-state event]
+  ;;return new state
+)
+;; Recreate any past state by reducing other events.
+(defn end-state [start-state events]
+  (reduce update-state start-state events))
+     #+end_src
+
+*** Consequences Pattern
+**** Motivation
+     1. Each event can trigger multiple events
+     2. Generated events cause state changes
+     3. Need to visualize intermediate states.
+**** template
+     #+begin_src clojure
+(defn consequences [current-state event]
+  ;;return a sequence of new events.
+)
+(defn apply-consequences [current-state event]
+  (reduce update-state current-state
+          (consequences current-state event)))
+;; Allow consequences to have consequences
+(defn recursive-consequences [current-state event]
+  (reduce (fn [state event]
+            (recursive-consequences
+               state (update-state state event)))
+          current-state
+          (consequences current-state event)))
+;; Consequence functions do not compose natually
+;; update state in between
+(defn chain-sequences [initial-state consequence-fns]
+  (loop [state  initial-state
+         fs     consequence-fns
+         output []]
+    (if (seq fs)
+      (let [events    ((first fs) state)
+            new-state (reduce update-state state events)]
+         (recur new-state (rest fs) (into output events)))
+     output)))
+     #+end_src
+** Data Building patterns.
+*** Accumulator Pattern
+**** Motivation
+     - large collection of inputs
+       Maybe larger than memory
+     - Small or scalar result.
+
+**** Template
+     - lazy sequences
+       map, mapcat, filter, etc.
+     #+begin_src clojure
+(reduce (fn [result input]
+;; return updated result
+)
+initial-result
+inputs
+)
+     #+end_src
+*** Reduce/Combine Pattern
+    - Input is tree-like
+    - Divide-and-conquer approach
+    - Conbining intermediate results is associative
+#+begin_src clojure
+(defn reduce-fn
+  ([];;return initial "identity" value
+    )
+  ([result input])) ;; return updated result
+(defn combine-fn
+  ([];;return initial "identity" value
+    )
+  ([result-1 result-2])) ;; return merged or combined result
+
+#+end_src
+
+*** Recursive Expansion Pattern
+**** Motivation
+    - Build up result out of primitives
+    - Build abstractions in layers
+    - Recurse until no more work left to do
+**** Template
+    #+begin_src clojure
+(defn recursive-expansion [expander input]
+  (let [output (expander input)]
+    (if (= output input)
+      input
+      (recur expander output))))
+    #+end_src
+
+** Flow Control Patterns
+*** Pipeline pattern
+**** Motivation
+    - Process with many discrete steps.
+    - Similar "shape" of data at each step
+      Usually a map or record
+    - Only one execution path
+
+**** Template
+     #+begin_src clojure
+(defn large-process [input]
+  (-> input
+      subprocess-a
+      subprocess-b
+      subprocess-c))
+(defn subprocess-a [data]
+  (let [{:key [alpha beta]} data]
+    (-> data
+        (assoc :epsilon (compute-epsilon alpha))
+        (update-in [:gamma] merge (compute-gamma beta)))))
+     #+end_src
+
+*** Wrapper Pattern
+**** Motivation
+     - Provess with many discrete steps
+     - One main execution path
+     - Possible branch at each step
+
+**** Templates
+     #+begin_src clojure
+(defn wrapper [f]
+  (fn [input]
+    ;; .. before ..
+    (f input)
+    ;; .. after ..
+))
+(def final-function
+  (-> original-function wrapper-a wrapper-b wrapper-c))
+     #+end_src
+**** comparison with Pipeline pattern
+     More strong and flexible.
+
+*** Token pattern
+**** Motivation
+     - May need to cancel an operation
+     - Operation itself is not an identity.
+**** Templates
+     #+begin_src clojure
+(defn begin [target & args]
+   ;; ... begin operation or create state in target...
+   ;; Return a function:
+   (fn []
+     ;; ... cease operation or destroy state ...
+     ))
+     #+end_src
+     variation: caller supplies token value
+     #+begin_src clojure
+(defn add-watch [reference key function]
+   ;; attach a watcher to reference
+   )
+(defn remove-watch [reference key]
+   ;; remove the watcher
+   )
+     #+end_src
+
+*** Observer pattern
+    Register an observer function with a stateful container.
+    #+begin_src clojure
+;; classic Observer:
+(observer container)
+
+(observer new-state)
+(observer old-state new-state)
+
+;; watches, plus token:
+(observer container old-state new-state)
+(observer old-state new-state delta)
+
+;; useful for GUIs
+(observer old-state new-state event)
+    #+end_src
+
+
+*** Stategy Pattern
+**** Motivation
+     - Many processes with a similar strcture
+     - Need extension points for future variatoins.
+**** Templates
+     #+begin_src clojure
+(defprotocol Strategy
+  (step-one [this operation])
+  (step-two [this operation])
+  (step-three [this operation]))
+
+(defn process [strategy]
+  (->> (initialize-operation)
+       (step-one strategy)
+       (step-two strategy)
+       (step-three strategy)))
+
+(defmulti extensible-step (fn [strategy input] strategy))
+
+(defn process [input strategy]
+  ;; ... common behavior ...
+  (extensible-step strategy input)
+  ;; ... common behavior ...
+  )
+(defmethod extensible-step :strategy-one [_ input] ...)
+(defmethod extensible-step :strategy-two [_ input] ...)
+(defmethod extensible-step :strategy-three [_ input] ...)
+     #+end_src
+
+**** Templates 2
+     Prevent optimize by JVM.
+     #+begin_src clojure
+(def default-strategy
+  {:step-one (fn [operation] ...)
+   :step-two (fn [operation] ...)
+   :step-three (fn [operation] ...)})
+
+(def alternate-strategy
+  (assoc default-strategy
+    :step-two (fn [operation] ...)))
+
+(defn process [strategy]
+  (-> (initialize-operation)
+      ((:step-one strategy))
+      ((:step-two strategy))
+      ((:step-three strategy))))
+     #+end_src
+* some opinions about such patterns.
+  1. Patterns still patterns, it shouldn't be dogma.
+  2. Seeing tradeoffs, Using Patterns.
+
+* next step:
+  I'll try my best to find intents of these patterns.
+
+* Footnotes
+
+[fn:1] [[http://norvig.com/design-patterns/][Design Patterns in Dynamic languages]]
+
+[fn:2] [[file:Design_patterns_in_Dynamic_programming.org][More Design patterns in Dynamic language]]
+
+[fn:3] [[http://www.infoq.com/presentations/Clojure-Design-Patterns][CLojure Design Patterns]]

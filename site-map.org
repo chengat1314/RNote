@@ -1,11 +1,12 @@
 # -*- mode: org -*-
-# Last modified: <2013-04-04 21:08:38 Thursday by richard>
+# Last modified: <2013-04-05 14:27:53 Friday by richard>
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
-#+TITLE:   site-map
-#-DESCRIPTION: A stand-alone blogging system for Org-mode.
+#+TITLE:   Dancing Richard
+#-DESCRIPTION: Happy Hacking everyday~
 #+AUTHOR: Richard Wong
 #+DATE: 2013-02-08 19:33:26
 #+STARTUP: logdone
+#+LANGUAGE: zh
 #+POSTS_FILEPATH: "/tmp/website"
 
 #-TEMPLATE_DIR: templates
@@ -20,9 +21,7 @@
 #+POST_BUILD_SHELL: cmd 2
 #+POST_BUILD_SHELL: cmd 3
 #+POST_BUILD_SHELL: cmd 4
-
-
-* Quick start Guide
+* Dancing with Richard :: Love to stay, love to stray
   :PROPERTIES:
   :PAGE:     index.html
   :TEMPLATE: blog_static_no_title.html
@@ -31,35 +30,31 @@
 #+begin_o_blog_row 8
 
 #+begin_o_blog_hero_unit
-#+HTML: <h1>o-blog</h1>
-
-A stand-alone blog and publication tool for [[http://orgmode.org/][Org-mode]].
+#+HTML: <h1>Dancing with Richard</h1>
+It's Just a Finger's Coding Dance.
 #+end_o_blog_hero_unit
 
-#+HTML: <h1 style="font-size: 500%;">Quick start guide</h1>
+#+HTML: <h1 style="font-size: 500%;">Find Richard</h1>
 
 #+o_blog_row_column 4
 
 
 #+HTML: <div class="hero-unit" style="font-size: 200%;">
 
-[[file:{lisp}(ob:path-to-root){/lisp}/features.html][/icon-cog icon-white/ Features]]
+[[file:{lisp}(ob:path-to-root){/lisp}/WeeklyPlans.html][/icon-cog icon-white/ Weekly Plans]]
 
-[[https://github.com/renard/o-blog][/icon-github-sign icon-white/ Github]]
-
-[[file:{lisp}(ob:path-to-root){/lisp}/testimonials.html][/icon-comments-alt icon-white/ Testimonials]]
+[[https://github.com/chao787/chao787.github.com][/icon-github-sign icon-white/ Github]]
 
 [[file:{lisp}(ob:path-to-root){/lisp}/changelog.html][/icon-pencil icon-white/ Changelog]]
-
-[[file:{lisp}(ob:path-to-root){/lisp}/bug-report.html][/icon-fire icon-white/ Bug report]]
-
 
 #+HTML: </div>
 
 #+end_o_blog_row
 
+** Strong your heart and body.
+   DON'T trying to believe what I wrote here.
+   Things always made of prejudice.
 
-** Setup
 
 First you need to install [[http://www.gnu.org/s/emacs][Emacs]] (tested with version 24, might work with 23)
 and [[http://orgmode.org/][Org-mode]] (tested with version 7.8.09, other /might/ work as well). Then
@@ -113,23 +108,22 @@ See the [[file:Tips/index.html][tips]] for more details.
   :PROPERTIES:
   :SNIPPET:  t
   :END:
-
-Copyright © 2008-2012 [[mailto:seb%2520%E2%9D%A8%C9%91%C6%A6%C9%B5%CF%90%C9%91%CA%82%C9%9B%E2%9D%A9%2520chezwam%2520%E2%9D%A8%C6%A4%C9%B5%C9%A9%C9%B2%CA%88%E2%9D%A9%2520org][Sébastien Gross]]. Published under the therm of the
-[[http://creativecommons.org/licenses/by-nc-sa/2.0/fr/][Creative Commons Attribution-Noncommercial-Share Alike 2.0 France License]].
+   Copyright © 2011-2013 [[chao787.com][Richard Wong]]. Published under the therm of the
+   [[http://creativecommons.org/licenses/by-nc-sa/2.0/][Creative Commons Attribution-Noncommercial-Share Alike 2.0 License]].
 
 ** About
   :PROPERTIES:
   :SNIPPET:  t
   :END:
 
-This is a sample blog to explain how [[https://github.com/renard/o-blog][o-blog]] works.
+   This is Richard's blog to hold and share ideas.
 
 ** Navigation
   :PROPERTIES:
   :SNIPPET:  t
   :END:
 
-- [[file:{lisp}(ob:path-to-root){/lisp}/features.html][/icon-cog icon-white/ Features]]
+- [[file:{lisp}(ob:path-to-root){/lisp}/WeeklyPlans.html][/icon-cog icon-white/ Weekly Plans]]
 
 - [[file:#][/icon-book icon-white/ Documentation]]
   - [[file:{lisp}(ob:path-to-root){/lisp}/templates.html][Templates]]
@@ -137,8 +131,6 @@ This is a sample blog to explain how [[https://github.com/renard/o-blog][o-blog]
   - [[file:{lisp}(ob:path-to-root){/lisp}/functions.html][Functions]]
   -
   - [[file:{lisp}(ob:path-to-root){/lisp}/faq.html][FAQ]]
-  -
-  - [[file:{lisp}(ob:path-to-root){/lisp}/bug-report.html][Bug report]]
 
 - [[file:#][/icon-file icon-white/ Tips]]
   - [[file:{lisp}(format "%s/%s" (ob:path-to-root) (ob:post-htmlfile (ob:get-last-post "Tips" 0))){/lisp}][{lisp}(ob:post-title (ob:get-last-post "Tips" 0)){/lisp}]]
@@ -150,8 +142,6 @@ This is a sample blog to explain how [[https://github.com/renard/o-blog][o-blog]
 - [[file:{lisp}(ob:path-to-root){/lisp}/tags.html][/icon-tags icon-white/ Tags]]
 
 - [[file:{lisp}(ob:path-to-root){/lisp}/archives.html][/icon-list icon-white/ Archives]]
-
-- [[file:{lisp}(ob:path-to-root){/lisp}/testimonials.html][/icon-comments-alt icon-white/ Testimonials]]
 
 - [[file:{lisp}(ob:path-to-root){/lisp}/index.xml][/icon-rss icon-white/ RSS]]
 
@@ -174,8 +164,6 @@ This is a sample blog to explain how [[https://github.com/renard/o-blog][o-blog]
 
   - [[file:{lisp}(ob:path-to-root){/lisp}/archives.html][/icon-list icon-white/ Archives]]
 
-  - [[file:{lisp}(ob:path-to-root){/lisp}/testimonials.html][/icon-comments-alt icon-white/ Testimonials]]
-
   - [[file:{lisp}(ob:path-to-root){/lisp}/roadmap.html][/icon-tasks icon-white/ Roadmap]]
 
   - [[file:{lisp}(ob:path-to-root){/lisp}/index.xml][/icon-rss icon-white/ RSS]]
@@ -192,62 +180,8 @@ This is a sample blog to explain how [[https://github.com/renard/o-blog][o-blog]
   :PAGE:     changelog.html
   :END:
 
-- 2012-06-21
-  - Add a post-sorter option.
-
-- 2012-06-05
-  - Update to
-    - Font-Awesome 2.0.0-6-g35fca03
-    - bootstrap 2.0.4
-
-- 2012-05-21
-  - Use responsive bootstrap features.
-
-- 2012-05-07
-  - Update to:
-    - less.js v1.0-547-ga2df119
-  - Bootstrap widgets:
-    - label
-    - badge
-    - progress bar
-    - well
-    - page header
-    - hero unit
-
-- 2012-05-04
-  - Update to:
-    - bootstrap v2.0.3-5-gb261f97.
-
-- 2012-04-17
-  - Update to:
-    - less 1.3.0.
-    - Font-Awesome v1.0.0-7-g563a6f3.
-    - bootstrap v2.0.2-3-g6506ede.
-
-- 2012-04-10
-  - Add i18n support.
-
-- 2012-04-06
-  - Add org-mode CUSTOM\_ID.
-
-- 2012-03-28
-  - Add support for [[http://en.wikipedia.org/wiki/QR_code][QR-code]].
-
-- 2012-03-20
-  - Add [[http://disqus.com][Disqus]] support.
-  - User can select the file name sanitizer function.
-  - Add [[file:{lisp}(ob:path-to-root){/lisp}/bug-report.html][bug report howto]].
-
-- 2012-03-06
-  - Add support for Font-Awesome
-
-- 2012-02-28
-  - Switched to bootstrap 2.0.1
-  - Switched to lesscss 1.2.2
-
-- 2012-01-23
-  - Change tag system from "Tags" to org tagging system.
-
+- <2013-04-04 Thu>
+  试了好几次，终于把这个东西弄好了。
 
 * Documentation
 ** Debug
@@ -258,40 +192,11 @@ This is a sample blog to explain how [[https://github.com/renard/o-blog][o-blog]
    :END:
 
 
-** Features
+** WeeklyPlans
   :PROPERTIES:
-  :PAGE:     features.html
+  :PAGE:     WeeklyPlans.html
   :END:
 
-o-blog transforms the simple and powerful markup of Org-mode documents
-to a full-featured, easily deployed web site, ready to serve online to
-a wide range of devices.
-
-- Appearance - modern, dynamic, and customizable:
-  - Dynamic template system (using elisp functions) with [[file:{lisp}(ob:path-to-root){/lisp}/debug.html][nice debugging
-    features]] and easy embedded [[file:{lisp}(ob:path-to-root){/lisp}/bug-report.html][bug report tool]]
-  - Syntax highlighting for exported code snippets
-  - [[http://twitter.github.com/bootstrap/][Bootstrap 2]] support
-  - [[http://fortaweso.me/font-awesome/][Font-Awesome]] support
-  - [[http://lesscss.org/][LESS CSS]] support
-  - [[http://jquery.com/][jQuery]] support
-  - HTML5 / CSS3 ready
-  - Custom [[http://www.google.com/webfonts][Google web fonts]] support
-  - [[http://twitter.github.com/bootstrap/scaffolding.html#responsive][Responsive design]] for many devices
-- Blog - all the key features are here:
-  - Static pages
-  - [[file:{lisp}(ob:path-to-root){/lisp}/tags/index.html][Tag cloud]]
-  - Multiple blogs
-  - [[file:{lisp}(ob:path-to-root){/lisp}/archives.html][Archives]]
-  - [[http://disqus.com][Disqus]] support
-  - [[http://en.wikipedia.org/wiki/QR_code][QR code]] support
-- Publication - fast and convenient:
-  - Both synchronous and asynchronous publication
-  - Publish directly to the webserver (using tramp)
-- [[http://twitter.github.com/bootstrap/][Bootstrap]] flair and widgets:
-  - Alert boxes
-  - Icons ([[http://glyphicons.com/][glyphicons]]) support
-  - Widgets such as labels, badges, progress bar, well, etc.
 
 ** Templates
   :PROPERTIES:
@@ -648,158 +553,31 @@ Add a human-readable timestamp for a post:
   </time>.
 #+end_src
 
-** Bug report
-  :PROPERTIES:
-  :PAGE:     bug-report.html
-  :END:
-
-To report a bug please be sure your issue is =o-blog= related.
-
-You can bootstrap a simple clean environment:
-
-#+begin_src sh
-rm -rf ~/dev/.emacs.d
-mkdir -p ~/dev/.emacs.d
-cd ~/dev/.emacs.d
-git clone git://github.com/renard/o-blog.git
-git clone git://orgmode.org/org-mode.git
-#+end_src
-
-
-Then launch =emacs=:
-
-#+begin_src sh
-  cd ~/dev
-  rm -rf .emacs.d/o-blog/example/out
-  emacs --debug-init -Q  -l .emacs.d/o-blog/sample-init.el --eval \
-      '(progn (setq browse-url-generic-program "x-www-browser"
-        browse-url-browser-function (quote browse-url-generic))
-        (ob-build-sample))'
-#+end_src
-
-You can change =x-www-browser= to your favorite browser.
-
-If everything runs fine emacs will exit normally. Otherwise a buffer
-called =o-blog Bug-report= is created and its content is copied to
-primary X selection (if available). This buffer contains useful
-information for debugging your issue. A browser window will open to
-the [[https://github.com/renard/o-blog/issues/new][o-blog new issue page]]. Then you can either paste content of the
-=o-blog Bug-report= buffer, or use the X primary selection (middle
-click).
-
-Please describe as much as possible your issue (in English). Do not hesitate
-to paste your blog file to https://gist.github.com/ as this might be useful in
-debugging.
-
-
-
-** Testimonials
-  :PROPERTIES:
-  :PAGE:     testimonials.html
-  :TEMPLATE: blog_static_no_title.html
-  :END:
-
-#+begin_o_blog_row 6
-
-
-#+HTML: <h1>Testimonials</h1>
-
-#+begin_quote
-/“o-blog, great static site generator from emacs Org-mode.”/
-
--- Pierre-Yves Ritschard [[https://twitter.com/pyr/status/160466727195521024][@pyr]] ([[http://openbds.org][OpenBSD]] relayd original author)
-
--- Sergey Konoplev [[http://twitter.com/gray_hemp][@gray\_hemp]] ([[http://PostgreSQL-Consulting.com][PostgreSQL Consultant]])
-
--- Olivier Berger [[http://twitter.com/olberger][@olberger]] ([[http://www.april.org][APRIL administrator]])
-
--- Dimitri Fontaine [[http://twitter.com/tapoueh][@tapoueh]] ([[http://tapoueh.org/projects.html][el-get and other]] author)
-
--- Julien Danjou [[http://twitter.com/juldanjou][@juldanjou]] ([[http://awesome.naquadah.org/][Awesome window manager]] and [[http://julien.danjou.info/software/][other]] author)
-
--- Daniel Farina [[http://twitter.com/danfarina][@danfarina]] (member of the [[http://www.heroku.com/][Heroku]] Department of Data)
-#+end_quote
-
-#+begin_quote
-/“o-blog, a cool static blog generator from org-mode markup with some nice
-Bootstrap integration.”/
-
--- [[http://from-the-cloud.com/en/Random/2012/06/17_sites-back.html][Fabián Ezequiel Gallina]]
-#+end_quote
-
-#+begin_quote
-/“Thank you so much for the truly excellent elisp app. I am learning many
-things from it.”/
-
--- [[https://github.com/priyadarshan][priyadarshan]]
-#+end_quote
-
-#+begin_quote
-/“o-blog looks awesome!”/
-
--- [[https://github.com/djcb][Dirk-Jan C. Binnema]] (Author of [[http://www.djcbsoftware.nl/code/mu4e][mu4e]] and [[http://emacs-fu.blogspot.com][emacs-fu]])
-#+end_quote
-
-#+begin_quote
-/“o-blog is amazing. After using Wordpress seemingly since the dawn of time, then Jekyll for a couple of years, this is like a spring breeze after a long, cold winter.”/
-
--- [[https://github.com/fravashi][Farasha Euker]]
-#+end_quote
-
-
-
-#+o_blog_row_column 6
-
-#+begin_o_blog_hero_unit
-
-#+HTML: <h1>They use it</h1>
-
-- [[http://renard.github.com/o-blog][O-blog Project]]
-- [[http://docs.chezwam.org][Mes doc à moi]]
-- [[http://from-the-cloud.com/][From the cloud]]
-- [[http://exaos.github.com/o-blog/][exaos]]
-- [[http://mikio.github.com/index.html][Mikio Kun]]
-- [[http://mimes.is/][Journal of the creative imagination]]
-- [[http://www.djcbsoftware.nl][DJCB Software]]
-- [[http://dimilar.com/de/index.html][Erlang Vision]]
-- [[http://pharos-alexandria.github.com][Pharos (Annette von Stockhausen)]]
-
-#+end_o_blog_hero_unit
-
-
-#+begin_o_blog_hero_unit
-If you do use o-blog, please [[https://github.com/renard/o-blog/issues/new][drop me a line]].
-#+end_o_blog_hero_unit
-
-
-#+end_o_blog_row
-
-
 ** Roadmap
   :PROPERTIES:
   :PAGE:     roadmap.html
   :END:
 
-Here are some ideas for future versions
+To start this webpage. I Do a lot of things.
+*** Original stage.
+    At the very first beginning, I want to write this project by hand
+    with htmls, but really boring, so I want to find a way to export
+    by org mode, due to I using org daily times.
+*** Python stage.
+    I wrote a org interpreter, to translate. but find out that
+    org-mode update step is really too fast to catch.
 
-- Use other source engines such as
-  - [[http://www.methods.co.nz/asciidoc/][AsciiDoc]]
-  - [[http://mwolson.org/projects/EmacsMuse.html][Emacs Muse]]
-  - etc...
+*** Clojure stage.
+    a year later, I find out that clojure is really cool, and I want
+    to using clojure to do something, but can't find a really good
+    start point.
 
-- Find a other name for the project such as
-  - Web Hypertext Otimized Rendering Easy System
-  - Building the Interweb from Texts Classic Hypermedia
-  - Build All Internet Standard E-documents
-  - Publication Unifiée de Tous E-documents
-  - el-site
-  - el-sitemanage
-  - el-sitepublish
-  - el-sitepress
+*** Back to emacs.
+    So I went back to emacs today, and hacking o-blog project to
+    generate this project.
 
-If you have any ideas please [[https://github.com/renard/o-blog/issues/new][drop me a line]].
-
-
+*** More than that
+    If you have any ideas please [[https://github.com/chao787/chao787.github.com/issues/new][drop me a line]].
 
 ** FAQ
   :PROPERTIES:
@@ -870,11 +648,14 @@ So here is the magic! Once your site is generated, you can run the following com
 htmlcompressor --compress-js --compress-css --recursive --mask '*.js;*.html;*.xml;*.css;*.less' -o /path/to/out/ /path/to/out
 #+END_SRC
 
-
-* Tips
+* Plans
 ** DONE testINCLUDE                                            :usage:o@blog:
   CLOSED: <2012-05-05 Sat 00:13>
   #+INCLUDE: "./Blog/Aboutme.org"
+
+** DONE first week plan of 2013                                :usage:o@blog:
+  CLOSED: <2013-03-06 Wed 21:12>
+  #+INCLUDE: "./Blog/WeeklyPlan/Week_00(2013).plan"
 
 ** DONE Creating a blog					       :usage:o@blog:
   CLOSED: [2012-01-07 Sat 00:13]
@@ -1659,3 +1440,12 @@ as:
 - =/media/post1/file2=
 - =/media/post2/file=
 - etc.
+
+
+* Dancing with Richard :: Love to stay, love to stray
+  :PROPERTIES:
+  :PAGE:     404.html
+  :SITEMAP:  f
+  :END:
+** body
+   {"Message": "It's really bad here, please contact me."}

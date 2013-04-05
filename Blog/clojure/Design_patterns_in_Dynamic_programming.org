@@ -1,0 +1,104 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-05 13:38:47 Friday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Design_patterns_in_Dynamic_programming
+#+AUTHOR: Richard Wong
+
+* Interesting FAQ first.
+** What are design patterns?[fn:1]
+   - Descriptions of what experienced designers know.
+   - Hints/reminders for choosing classes and methods.
+   - Higher-order abstractions for program organization.
+   - To discuss, weigh and record design tradeoffs.
+   - To avoid limitations of implementation language.
+   Templates thta describe design alternatives.
+** Design patterns in Dynamic Languages.
+   How to do classic patterns in dynamic languages escape from
+   language limitations.
+** New Dynamic language patterns.
+   New patterns Suggested by dynamic languages.
+** Design Strategies.(Proverb)
+   Guide to certain patterns and certain implementations.
+   Thinking about all of software development.
+** What's in a Pattern?[fn:2]
+   - Pattern Name
+   - Intent/Purpose
+   - Aliases
+   - Motivation/Context
+   - Applicability/Problem
+   - Solution
+   - Structure
+   - Participants
+   - Collaboration
+   - Consequences/Constraints
+   - Implementation
+   - Sample Code
+   - Known Uses
+   - Related Patterns/Compare.
+
+* Design Patterns in Dynamic Languages.
+  - fewer language limitations.
+    Less need for bookkeeping objects and classes.
+    Less need to get around class-restricted design.
+  - 16 of 23 patterns have qualitatively simpler implementation in
+    Lisp or Dylan in C++ for at least some uses of each pattern.
+  - Dynamic languages encourage new designs.
+
+** 16 0f 23
+   1. First-class types:
+      Abstract-Factory, Flyweight, Factory-Method, State, Proxy,
+      Chain-of-Responsibility
+   2. First-class functions:
+      Command, Strategy, Template-Method, Visitor
+   3. Macros:
+      Interpreter, Iterator
+   4. Method Combination:
+      Mediator, Observer
+   5. Multimethods:
+      Builder
+   6. Modules:
+      Facade
+
+*** First-class Dynamic Types
+    - first-class
+      can be used and operated on where any other value or object can
+      be used.
+    - Type or Classes are objects at run-time.
+    - A variable can have a type as a value.
+    - A type or class can be created/modified at run-time.
+    - There are functoins to manipulate types/classes.
+    - No need to build extra dynamic objects just to hold types,
+      because the type objects themselves will do.
+
+*** First-Class Dynamic Functions.
+    - Functions are objects too
+    - Functoins are composed of methods
+    - There are operations on functoins(compose, conjoin)
+    - Code is organized around functions as well as classes.
+    - Function closures capture local state variables.
+      Closures are behaviors with attached state data and without the
+      overhead of classes.
+
+*** Macros
+    - Macros provide syntactic abstraction
+    - Just as important as data or functoin abstraction
+    - Languages for macros
+      + String substitution(Cpp)
+      + Expression substitution(Dylan, extend-syntax)
+      + Expression computation(Lisp)
+        provides the full power of the language while you are writing
+        the code.
+
+*** Observer Pattern
+    The Observer pattern calls a function somewhere when an object
+    changes. Of course, this gets simpler when functions are
+    first-class. Without first-class functions, observers need to inherit
+    a common base class. With first-class functions, you can maintain a
+    list of observers as a list of functions, and one object can observe
+    many others easily.
+
+* Footnotes
+[fn:1] [[http://www.amazon.com/dp/0201633612/][Design Patterns]]
+[fn:2] [[http://www.amazon.com/gp/product/0201310112][Pattern languages of program design]]
