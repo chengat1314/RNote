@@ -1,0 +1,177 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-13 20:04:15 Saturday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Bad_Mood， live for yourself
+#+AUTHOR: Richard Wong
+
+A letter to june.
+
+Just a few hours we can't see each other accumulating a great miss.
+I want to help you, but I don't know where to start by oral. So,
+Let's talk about current status.
+
+* First things first.
+  Everyone likes to talk Adages.
+  It seems useful and sounds beautiful. Always make you look smarter.
+  But you are still you. memorize a dict of proverb can make you talk
+  a lot, but couldn't let u do right things. And you, still you.
+
+* First thing in this letter.
+  Let down everything, be yourself, and start thinking.
+  曾子曰：吾日三省吾身为人谋而不忠乎与朋友交而不信乎传不习乎
+  如是而已。
+  下面开始用心去看，我写了一天，别有心意
+
+* From Age
+  At 24 you are still young so dont be so anxious to find what you
+  think you're looking for or someone you can be. It will come to you
+  in an unexpected form and time. The more you force it the less
+  chance you'll find it.
+  Key thing is just start doing things you have a passion for.
+  If it gets hard but you still have a passion then persevere.
+  ->If you hate it then move on.<-
+  Issac Newton once said, 'Truth is an offspring of silence and
+  unbroken meditation'.  Remove all the junk in your mind and let the
+  force come to you :)
+  You have a great time to do such tasks.
+  Before CEE (College Entrance Examination), lots of guys think it is
+  the separation point of life quality and future.
+  And, of course, I agree with it in the very first year, but totally
+  disagree with it after my second CEE. And also, I can show it to
+  you by myself.
+  EVEN those guys graduating from so-called `211', `985' schools, do
+  they really get the important things? Obviously, they got kinds of
+  good knowledge, make Niubility friends, seems a smooth way to upper
+  level in this society than 3-rd or 2-nd college. it's OK. It is the
+  truth.
+  But,
+
+* What is the most important thing?
+  Keep your eye-balls here and don't do anything. don't get the call
+  and see the doc.
+** Be yourself.
+   Be yourself, that's it. but do you really know who is yourself?
+   Life is too busy, too quick to miss yourself.
+   What's your favorite things?
+   What's your favorite songs? but What type of songs you really like?
+   What's your favorite place wait for you going?
+   Make clear such things money-cost, or make sure do you have to
+   trade-off to be a stupid teacher.
+   So, find yourself.
+   Don't talk dream. find yourself first.
+
+   To Be continued
+   Reply to receive  2nd part.
+
+
+* Fast abstract from bad status
+  放下所有要做的事情，想想如果自己什么都不做了，最差的结果是什么？失业？
+  住在马路边？饿死？去乞讨？都不可能。
+  我觉着压力过大是因为太想做好一件事情，或者太在意别人的眼光，而又没有
+  足够的自信和把握能够做好。或者是觉得自己再努力，付出再多，也得不到应
+  有的回报。
+  所以，我为什么一定要牺牲自己的快乐，去点亮别人眼中的光环？人这一辈子
+  很短，为什么要活在别人的条条框框里？压力过大，那我放低对自己的要求，
+  适当和别人“示弱”。
+
+  当初我准备高考时，压力也非常大，因为自己在班上的排名算不错的，老师和
+  家长都给予了一定的期望，反而给自己造成了很大的压力，心里总是想，如果
+  没有发挥好，岂不是辜负了大家。后来我调节的办法是，对自己说，最差的结
+  果就是没有高考成绩，那我到时候大不了就全力以赴的走出国的道路。
+  有时候一扇门彻底关上了，反而能激励你义无反顾的去走其他的道路。
+
+  先想想自己最坏的结果，既然什么都不想干，那就放下这一切，享受一些美好
+  的事物，亲近一下大自然，去山里呼吸一下新鲜空气，一口气爬到山顶。有时
+  候，心感到很累的时候，不妨让身体更累，这样脑子反而能得到一定的休息。
+  气喘吁吁的爬到山顶的那一刻，你会觉得人生还有多少美妙的事情等着我去体
+  会，活着是一件多么美妙的事情。想想自己想要的是什么，是别人期望中的我，
+  还是我所希望的我，然后，带着一个愉快的心情下山，继续为自己的人生努力！
+
+* trade-off is essential.
+  大多数时间，本质上其实就是权衡，你究竟需要什么样的生活，这时候你做什
+  么样的工作？
+  一个从事非法职业的人，可能一年赚几百万，几千万，上亿的话可能需要有更
+  多的才智和时间娶积累。但是那又如何，换来的压力又是什么？
+  一个做事情不讲道理的人，可能会因为几次吵架带来很多内心的快感，但是那
+  有如何，换来的结果又是什么？
+  所有的事情，你找到权衡和平衡的那个点，我觉着就是最完美的。
+
+* 从源头试试
+  如果你认为你可以做好。那么习惯这种节奏，不要把完成不了工作视为一种压
+  力，而是常态，有些工作性质决定了工作任务就是没完没了；
+  找你的老板谈谈，说工作太多了，能否分点给其他同事，否则他最敬业的手下
+  就要被压力压垮了；
+  提高工作效率，制定每日工作目标，安目标推进，干完每天的活就下班，每天
+  工作20小时那是透支生命不宜长久。
+
+* 尊重自己的时间
+  其实尊重自己的时间就是尊重自己爱的人的时间。尊重尊重你的人的时间。别
+  说希望所有人在需要你的时候联系到你，联系到你，你也无力去帮助别人什么。
+  所以不工作的时候，接到工作电话，大部分机会，你都应该挂掉，反正我会挂
+  掉，我老板不敢说什么也。要不就请辞退我。这就是生活和态度！
+  别人找你帮忙一定要懂得拒绝，看看小强升职记吧。挺有意思。
+  这个世界有那么多不幸，那么你又能做什么？所以联系一个需要帮助的小朋友，
+  咱们一人赞助一个小朋友生活吧。
+
+* To Read and explore.
+  Talk to people from different profession. Ask them what they do. Never
+  ask them about the company. Normally people complain more and praise
+  less.
+
+* From time
+  时间管理的书你需要好好读一读，职场上面的书，你也要读一读。这是不可避
+  免的，其实你能做好，你要有这种信心，两把手都要抓，而且都要抓好。
+  我是喜欢编程是没错，但是需要给别人review代码，代码如果质量高，或者有
+  人跟我一起review，那么大家可以相互学习，但是偏偏level差距特别大，你
+  感觉跟小学生讲数学，就特别讨厌了。但是boss需要你几日内上线或者怎样，
+  偏偏是别人的代码跟屎一样。而且他跟你的待遇基本差不多，什么节操都没有。
+  那你怎么办呢？是不是应该多做点什么呢？
+
+
+* to beneficial cycle.
+
+  现在我想了想，良性循环其实本质上是更为高层次的时间管理。
+  因为幸福，从而有更肥沃的土壤，然后更幸福。
+  因为事情安排合理，做了好多的事情，从而有时间做更多的事情。
+  这就是为什么一定要安排你早睡觉，早完成任务的原因，你最后一天积累的到
+  晚上两点才去做这个东西，是不是给自己找的借口呢？本来很早就能完成的。
+  这样你周四周五有时间就可以学习新东西，比如如何翻墙用google，这样下周
+  你备课就更快了。难道不是么？
+  人之所以疲惫，因为做了超过自己能力的事情，我觉着你现在特别好，认识到
+  自己的不足。人在做看起来麻烦的事情都会这样子，其实本质上对你也是一种
+  成长。这也是为什么我不愿意你辞职的原因，钱？钱我也有，虽然不多，但是
+  你能看的到我很能赚钱。但是不要因为钱决定你的生活。想想看，如果给你10
+  亿，需要让你一年不睡觉，你干不干？
+  我肯定不干，因为我会死，而且以后我一定可以赚到10亿，只要我想。
+  每个人每时每刻都会有自己的进步，真的，至少心智也会随着时间变得成熟。
+  但是偏偏有的人觉着有那么一群人你永远追赶不上，为什么？大部分并不是因
+  为个人缺陷或者天才的天分导致的。
+  而是你不知道为什么他们奔跑这么快，我也不知道，但是我分享给你，我为什
+  么奔跑这么快，那就是良性循环，而且我周围的人比我强的非常少，我也有这
+  个自信，跟我一样的境遇成长起来的人比我强的更是一个没有！我敢在weibo
+  里面贴出这个。我现在数学比大部分人好，编程真的好，性格真的好，不太成
+  熟，但是遇事情特别理智，而且比你懂事。家人面前会当兽兽，遇到压力知道
+  排解。不是在表面上这样，是真的这样，我是一个简单的人，因为我知道看起
+  来复杂的人，往往都特别弱智。
+
+  智商对于一个人而言就好比高度对于打篮球而言。长得高对于打篮球确实有优
+  势，但一样有很多劣势，当然也有很多人特别不适合打篮球。但明显你不在弱
+  智团队里面。
+
+  最后，你不可能在每一方面都比所有人强，因为你没法读完所有专业的phd。
+  但是你可以在很多方面比大多数人强(90%)。在生活中的你，需要用自己的长
+  处打别人的短处，同时慢慢的锻炼自己的短处。
+
+  好好学习，天天向上，并不是一句Adage，而是自我内心充实的生活态度。
+
+* You tell me I'm wrong
+  Then you better prove you're right
+  You're sellin out souls but
+  I care about mine
+  I've got to get stronger
+  And I won't give up the fight
+
+- Yours,
+  Richard
