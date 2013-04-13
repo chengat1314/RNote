@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-04-13 11:38:10 Saturday by richard>
+# Last modified: <2013-04-13 12:22:28 Saturday by richard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -8,10 +8,13 @@
 
 *
 #+begin_src sh
-python -m cProfile -o /tmp/profile.pstats arc_nlp/weibo_cate/test_weibo_spam.py
+python -m cProfile -o /tmp/profile.pstats [filepath.py]
+nosetests --profile-stats-file="/tmp/profile.pstats" [filepath.py]
 gprof2dot.py -f pstats /tmp/profile.pstats | dot -Tsvg -o /tmp/callgraph.svg
 #+end_src
+
 gprof2dot.py from
+
 url = https://code.google.com/p/jrfonseca.gprof2dot/
 
 
