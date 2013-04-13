@@ -1,0 +1,12 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-11 10:59:22 Thursday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Renting house in beijing
+#+AUTHOR: Richard Wong
+
+* Renting house in beijing.
+  租房子真是特别的麻烦。但是不慎找到中介就更麻烦，押金最后全部被扣，还
+  要陪笑。请问中介有好评么？需要一个idea来解决这个问题，而不是像58和
+  ganji这样，本来是个人平台的，被各类中介所充斥。

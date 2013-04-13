@@ -1,0 +1,18 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-11 14:20:29 Thursday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   meettings
+#+AUTHOR: Richard Wong
+
+What presentations need?
+* FAB
+** Features.
+
+** Advantage.
+
+** Benefits.
+   * EMC++...
+
+** Kaggle platform.

@@ -1,0 +1,27 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-11 09:03:08 Thursday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Overview of Machine Learning
+#+AUTHOR: Richard Wong
+
+* Supervised learning.
+
+** Classification
+   Predict discrete valued output/attribute.
+
+** Regression
+   Predict continuous valued output/attribute.(Price, etc)
+
+*** linear regression(one variable)
+    (univarian regression)
+    Hypothesis: one variable linear function.
+    Choose theta0, and theta1 so that H(x) is close to y for training examples(x,y).
+    - TODO: contuour figures.
+* Unsupervised learning.
+
+** clustering
+
+* Reinforsement learning.
+

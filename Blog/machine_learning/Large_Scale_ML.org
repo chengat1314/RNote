@@ -1,0 +1,89 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-12 14:57:15 Friday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Large Scale Machine Learning
+#+AUTHOR: Richard Wong
+
+* Ninja
+  It's not who has the best algorithms that wins, It's who has the
+  most data.
+
+* Two type of Processing method.
+  - After Sanity Check
+    Low bias Algorithm?
+** Stochastic gradient
+   Gradient descent.
+** MapReduce[Very Big Datasets]
+
+* Online Learning <-> Batch Mode.
+  Online learning is a paradigm in which a learning algorithm is
+  presented with one example at a time.
+  -> Incremental learning
+
+** Essential.
+   Optimize decision using current status.
+   To predict current feature.
+   A little same about LRU algorithms.
+
+** Common algorithms
+   - Logistic Regression
+   - Least Squares Regression
+   - Multiple Instance Learning.
+   - Online SVM.
+   - incremental decision trees.
+   - AdaBoosting algorithms.(ONLY be classification problem.)
+   - Semi-Supervised Learning
+
+** When to use.[fn:2]
+   - Continuous streaming INCOMING data.
+   - Adapt to changing user preference.
+   - New type of users.
+   - Changing trends/behaviors.
+   - The entire training data set cannot be fit into the memory of
+     machine.
+     1. Amount of data is enormous
+     2. machine has tight memory constraints.
+
+** What is boosting
+   an approach to machine learning based on the idea of creating a
+   highly accurate prediction rule by combining many relatively weak
+   and inaccurate rules.[fn:3]
+
+   The term "boosting" refers to the process of taking a "weak"
+   learning algorithm (classification or regression) and boosting its
+   performance by training many classifiers and combining them in some
+   way.[fn:1]
+
+*** Suitable Cases
+    This is particularly useful in cases where it is difficult to
+    design a high accuracy classifier, but easy to come up with simple
+    decision rules that perform slightly better than random guessing.
+
+** Features
+*** Repeat forever.
+    Update theta using (x, y):
+    - theta(j) := theta(j) - alpha (h_theta(x) - y) * x [j = 0, ... n]
+      same time:-> to save data and FIX retrain afterwards.
+*** Slowly adapt parameters.
+    Learn P(y=1|x,theta) to predict CTR.
+    feature of the phone.
+
+** Common Senario
+   - Special offers to show user.
+   - Customized selection of news articles.
+   - Product Recommendation
+
+* references
+
+* Footnotes
+
+[fn:1] R. Schapire. The strength of weak learnability. Machine Learning,
+  5(2):197–227, 1990.
+
+[fn:2] A Family of Online Boosting Algorithms
+
+[fn:3] Boosting Foundations and Algorithms.
+
+[fn:4] [[http://stackoverflow.com/questions/3446622/a-few-implementation-details-for-a-support-vector-machine-svm][Implementation Question ON libSVM]]

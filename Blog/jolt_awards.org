@@ -1,0 +1,276 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-11 13:15:10 Thursday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   jolt_awards
+#+AUTHOR: Richard Wong
+
+Jolt Awards
+* 1991
+
+Annotated C++ Reference Manual. by Margaret Ellis, Bjarne Stroustrup
+
+The Art of Human-Computer Interface Design. by Brenda Laurel
+
+Programming Windows, 2nd Edition by Charles Petzold
+
+Turbo C++ DiskTutor. by Greg Voss, Paul Chui
+
+* 1992
+
+Object-Oriented Design with Applications by Grady Booch
+
+Advanced C++: Programming Styles and Idioms. by James Coplien
+
+Object-Oriented Modeling and Design. by James rumbaugh, Michael Blaha, William Premerlani, Frederick Eddy, William Lorensen
+
+Object Lifecycles: Modeling the World in States. by Sally Shlaer, Steve Mellor
+
+* 1993
+
+Undocumented Windows. by Andrew Schulman, David Maxey, Matt Pietrek
+
+Decline and Fall of the American Programmer. by Ed Yourdon
+
+Object-Oriented Software Engineering: A Use-Case Driven Approach. by Ivar Jacobson, Magnus Christerson, Patrik Jonsson, Gunnar Overgaard
+
+Literate Programming. by Donald Knuth
+
+Effective C++ by Scott Meyers
+
+* 1994
+
+Code Complete by Steve McConnell
+
+Object-Oriented Design and Analysis with Applications, 2nd Edition by Grady Booch
+
+Applied Cryptography by Bruce Schneier
+
+Programming on Purpose, Vols. I and II. by P.J. Plauger
+
+Writing Solid Code by Steve Maguire
+
+1995
+
+Essential Client/Server Survival Guide. by Robert Orfali, Dan Harkey, Jeri Edwards
+
+Debugging the Development Process. by Steve Maguire
+
+Design Patterns by Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides
+
+The Design and Evolution of C++ by Bjarne Stroustrup
+
+1996
+
+Thinking in C++ v1 v2 by Bruce Eckel
+
+About Face: The Essentials of User Interface Design by Alan Cooper
+
+A Discipline for Software Engineering. by Watts Humphrey
+
+1997
+
+Rapid Development by Steve McConnell
+
+Creating a Software Engineering Culture. by Karl Weigers
+
+Pattern-Oriented Software Architecture by Frank Buschmann, Regine Meunier, Hans Rohnert, Peter Sommerlad, Michael Stal
+
+The Essential Distributed Objects Survival Guide. by Robert Orfali, Dan Harkey, and Jeri Edwards
+
+1998
+
+Object-oriented Software Construction by Bertrand Meyer
+
+The Deadline: A Novel about Project Management. by Tom DeMarco
+
+UML Distilled: Applying the Standard Object Modeling Language by Martin Fowler, Scott Kendall
+
+Building Object Applications That Work, by Scott Ambler
+
+1999
+
+Component Software—Beyond Object-Oriented Programming. by Clemens Szyperski
+
+Anti-Patterns: Refactoring Software, Architectures, and Projects in Crisis. by William J. Brown, Raphael C. Malveau, Hays W. McCormick, Thomas Mowbray
+
+Software Architecture in Practice by Len Bass, Paul Clements, Rick Kazman
+
+Thinking in Java by Bruce Eckel
+
+2000
+
+Software for Use: A Practical Guide to the Models and Methods of Usage Centered Design. by Larry Constantine, Lucy Lockwood
+
+Extreme Programming Explained: Embrace Change by Kent Beck
+
+Software Requirements. by Karl E. Wiegers
+
+After the Gold Rush: Creating a True Profession of Software Engineering. by Steve M. McConnell
+
+2001
+
+Adaptive Software Development. by James A. Highsmith III
+
+Don't Make Me Think! A Common Sense Approach to Web Usability by Steve Krug
+
+Writing Effective Use Cases by Alistair Cockburn
+
+Secrets and Lies: Digital Security in a Networked World. by Bruce Schneier
+
+2002
+
+Effective Java by Joshua Bloch
+
+Agile Software Development by Alistair Cockburn
+
+Software Craftsmanship by Pete McBreen
+
+Under Pressure and On Time. by Ed Sullivan
+
+2003
+
+Agile Software Development: Principles, Patterns and Practices by Robert C. Martin
+
+Documenting Software Architectures by Paul Clements, Felix Bachmann
+
+Test Driven Development: By Example by Kent Beck
+
+Patterns of Enterprise Application Architecture by Martin Fowler
+
+Thinking in Java, 3rd Edition by Bruce Eckel
+
+Understanding Web Services: XML, WSDL, SOAP, and UDDI. by Eric Newcomer
+
+Core Java 2, Volume 1: Fundamentals by Cay Horstmann, Gary Cornell
+
+PHP and MySQL Web Development, 2nd Edition by Luke Welling, Laura Thomson
+
+2004
+
+Waltzing with Bears. by Tom DeMarco, Timothy Lister
+
+The Art of Unix Programming by Eric S. Raymond
+
+Lean Software Development: An Agile Toolkit by Mary Poppendieck, Tom Poppendieck
+
+The Pragmatic Starter Kit. by Dave Thomas, Andy Hunt
+
+Test-Driven Development: A Practical Guide. by David Astels
+
+About Face 2.0: The Essentials of Interaction Design by Alan Cooper, Robert Reimann
+
+Agile Database Techniques: Effective Strategies for the Agile Software Developer. by Scott W. Ambler
+
+Code Reading: The Open Source Perspective by Diomidis Spinellis
+
+2005
+
+Head First Design Patterns by Elisabeth Freeman, Eric Freeman, Bert Bates, Kathy
+
+Joel on Software by Joel Spolsky
+
+Refactoring to Patterns by Joshua Kerievsky
+
+Software Factories: Assembling Applications with Patterns, Models, Frameworks, and Tools. by Jack Greenfield, Keith Short, Steve Cook, Stuart Kent, John Crupi
+
+Better, Faster, Lighter Java. by Bruce A. Tate, Justin Gehtland
+
+C++ Coding Standards: 101 Rules, Guidelines, and Best Practices by Herb Sutter, Andrei Alexandrescu
+
+Hibernate: A Developer's Notebook. by James Elliott
+
+Java Developer's Guide to Eclipse, 2nd Edition. by Jim D'Anjou, Scott Fairbrother, Dan Kehn, John Kellerman, Pat McCarthy
+
+2006
+
+Prefactoring by Ken Pugh
+
+The Art of Project Management by Scott Berkun
+
+Innovation Happens Elsewhere: Open Source as Business Strategy by Ron Goldman, Richard P. Gabriel
+
+Producing Open Source Software: How to Run a Successful Free Software Project. by Karl Fogel
+
+Agile Web Development with Rails by Dave Thomas, David Hansson, Leon Breedt, Mike Clark
+
+Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries by Krzysztof Cwalina, Brad Abrams
+
+Practical Common Lisp by Peter Seibel
+
+Why Programs Fail: A Guide to Systematic Debugging by Andreas Zeller
+
+2007
+
+Agile Software Development: The Cooperative Game by Alistair Cockburn
+
+Catastrophe Disentanglement. by E. M. Bennatan
+
+Practices of an Agile Developer by Venkat Subramaniam, Andy Hunt
+
+Software Estimation: Demystifying the Black Art by Steve McConnell
+
+Head First Object-Oriented Analysis and Design by B. McLaughlin, G. Pollice, D. West
+
+Code Quality by Diomidis Spinellis
+
+Refactoring Databases by Scott W. Ambler, P.J. Sadalage
+
+CSS: The Missing Manual by David Sawyer McFarland
+
+2008
+
+Beautiful Code by Andy Oram, Greg Wilson
+
+Manage It!: Your Guide to Modern Pragmatic Project Management by Johanna Rothman
+
+The Myths of Innovation by Scott Berkun
+
+Release It!: Design and Deploy Production-Ready Software by Michael T. Nygard
+
+Continuous Integration: Improving Software Quality and Reducing Risk by Paul Duvall, Steve Matyas, Andrew Glover
+
+Head First SQL Your Brain on SQL: A Learner's Guide by Lynn Beighley
+
+The Rails Way by Obie Fernandez
+
+xUnit Test Patterns: Refactoring Test Code by Gerard Meszaros
+
+2009
+
+Adrenaline Junkies and Template Zombies: Understanding Patterns of Project Behavior. by Tom Demarco, Peter Hruschka, Tim Lister, Suzanne Robertson, James Robertson, Steve McMenamin
+
+Emergent Design: The Evolutionary Nature of Professional Software Development by Scott L. Bain
+
+Intellectual Property and Open Source: A Practical Guide to Protecting Code. by Van Lindberg
+
+Real World Haskell by Bryan O'Sullivan, John Goerzen, Don Stewart
+
+High Performance MySQL: Optimization, Backups, Replication, and More by Baron Schwartz, Peter Zaitsev, Vadim Tkachenko, Jeremy Zawodny, Arjen Lentz, Derek J. Balling
+
+Programming in Scala by Martin Odersky, Lex Spoon, Bill Venners
+
+2010
+
+Masterminds of Programming: Conversations with the Creators of Major Programming Languages by Federico Biancuzzi, Shane Warden
+
+SDLC 3.0: Beyond a Tacit Understanding of Agile. by Mark Kennaley
+
+Hello World! Computer Programming for Kids and Other Beginners by Carter Sande
+
+2011
+
+Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation by Jez Humble, David Farley
+
+Seven Languages in Seven Weeks by Bruce Tate
+
+Mining the Social Web by Matthew A. Russell
+
+2012
+
+Specification by Example: How Successful Teams Deliver the Right Software by Gojko Adzic
+
+HTML5 Developer's Cookbook by Chuck Hudson, Tom Leadbetter
+
+iOS Programming: The Big Nerd Ranch Guide, Third Edition by Joe Conway, Aaron Hillegass

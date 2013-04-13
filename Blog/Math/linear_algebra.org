@@ -1,0 +1,25 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-11 06:49:20 Thursday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   linear algebra
+#+AUTHOR: Richard Wong
+* Matrix 
+  Rectangular array of numbers.
+** Demension of matrix
+   number of rows x number of columns.
+   ex:
+   - 4 *(by) 2 matrix
+   - R^(4*2)
+
+** Matrix Elements (Entries of matrix)
+   A_ij = "i, j entry" in the i^th row, j^th column.
+
+* Vector 
+  An n * 1 matrix
+  ex:
+  - R^4
+  - y_i = i^th element
+    
+** 1-indexed in math and 0-indexed in machine learning.

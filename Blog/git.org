@@ -1,0 +1,19 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-09 15:04:18 Tuesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   git
+#+AUTHOR: Richard Wong
+
+* Delete branch.
+** As of Git v1.7.0, you can delete a remote branch using
+   #+begin_src bash
+git push origin --delete <branchName>
+git push origin :<branchName>
+   #+end_src
+** To remove a local branch 
+   #+begin_src bash
+git branch -d the_local_branch   
+   #+end_src
+

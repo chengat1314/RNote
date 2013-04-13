@@ -1,0 +1,25 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-13 06:55:15 Saturday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   http_through_ssh_proxy
+#+AUTHOR: Richard Wong
+
+* polipo
+  settings for polipo
+#+begin_src sh
+cat /etc/polipo/config                                                     richard@Titolata
+#+end_src
+
+#+begin_src conf
+# Proxy 8080 as a http server
+proxyAddress = "::0"
+proxyPort = 8080
+socksParentProxy = "localhost:11112"
+socksProxyType = socks5
+
+#+end_src
+
+* youtube-dl through polipo
+  http_proxy='127.0.0.1:8080' youtube-dl [+ link here]

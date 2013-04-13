@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-04-05 14:27:53 Friday by richard>
+# Last modified: <2013-04-06 16:53:57 Saturday by richard>
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
 #+TITLE:   Dancing Richard
 #-DESCRIPTION: Happy Hacking everyday~
@@ -31,7 +31,7 @@
 
 #+begin_o_blog_hero_unit
 #+HTML: <h1>Dancing with Richard</h1>
-It's Just a Finger's Coding Dance.
+It's Just Fingers' Coding Dance.
 #+end_o_blog_hero_unit
 
 #+HTML: <h1 style="font-size: 500%;">Find Richard</h1>
@@ -1447,5 +1447,4 @@ as:
   :PAGE:     404.html
   :SITEMAP:  f
   :END:
-** body
-   {"Message": "It's really bad here, please contact me."}
+  {"Message": "It's really bad here, please contact me."}
