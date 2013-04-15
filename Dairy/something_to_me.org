@@ -1,0 +1,25 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-14 22:55:07 Sunday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   something_to_me
+#+AUTHOR: Richard Wong
+
+* 对自己的一点小要求
+** 吾日三省吾身
+   最近写日记写的少了，人特别的浮躁，好容易沉淀下来的心态，马上便浮躁
+   起来。
+   
+** 要做什么，今天晚上就要处理好。
+   今日事，今日毕是不够的，因为你是为自己而活，为明天而活。所以无所谓
+   今日事，只有所谓人生事，重要事。
+   
+   ×× 好不容易坚持起来的起床计划，今天早上就破坏掉了。心里特别不是滋味。
+   
+   
+** 明天要做的事情
+   早上6点钟起床，学习概率论。
+   学习nlp一个week的内容。
+   学习ML 一个week的内容，在公司做完SP 1，HW 1。
+   ×× 早上学习完概率论才能吃饭哟。

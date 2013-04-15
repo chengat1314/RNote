@@ -1,0 +1,13 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-15 15:16:51 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Noise
+#+AUTHOR: Richard Wong
+
+When we get something not in the criterion. Our Perfect Assumptions,
+will breakup. 
+It always due to the reason that, Some wrong occur here? not a really
+great assumption? Better feature choosing? Who knows?
+

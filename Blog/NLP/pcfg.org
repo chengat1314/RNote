@@ -1,0 +1,34 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-15 07:12:47 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   pcfg
+#+AUTHOR: Richard Wong
+
+* Parsing with Lexicalized CFGs.
+- The new form of grammar looks just like a Chomsky normal
+  form CFG, but with potentially O(|Σ|2 × |N |3 ) possible rules.
+- Naively, parsing an n word sentence using the dynamic programming
+  algorithm will take O(n3 |Σ|2 |N |3 ) time. But |Σ| can be huge!!
+  
+- Crucial observation: at most O(n2 × |N |3 ) rules can be applicable
+  to a given sentence w1 , w2 , . . . wn of length n. This is because
+  any rules which contain a lexical item that is not one of w1 . . . wn , can be safely discarded.
+- The result: we can parse in O(n5 |N |3 ) time
+
+* Precision and Recall 
+  G = Number of constituents in gold standard
+  P = Number in parse output
+  C = Number correct
+** Recall = C/G
+** Precision = C/P
+* Weekness of PCFGs:
+  - lack of sensitivity to lexical information.
+  - Lexicalized PCFGs.
+    + Lexicalize a treebank using head rules.
+    + Estimate the parameters of a lexicalized PCFG using smoothed
+      estimation.
+  - Accuracy of lexicalized PCFGs: around 88% in recovering
+    constituents or dependencies.
+

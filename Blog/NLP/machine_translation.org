@@ -1,0 +1,30 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-15 07:46:22 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Machine Translation
+#+AUTHOR: Richard Wong
+
+* Challenges of MT
+** Lexical Ambiguity.
+   [Dorr et. al 1999]
+
+* Classical MT.
+  - Rule-based Method.
+  Compile bilingual languages.  
+  Little analysis of the source text.
+
+** Direct MT.
+   Translation is word-by-word.
+
+** Transfer-Based Approaches
+   - Analysis
+     eg: build a syntactic analysis of the source language.
+   - Transfer
+     Convert the source-language to dest-language.
+   - Generation
+
+
+* Statistical MT.
+  Early 1990s IBM
