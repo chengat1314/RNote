@@ -1,0 +1,35 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-16 08:30:22 Tuesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Ibm Model
+#+AUTHOR: Richard Wong
+
+* The noisy Channel Model
+  A noisy Channel Model has two components:
+  - p(e) the language model
+  - p(f|e) the translation model
+
+** Giving
+   p(e|f) = p(e,f)/p(f) = p(e)p(f|e)/sum_of_e(p(e)p(f|e))
+   and
+   argmax_of_e(p(e|f)) = argmax_of_e(p(e)p(f|e)) 
+
+* IBM model
+** Key ideas.
+   - Alighment variables.
+   - Translation parameters.
+   - Distortion parameters.
+** EM algrithm.
+   To training the q and the t parameters.
+
+** IBM model 1
+** IBM model 2
+   Introduce alighment or distortion parameter to IBM 1.
+
+** IBM model 3
+** IBM model 4
+** IBM model 5
+
+

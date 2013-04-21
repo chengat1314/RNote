@@ -1,0 +1,60 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-20 11:22:59 Saturday by richard>
+#+STARTUP: showall
+#+TITLE:   Apr 17 - 22 (Week 15)
+
+* Relationship
+** TODO:
+   
+* Professional Skill
+  **
+  
+* Daily Journal
+** <2013-04-17 Wed>
+*** DONE 今天最主要的任务就是系统性学习MT模型.
+    昨天大概学了IBM基本的机型.
+    今天主要学习phrase-based MT.
+*** TODO SICP
+*** TODO Statistics
+*** TODO 云计算
+    
+    
+** <2013-04-18 Thu>
+   
+*** TODO 修改服务器配置到标准的supervisor里面.
+    同时管理hehe的服务器
+#+begin_src conf
+[program:jieba_segment]
+group_name = jieba_segment_group
+process_name = jieba_segment-%(process_num)s
+command = python2 jieba_seg_server --port=%(process_num)s
+dircetory = /home/wangrc/NLP-Server
+user = root
+autostart = true
+autorestart = true
+startretries = 3
+startsecs = 5
+numprocs = 4
+numprocs_start = 10091
+killasgroup = true
+exitcodes = 0, 2
+priority = 500
+stdout_logfile = /var/log/jieba_segment.log
+redirect_stderr = true
+#+end_src
+    
+    
+** <2013-04-20 Sat>
+*** DONE 第一遍学习logistic regression的思路和方法.
+    主要听取ng 的老coursera的课程. 1.2h左右
+*** TODO 学习coursera的统计学.
+*** TODO 准备好机器重启的状态
+    - [ ] 整理supervisor
+    - [ ] 整理nginx
+    - [ ] 用supervisor管理203的nlp_lab
+    
+** <2013-04-21 Sun>
+*** TODO 学习Harvard 统计学
+*** TODO Advanced NLP tagging problem..
+*** TODO 海文碰面,导出数据.
+    

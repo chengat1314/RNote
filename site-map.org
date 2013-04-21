@@ -1,14 +1,15 @@
 # -*- mode: org -*-
-# Last modified: <2013-04-15 22:31:43 Monday by richard>
+# Last modified: <2013-04-21 12:34:18 Sunday by richard>
 #+TITLE:   Dancing Richard
 #-DESCRIPTION: Happy Hacking everyday~
 #+AUTHOR: Richard Wong
 #+DATE: 2013-02-08 19:33:26
 #+STARTUP: logdone
 #+LANGUAGE: zh
-#+PUBLISH_DIR: /home/richard/javascript-dev/chao787.github.com/
-#-TEMPLATE_DIR: templates
-#+URL: https://chao787.github.com/
+# #+PUBLISH_DIR: /home/richard/javascript-dev/chao787.github.com/
+#+TEMPLATE_DIR: /home/richard/javascript-dev/o-blog-template
+#+PUBLISH_DIR: /tmp/blog/
+#+URL: https://chao787.com/
 
 #+DEFAULT_CATEGORY: Blog
 #+DISQUS: chao787
@@ -20,46 +21,25 @@
 #+POST_BUILD_SHELL: cmd 3
 #+POST_BUILD_SHELL: cmd 4
 
-* Dancing with Richard :: Love to stay, love to stray
+* Dancing Richard :: Love to stay, love to stray
   :PROPERTIES:
   :PAGE:     index.html
   :TEMPLATE: blog_static_no_title.html
   :END:
 
-#+begin_o_blog_row 8
+** Dancing with Richard
 
-#+begin_o_blog_hero_unit
-#+HTML: <h1>Dancing with Richard</h1>
-It's Just Fingers' Coding Dance.
-#+end_o_blog_hero_unit
+#+HTML: <div style="font-size: 200%;">It's Just Fingers' Coding Dance.</div>
+
 
 #+HTML: <h1 style="font-size: 500%;">Find Richard</h1>
 
-#+o_blog_row_column 4
+*** Strongthen your heart and body.
+    DON'T trying to believe what I wrote here.
+    Things are always made of *prejudice*.
 
-
-#+HTML: <div class="hero-unit" style="font-size: 200%;">
-
-[[file:{lisp}(ob:path-to-root){/lisp}/changelog.html][/icon-pencil icon-white/ Blog]]
-
-[[file:{lisp}(ob:path-to-root){/lisp}/WeeklyPlans.html][/icon-cog icon-white/ Weekly Plans]]
-
-#+HTML: </div>
-
-#+end_o_blog_row
-
-** Strong your heart and body.
-   DON'T trying to believe what I wrote here.
-   Things are always made of prejudice.
-
-** Publish
-
-Open the =~/.emacs.d/o-blog/example/sample.org= file and type =M-x
-org-publish-blog=. The result site would be published by default in
-=~/.emacs.d/o-blog/out=.
-
-See the [[file:Tips/index.html][tips]] for more details.
-
+** Richard today.
+   These day I just fix some blog bugs and do with plan.:)
 
 * Blog details
 ** Copyright
@@ -74,519 +54,29 @@ See the [[file:Tips/index.html][tips]] for more details.
   :SNIPPET:  t
   :END:
 
-   This is Richard's blog to hold and share ideas.
 
 ** Navigation
   :PROPERTIES:
   :SNIPPET:  t
   :END:
 
-- [[file:{lisp}(ob:path-to-root){/lisp}/WeeklyPlans.html][/icon-cog icon-white/ Weekly Plans]]
-
-- [[file:{lisp}(ob:path-to-root){/lisp}/tags.html][/icon-tags icon-white/ Tags]]
-
-- [[file:{lisp}(ob:path-to-root){/lisp}/archives.html][/icon-list icon-white/ Archives]]
-
-- [[file:{lisp}(ob:path-to-root){/lisp}/index.xml][/icon-rss icon-white/ RSS]]
-
-- [[file:{lisp}(ob:path-to-root){/lisp}/changelog.html][/icon-pencil icon-white/ Changelog]]
-
-** Navigation Footer
-  :PROPERTIES:
-  :SNIPPET:  t
-  :END:
-
-  - [[file:{lisp}(ob:path-to-root){/lisp}/index.html][/icon-home icon-white/ {lisp}(ob:gettext :home){/lisp}]]
-
-  - [[file:{lisp}(ob:path-to-root){/lisp}/tags.html][/icon-tags icon-white/ Tags]]
-
-  - [[file:{lisp}(ob:path-to-root){/lisp}/index.xml][/icon-rss icon-white/ RSS]]
-
 ** Articles by tags
   :PROPERTIES:
-  :PAGE:     tags.html
   :TEMPLATE: blog_post-by-tags.html
   :END:
 
 
-* Changelog
-  :PROPERTIES:
-  :PAGE:     changelog.html
-  :END:
+* arts
 
-- <2013-04-04 Thu>
-  试了好几次，终于把这个东西弄好了。
+** DONE Six Great Ideas From Computer Architecture
+   CLOSED: [2013-04-17 Wed 22:41]
 
-* Documentation
-** Debug
-   :PROPERTIES:
-   :PAGE:     debug.html
-   :TEMPLATE: debug.html
-   :SITEMAP:  f
-   :END:
-
-
-** WeeklyPlans
-  :PROPERTIES:
-  :PAGE:     WeeklyPlans.html
-  :END:
-
-
-** Templates
-  :PROPERTIES:
-  :PAGE:     templates.html
-  :END:
-
-Templates, which are a big part of the [[https://github.com/renard/o-blog][o-blog]] export process, are
-HTML-based files. Within templates, Lisp code can be interpreted as
-long as =&lt;lisp>= tags surrounds the code.
-
-#+begin_src html
-<h1><lisp>(ob:blog-title BLOG)</lisp></h1>
-#+end_src
-
-The above would be exported to something like:
-
-#+begin_src html
-<h1>o-blog</h1>
-#+end_src
-
-#+begin_o_blog_alert info Information
-[[https://github.com/renard/o-blog][o-blog]] only needs =blog_= prefixed templates, as long as they do not need any
-other templates (using =ob:insert-template= function).
-
-All other templates are defined for convenience.
-#+end_o_blog_alert
-
-
-*** Required templates
-
-=blog_= prefixed templates.
-
- - =blog_static.html=: Exports any static page (function =ob-write-static=).
- - =blog_post.html=: Exports a blog post (function =ob-write-posts=).
- - =blog_tags.html=: Exports a tag cloud page (function =ob-write-tags=).
- - =blog_tags-detail.html=: Exports page matching a specific tag (function
-   =ob-write-tags=).
- - =blog_archive.html=: Exports the whole archives (all categories, all
-   years, all months) page (function =ob-write-index=).
- - =blog_rss.html=: Exports the rss feed (function =ob-write-index=).
- - =blog_index_month.html= Export index page for a given month (function
-   =ob-write-index=).
- - =blog_index_year.html= Export index page for a given year (function
-   =ob-write-index=).
- - =blog_index_catery.html= Export index page for a given category (function
-   =ob-write-index=).
-
-*** Index-page templates
-
-=index_= prefixed templates. They are used by all =blog_index_*.html=
-templates to generate a list of articles matching given category, year and
-month, and the entire archives.
-
- - =index_archives.html=
- - =index_category.html=
- - =index_month.html=
- - =index_year.html=
-
-*** Navigation templates
-
-=nav_= prefixed templates are used to generate navigation snippets:
-
- - =nav_links.html=: Used to generate navigation menu used in both the
-   page header and footer.
- - =nav_tag-cloud.html=: Used to generate tag cloud on page bottom.
-
-*** Page templates
-
-=page_= prefixed templates used for both HTML header and footer.
-
-
-** Structures
-  :PROPERTIES:
-  :PAGE:     structures.html
-  :END:
-
-Some variables are available when publishing lisp parts of templates. These
-variables are defined using [[http://www.gnu.org/software/emacs/manual/html_node/cl/Structures.html][defstruct]], then any slot (or property) is
-available using a =(type-slot variable)= form.
-
-*** Structures
-
-**** Structures: =ob:blog=
-
-Structure used to define a blog:
-
- - =file=: The blog source file (read-only).
- - =buffer=: Buffer visiting the blog file (read-only).
- - =publish-dir=: Where to publish the blog, defined by the =#+PUBLISH_DIR:=
-   header directive or =out= in the same directory as the blog source file.
- - =template-dir=: Location of the template directory defined by the
-   =#+TEMPLATE_DIR:= header directive or the =templates= directory of the
-   =o-blog= library.
- - =style-dir=: Path of the /css/ files defined by the =#STYLE_DIR:= header
-   directive or =style=. This directory is relative to =template-dir=.
- - =posts-filter=: Default filter for posts defined by the =#POSTS_FILTER:=
-   header directive or =+TODO={DONE}=.
- - =static-filter=: Default filter for static pages defined by the
-   =#STATIC_FILTER:= header directive or =+PAGES={.*}=.
- - =snippet-filter=  Default filter for snippets defined by the
-   =#SNIPPET_FILTER:= header directive or =+SNIPPET={.*}=.
- - =title=: Blog title defined by the =#+TITLE:= header directive.
- - =description=: Blog description defined by the =#+DESCRIPTION:= header
-   directive.
- - =url=: Blog base URL defined by the =#+URL:= header.
- - =default-category=: Default category for posts defined by the
-   =#DEFAULT_CATEGORY:= header or =Blog=.
- - =disqus=: The [[http://docs.disqus.com/developers/universal/][Disqus]] account (called a forum on [[http://disqus.com][Disqus]]) this o-blog
-   site belongs to. Defined by the =#+DISQUS:= header.
- - =filename-sanitizer=: A 1-argument function to be used to sanitize
-   post filenames. Defined by =#+FILENAME_SANITIZER:= or
-   =ob-sanitize-string=.
- - =post-sorter=: A 2-argument function to be used to sort the
-   posts. Defined by =#+POST_SORTER:= or =ob-sort-posts-by-date=.
-
-Example:
-
-#+begin_src emacs-lisp
-;; get the title of the current blog defined in variable BLOG.
-(ob:blog-title BLOG)
-#+end_src
-
-**** Structures: =ob:post=
-
- - =id=: The post's numerical id. Posts are sort by reversed chronological
-   order. The most recent post get the id 0.
- - =title=: The post title, read from the entry title.
- - =timestamp=: The post timestamp given by the =CLOSED= property or the
-   current time.
- - =year=: Numerical year computed from =timestamp=.
- - =month=: Numerical month computed from =timestamp=.
- - =day=: Numerical day computed from =timestamp=.
- - =category=: Category read from =CATEGORY= property org =blog=.
- - =tags=: List of =ob:tags=.
- - =template=: Template to use for current post read from =TEMPLATE=
-   property or =blog_post.html=.
- - =filepath=: Relative path from the blog root directory to the post
-   directory (directory only).
- - =filename=: Sanitized filename generated from =title=.
- - =htmlfile=: Full relative path to the post html file (file and
-   directory).
- - =path-to-root=: Relative path from the post html file to the blog root.
- - =content=: Raw content of the post (Org-mode format).
- - =content-html=: HTML export of the post.
-
-Example:
-
-#+begin_src emacs-lisp
-;; Get the HTML content of the post defined in variable POST.
-(ob:post-content-html POST)
-#+end_src
-
-**** Structures: =ob:tags=
-
-Structure used to define a tag:
-
- - =name=: The string defining the tag name.
- - =safe=: Web/URL-safe tag name.
- - =count=: How many times the tag is used across posts.
- - =size=: The font size in percent.
-
-Example:
-
-#+begin_src emacs-lisp
-;; get the name of the tag defined in variable TAG.
-(ob:tags-name TAG)
-#+end_src
-
-*** Variables
-
-The following variables are always available when publishing a blog:
-
- - =BLOG= (=ob:blog=): Information about the blog being published.
- - =POSTS= (list of =ob:post=): List of all posts of the blog or restricted
-   list of posts (depending on what is exported).
- - =ALL-POSTS=: A copy of =POSTS= except this *always* contains all the
-   posts from the blog.
- - =STATIC= (list of =ob:post=): List of static pages.
- - =SNIPPETS= (list of =ob:post=): List of snippets pages.
- - =TAGS= (list of =ob:tags=): List of all tags.
-
-Some variables may be defined in some functions:
-
- - =POST= (=ob:post=): The post (or static page) being currently published.
- - =TAG= (=ob:tags=): The tag being currently published.
- - =CATEGORY= (=string=): The category being published.
- - =YEAR=, =MONTH (=integer=): The year and month being published.
- - =PATH-TO-ROOT= (=string=): (internal use only, use =ob:path-to-root=
-   instead) Path to blog root used by =ob:path-to-root=.
-
-** Functions
-  :PROPERTIES:
-  :PAGE:     functions.html
-  :END:
-
-Basically any elisp function could be used within an o-blog template,
-as long as they are known when exporting. Meanwhile some functions are
-specifically made to be used within templates. These functions are
-prefixed by =ob:=.
-
-Descriptions are taken from function docstrings.
-
-*** Function: =(ob:get-posts &optional PREDICATE COUNT SORTFUNC COLLECT)=
-
-Return posts (from =POSTS= as defined in =org-publish-blog=) matching
-=PREDICATE=. Limit to =COUNT= results if defined and sorted using
-=SORTFUNC=.
-
-=PREDICATE= is a function that runs for each post, with the post
-itself as argument. If =PREDICATE= is nil, no filtering will be done
-on posts.
-
-=SORTFUNC= uses a =sort= =PREDICATE=.
-
-If =COLLECT= is defined, only returns the =COLLECT= field of a
-=ob:post= structure.
-
-Examples:
-
-Getting the last 10 posts:
-
-#+begin_src emacs-lisp
-   (ob:get-posts nil 10)
-#+end_src
-
-
-Getting posts from January 2012:
-
-#+begin_src emacs-lisp
-   (ob:get-posts
-      (lambda (x)
-         (and (= 2012 (ob:post-year x))
-              (= 1 (ob:post-month x)))))
-#+end_src
-
-Getting all categories:
-
-#+begin_src emacs-lisp
-    (ob:get-posts nil nil nil 'category)
-#+end_src
-
-
-**** Template usages
-
-For archive navigation:
-
-#+begin_src html
-  <nav id="archives">
-    <h1>Archives</h1>
-    <ul>
-      <lisp>
-        (loop for p in (ob:get-posts nil 10)
-              do (insert (format "<li><a href=\"%s/%s\">%s</a></li> "
-                                 (ob:path-to-root)
-                                 (ob:post-htmlfile p)
-                                 (ob:post-title p))))
-      </lisp>
-    </ul>
-  </nav>
-#+end_src
-
-*** Function: =(ob:get-post-by-id ID)=
-
-Return post whose id is =ID=.
-
-**** Template usages
-
-Posts navigation, setting up links to previous and next post:
-
-#+begin_src html
-  <nav class="articles-nav">
-    <ul>
-      <lisp>
-        (progn
-          ;; Get previous post
-          (let ((ppost (ob:get-post-by-id (1+ (ob:post-id POST)))))
-            (if ppost
-                (insert (format "<li class=\"prev\"><a href=\"%s/%s\">%s</a></li>"
-                                (ob:path-to-root)
-                                (ob:post-htmlfile ppost)
-                                (ob:post-title ppost)))
-              (insert "<li>&nbsp;</li>")))
-          ;; Get next post
-          (let ((npost (ob:get-post-by-id (1- (ob:post-id POST)))))
-            (if npost
-                (insert (format "<li class=\"next\"><a href=\"%s/%s\">%s</a></li>"
-                                (ob:path-to-root)
-                                (ob:post-htmlfile npost)
-                                (ob:post-title npost)))
-              (insert "<li>&nbsp;</li>"))))
-      </lisp>
-    </ul>
-  </nav>
-#+end_src
-
-*** Function: =(ob:get-snippet NAME)=
-
-Get first snippet matching =NAME=.
-
-**** Template usages
-
-Insert the /About/ section in page footer:
-
-#+begin_src html
-  <h1>About</h1>
-  <address>
-    <lisp>(ob:post-content-html (ob:get-snippet "About"))</lisp>
-  </address>
-#+end_src
-
-*** Function: =(ob:get-header HEADER &optional ALL)=
-
-Get =HEADER= from blog buffer as defined in =BLOG= global context variable.
-
-Returns only the first match, unless =ALL= is defined.
-
-**** Template usages
-
-Get the last updated header for RSS export:
-
-#+begin_src html
-  <updated><lisp>(ob:format-date (ob:get-header "DATE"))</lisp></updated>
-#+end_src
-
-*** Function: =(ob:insert-template TEMPLATE)=
-
-Insert =TEMPLATE= in current buffer.
-
-**** Template usages
-
-Insert html header:
-
-#+begin_src html
-  <lisp>(ob:insert-template "page_header.html")</lisp>
-#+end_src
-
-*** Function: =(ob:format-date DATE &optional FORMAT LOCALE)=
-
-Format =DATE= using =FORMAT= and =LOCALE=.
-
-=DATE= can either be a string suitable for =parse-time-string= or a list of
-integers using =current-time= format.
-
-=FORMAT= is a =format-time-string= compatible definition. If not
-set, ISO8601 =%Y-%m-%dT%TZ= format will be used.
-
-**** Template usages
-
-Add a human-readable timestamp for a post:
-
-#+begin_src html
-  Posted on <time datetime="<lisp> (ob:format-date (ob:post-timestamp POST)) </lisp>">
-    <lisp> (ob:format-date (ob:post-timestamp POST) "%A %B, %d %Y at %H:%M:%S") </lisp>
-  </time>.
-#+end_src
-
-** Roadmap
-  :PROPERTIES:
-  :PAGE:     roadmap.html
-  :END:
-
-To start this webpage. I Do a lot of things.
-*** Original stage.
-    At the very first beginning, I want to write this project by hand
-    with htmls, but really boring, so I want to find a way to export
-    by org mode, due to I using org daily times.
-*** Python stage.
-    I wrote a org interpreter, to translate. but find out that
-    org-mode update step is really too fast to catch.
-
-*** Clojure stage.
-    a year later, I find out that clojure is really cool, and I want
-    to using clojure to do something, but can't find a really good
-    start point.
-
-*** Back to emacs.
-    So I went back to emacs today, and hacking o-blog project to
-    generate this project.
-
-*** More than that
-    If you have any ideas please [[https://github.com/chao787/chao787.github.com/issues/new][drop me a line]].
-
-** FAQ
-  :PROPERTIES:
-  :PAGE:     faq.html
-  :END:
-
-*** Why does my page look ugly/un-styled?
-
-Maybe you are using [[https://www.google.com/chrome/][Google Chrome]] and you're trying to view your site
-locally using a =file:///path/to/your/site/out/index.html= scheme.
-Open the JavaScript console =Ctrl+Shift+I= and you should see
-something like:
-
-#+begin_example
-XMLHttpRequest cannot load file:///path/to/your/site/out/out/style/css/o-blog.less. Cross origin requests are only supported for HTTP.
-less-1.2.1.min.js:8Uncaught Error: NETWORK_ERR: XMLHttpRequest Exception 101
-#+end_example
-
-If so, that is a known Chrome issue with loading local javascript
-files, and is actually a /security feature/ in Chrome.
-
-You can disable this with the =--allow-file-access-from-files= option
-in Chrome, or you can use another browser like Firefox, or setup a
-local webserver.
-
-To use a local webserver, there are many complex solutions such as
-[[http://nginx.org/][nginx]] or [[http://httpd.apache.org/][Apache]] or many [[http://en.wikipedia.org/wiki/Comparison_of_web_server_software][others]]. If you prefer a lighter and simpler
-solution using Python, simply run:
-
-#+begin_src sh
-cd /path/to/your/site && python -m SimpleHTTPServer
-#+end_src
-
-...and browse http://localhost:8000
-
-Or within Emacs you can run the [[https://github.com/jrhbailey/emacs-http-server][emacs-http-server]]:
-
-#+begin_src emacs-lisp
-(require 'httpd)
-(setq httpd-root "/path/to/your/site")
-(httpd-start)
-#+end_src
-
-...and browse http://localhost:8080
-
-Another alternative would be the use of [[http://www.emacswiki.org/emacs/Elnode][elnode]] but it seems to be more
-complex.
-
-
-*** Why html pages are not minified?
-
-HTML compression very tricky. Things can easily go wrong. Using a
-[[http://betterexplained.com/articles/how-to-optimize-your-site-with-gzip-compression/][GZip
-compression]] would be more efficient.
-
-Anyway if you still want to minify your pages, you can have a look to
-[[http://code.google.com/p/htmlcompressor/][htmlcompressor]],
-[[http://developer.yahoo.com/yui/compressor/][yuicompressor]] and
-[[https://developers.google.com/closure/compiler/][Closure compiler]]. You
-can also read Juriy Zaytsev's articles on
-[[http://perfectionkills.com/optimizing-html/][optimizing HTML]] and
-[[http://perfectionkills.com/experimenting-with-html-minifier/][experimenting
-with html minifier]].
-
-So here is the magic! Once your site is generated, you can run the following command:
-
-#+BEGIN_SRC sh
-htmlcompressor --compress-js --compress-css --recursive --mask '*.js;*.html;*.xml;*.css;*.less' -o /path/to/out/ /path/to/out
-#+END_SRC
-
+#+INCLUDE: "./Blog/SixGreatIdeasFromComputerArchitecture.org"
 
 * Plans
-** DONE Aboutme
-  CLOSED: <2012-05-05 Sat 00:13>
-  #+INCLUDE: "./Blog/Aboutme.org"
+  :PROPERTIES:
+  :TEMPLATE: blog_post-by-tags.html
+  :END:
 
 ** DONE first week plan of 2013                                   :plan:2013:
   CLOSED: <2013-03-06 Wed 21:12>
@@ -595,32 +85,19 @@ htmlcompressor --compress-js --compress-css --recursive --mask '*.js;*.html;*.xm
 ** DONE Some HTML5 samples					     :html_5:
    CLOSED: [2012-01-10 Tue 20:58]
 
-*** tag: <details>
-
-This tag works only with the Chrome browser.
-
-#+HTML: <details>
-#+HTML: <summary>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</summary>
-- Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-- Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
-- Sed diam.
-- Nam vestibulum accumsan nisl.
-#+HTML: </details>
-
-#+begin_src org
-  ,#+HTML: <details>
-  ,#+HTML: <summary>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</summary>
-  ,- Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-  ,- Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
-  ,- Sed diam.
-  ,- Nam vestibulum accumsan nisl.
-  ,#+HTML: </details>
-#+end_src
-
-
-* Dancing with Richard :: Love to stay, love to stray
+* Let's Dance :: Love to stay, love to stray
   :PROPERTIES:
   :PAGE:     404.html
   :SITEMAP:  f
   :END:
   {"Message": "It's really bad here, please contact me."}
+
+* about
+  :PROPERTIES:
+  :PAGE:     aboutme.html
+  :TEMPLATE:     about.html
+  :END:
+
+** About
+#+INCLUDE: "./Blog/Aboutme.org"
+  This is Richard's blog to holding and sharing ideas.

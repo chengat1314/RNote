@@ -1,0 +1,46 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-16 13:15:20 Tuesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   After Learning Nlp
+#+AUTHOR: Richard Wong
+
+* 今天系统性的学习了好多NLP。
+  确实特别开心，一些不解的问题我也解释了很多。
+  Happy today,
+
+* NLP(包含语言和语音处理的)主要分为几个模块
+  - NLU
+  - NLG
+** Classical NLP
+   其实本质上这里包含的内容才是最自然语言处理的.不过最近基本上已经就把
+   它放下了.
+   - finite automata
+   - n-gram
+   - POS tagging.
+   - HMM and MEMM.
+   - Speech,
+   - Automatic Speech recognition.
+   - Speech synthesis.
+   - Language Complexity.
+
+** Statistical NLP
+   统计NLP,看起来很牛逼,但是基本的思想就是从nlp中提取最合适的feature,
+   用ML的方法去做.
+   - 常用的算法手段就是dynamic programming.有算法基础的人会认为没有多
+     大的压力的.
+
+
+* 上次在avos做的presentation的时候
+  我说，nlp和程序员之间其实本质上是没有距离的。
+  AVOS的反馈我讲的不怎么样, 或许是本有从本质上去揭示nlp的问题和核心.
+  事实上是的, 我没办法直接这么去揭示这个问题. 暗含这么一种假设, 你是让
+  我讲NLP的, 我觉着难点不再NLP. NLP的常用方法不是去解决AVOS的问题的.
+  你们需要做的是统计学, 当然, 我觉着我再去讲也会这个样子. 现在已经很好
+  了.
+
+  其实我之前也特别考虑果NLP到底是解决什么问题的? 但我认为大部分都并不
+  是textbook所认为的这个样子. 能够用的上非常正统NLP方法的也很少.
+  因为现在并没有真的从本质上去解决NLP的问题.
+  还是继续坚持这个观点。

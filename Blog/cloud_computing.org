@@ -1,0 +1,53 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-17 16:00:43 Wednesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Cloud Computing
+#+AUTHOR: Richard Wong
+
+* 云计算
+  虚拟化 -> 抽象.
+
+** 虚拟化
+*** 模拟
+    - eg:
+      + Virtual Box.
+    - pros:
+      对硬件的要求比较少.
+    - cons:
+      速度慢.
+**** parallelization
+*** 准虚
+    Vt-x Instruction set.
+    - Xen
+    - KVM
+    - Heyper-V
+*** Structure
+    |------------|
+    | VMs        |
+    | VMs        |
+    |------------|
+    | Hypervisor |
+    |------------|
+    | HW         |
+
+**** Inside VM
+     OS-> runtime->lllbluh...
+
+*** 容器虚拟化 Os-level.
+    |--------+---------|
+    | LXC    | linux   |
+    | zones  | solaris |
+    | jail   | BSD     |
+    | OpenVZ | 99%     |
+    |--------+---------|
+**** Structure
+     |------------|
+     | Container1 |
+     | Container2 |
+     |------------|
+     | OS         |
+     |------------|
+     | HW         |
+     |------------|

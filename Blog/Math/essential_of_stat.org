@@ -1,0 +1,13 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-19 14:44:59 Friday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Essential_Of_Statistics
+#+AUTHOR: Richard Wong
+
+* Statistics have two parts.
+** Conditioning
+   The soul of statistics.
+
+** Random variables and their distribution.

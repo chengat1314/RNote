@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-04-13 07:29:18 Saturday by richard>
+# Last modified: <2013-04-20 08:26:47 Saturday by richard>
 #+STARTUP: showall
 #+TITLE:   Q3
 
@@ -57,11 +57,11 @@
 ***** TODO - <2013-04-06 Sat> :: SP 1 (naive definition of probability, story proofs)
 ***** DONE - <2013-04-09 Tue> :: Lecture 3, birthday problem, properties of probability, inclusion-exclusion, matching problem.
 ***** DONE - <2013-04-10 Wed> :: Lecture 4, independence, Newton-Pepys, conditional probability, Bayes’ rule
-***** TODO - <2013-04-12 Fri> :: Lecture 5, law of total probability, conditional probability examples, conditional independence
+***** DONE - <2013-04-12 Fri> :: Lecture 5, law of total probability, conditional probability examples, conditional independence
 ***** TODO - <2013-04-13 Sat> :: SP 2 (inclusion-exclusion, independence, thinking conditionally)
 ***** TODO - <2013-04-14 Sun> :: HW2
-***** TODO - <2013-04-15 Mon> :: Lecture 6, Monty Hall problem, Simpson’s paradox
-***** TODO - <2013-04-16 Tue> :: Lecture 7, gambler’s ruin, first step analysis, random variables, Bernoulli, Binomial
+***** DONE - <2013-04-15 Mon> :: Lecture 6, Monty Hall problem, Simpson’s paradox
+***** DONE - <2013-04-16 Tue> :: Lecture 7, gambler’s ruin, first step analysis, random variables, Bernoulli, Binomial
 ***** TODO - <2013-04-18 Thu> :: Lecture 8, random variables, CDFs, PMFs, discrete vs. continuous, Hypergeometric
 ***** TODO - <2013-04-20 Sat> :: SP 3 (conditioning, Simpson’s paradox, gambler’s ruin, Bernoulli, Binomial)
 ***** TODO - <2013-04-21 Sun> :: HW4
