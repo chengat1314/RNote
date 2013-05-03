@@ -1,0 +1,117 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-02 15:56:53 Thursday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   data science
+#+AUTHOR: Richard Wong
+
+Today's "big" is certainly tomorrow's "medium" and next week's
+"small." 
+The most meaningful definition of bigdata:
+When size of the data itself becomes part of the problem.
+
+* What is datascience.
+  The web is full of "data-driven apps".
+  
+  Different with statistics is that data science is a holistic
+  approach.
+  
+  All of this data would be useless if we couldn't store it.
+  
+** Data science enables the creation of data products
+   A data application acquires its value from the data itself, and
+   creates more data as a result. It's not just an application with
+   data; it's a data product. 
+   
+** Storage has more than kept pace with the increase of CPU speed.
+   
+* Where data comes from
+  Data is everywhere
+  The question facing every company today is how to use data
+  effectively -- not just their own data. but all the data that's a
+  vailable and relevant.
+  Using data effectively requires something different from traditional
+  statistics, where actuaries in business suits perform arcane but
+  fairly well-defined kinds of analysis.
+  data scientists are involved with gathering data, massaging it into
+  a tractable form, making it tell its story, and presenting that
+  story to others.
+  
+  
+** What are we trying to do with data that's different?
+   Information platforms are similar to traditional data warehouses,
+   but different.
+   They expose rich APIs, and are designed for exploring and
+   understanding the data rather than for traditional analysis and
+   reporting. 
+   They accept all data formats, including the most messy, and their
+   schemas evolve as the understanding of the data changes.
+   
+** Why not Relational databases.
+   Relational databases are designed for consistency, to support complex
+   transactions that can easily be rolled back if any one of a complex
+   set of operations fails. 
+   NoSQL is to provide "eventual consistency" but not absolute
+   consistency and to have very flexible schema.
+   - Cassandra
+   - HBase
+     
+     statistics is the "grammar of data science".
+     Data science isn’t just about the existence
+     of data, or making guesses about what that data might mean; it’s about testing
+     hypotheses and making sure that the conclusions you’re drawing from the data
+     are valid. 
+     
+     Visualization is key to data conditioning: if you want to find out just how
+     bad your data is, try plotting it. 
+     Visualization is also frequently the first step in analysis. 
+     
+** how do we make that data useful?
+   The first step of any data analysis project is "data conditioning",
+   or getting data into a state where it's usable. 
+   Increased storage capacity demands increased sophistication in the
+   analysis and use of that data. That’s the foundation of data
+   science.
+   Once you've parsed the data, you can start thinking about the
+   quality of your data. Data is frequently missing or incongruous.
+   
+   In data science, what you have is frequently all you're going to
+   get. It's usually impossible to get "better" data, and you have no
+   alternative but to work with the data at hand.
+   
+* Data scientist
+  requires skills ranging from traditional computer science to
+  mathematics to art.
+  the best data scientists tend to be "hard scientists", particularly
+  physicists, rather than computer science majors.
+  
+** Patil
+   This is the heart of what Patil calls "data jiujitsu"—using
+   smaller auxiliary problems to solve a large, difficult problem that
+   appears intractable. 
+   
+* Data is indeed the new Intel Inside.
+  The ability to take data—to be able to understand it, to process it,
+  to extract value from it, to visualize it, to communicate it—that's
+  going to be a hugely important skill in the next decades.
+  
+* Seven data methods
+** Compress Everything.
+** Choose the Right-Sized Tool
+** Split up your data.
+   "Monolithic" is a bad word in software development.It’s also, in
+   my experience, a bad word when it comes to data.
+** Sample your data.
+** Smart Borrows, but genius uses Open Source.
+   
+** Keep your head in the Cloud. 
+   If you want to compute locally, pull down a sample. But if your
+   data is in the cloud, that’s where your tools and code should be.
+   
+** Don't Be Clever
+   When dealing with big data, embrace standards and use commonly
+   available tools. Most of all, keep it simple, because simplicity
+   scales.
+   
+   

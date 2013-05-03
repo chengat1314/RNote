@@ -1,14 +1,14 @@
 # -*- mode: org -*-
-# Last modified: <2013-04-21 12:34:18 Sunday by richard>
+# Last modified: <2013-04-22 08:14:20 Monday by richard>
 #+TITLE:   Dancing Richard
 #-DESCRIPTION: Happy Hacking everyday~
 #+AUTHOR: Richard Wong
 #+DATE: 2013-02-08 19:33:26
 #+STARTUP: logdone
 #+LANGUAGE: zh
-# #+PUBLISH_DIR: /home/richard/javascript-dev/chao787.github.com/
 #+TEMPLATE_DIR: /home/richard/javascript-dev/o-blog-template
 #+PUBLISH_DIR: /tmp/blog/
+# #+PUBLISH_DIR: /home/richard/javascript-dev/chao787.github.com/
 #+URL: https://chao787.com/
 
 #+DEFAULT_CATEGORY: Blog
@@ -68,10 +68,14 @@
 
 * arts
 
-** DONE Six Great Ideas From Computer Architecture
+** DONE Six Great Ideas From Computer Architecture                  :general:
    CLOSED: [2013-04-17 Wed 22:41]
 
 #+INCLUDE: "./Blog/SixGreatIdeasFromComputerArchitecture.org"
+
+** DONE Notes for Clojure design patterns           :clojure:design_patterns:
+   CLOSED: [2013-04-05 13:37:06]
+#+INCLUDE: "./Blog/clojure/clojure_design_patterns.org"
 
 * Plans
   :PROPERTIES:
@@ -82,15 +86,19 @@
   CLOSED: <2013-03-06 Wed 21:12>
   #+INCLUDE: "./Blog/WeeklyPlan/Week_00(2013).plan"
 
-** DONE Some HTML5 samples					     :html_5:
-   CLOSED: [2012-01-10 Tue 20:58]
+** DONE 2013 Q3 plan                                              :plan:2013:
+  CLOSED: <2013-04-22 Mon>
+  #+INCLUDE: "./Blog/WeeklyPlan/Q3.plan"
 
 * Let's Dance :: Love to stay, love to stray
   :PROPERTIES:
   :PAGE:     404.html
   :SITEMAP:  f
   :END:
-  {"Message": "It's really bad here, please contact me."}
+
+#+begin_src json
+  {"404": "Got 404, contact me if it should be somewhere."}
+#+end_src
 
 * about
   :PROPERTIES:

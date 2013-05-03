@@ -1,27 +1,43 @@
 # -*- mode: org -*-
-# Last modified: <2013-04-11 09:03:08 Thursday by richard>
-#+STARTUP: showall
+# Last modified: <2013-04-24 11:01:36 Wednesday by richard>
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
 #+TITLE:   Overview of Machine Learning
 #+AUTHOR: Richard Wong
 
-* Supervised learning.
+* What is Machine Learning?
+  A computer program is said to learn from experience E with respect
+  to some class of tasks T and performance meansure P, if its
+  performance at tasks in T, as meansured by P, improves with
+  experience E.
 
-** Classification
-   Predict discrete valued output/attribute.
+* Supervised learning.
+  Given a data set and already know what our correct output should
+  look like, having the idea that there is a /causal/ relationshiop
+  between the input and the output.
 
 ** Regression
-   Predict continuous valued output/attribute.(Price, etc)
+   Predict results within a continuous valued output/attribute.(Price, etc)
+   -> To map input variables to some continuous function.
+   
+** Classification
+   Predict discrete valued output/attribute.
+   -> To map input variables into discrete categories.
 
 *** linear regression(one variable)
     (univarian regression)
     Hypothesis: one variable linear function.
     Choose theta0, and theta1 so that H(x) is close to y for training examples(x,y).
     - TODO: contuour figures.
-* Unsupervised learning.
 
-** clustering
+
+* Unsupervised learning.
+  - Approach problems with little or no idea with our results should
+    look like.
+  - To derive structure from data where we don't necessarily know the
+    effect of variables.
+  - No feedback based on the prediction results.
+
 
 * Reinforsement learning.
 

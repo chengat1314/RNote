@@ -1,0 +1,17 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-24 11:06:14 Wednesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Regression
+#+AUTHOR: Richard Wong
+
+* Linear regression
+
+** Univariate linear regression.
+   Linear regression with one variable.
+   perdict a *single output* value from a *single input* value.
+
+*** Cost Function
+    Measure the accuracy of hypothesis function.
+    

@@ -1,0 +1,341 @@
+# -*- mode: org -*-
+# Last modified: <2013-04-28 17:36:16 Sunday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   InfoQ
+#+AUTHOR: Richard Wong
+
+* Programming style and your brain.
+  computer project is the most complicated thing people make.
+  Computer programs must be perfect, Humans are not good at make
+  perfect things.
+  
+** No hardly.
+   That hardly ever happened is another way of saying "It happens."
+   
+** Style
+   Style is should not be about personal preference and
+   self-expression.
+   Using good style to help reduce the occurrence of errors.
+   Confusion must be avoided.
+   Avoid forms that are difficult to distinguish from common errors.
+   Make your programs look like what they do.
+   Write in the language you are writing in.
+   As our processes become more agile, our coding must be more
+   resilient.
+   
+** Designing a programming style demands discipline.
+   It is not selecting features because they are liked, or pretty, or
+   familiar.
+   Only a madman would use all of C++.
+   Using language subsetting.
+
+** ideas
+   道格拉斯讲的第一节其实主要就是围绕一个观点, 
+   应该尽可能的提高可读性.
+   可读性不只是包括读懂这个程序, 更应该包括不误解这个程序. 
+   手段包括:
+   - 使用语言的子集
+     每一个语言都有这个语言优秀的部分, 垃圾的部分. 你需要做的, 不仅仅
+     是compiler-friendly, 更需要的是human-friendly.
+   - 使用更不易产生二义性的代码风格
+   when personalstyle vs readability.
+   无论是近代中文, 还是中世纪的英文, 一个显著的进步, 就是给文章加了标
+   点符号. 使得文章减少错误率, 更简单易懂. 这跟写程序类似.
+   那就是用一个语言的子集.
+   具体举了几个例子, infoQ的ppt里面都有.
+
+   看起来只是两个手段. 但是里面有非常多的细节.
+   douglas的东西, 给人的感觉更具匠心, 不谈空踏踏的概念, 只说细小的东西.
+   其实我认为, 这些东西才是特别重要的东西, 帮助你解决了更多潜在的问题.
+   所以当你发现你编程显著的快, 但是debug特别慢的时候, 往往就要思考一下
+   style的问题了. (我会告诉你我debug时间往往比我写代码时间短么?)
+
+* Github 运维
+  主要介绍一个hubot
+  里面强调了几点内容：
+  1. git concrete infrustructure.
+  2. Using Tools in the middle of the conversation instead of pairing.
+
+** 可以感觉到明显github的运维比咱们多走了几步。
+   Step1 : CI。
+   没有充分的测试，谈个毛CI。
+   Step2 : LVS
+   所有的服务都是LVS上面的。(弹性的起点)
+   Step3 : A stable Middleware.
+   没有前两个，这个东西也无法去做弹性和测试的东西。
+
+* Baidu
+  baidu这个其实是水水的侃的，但是这个人明显有强烈的自己的观点。有一些
+  还是很有意思的。
+  他的ppt很有料，直接看ppt。讲座听得太boring了。
+  最有意思的是说架构师的技能模型：
+  三个地方为主：
+  1. 以编程重构为内力。
+  2. 以paper为招式。
+  3. 以项目为经验。
+
+* Worse is better.
+  其实这个有点水
+  下面选几个比较有趣的几个观点
+  1. Software would be more likely ot succeed if it was developed
+     with minimal invention.
+     这让我想起来一句话。最伟大的设计就是没有设计。
+  2. underfeatured product is far better
+     - Simplicity.
+       使用语言子集。
+     - Completeness.
+       更少的feature。
+     - Correctness.
+       stable最重要。
+     - Consistency.
+       专注某一方面。
+  3. Write programs that do one thing and do it well.
+     The hard part isn't writing little programs that do one thing
+     well. The hard part is combining little programs to solve bigger
+     problems. 
+  Kevlin Henney最后解释，他认为的worse就是选取了较少的feature并且开发
+  稳定。better就是看起来特别好看，开发了很多的feature，其实并不真的多
+  了好了。
+  That is worse is better. For worse or for better, 本质上其实是辩证，
+  你认为什么是好，什么是不好，为什么不好可以好。角度观点不一样。这时候
+  你认为是不好，别人认为是好。如果结果真的是不好，那此时就是worse is
+  another better.
+
+* What powers GitHub
+  这个可能是让我觉着眼前一亮的一个演讲。
+  这次Jessy England 讲的不太水，讲了github的主要结构。
+  我找了一下，发现infoq并没有
+  github主要用到的协议有四个：
+  1. http:\\
+  2. https:\\
+  3. git:\\
+  4. ssh:\\
+
+** http
+   302 到https
+** https
+   load-balance
+   结构主要是nginx + Unicorn-based Server.
+
+** git
+   git 协议操作的本质，主要是依赖ssh，所以列举了两个git命令，都会等同
+   于ssh到server，然后git down。
+
+   建立了自己的git RPC-server。
+   jesse 表示，他们的memcache有14T。我觉着 14T了不起啊。滚粗。
+   有个Two pass migaration 需要看看slide才能想起来了....
+
+** ssh
+   ssh as a production service is not common
+   首先从ssh的过程开始。
+   主要分为四步
+   1. read git command.
+   2. Authority.
+   3. lookup route.
+   4. Forward TCP stream
+
+   主要是authority的这一步特别复杂。
+   所以他们首先选择patch的ssh through DB。（把key存在db中。）
+   后来发现DB并不是特别擅长这个事情。
+   之后patch ssh through local webservice。
+   这时候特别容易扩展或者怎样。此时算是基本解决了这个问题。
+
+** 数据库
+   开始主要使用了redis
+   做git routing，集成上来。
+   然后做了rescue queues
+   数据库上只做了一些view caching。因为具体会很复杂，很难能得到最合理
+   的view。而做view的代价特别大。
+
+** 我最后问他怎么看待ssh的主dev分支的。
+   表示直接用的debian的东西。更新缓慢而稳定。
+
+* Apache camel DSL in scala.
+  这个其实就是讲了好多细节
+  然后就是DSL在scala中的使用。
+  比较有趣的几个观点：
+  - 首先是fluent API。这应该是基本功了。
+  - 然后通过信息路由的例子（camel），讲解DSL在常见开发时候可以发挥的威
+    力。
+
+* Erlang.
+  余峰虽然说不说基本的东西，其实大部分东西还是以intro的形式去讲的。
+  主要介绍了他所使用erlang的方法，erlang的哲学。
+  介绍了完整的erlang工具链。（详见ppt）
+  从包管理到调试，测试，诊断，部署，运维，调优。
+  几个比较有意思的地方
+  - 选择工具。
+    只选择特别稳定的，经过开源世界年头考验的。
+  - 代码覆盖率100%.
+    之后我问他，为什么有100%？
+    他说哈哈，刚开始大家都很菜啊，后来才逐渐补的。
+    其实我觉着100%永远不是关键，了解测试的人应该知道，软件是不可能完全
+    测试的。只能是测试关键的部分。这点当然细节就多了。有兴趣的人可以看
+    一些测试方面的书。（或者pk教练）
+  - 经验
+    - 采用开放成熟的第三方部件的好处
+    - 开放的平台,方便用户扩展
+    - 热部署和升级对不停机维护的意义
+    - 容错系统设计的重要性
+  - erlang的优势（略改）
+    1. 高并发，高IO性能，集群易扩展。
+    2. 高可靠。
+    3. 管理功能。
+    4. 交互性，整合能力。
+
+  - 哲学（我觉着他理解的可能不一样，我觉着这里面哲学意义有限）
+    1. 小而美。（上面）
+    2. 细节是魔鬼。（我觉着这并非哲学）
+    3. fail fast（这其实是代码大全里面的基本功夫了）
+  不过话说回来，感觉余峰的工程有点说不上来的僵硬。是不是电商公司的特性。
+
+* Syntaxation
+  Syntax is the least important aspect of programming language design.
+  Fashion is the least important aspect of clothing design.
+  用js实现了一个简单解释器。
+  解释了新一代语言应该具备什么样子的特征：
+  - 我们已经有很多像java一样的语言了。
+  - 谨慎选择语言的特性。
+    - 小心有时候有用的特性。
+      （并不是总是有用的特性要丢弃，不明白就去学习一下c++）
+  - 避免全局。请围观elisp
+  - 控制复杂度。
+  - 提高质量。
+  - 主动犯错。
+  - 让语言教育你。（不要搞特别困难的东西）
+  - 拥抱unicode。
+  - 往前迈步。
+  - 考虑分布式编程。云或者多核。
+  - 状态机，强制引擎。
+
+笔记完
+
+* 关于现代语法和语言的进步。
+  这里我是准备长篇大论一个的。不过今天太困了，就不写了。
+  主要是关于动词系列语言和名词系列语言的共同发展历史，和其间相互学习的
+  东西。还记得javascript的closure和fluent API 的概念么？
+
+** Before 1940
+   最一开始，就是基本的机器码。
+   动词
+
+* 开放平台的大数据挑战
+  腾讯 陈磊
+  - 腾讯也是从基本的离线计算(per week), 逐步的提升到per day, 最后到在线计算(per sec).
+  - 总结了1K左右的推荐方法. 200条左右生效. 使用CTR进行现网校准.
+  - 最有效的有对评论的response进行分析.
+  - 每天大概有100T的统计数据.
+  - 大概有1M 维.
+    10T
+  - 学历大概覆盖 70%, 职业能覆盖42%.
+  - 准实时行为最为精准.
+  - 主要修改数值, 参数缓慢修改.
+  - MTA移动数据分析.
+
+  
+
+* 图挖掘在PayPal风险管理的研究与应用
+  同济大学 饶卫雄
+  图挖掘主要在paypal用来侦查fraud senario. 然后会对图进行聚类.
+  只是使用了K-Means, 没有提到具体的降维, 觉着挺菜, 就没问问题.
+  这个特别水, 其实主要就是介绍了一些工具. 
+  使用Graph Chi 100x faster than hadoop.
+  可以用graph chi去做实验.
+
+* Make the Future Java 
+  java的未来是什么样子?
+  这个slides并没有共享. 不过这些东西应该都是大致公开的.
+  比较有意思的几点:
+  1. ME将会成为SE的子集.
+  2. jdk 8开始支持lambda, js互操作性, 和jvm的整合.
+     jdk 9支持jigsaw.
+     9或者更高版本: 通用语言互操作性, GPU编程, 增强云计算.
+  3. 逐渐放弃网页部署.
+  4. java card
+     扩展成可用任意设备的通用安全平台
+     实现丰富的安全应用程序生态系统.
+     物联网安全性的基础.
+
+** 能明显感觉到java也开始从lisp和更新的脚本语言身上汲取东西.
+   
+
+* 分解应用程序以实现可部署性和可扩展性 
+
+** Why?
+   - overload
+   - when scaling
+   - communication price
+   - long term commitment
+
+** When?
+   1. refactoring hard.
+   2. Many dependencies in the code.
+
+** Benefit
+   - development/deploy independent.
+   - UI independent
+   - improve fault isolates.
+   - Easy to recovery from harzards.
+
+** ebay
+   <<The Art of Scalability>>
+
+** Trade-offs
+   Using micro-service but anti nano-service.
+
+** Important when develop.
+   1. One-step deploy.
+   2. One-step add new service.
+
+* Reaching for the Impossible: How NASA drives Mars Rovers through the Clouds 
+  Khawaja Shams
+  你是买一个发电机去发电. 还是接入整个城市的电网?
+  你肯定会认为我疯了.
+  但在最开始的时候去购买一个发电机可能更合适, 因为运输直流电的能耗我们
+  无法承受, 我们也无法大规模的生产出电力资源. 直到发展出交流电, 我们可
+  以大规模的生产电力的能力, 并拥有了变压能力减少了损耗, 我们才有电力传
+  输低成本的可能. 
+  现在我们只需要一个插座.
+  其实本质上是, 当计算力发展到一定程度的时候. 云计算会提供更高的计算效
+  率, 降低计算成本. 跟电力一样, 需要减少的还有网络传输的代价.
+
+  云计算可以帮助我们降低成本, 无论是对什么行业. 看起来只是一个概念上的
+  提升, 但事实上早已天翻地覆, 如同用电只需要一个插座.
+
+  其实这将会是颠覆性的变化, 因为用电方式的改变才有了电器的多样化. 从而
+  改变我们的生活方式, 帮助我们做更多的事情.
+  现在云计算蓬勃发展, 那一样会带来更多更好的服务, 乃至改变我们的生活方
+  式, 能帮助我们做更多的事情, 甚至NASA的超级计算.
+
+  现在一个超级计算机1小时大概需要600RMB, 而在AWS上面使用更多的计算力,
+  而价钱只有超级计算机的1/2. (数据大概是这样)
+
+  Q:因为是公有云, 数据安全如何处理?
+  A:Khawaja Shams认为数据安全一直以来都是一个重要的问题. 但是公有云并
+  不比其他方式更危险. 但是他们并没有很好的从本质上去解决数据安全的问题.
+  只能说是预估了风险, 并且认为这个风险是可以接受的.
+
+  我认为公有云数据安全可能包含两部分, 一方面是存储数据被偷窃. 另一方面
+  是存储数据丢失. 我觉着后者一般来讲是个严重的问题, 足够的冗余是解决之
+  道, 即使自己购买服务器, 也无法保证丢失问题. 而前者则对成本要求增高,
+  当然也不一定可以解决问题. 无论网络攻击, 还是娶公司偷服务器.
+
+* 有道云笔记的特色云架构
+  网易 王奉坤
+  这个其实特别浮云了.
+  讲了有道云笔记的几个发展, 
+
+* 打造信赖的云平台-从heroku事件说起
+
+* Sohu邮箱的Python经验
+  Sohu 彭一
+  这个太入门了, 一点都不适合咱们听. 对象是java或者是C#的传统型程序员还
+  行.
+
+* 每个程序员都应该知道的97件事
+  Kevlin Henney
+  baidu的两个讲师说这个演讲特别好, 不知道咱们里面有人听这个没有. 求分
+  享.
+  这个是第一天的下午的第一节讲的..

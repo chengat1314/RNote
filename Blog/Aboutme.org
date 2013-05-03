@@ -1,13 +1,13 @@
 # -*- mode: org -*-
-# Last modified: <2012-11-29 16:17:49 Thursday by richard>
+# Last modified: <2013-04-21 12:40:00 Sunday by richard>
 #+STARTUP: showall
 #+TITLE:   About Richard
 
 
 * Which Richard ?
 
-  #+begin_src Literature(MIXED programming language)
 define this as this website
+  #+begin_src python
 >>> whois this.writer
 <<< Richard Wong
 >>> whereis this.writer
@@ -18,10 +18,10 @@ define this as this website
 <<< 'Life', 'Philosophy', 'Details',
     'Cool programming idea', 'Emacs',
     'Natural Language Processing', 'Machine Learning',
-    'API/Architecture design', 'Extreme Programming', 'TDD'
+    'API/Architecture design', 'Extreme Programming', 'TDD',
     '*nix', 'Shortcut Keys',
     'Python', 'C++', 'Lisp', 'Javascript', 'HTML'
-... Manymores are hidden by this.writer.lazyness.
+# ... Manymores are hidden by this.writer.lazyness.
 <<< print this.writer.programmingstyle
 >>> lazy and wanna be more lazy than ever.
   #+end_src
