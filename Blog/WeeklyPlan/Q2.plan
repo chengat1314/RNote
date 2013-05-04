@@ -1,10 +1,8 @@
 # -*- mode: org -*-
-# Last modified: <2013-05-01 17:20:01 Wednesday by richard>
+# Last modified: <2013-05-03 11:41:15 Friday by richard>
 #+STARTUP: showall
 #+TITLE:   Q2
 
-* Professional Skill
-** 一星期一算法.
 * Healthy
   Marathon
 
@@ -17,12 +15,6 @@
 
 ** Programming Skills.
    Q2 focus on functional programming.
-*** SICP (40 day here. 8 weeks)
-    1. Book:
-       Structure and Interpretation of Computer Programs - 2nd Edition
-       (MIT Electrical Engineering and Computer Science)
-       Video:
-       one MIT SICP Lectures one per day.
 
 *** View all Current Clojure Books
     1. Clojure in action.
@@ -43,7 +35,6 @@
      之，我认为本书应该和MIT《概率导论》一并使用。
 
 **** 出国的敲门砖
-
 
 *** Statistics 110: Probability (Harvard)
 **** My own Syllabus.
@@ -93,14 +84,14 @@
       Normal distribution, standardization, LOTUS
 ***** DONE - <2013-05-03 Fri> :: Lecture 15
       midterm review, extra examples
-***** TODO - <2013-05-04 Sat> :: SP 5
+***** DONE - <2013-05-04 Sat> :: SP 5
       (Poisson distribution and Poisson paradigm, seeking sublime symmetry, continuous distributions, LOTUS)
 ***** TODO - <2013-05-05 Sun> :: HW 5
 ***** TODO - <2013-05-06 Mon> :: midterm review handout
 ***** TODO - <2013-05-07 Tue> :: midterm exam,
-***** TODO - <2013-05-08 Wed> :: Lecture 16
+***** DONE - <2013-05-08 Wed> :: Lecture 16
       Exponential distribution, memoryless property [this shorter lecture since the first part of class was devoted to giving back and discussing midterms]
-***** TODO - <2013-05-09 Thu> :: Lecture 17
+***** DONE - <2013-05-09 Thu> :: Lecture 17
       moment generating functions (MGFs), hybrid Bayes’ rule, Laplace’s rule of succession
 ***** TODO - <2013-05-10 Fri> :: Lecture 18
       MGFs to get moments of Expo and Normal, sums of Poissons, joint distributions

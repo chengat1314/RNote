@@ -1,19 +1,19 @@
 # -*- mode: org -*-
-# Last modified: <2012-02-04 22:26:36 Saturday by richard>
+# Last modified: <2013-05-04 19:05:02 Saturday by richard>
 #+STARTUP: showall
-#+TITLE:   LearningDeliberately
+#+TITLE: Learning Deliberately
 
+* Backgrounds
+  Positive emotions are essential to learning and creative thinking.
 
-** Positive emotions are essential to learning and creative thinking.
+** environment
+   Your Working environment needs to be rich in sensory opportunities,
+   or else it will literally cause brain damage.
 
-** Your Working environment needs to be rich in sensory opportunities, or else it will literally cause brain damage.
-
-** Commoditization means you compete on aesthetics.  
-
-
+** Commoditization means you compete on aesthetics.
 
 * Tips
-** Time can't be created or destroyed, only allocated.  
+** Time can't be created or destroyed, only allocated.
 ** All knowledge investments have value.
 ** Writing is as important as reading.
 ** Harness the power of Documenting.
@@ -37,7 +37,6 @@
   - Be aware of just how expensive context switching can be, and avoid
     it in all its myriad forms.
 
->cc lecture 1 ends here. to be contd.<
 * Vipassana meditation
   * Find a quiet spot, free from distraction or interruption.
   * Sit in a comfortable, alert posture, with a straight back.
@@ -50,9 +49,6 @@
     conversation with yourself.
   * Even if your mind is wandering often, the exercise of noticing
     that you have wandered and beringing yourself back each time is helpful.
-
-
-
 
 * Create an Exploratory Environment
 ** Freedom to experiment.
@@ -90,7 +86,7 @@
 
 
 * Manage your profoilo
-  * Have a concrete plan. 
+  * Have a concrete plan.
     - Next action.
     - Goals for next year
     - Goals for five years out.
@@ -98,7 +94,7 @@
   * Diversify
   * Make an active, not passive, investment.
   * Make a regular investment.
-    - 
+    -
 
 
 * Sheep dip training doesn't work:
