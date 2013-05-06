@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-05-04 19:05:02 Saturday by richard>
+# Last modified: <2013-05-06 15:17:12 Monday by richard>
 #+STARTUP: showall
 #+TITLE: Learning Deliberately
 
@@ -42,7 +42,7 @@
   * Sit in a comfortable, alert posture, with a straight back.
   * Close your eyes, and focus your awareness on your breath.
   * Be aware of the rhythm of your breath, the length and qualities of
-    the inhale, the brief pause at the top of the sycle, the qualities
+    the inhale, the brief pause at the top of the cycle, the qualities
     of the exhale, and the brief pause at the bottom.
   * Keep your mind focused on the breath.
   * You may find yourself thinking about some topic or carrying on a
@@ -53,7 +53,7 @@
 * Create an Exploratory Environment
 ** Freedom to experiment.
 ** Ability to backtrack to a stable state.
-** Reproduce any work prodect as of any time.
+** Reproduce any work product as of any time.
 ** Ability to demonstrate progress.
 
 
@@ -63,7 +63,7 @@
   * Learning by teaching.
 
 * Method to study a book: SQ3R
-  * Survey: Scan the table of contests and chapter summaries for an overview.
+  * Survey: Scan the table of contents and chapter summaries for an overview.
   * Question: Note any qestions you have.
   * Read: Read in its entirety.
   * Recite: Summarize, take notes, and put in your own words.

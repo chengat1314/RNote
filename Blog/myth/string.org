@@ -1,0 +1,61 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-06 14:44:26 Monday by richard>
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   string
+#+AUTHOR: Richard Wong
+
+Contains string algorithms here.
+
+* String                                                             :greedy:
+
+** Reorder string here.
+   Given a string of lowercase characters, reorder them such that the
+   same characters are at least distance d from each other.
+
+   Input: { a, b, b }, distance = 2
+   Output: { b, a, b }
+
+
+*** Solution
+  #+begin_src python
+
+def reorderStr(s, d):
+    """
+    return string if can find reorder string
+    return None is cannot build reorder string.
+    """
+    char_dict = {}
+    for c in s:
+        if char_dict.get(c) is None:
+            char_dict[c] = 1
+        else:
+            char_dict[c] += 1
+
+    if not canReorder(s, char_dict, d):
+        return None
+
+    char_tuple = sorted(char_dict.items())
+    char_list = ""
+    for char, count in char_tuple:
+        char_list += char * count
+
+    result_list = [None] * len(s)
+    li = 0                      # char_list_index for here
+    for step in range(d):
+        for i in range(step, len(s), d):
+            print "i is %d, li is %d" % (i, li)
+            result_list[i] = char_list[li]
+            li += 1
+
+    return "".join(result_list)
+
+
+def canReorder(s, char_dict, d):
+    return len(s) + d - 1 >= max(char_dict.values()) * d
+
+
+if __name__ == '__main__':
+    print reorderStr("aab", 2)
+    print reorderStr("aababdedcc", 2)
+    print reorderStr("dskjslkasjdflkjasdflkjasdflkjaababdedcc", 2)
+  #+end_src
