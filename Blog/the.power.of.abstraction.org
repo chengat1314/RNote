@@ -1,0 +1,19 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-07 18:20:24 Tuesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   The Power of Abstraction
+#+AUTHOR: Richard Wong
+
+* The programming methodology
+  all about is from 1970s software crisis.
+  - goto statements considered harmful.
+  - Top-down appoarch to design. 1971
+
+** How should programs be designed.
+** How should programs be structured.
+
+* Programming language
+
+* 

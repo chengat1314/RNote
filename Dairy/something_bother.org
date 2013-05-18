@@ -1,0 +1,114 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-08 18:20:28 Wednesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE: 上半年的强力吐槽
+#+AUTHOR: Richard Wong
+
+* Intro
+  来Ad已经有一年多了.
+  从北研空空如许也, 到人满为患, 又到新办公室继续马上要人满为患.
+  可能言语有点冲激, 望各位大大海涵.
+
+* From data.
+  可能只有研究院的人对这个感觉最深, 数据最重要, 没有之一.
+  我最近对基础和数据的认识又进一步加强, 所以总是有种感觉, 数据早晚还得
+  出问题.
+
+** 只是 *单纯* 的说我们信仰数据是没有用的.
+   听说我们不只是广告公司, 我们是数据公司.
+   huawei的硬件开始打入美国市场, 但是更多的是开始在香港等地开设关于数
+   据的东西. 管道完全没有管道里面流的东西有价值.
+   我们是数据公司, 而且信仰数据.
+   我们自己人要知道自己为什么信仰数据.
+   曾经反问自己, 为什么信仰数据?
+   从挖掘的角度去解释, 数据特别关键, 数据量足够大, 那么复杂的算法根本
+   不必要, naive的算法反而足够揭露数据本质的问题. (bluh bluh, 省略1w字)
+   从普通的角度去解释, 那是一块藏有石油的土地, 圈了足够多的地, 才更可
+   能发现地质问题, 才知道什么算是更良好的石油, 哪里有更好的石油.
+   数据太重要了. google出高薪, 但这不够, 如何吸收人才? They have data.
+   为什么alibaba牛逼到获得国际大牛工程师? They have more data!
+   那么何谓信仰数据? 要从认为数据很重要乃至特别重要开始.
+
+** SOLUTION
+   1. 经常讨论或者组织活动这些数据能干什么.(可以让研究院推动)
+   3. 硬盘太小, 实为装不下我们想要的数据, 或者养成留下数据的习惯.
+   4. 长期来看, 实为需要建立一个Information Platform. 类似Data Warehouse.
+
+** 另外
+   跟数据一样, 只是 *单纯* 的给出一个slogan是没有用的. 主人翁精神, 有
+   主人翁精神就是不求回报的要求你做更多的事情? 下面谈谈工程师文化.
+
+* Culture for Engineers.
+  稍微谈一些工程师文化.
+
+** Optimize your Current Context.
+  - It takes twenty minutes to reload context.
+  - Multitasking can cost you 20 to 40 percent of your productivity.
+  - Scan the input queue only once.
+  - Process each pile of work in order.
+  - Don't keep lists in your head.
+
+** Admaster's engineers are receptionists.
+   No matter PMs or any level's leaders, always have a right to
+   interrupt engineers any times any way.
+   Yet, We engineers cannot do things efficiently with no countinous
+   silience work environments.
+   here goes a slogan:
+   /下午三点一个会, ruin engineers' day./
+   *We are no longer a small company*.
+
+*** A stat:
+    刚开始在办公的时候只有2个人偶尔打断我, 现在有十个, 一次我在看一个1
+    小时左右的视频, 前半个小时被打断了6次. 不难想象开发效率究竟如何.
+    我GF是interpreter, 会专门做分心练习, 同时做两件事情, 但是我相信工程
+    师们都不是, 也无法做到.
+
+*** SOLUTION
+    1. Do a little-pressure plan, ensure the deadline on monday.
+       (In another word, the first workday of weeks)
+       (tricky part for this, means trust our engineers)
+    2. Promote BBS instead of QQ.
+       QQ is really boring, never do important things in QQ.
+       Such thing force us to develop a stupid habit -- always login
+       QQ in the upper right.
+       Related things can be talked in our forums.
+       - alternatively, using emails.
+       such as baidu.com always reinforce his email culture.
+
+** Evil is under our blames.
+   It's human nature to want to assign blames.
+   Everyone can write wrong, stupid, naive codes, and sometimes we may
+   couldn't imagine such 2B codes could be written down.
+   (Of course, always harmful to the team's efforts.)
+   In fact, it happens more when we do less right things.
+   1. Engineers are too selfish to share our codes and ideas.
+      Just praise shares don't mean it.
+   2. PMs are too selfish to quicken the developing tempo.
+   3. Leaders are too selfish to give engineers time to learn.
+      Always fast implementation without test can't win in the competition.
+      Do we really do things as code review and share ideas before it
+      happens?
+      By developing a strong culture of transparency and accountability
+      will focus engineers' efforts where they belong: pursue brilliant
+      work.
+      On the contrary, it would be really nice if you guys can call the
+      code was implemented in a brilliant way.
+      Better than 1000 RMB's rewarding.
+
+*** SOLUTION
+    Don't be evil when bad things happens; Rock engineers code.
+    Hold things in the each Fridays:
+    - Big Code review.
+    - in-company sharings.
+    - various Tests.
+    - in-company competions.
+    - Most important, give guys profit or time inside.
+
+* overall, we need your MT's motivation.
+  I am a /really little/ engineer. and I don't have the right or fame
+  to promote these big things,
+  Once upon a time, such things has been considered by such high level
+  teams, but throw it away for some reason.
+  But we need it, actually and, urgently.

@@ -1,0 +1,11 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-09 15:56:24 Thursday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   pylib
+#+AUTHOR: Richard Wong
+
+* something about python lib.
+** fit datestring to datetime.
+   datetime.strptime("20130218001203638", "%Y%m%d%H%M%S%f")

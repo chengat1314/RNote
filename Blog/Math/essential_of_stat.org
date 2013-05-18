@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-04-19 14:44:59 Friday by richard>
+# Last modified: <2013-05-07 11:23:18 Tuesday by richard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -11,3 +11,23 @@
    The soul of statistics.
 
 ** Random variables and their distribution.
+
+* Distribution table(for discrete)
+  |----------------+----------------------------+----------------------------+---------------+--------------------------------|
+  | Distribution   | Behavior                   | story                      | Equation      | P.M.F.                         |
+  |----------------+----------------------------+----------------------------+---------------+--------------------------------|
+  | Hypergeometric | sample without replacement |                            |               |                                |
+  | binomial       | sample with replacement    | Sample X of successes in n | X ~ Bin(n, p) | p(X=k)=(n choose k)p^k*q^(n-k) |
+  |                |                            |                            |               |                                |
+  |----------------+----------------------------+----------------------------+---------------+--------------------------------|
+
+* Relationships of Distributions:
+** Binomials
+   X~Bin(n, p)
+   Y~Bin(m, p)
+   X+Y ~ Bin(m + n, p)
+
+
+* Jargons:
+** CDF:
+*** cumulative distribution function.

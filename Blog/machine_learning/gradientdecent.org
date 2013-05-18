@@ -1,0 +1,16 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-07 11:22:32 Tuesday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Gradient Decent
+#+AUTHOR: Richard Wong
+
+
+* Faster than
+  1. conjugate gradient.
+  2. BFGs.
+  3. L-BFGs.
+
+** L-BFGs and BFGs are more complex.
+

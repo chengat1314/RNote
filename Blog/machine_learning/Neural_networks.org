@@ -1,0 +1,13 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-18 09:21:11 Saturday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Neural_networks
+#+AUTHOR: Richard Wong
+
+* Neural networks
+  offers an alternate way to perform machine learning when we have
+  complex hypotheses with many features.
+
+** 

@@ -1,0 +1,46 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-10 15:09:45 Friday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Cloud and Big Data
+#+AUTHOR: Richard Wong
+
+* A few benefits of working with the Cloud
+  1) Cloud is more reliable. Now that your entire working life and
+     life in general is on your computer, this is important. 
+  2) Cloud remembers to back up. 
+  3) Cloud is available 24/7/365 from any terminal in the world. 
+  4) Cloud can hold infinite apps, infinite storage 
+  5) Cloud permits seamless sharing and collaboration 
+     
+* To paraphrase Carr's specifications for a CloudBook
+  1) Cheap. $99-$199. Free storage and apps for personal
+     use. $50/month for premium business.
+  2) Energy efficient. Uses LED screen, flash drive, low-power chip. 
+  3) Durable. Few moving parts. Think iPod nano. 
+  4) Mobile and flexible. No syncing, no backups.
+     
+* Fourth Paradigm:
+  Data-Intensive scientific Discovery.
+  Gethering data is so easy and quikc that it exceeds our capacity to
+  validate, analyze, visualize, store, and curate the information.
+  
+  Science (and some very successful business) will increasingly be
+  done by people who are not only reading nature directly, but are
+  figuring out ways to read the Overmind.
+  The real value of the rest of science then becomes asking good
+  questions.
+  
+** Four sections:
+   1. Earth and environment.
+   2. Health and wellbeing.
+   3. Scientific Infrastructure.
+   4. Scholarly Communication.
+      
+** answers to questions:
+   1. Empirical
+   2. Analytical
+   3. Simulation
+   4. New scientific methodology: is data-intensive problem.
+      

@@ -1,0 +1,48 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-10 15:08:17 Friday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   From Data Deluge 
+#+AUTHOR: Richard Wong
+
+All models are wrong but some are useful.
+
+* The Perabyte Age is different because more is different.
+  KBs were stored on floppy disks.
+  Megabytes were stored on hard disks.
+  Terabytes were store in disk arrays.
+  Perabytes are stored in the cloud.
+* At perabyte scale.
+  Information is not a matter of simple three- and four-dimensinal
+  taxonomy and order but of dimensionally agnostic statistics.
+  
+** The big target here isn't advertising, though.
+   It's science.
+   Scientists are trained to recognize that correlation is not
+   causation.
+** Data without a model is just noise.
+
+   The more we learn about biology, the further we find ourselves
+   from a model that can explain it.
+
+* The model that work
+  1. Something that works.
+  2. Something we understand.
+
+
+* Learning to use a cloud may be challenging and with great opportunity.
+  The new availability of huge amounts of data, along with the
+  statistical tools to crunch these numbers, offers a whole new way
+  of understanding the world.
+  Correlation supersedes causation, and science can advance even
+  without coherent models, unified theories, or really any mechanistic
+  explanation at all. They may or may not be causative, but we can
+  learn new things. 
+
+* data intensive approach to problem solving Correlative Analytics
+  
+* Reference
+  1. [[http://www.wired.com/science/discoveries/magazine/16-07/pb_theory][The End of Theory: The Data Deluge Makes the Scientific Method
+     Obsolete]], Wired magazine, 2008
+  2. [[http://www.edge.org/discourse/the_end_of_theory.html][Responses to Chris Anderson. 2008]]
