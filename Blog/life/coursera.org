@@ -1,0 +1,13 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-20 17:52:06 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   About Coursera
+#+AUTHOR: Richard Wong
+
+现在网上公开课越来越多了，但是真正能hold住的太少了。同时报了十几门课，
+但是真正能够坚持下来的只有两三门，所以其实我觉着，之后计划就只能限制在
+两三门课里面，毕竟已经不是学生了，需要处理的还有工作，生活，各种各样其
+他的事情，而且每天能够学习和接受的新东西也有限，不如认真把两三门的内容
+踏实学好。

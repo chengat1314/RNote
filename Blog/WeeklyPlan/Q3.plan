@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-05-03 11:31:41 Friday by richard>
+# Last modified: <2013-05-21 14:57:41 Tuesday by richard>
 #+STARTUP: showall
 #+TITLE:   Q3
 
@@ -10,15 +10,15 @@
 ** finished Datascience
 ** finished harvard stat 110.
 ** finished clojure programming(at least).
-   
+
 * Healthy
   continous Marathon
-  
+
 * More mathmatics
 ** Probabilistic Graphical Models
 ** Computing for Data Analysis
 
-   
+
 * More functional programming
 ** SICP goes here.(40 day here. 8 weeks)
    1. Book:
@@ -33,7 +33,7 @@
 * More machine learning
 ** [[https://class.coursera.org/neuralnets-2012-001/class/index][Neural Networks]] for Machine Learning
 ** Deep learning.
-** all of the MLAPP. 
+** all of the MLAPP.
    - companion with tsinghua support.
 
 * More basic programming skills.
@@ -42,4 +42,112 @@
 ** [[https://www.coursera.org/course/startup][startup engineering]]
 ** 5.11 High Performance Scientific Computing
 
-* More 
+
+* Some design patterns.
+  SOLID (object-oriented design)[fn:1]
+  Some design patterns but not focus on that
+  Principles as:
+  1. Single Responsibility.
+  2. Open-closed.
+  3. Liskov substitution.
+  4.
+
+* The Big Code. (course CS 61 series(61A->61B->61C))
+  夏季热热热，我们一起来使劲。
+  programming paradigms, data strucutures, machine structures.
+
+  Language is not limited.
+  but Patterns, Paradigms, and Language specified pattern may related.
+  I myself is not the *ONLY* teacher.
+  enhancing skills need us all.
+** [#A]Audiences' prerequisites:
+  1. Realize some O-notation but can't remind or use it very smooth.
+  2. Realize some basic smooth data structrue but cann't use it in a
+     right way.
+  3. proficient in one language(as C, C++, java, python, clojure is ok).
+  4. The mathematics prerequisite is high-school algebra.
+
+** About programming language precedence in this class.
+  1. python.
+  2. clojure.
+  3. C++.(using C++ or java to dimenstrate programming skill)
+  4. java.
+
+** Syllabus
+   This course focus on data structure and algorithms.
+   It named to explain data structure and algorithms in the very detail.
+   Mainly it was divide into 2 parts. half-term (7 weeks)
+
+   reading textbook is not a must, but do the programming question is
+   a must, commit to github is also a must.
+   Bring a computer is optinal, but whiteboard writing skill is a must.
+   * date from [July 6th, Oct 5th]
+     {:July 4, :August 5, :Sept 4, :Oct 1} = 14week
+     Choose a Saturday or Sunday each week. totally
+   * Approximately 3 programming questiones Each week.
+     Mind you code. code as an art.
+   * Approximately 1 Job Interview question Each week. (in class)
+
+*** Part I
+    Mainly talking about basic Data-structures, Algorithms' Intuitions.
+    profiling tools, of course contains some best practices.
+    Topics include union-find, binary search, stacks, queues, bags,
+    insertion sort, selection sort, shellsort, quicksort, 3-way
+    quicksort, mergesort, heapsort, binary heaps, binary search trees,
+    red-black trees, separate chaining and linear probing hash tables,
+    Graham scan, and kd-trees.
+    graph Theory:(from week 4)
+    include depth-first search, breadth-first search,
+    topological sort, Kosaraju-Sharir, Kruskal, Prim, Dijkistra,
+    Bellman-Ford, Ford-Fulkerson, LSD radix sort, MSD radix sort, 3-way
+    radix quicksort, multiway tries, ternary search tries,
+    Knuth-Morris-Pratt, Boyer-Moore, Rabin-Karp, regular expression
+    matching, run-length coding, Huffman coding, LZW compression, and
+    the Burrows-Wheeler transform.
+
+**** Week 1 Intro and Warm Up.
+
+**** Week 2
+**** Week 3
+**** Week 4
+**** Week 5
+**** Week 6
+**** Week 7 (mid term week)
+     Using them all to do the right things.
+     Mathematic is about best algorithms, but Engineer is about `trade-offs`.
+
+*** Part II
+    To more advanced level and skills.
+    First one weeks I want review algrithms and talk about algorithm's
+    analytic skills.
+    include some higher course such as CS162, CS188
+    especially in week 11 and week 12, we focus on <<Efficient
+    Algorithms and Intractable Problems>>
+
+
+**** Week 8
+**** Week 9
+**** Week 10
+**** Week 11
+**** Week 12
+**** Week 13
+
+**** Week 14(last week)
+     Integrate them all and some talk about cloud computing.
+     Parellel computing.
+     Matrix computing.(linear algebra required)
+     Big datas.
+     MIPS
+
+** things related
+*** TextBook
+    1. [[http://www.amazon.cn/%25E7%25AE%2597%25E6%25B3%2595-%25E5%25A1%259E%25E5%2585%258B%25E5%25A8%2581%25E5%2585%258B/dp/B007HAOVUG/ref%3Dsr_1_1?ie%3DUTF8&qid%3D1369109916&sr%3D8-1&keywords%3Dalgorithms][Algorithms]], 4th Edition by Robert Sedgewick and Kevin Wayne,
+
+*** Reference Books.
+    1. [[http://www.amazon.cn/Introduction-to-Algorithms-Third-Edition-Cormen-Thomas-H/dp/0262033844/ref%3Dsr_1_6?ie%3DUTF8&qid%3D1369109916&sr%3D8-6&keywords%3Dalgorithms][CLRS (Introduction to algrithms)]], Introduction to Algorithms,
+       Third Edition Cormen, Thomas H.、Leiserson, Charles E.、Rivest,
+       Ronald L.、 Stein, Clifford The MIT Press (2009-09)
+
+* Footnotes
+
+[fn:1] [[http://en.wikipedia.org/wiki/Solid_(object-oriented_design)][SOLID]]

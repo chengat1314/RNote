@@ -1,0 +1,82 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-20 17:44:32 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Review Python Data Structure
+#+AUTHOR: Richard Wong
+
+* From Basic Data Structure.
+  常常遇到一个问题，经常使用某一种语言，但是忽略了语言内置库中提供了丰
+  富的数据结构。数据结构则是改变编程模式的起点，会帮助你更体系话的思考
+  和解决问题。这也是为什么C++和C应该被看作是完全不一样的语言[fn:1]。
+
+  在上大学的时候，我们知道有这样一门课，但是他所能够带来的好处当时的我
+  而言根本无所预见，现在发现作用是如此之大。
+
+  纵观更现代的编程语言，直接将众多数据类型和方法放入语言标准库中。
+
+  其实是在告诉你，这就是去更体系化的考虑问题。
+
+  当熟悉一门语言后，我们反而更不倾向于去整体把握这门语言，反而在一开始
+  拿起一本700+页的权威指南埋头苦读。
+
+** Something about learning new language a year [fn:2]
+   我记得之前学习别人说过一句话那就是：“一年学习一门新语言”，其实现
+   在看来，感觉有点快了。
+   想起来intel的tick-tock战略，感觉一年学习一门新语言，另外一年把新语
+   言，或者以前没有玩出花的老语言玩出花，才是一个更好的选择。所谓欲速
+   则不达也。
+   Quote from Tim murphy:
+   /The important thing is to discover a new way of viewing and
+   solving problems. Learn how to relate to the viewpoints of the team
+   and stakeholders around you/
+   与其说学习一门新语言，不如说是学习一种新的解决问题的方法。（正所谓
+   玩出花来）
+   （尤其写数学作业时，老师就特别推荐使用多种方法去解决这个问题。其实
+   本质上还是从不同角度去思考）
+
+* Datastructure in STLs.
+  这里STL并不是指C++的标准库，而是泛指所有现代语言的。
+  本篇文章进入主题，主要总结一下在Python中的数据类型，以及他如何帮助我
+  们思考和解决问题。
+
+** collections.
+   Python's general purpose built-in containers, dict, list, set, and tuple.
+   这个我就不说了。
+   有几个事情我比较不明白，首先是，一直使用=python2.x and x < 7=的这个
+   情况。python 如果用virtualenv管理好的话，根本不会出版本的问题。
+   但是闲话少说，这里主要说说collections里面的宝贝。
+   TODO:
+*** namedtuple()
+    factory function for creating tuple subclasses with named fields
+    New in version 2.6.
+*** deque
+    list-like container with fast appends and pops on either end.
+    New in version 2.4.
+*** Counter
+    dict subclass for counting hashable objects
+    New in version 2.7.
+*** OrderedDict
+    dict subclass that remembers the order entries were added
+    New in version 2.7.
+*** defaultdict
+    dict subclass that calls a factory function to supply missing values
+    New in version 2.5.
+
+
+* More than that.
+  其实跟着一门语言发展和学习是非常有前途的。
+  所以推荐大家看2样东西
+  - 对某种语言new feature进展的讨论
+    尤其是那些通过feature的讨论
+    其实能够明显的感觉到，说出要做什么其实很容易，但是谈出为什么这么做
+    很困难。
+    而且能够学习吐槽，我会乱说？
+  - 更深层次，观察语言进展的commit
+
+* Footnotes
+
+[fn:1] C++ primer 4ed.
+
+[fn:2] [[http://java.dzone.com/articles/learn-new-programming-language][learn a new language one year?]]

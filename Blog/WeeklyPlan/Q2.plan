@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-05-03 11:41:15 Friday by richard>
+# Last modified: <2013-05-21 06:55:30 Tuesday by richard>
 #+STARTUP: showall
 #+TITLE:   Q2
 
@@ -93,20 +93,20 @@
       Exponential distribution, memoryless property [this shorter lecture since the first part of class was devoted to giving back and discussing midterms]
 ***** DONE - <2013-05-09 Thu> :: Lecture 17
       moment generating functions (MGFs), hybrid Bayes’ rule, Laplace’s rule of succession
-***** TODO - <2013-05-10 Fri> :: Lecture 18
+***** DONE - <2013-05-10 Fri> :: Lecture 18
       MGFs to get moments of Expo and Normal, sums of Poissons, joint distributions
 ***** TODO - <2013-05-11 Sat> :: SP 6
       (Exponential distribution and memorylessness, moment generating functions (MGFs))
 ***** TODO - <2013-05-12 Sun> :: HW 6
-***** TODO - <2013-05-13 Mon> :: Lecture 19
+***** DONE - <2013-05-13 Mon> :: Lecture 19
       joint, conditional, and marginal distributions, 2-D LOTUS, expected distance between Uniforms, chicken-egg.
-***** TODO - <2013-05-14 Tue> :: Lecture 20
+***** DONE - <2013-05-14 Tue> :: Lecture 20
       expected distance between Normals, Multinomial, Cauchy
 ***** TODO - <2013-05-15 Wed> :: Busy today
 ***** TODO - <2013-05-16 Thu> :: SP 7
       (joint, conditional, and marginal distributions),
 ***** TODO - <2013-05-17 Fri> :: HW 7
-***** TODO - <2013-05-20 Mon> :: Lecture 21
+***** DONE - <2013-05-20 Mon> :: Lecture 21
       Oct 26, 2011 covariance, correlation, variance of a sum, variance of Hypergeometric
 ***** TODO - <2013-05-22 Wed> :: Lecture 22
       Oct 28, 2011 transformations, LogNormal, convolutions, proving existence

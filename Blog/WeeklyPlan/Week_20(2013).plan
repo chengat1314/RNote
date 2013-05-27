@@ -1,0 +1,113 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-27 10:39:54 Monday by richard>
+#+STARTUP: showall
+#+TITLE:   May 20 - 27 (Week 20)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+**
+
+* Daily Journal
+** <2013-05-20 Mon>
+*** 跟素娜讨论了jieba分词，并分析了jieba分词的dict。
+    1. jieba分词并没有提供标点的标注。
+    2. jieba分词的标注大体相似于宾州树库，但是也不太一样，标题主要写了
+       ICTCLAS兼容的标记方法。但是分析词库共有55种词性(commit 1d4c044)。
+    3. jieba segmentation.
+    4. 查看了一下jieba的commits
+       - jieba自从版本0.28开始，支持启动前插入自定义词典，同时提供了一
+         个比较完美的词典。（当然会占用更多内存）暂时还没测试需要多少内存。
+       - jieba修正了不少关于新加词无法分出的bug，这个驱动力强么？少年。
+       - 开始支持繁体分词，但并不支持繁体转换（支援繁体之后必然效果特别好，
+         但是现阶段可能我们并不需要额。）
+
+** <2013-05-21 Tue>
+*** 实时去重的一些问题
+    实时去重是之前留下来的关于系统设计的几个问题。
+    1. post数据反映慢，这个只要接受post数据就应当返回，有server来承担
+       和决定post结果。
+    2. 去重get服务慢，这个主要还是涉及到具体的去重算法。
+       现阶段的去重特别simple。就是hash前6个字符和后六个字符，所以有些
+       即使内容不同的weibo也会被hash掉。
+
+*** 实时去重的解决方案
+    1. 看了一下业界的做法。to the state-of-the-art.
+    2. 期间参考了一下
+
+*** 龚婷婷的相似性交流
+    因为相似性算法和之前给龚婷婷提供的算法比较相似，问了一些结果上面的
+    问题。
+    据说下午<2013-05-21 Tue 11:50:48>会反馈，等待ing。
+
+**** 已经反馈@<2013-05-21 Tue 13:50:48>
+     分析数据
+     为保证速度，算法的主要依赖hash整理文字后的首尾五个汉字（当整个算
+     法长超过五字符的时候）
+     算法特别依赖汉字，所以减少无意义汉字的干扰特别重要。
+     - [表情]  从sina提供的emotion接口返回避免因为表情碰撞而带来的各种
+       各样的问题。
+     - 重叠字：
+       如AABB，ABAB，不会因为依靠重叠字的情况而导致不同。
+       依然是哈兮首尾五字符的结构。
+     - （分享自 @...）
+
+*** 跟Anlei交流了相似性的一些问题
+    1. 完全相同的只出现一次
+       其实完全相同的weibo已经不少了。
+       不需要做到语义相同，只做完全相同的。
+    2. 去重遇到的所有的weibo。
+       这点好处特别明显，但是必然去重操作已经不能在内存里面进行，至少
+       线下应该做一些准备，才能处理好实时去重的问题。
+    3. 统一为实时去重。
+       这样可以方便的进行管理。避免因为判定重复算法太多而造成的挖掘困
+       难。
+
+** <2013-05-22 Wed>
+   今天改进了算法的思路。
+   主要就是离线计算。依靠数据库和转接服务来解决这个问题。
+
+** <2013-05-23 Thu>
+** <2013-05-24 Fri>
+   
+
+
+
+
+
+
+
+*** 关于NLP服务反馈的事情。
+    今天不但老板们会打断我，新同学也有这个习惯了。这是十分不好的节奏啊。
+    研究院这边逐渐壮大，之后app要弄的比较像样才是，并不是写好了，过来
+    拍拍肩膀，给我说，诶，我写好了，咱们上一下线吧。没过一会肯定会有一
+    种情况发生，诶，刚刚出了点小问题我又改了一下。额。。这节奏完全不对
+    啊。应该专门挑出一个时间段来进行新API的上线，要有上线的测试能力，
+    否则上线就特别坑爹了。
+
+
+* refer
+  一些有趣的文章
+**  How to deploy an API:
+  1. Performance planning and testing.
+  2. Testing methodologies for functional testing.
+     loading tests, testing tools.
+  3. Production monitoring.
+
+     http://blog.smartbear.com/apis/testing-your-apis-is-only-half-the-story/
+
+
+* data deduplication
+  All data de-duplication looks for redundant information in data,
+  whether at the file, object or sub‐object block level.
+
+  Data de-duplication typically works by analyzing data and computing
+  a shorthand or unique identifier for a piece of information
+
+
+
+
+* life
+** 7个不要讲
+   普世价值、新闻自由、公民社会、公民权利、党的历史错误、权贵资产阶级、司法独立

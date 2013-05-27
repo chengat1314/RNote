@@ -1,0 +1,48 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-20 17:11:14 Monday by richard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Sorting
+#+AUTHOR: Richard Wong
+
+* Sort in python
+  function =sorted=
+  It's a declarative function.
+  iterable will sort.
+** sort a list
+   #+begin_src python
+sorted(l)
+   #+end_src
+** sort reverse
+   #+begin_src python
+sorted(iterable, cmp=None, key=None, reverse=False)
+   #+end_src
+
+** sort a dict, by value.
+   It's runs good, when you need both value and index.
+#+begin_src python
+   import operator
+   x = {1: 2, 3: 4, 4:3, 2:1, 0:0}
+   sorted_x = sorted(x.iteritems(), key=operator.itemgetter(1))
+#+end_src
+   - another method
+     #+begin_src python
+import collections
+Player = collections.namedtuple('Player', 'score name')
+d = {'John':5, 'Alex':10, 'Richard': 7}
+sorting with lowest score first:
+
+worst = sorted(Player(v,k) for (k,v) in d.items())
+     #+end_src
+
+   - no import
+#+begin_src python
+for w in sorted(d, key=d.get, reverse=True):
+    print w, d[w]
+#+end_src
+
+   - brute force sorting.
+#+begin_src python
+sorted([(value,key) for (key,value) in mydict.items()])
+#+end_src
