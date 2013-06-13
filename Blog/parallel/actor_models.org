@@ -1,0 +1,16 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-30 08:42:42 Thursday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   actor_models
+#+AUTHOR: Richard Wong
+
+* Actor
+  According to Carl Hewitt, unlike previous models of computation, the
+  Actor model was inspired by physics including general relativity and
+  quantum mechanics
+
+
+* philosophy
+  everything is an actor.

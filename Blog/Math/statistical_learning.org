@@ -1,0 +1,214 @@
+# -*- mode: org -*-
+# Last modified: <2013-06-04 11:57:48 Tuesday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   statistical_learning
+#+AUTHOR: Richard Wong
+
+* Overview
+** statistical learning.
+   statistical learning is statistical machine learning.
+   关于计算机给予数据构建概率统计模型并运用模型对数据进行预测与分析的
+   一门学科。
+   
+*** 统计学习的特点
+    1. 以计算机和网络为平台，建立在计算机和网络之上。
+    2. 统计学习以数据为研究对象，是数据驱动的学科。
+       从数据出发，提取数据的特征，抽象出数据的模型，发现数据中的知识，
+       最后回到对数据的分析和预测中去。
+    3. 统计学习的目的是对数据进行预测和分析。
+    4. 统计学习以方法为中心，统计学习方法构建模型并应用模型进行预测和分
+       析。
+    5. 统计学习是概率论，统计学，信息论，计算理论，最优化理论及计算机科
+       学等多个领域的交叉学科。
+       用随机变量来描述数据中的特征，用概率分布描述数据的统计规律。
+       
+*** 统计学习方法的三要素
+**** 模型
+     首先要考虑的问题是学习什么样的模型.
+     在监督学习过程中, 模型就是索要学习的条件概率分布或者决策函数.
+     模型的假设空间包含所有可能的条件概率分布或决策函数.
+**** 策略
+     损失函数
+**** 算法
+     
+*** 统计学习的研究
+    1. 统计学习方法。
+    2. 统计学习理论。
+    3. 统计学习应用。
+       
+** supervised learning
+*** 特征空间
+    将输入与输出的所有取值的集合分别成为输入空间与输出空间。
+    通常输出空间要远远小于输入空间。
+    每一个输入是一个具体的实例，通常由特征向量表示，这时，所有特征向量
+    存在的空间称之为特征空间。
+    有时假设输入空间与特征空间为不同的空间，将实力从输入空间映射到特征
+    空间。
+    输入与输出又称为样本（sample）或样本点。
+    1. 输入变量与输出变量均为连续变量的预测问题成为回归问题
+    2. 输出变量为有限个离散变量的预测问题成为分类问题。
+    3. 输入变量与输出变量均为变量序列的预测问题成为标注问题。
+*** 监督学习
+**** 监督学习的目的
+     监督学习的目的在于学习一个由输入到输出的映射.
+     监督学习的模型可以是概率模型或者非概率模型, 由条件概率分布P(Y|X)
+     或决策函数Y=f(x) 表示.
+*** 监督学习的数学假设
+    X为输入变量, Y为输出变量.
+    在学习过程中, 假定监督学习假设输入与输出的随机变量X和Y遵循联合概率
+    分布P(X, Y)。P(X,Y)表示分布(密度)函数. 
+    但对学习系统来说,联合概率分布的具体定义是未知的.
+    X和Y具有联合概率分布的假设就是监督学习关于数据的基本假设.
+    监督学习中, 假设训练数据和测试数据是依靠联合概率分布P(X, Y)独立同
+    分布产生的.
+    
+*** 策略
+    损失函数度量模型一次预测的好坏, 风险函数度量平均意义下模型预测的好
+    坏.
+**** loss function
+     损失函数是=f(X)=和=Y=的非负实值函数, 记作L(Y, f(X)).
+     common loss function list
+     1. 0-1 loss function
+     #+BEGIN_LaTeX
+     L(Y, f(X)) = 1, Y != f(X)
+     0, Y == f(X)
+     #+END_LaTeX
+     2. quadratic loss function
+     #+BEGIN_LaTeX
+     L(Y, f(X)) = (Y - f(X))^2
+     #+END_LaTeX
+     3. absolute loss function
+     #+BEGIN_LaTeX
+L(Y, f(X)) = abs(Y - f(X))
+     #+END_LaTeX
+     
+     4. logarithmic loss function/loglikelihood loss function.
+     #+BEGIN_LaTeX
+     L(Y, P(Y|X)) = -log(P(Y|X))
+     #+END_LaTeX
+     
+**** Risk Function/expected loss
+     损失函数值越小, 模型就越好. 由于模型的输入, 输出(X, Y)是随机变量,
+     遵循联合分布P(X, Y), 所以损失函数的期望(风险函数)是:
+     #+BEGIN_LaTeX
+     R_exp(f) = E_p[L(Y, f(X))] = integral(X, Y, L(y, f(X))P(x, y)dxdy)
+     #+END_LaTeX
+     学习的目标就是选择期望风险最小的模型.
+     一方面根据期望风险最小学习模型要用到联合分布, 另一方面联合分布又
+     是未知的, 所以监督学习就成为了一个病态问题.
+**** Empirical risk minimization (ERM)
+     当样本容量足够大的时候, 经验风险最小化能够保证有良好的学习效果.
+     但是当样本容量很小的时, 则会over-fitting
+     #+BEGIN_LaTeX
+     min_f\F(1/N * sum_{i=1}^{N}(L(Y_i, f(x_i))))
+     #+END_LaTeX
+**** Structural risk minimization(SRM)
+     结构风险最小化等价于正则化(regularization)
+     结构风险在经验风险上加上表示模型复杂度的正则化项(regularizer)或者
+     罚项.
+     结构风险最小化认为结构风险最小的模型是最优的模型.
+     #+BEGIN_LaTeX
+     min_f\F(1/N * sum_{i=1}^{N}(L(Y_i, f(x_i)) + \lambda J(f)))
+     #+END_LaTeX
+     此时监督学习就变成了经验风险或结构风险最优化的问题.
+     经验或结构风险函数是最优化的目标函数.
+*** 模型评估
+    通常将学习方法对未知数据的预测能力成为泛化能力
+*** 模型选择
+    模型选择的典型方法就是正则化(regularization).
+*** Cross-validation
+    training set, validation set, test set.
+    训练集用来训练模型, 验证集用来模型选择, 而测试集用于最终对学习方法
+    的评估.
+    1. 简单的交叉验证.
+       数据量比较大
+    2. S-fold cross validation
+       最常用
+    3. leave-one-out cross validation.
+       缺乏数据时候使用.
+** 泛化能力
+*** generalization ability
+    由该方法学习到的模型对未知数据的预测能力,是学习方法本质上重要的性
+    质.
+** 生成模型和判别模型.
+   监督学习方法又可以分成生成方法(generative approach)和判别方法
+   (discriminative approach).
+   所学到的模型分别为生成模型(generative model)和判别模型
+   (discriminative model).
+*** 生成模型
+    由数据学习联合分布概率P(X, Y), 然后求出条件概率分布P(Y|X)作为预测
+    的模型, 即为生成模型.
+    因为模型表示了给定输入X产生输出Y的生成关系.
+    典型的生成模型有:
+    1. Gaussian mixture model and other types of mixture model
+    2. Hidden Markov model
+    3. Probabilistic context-free grammar
+    4. Naive Bayes
+    5. Averaged one-dependence estimators
+    6. Latent Dirichlet allocation
+    7. Restricted Boltzmann machine    
+*** 判别模型
+    由数据直接学习决策函数f(X)或者条件概率分布P(Y|X)作为预测的模型, 叫
+    做判别模型.
+    判别方法关心的是对给定的输入X, 应该预测什么样的输出Y.
+    典型的判别模型有:
+    1. Logistic regression, a type of generalized linear regression
+       used for predicting binary or categorical outputs (also known
+       as maximum entropy classifiers)
+    2. Linear discriminant analysis
+    3. Support vector machines
+    4. Boosting (meta-algorithm)
+    5. Conditional random fields
+    6. Linear regression
+    7. Neural networks
+       
+*** pros and cons
+    For tasks such as classification and regression that do not
+    require the joint distribution, discriminative models can yield
+    superior performance. 
+    On the other hand, generative models are typically more flexible
+    than discriminative models in expressing dependencies in complex
+    learning tasks. In addition, most discriminative models are
+    inherently supervised and cannot easily be extended to
+    unsupervised learning.
+    判别方法直接学习的是条件概率P(Y|X)或决策函数f(X), 直接面对预测, 往
+    往学习的准确率越高; 由于直接学习P(Y|X)或f(X), 可以对数据进行各种程
+    度上的抽象, 定义特征并使用特征, 从而简化学习问题.
+    生成方法则可以快速还原出联合概率分布P(X, Y), 而判别方法则不能; 生
+    成方法的学习收敛速度更快, 即当样本容量增加的时候, 学到的模型可以更
+    快的收敛于真实模型; 当存在隐变量时, 仍可以用生成方法学习, 此时判别
+    方法就不能用.
+
+** 精确率和召回率
+   TP: 将正类预测为正类数
+   True positive
+   FN: 将正类预测为负类数
+   False Negative
+   FP: 将负类预测为正类数
+   False positive
+   TN: 将负类预测为负类数
+   True Negative
+   精确率定义:
+   P = TP/(TP+FP)
+   召回率定义:
+   R = TP/(TP+FN)
+   F1:调和均值:
+   2 / F1 = 1 / P + 1 / R
+   F1 = 2TP / (2TP + FP + FN)
+* 标注问题
+  标注常用的统计学习方法有:
+  HMM, CRF. 
+
+* 回归问题
+  回归用于预测输入变量(自变量)和输出变量(因变量)之间的关系.
+  特别是当输入变量的值发生变化时, 输出变量的值随之发生的变化.
+** 类型
+   回归问题按照输入变量的个数, 分为一元回归和多元回归;
+   按照输入变量和输出变量之间关系的类型, 分为线性回归和非线性回归.
+   回归问题可以由最小二乘法求解.
+
+
+* 感知机
+  

@@ -1,0 +1,23 @@
+# -*- mode: org -*-
+# Last modified: <2013-06-11 18:53:17 Tuesday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   没有短板
+#+AUTHOR: Richard Wong
+
+主要从土鳖的程序员的角度，谈一下iphone和android一些看法。
+
+* 从现在的手机iphone谈起
+  今年年初开始一直使用iphone，到手的感觉就是，这个东西很漂亮，
+  无论是什么时候，iphone给人留下的印象就是高端白富美的形象。
+  大多屌丝能够得到的方法就是卖肾。。
+  攻击iphone的手段太多太多，但是基本不得要害，很多普通用户人
+  苹果这个公司特别恶心，弄的
+
+
+* 手机最重要的是什么？
+
+* 智能手机最重要的是什么？
+
+* 3-4G互联网时代手机最重要的是什么？

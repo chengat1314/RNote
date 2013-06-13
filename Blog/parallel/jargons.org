@@ -1,0 +1,70 @@
+# -*- mode: org -*-
+# Last modified: <2013-05-30 08:38:02 Thursday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   jargons
+#+AUTHOR: Richard Wong
+
+* Jargons
+** Concurrency
+** Deadlock
+** Reentrant (Subroutine)
+** Petri Net
+** Dining Philosophers Problem
+** Sleeping Barber Problem
+** Race Condition
+** Continuation.
+   In computer science and computer programming, a continuation is an
+   abstract representation of the control state of a computer program.
+
+   Continuations are useful for encoding other control mechanisms in
+   programming languages such as exceptions, generators, coroutines,
+   and so on.
+
+   Continuations are also used in models of computation including
+   denotational semantics, the Actor model, process calculi, and
+   lambda calculus. These models rely on programmers or semantics
+   engineers to write mathematical functions in the so-called
+   continuation-passing style. This means that each function consumes
+   a function that represents the rest of the computation relative to
+   this function call. To return a value, the function calls this
+   "continuation function" with a return value; to abort the
+   computation it returns a value.
+   
+* coroutine skills.
+  Subroutines are special cases of coroutines.
+** subroutine
+   In different programming languages a subroutine may be called a
+   procedure, a function, a routine, a method, or a subprogram. The
+   generic term callable unit is sometimes used. 
+*** closed subroutine
+    
+*** macro
+    
+** coroutine
+** generators
+   semicoroutines.
+   also a generalisation of subroutines.
+   
+* Practical coroutine
+** State machines.
+** Actor model of concurrency.
+** Generators.
+** Communicating sequential processes.
+   
+* Mutual recursion
+* Benefits of coroutine
+  because coroutines can only be rescheduled at specific points in the
+  program and do not execute concurrently, programs using coroutines
+  can often avoid locking entirely. (This property is also cited as a
+  benefit of event-driven or asynchronous programming.) 
+  
+* Green threads
+  In computer programming, green threads are threads that are
+  scheduled by a virtual machine (VM) instead of natively by the
+  underlying operating system. Green threads emulate multithreaded
+  environments without relying on any native OS capabilities, and they
+  are managed in user space instead of kernel space, enabling them to
+  work in environments that do not have native thread support.
+

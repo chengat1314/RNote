@@ -1,0 +1,8 @@
+# -*- mode: org -*-
+# Last modified: <2013-06-07 14:09:35 Friday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   rewrite_or_refactor
+#+AUTHOR: Richard Wong
+   

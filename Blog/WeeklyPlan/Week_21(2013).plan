@@ -1,13 +1,221 @@
 # -*- mode: org -*-
-# Last modified: <2013-05-27 10:38:31 Monday by richard>
+# Last modified: <2013-06-01 09:03:36 Saturday by wongrichard>
 #+STARTUP: showall
-#+TITLE:   May 27 - 34 (Week 21)
+#+TITLE:   May 27 -  (Week 21)
 
 * Relationship
 ** TODO:
    
 * Professional Skill
-  **
-  
+** 周末安排。
+** 本周一周都没有学习概率论。
+*** （特别焦急，下周必须养成早期的习惯，然后继续学习概率论）
+*** 概率论是我整个庞大机器学习计划的基础，如果这个学不好，其他无非空中
+    阁楼，镜中幻象罢了。重点其实在这里。之后如果学经济之类的东西，这些
+    都是良好的基础，很快就可以发芽。懂不懂。。
+*** 周六
+    上午补学概率论，下午学习上上周的Introduction to Data
+    Science. 然后趁热打铁，
+*** 周日
+    早上继续学习概率论（如果能早睡的话），然后上午学习上周的ML课程，然
+    后完成编程习题和答案。下午应该去打球，如果没去就学习Introduction
+    to Data Science上周的课程。然后下周继续概率论的计划，（Q2其实最重
+    要的就是概率论的课）
+    
+*** 注：ML的课特别特别的重要，我已经丢了一次作业分了，我需要一个优秀的badge。
+    
 * Daily Journal
-** 
+** <2013-05-27 Mon>
+*** DONE 写了redis访问的基本框架和基本测试。
+    
+** <2013-05-28 Tue>
+*** DONE 实现了更多的redis的细节和测试。
+*** DONE 帮助peipei复查一些数据库代码。
+*** DONE 解决了分词接口快速重用而带来的bug。@jianhua,@jinfan。
+    
+** <2013-05-29 Wed>
+*** DONE 补充了例外的测试 
+*** DONE FIX redis bug。
+    
+** <2013-05-30 Thu>
+*** DONE 完成redis的数据结构和测试。（延期）
+*** DONE 提供新的实时去重接口和测试。
+*** DONE 集成两个模块。
+    
+** <2013-05-31 Fri>
+*** DONE 完成redis的数据结构和测试。
+*** DONE 完成nlp_lab的修改和测试。
+*** DONE 提交了nipeng更新的lab_nlp
+*** 代码有一点rush，需要对照需求，慢慢重构。
+    
+* 下周展望
+** 有时间就重构 nlp_lab。
+** 优化redis解决方案。
+   （我就不告诉你，redis已经作为通用的去重模块存在了。）
+** DMP with nipeng.
+   
+#+begin_src bash
+
+
+* OS X optimization with SSD
+
+** Mount the root file system / with the option noatime
+#!/bin/bash
+
+# +----------------------------------------------------------------------+
+# |                                                                      |
+# |  Mount the root file system / with the option noatime                |
+# |                                                                      |
+# |  By Philipp Klaus <http://blog.philippklaus.de>                      |
+# |  Tip found on <http://blogs.nullvision.com/?p=275>                   |
+# |                                                                      |
+# +----------------------------------------------------------------------+
+
+cat << EOF | sudo tee /Library/LaunchDaemons/com.nullvision.noatime.plist > /dev/null
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+        "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>com.nullvision.noatime</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>mount</string>
+            <string>-vuwo</string>
+            <string>noatime</string>
+            <string>/</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+    </dict>
+</plist>
+EOF
+
+#+end_src
+   
+** Set up Mac OS X to store temporary files in RAM rather than on disk.
+   
+#+begin_src bash
+#!/bin/bash
+
+# +----------------------------------------------------------------------+
+# |                                                                      |
+# |  Set up Mac OS X to store temporary files in RAM rather than on disk.|
+# |                                                                      |
+# |  By Philipp Klaus <http://blog.philippklaus.de>                      |
+# |                                                                      |
+# |  Originally by Ricardo Gameiro <http://blogs.nullvision.com/?p=357>  |
+# |  Changes by Daniel Jenkins                                           |
+# |     <http://blogs.nullvision.com/?p=357#comment-1140>                |
+# |                                                                      |
+# +----------------------------------------------------------------------+
+
+cd /System/Library/StartupItems
+sudo mkdir RamFS
+sudo chown -R root:wheel RamFS
+sudo chmod -R u+rwX,g+rX,o+rX RamFS
+cat << "EOF" | sudo tee RamFS/RamFS > /dev/null
+#!/bin/sh
+# Create a RAM disk with same perms as mountpoint
+
+RAMDisk() {
+    mntpt=$1
+    rdsize=$(($2*1024*1024/512))
+    echo "Creating RamFS for $mntpt"
+    # Create the RAM disk.
+    dev=`hdik -drivekey system-image=yes -nomount ram://$rdsize`
+    # Successfull creation...
+    if [ $? -eq 0 ] ; then
+        # Create HFS on the RAM volume.
+        newfs_hfs $dev
+        # Store permissions from old mount point.
+        eval `/usr/bin/stat -s $mntpt`
+        # Mount the RAM disk to the target mount point.
+        mount -t hfs -o union -o nobrowse $dev $mntpt
+        # Restore permissions like they were on old volume.
+        chown $st_uid:$st_gid $mntpt
+        chmod $st_mode $mntpt
+    fi
+}
+
+# Test for arguments.
+if [ -z $1 ]; then
+    echo "Usage: $0 [start|stop|restart] "
+    exit 1
+fi
+
+# Source the common setup functions for startup scripts
+test -r /etc/rc.common || exit 1
+. /etc/rc.common
+
+StartService () {
+    ConsoleMessage "Starting RamFS disks..."
+    RAMDisk /private/tmp 256
+    RAMDisk /var/run 64
+    #RAMDisk /var/db 1024
+    #mkdir -m 1777 /var/db/mds
+}
+StopService () {
+    ConsoleMessage "Stopping RamFS disks, nothing will be done here..."
+    # diskutil unmount /private/tmp /private/var/run
+    # diskutil unmount /private/var/run
+}
+
+RestartService () {
+    ConsoleMessage "Restarting RamFS disks, nothing will be done here..."
+}
+
+RunService "$1"
+EOF
+sudo chmod u+x,g+x,o+x RamFS/RamFS
+
+
+cat << EOF | sudo tee RamFS/StartupParameters.plist > /dev/null
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+    <dict>
+        <key>Description</key>
+        <string>RamFS Disks Manager</string>
+        <key>OrderPreference</key>
+        <string>Early</string>
+        <key>Provides</key>
+        <array>
+                <string>RamFS</string>
+        </array>
+        <key>Uses</key>
+        <array>
+                <string>Disks</string>
+        </array>
+    </dict>
+</plist>
+EOF
+#+end_src
+   
+** IP Region Mapping.
+   
+*** Format..
+    "11/0010/1" CN/Beijing/ISP
+    Telephone district....
+    backward split.
+    1 public.
+    2 education.
+**** Hybird format.
+     Many-to-Many Mapping.
+     
+**** Tech details.
+     
+     
+     
+     
+*** G-UID. industry standard.
+    "1156/4400/00" CN/GuangDong/nil.
+    
+** Questions..
+*** Ip v6?
+    
+** Gevent
+   a coroutine-based Python networking library that uses greenlet to
+   provide a high-level synchronous API on top of the libevent event
+   loop.

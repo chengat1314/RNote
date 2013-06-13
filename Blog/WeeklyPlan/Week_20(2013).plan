@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-05-27 10:39:54 Monday by richard>
+# Last modified: <2013-05-27 10:58:17 Monday by wongrichard>
 #+STARTUP: showall
 #+TITLE:   May 20 - 27 (Week 20)
 
@@ -69,13 +69,14 @@
    主要就是离线计算。依靠数据库和转接服务来解决这个问题。
 
 ** <2013-05-23 Thu>
+   实现之前设计的算法，然后下午基本上连不上网了。
+   晚上处理了服务器因为没有deploy @nipeng的hotfix而导致的硬盘满，并且
+   提交更新的相关服务，现阶段运行良好。
+
 ** <2013-05-24 Fri>
-   
-
-
-
-
-
+   向斌哥咨询了redis的特性，然后讨论了一下算法依赖的情况，效果可以。
+   今天下午主要就是研究院讨论当前进度，感觉好久没有讨论的样子，内容比
+   较多，所以实现上没什么进度。
 
 
 *** 关于NLP服务反馈的事情。
@@ -88,7 +89,7 @@
 
 
 * refer
-  一些有趣的文章
+  分享一篇有趣的文章
 **  How to deploy an API:
   1. Performance planning and testing.
   2. Testing methodologies for functional testing.

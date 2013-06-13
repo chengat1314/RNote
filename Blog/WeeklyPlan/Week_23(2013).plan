@@ -1,0 +1,68 @@
+# -*- mode: org -*-
+# Last modified: <2013-06-13 22:04:59 Thursday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Jun 11 - 18 (Week 23)
+
+* Relationship
+** TODO:
+   
+* Professional Skill
+  **
+  
+* Daily Journal
+** <2013-06-12 Wed>
+
+*** For Professional Skill
+**** FAILED 上午 统计学习基础（计划继续推动）
+**** DONE 上午 coursera model thinking.
+
+*** For life
+**** FAILED marathon
+     7km(恢复跑，好久没有跑了)
+**** DONE 陪妞妞逛街
+     妞妞很开心，我也很开心。
+
+*** For relationships
+**** DONE 第一次和java脑残粉群的人聚会
+     水平都差不多，有微软的人，有18摸的人，领域不一样。
+     找找笑点，闹闹，完了。不算特别好玩，不过还算凑或吧。之后闭关，这种
+     聚会不会有很多机会去参加了。
+
+** <2013-06-13 Thu>
+*** For Professional Skill
+**** DONE 上午
+     - [X] 统计学习基础
+     - [ ] coursera machine learning one Week. 
+
+**** DONE 总结functional thinking 的东西。->read 4 articles.
+
+**** UNDERGOING 学习week1 的Model Thinking。
+
+*** For life
+**** DONE marathon
+     7km(恢复跑，好久没有跑了)
+
+*** For Work
+**** DONE 反馈顾问给出的信息，至少给出beta版本的结果，
+     已经给出naive版本的分类结果，只是根据简单判断来处理。
+**** DONE 给出顾问的下一步任务，把握顾问的分类方向。
+
+
+** <2013-06-14 Fri>
+*** For Professional Skill
+**** TODO 上午
+     - [ ] 统计学习基础
+     - [ ] coursera machine learning one Week. 
+
+*** For life
+**** TODO marathon
+     7km(恢复跑2，好久没有跑了)
+
+**** TODO [[http://nealford.com/functionalthinking.html][functional thinking]] 的东西。[5, 9]
+
+*** For Work
+**** TODO 跟进顾问需求
+     定义好什么是噪声，
+

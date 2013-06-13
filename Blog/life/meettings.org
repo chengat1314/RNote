@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-03-17 12:10:57 Sunday by richard>
+# Last modified: <2013-05-31 17:53:35 Friday by wongrichard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -20,3 +20,7 @@
 
   我觉着聚会能够达到的高层次一点的目标，就是可以相互鼓励。至少每个人都
   是在进步的路上，哪怕是游戏上。
+
+* 本质差异期望
+  我觉着是追求理想的人的相互鼓励，那么我认为这些不追求理想的人，我就会
+  逐渐疏远他们。因为他们往往会给我带来庞大的负能量。

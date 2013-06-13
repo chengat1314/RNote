@@ -1,0 +1,73 @@
+# -*- mode: org -*-
+# Last modified: <2013-06-13 09:03:27 Thursday by wongrichard>
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c) FAILED(f)
+#+STARTUP: showall
+#+TITLE:   Jun 02 - 9 (Week 22)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+** 呵呵
+
+* Daily Journal
+** <2013-06-03 Mon>
+   今天和nipeng大概讨论了DMP的形式，本周要确定tagging system.
+   本周DMP计划是确定分类类型，在确定分类类型之前首先要感受一下基本的数据类型,
+   今日和明天将会获取到Track和site的样本数据，(2013-06-03)和可以利用的特
+   征，所以需要提取一部分数据并确定相应的数量特征。从而确定具体的标签体系。
+   同时提了对track和site的需求。看合适可以得到反馈。
+
+*** 系统应包含的主要模块：
+    1. Ad(track) (available)
+    2. Site (available)
+    3. Social
+    4. panel(Survey)
+
+** <2013-06-04 Tue>
+
+*** <2013-06-04 Tue 17:04:47> 收到波波反馈
+*** DONE 获取site数据 @雄飞
+*** UNDERGOING Preparation of bad smell presentation
+
+** <2013-06-05 Wed>
+*** UNDERGOING Preparation of bad smell presentation
+*** 整理DMP标签体系。
+
+** <2013-06-06 Thu>
+*** DONE 准备周五的bad smell lecture
+*** 收到顾问的数据
+*** 整理DMP标签体系。
+
+** <2013-06-07 Fri>
+*** 继续讨论DMP标签体系。
+*** DONE lecture about bad smell.
+   
+
+* 关于DMP 标签体系的进展
+  主要分为正交化set1和生成set2，之所以分为两类主要是期望set1可以满足正
+  交化的需求，set2则可以由set1生成，比如战争+电影(set1)可以生成战争片
+  (set2)。
+  之后训练学习的过程每个refer或者特征则只需要从set1里面提取，然后对每
+  个网页进行set2的生成，最后用其他方法整理到一起。
+  最后大概提取出来的set1大概有100左右的categorical feature。
+  set2则大概有2-3k的数据量。
+  我走的时候大体已经做完了。
+
+* 顾问的去噪问题
+  顾问把我拉到一个群里面吐操，表示处理这个东西各种烦躁不开心。
+  顾问已经给我一个关键字文档。(Fri)
+  考虑先使用分词得到特征，然后分类学习提取特征。然后对比一下顾问提供的
+  关键字。如果顾问提供的关键字效果确实好，考虑直接使用顾问的关键字
+  feature。
+  下周先反馈简单聚类之后的文档。
+  然后确定去噪过程和方法。
+  过程已经和@anlei @顾问s讨论过。
+  准备测试的分类算法：
+  1. SVM.
+  2. Logistic regression.
+  3. Decision Tree.
+
+* Next Week
+  一共两天，就别要求太高了。
+** TODO 实验并处理去噪的算法。

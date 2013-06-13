@@ -1,0 +1,40 @@
+# -*- mode: org -*-
+# Last modified: <2013-06-03 11:28:35 Monday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   error
+#+AUTHOR: Richard Wong
+
+* Type I error
+  "rejecting the null hypothesis when it is true".
+
+* Type II error
+  "accepting the null hypothesis when it is false".
+
+* Type III error
+  "correctly rejecting the null hypothesis for the wrong reason".
+
+** Cross-validation
+   Cross-validation is important in guarding against testing
+   hypotheses suggested by the data
+
+* Why Cross-validation
+  The test set will be used to get a prediction value, most of the time
+  accuracy but it can be F1 score, precision, recall or any other
+  meaningful value.
+
+  If we do our job well, there is no possibility meta-parameters and
+  model selection using a cross-validation set can be wrong.
+
+  But we still don't know how well our model is doing on unseen data and
+  that is the role of test set to tell us about it.
+
+  In rare cases, when the results on test set are unexpectedly low
+  compared to cross-validation set, it may give us insight on something
+  we did wrong or overlooked but it should only be on exceptional
+  circumstances.
+
+  Test set is not intended for any training purpose and should *only*
+  be used to get precise performance measure of our model (aka should
+  only be use once to report a clean performance value).

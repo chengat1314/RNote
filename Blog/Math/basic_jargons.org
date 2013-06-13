@@ -1,0 +1,176 @@
+# -*- mode: org -*-
+# Last modified: <2013-06-04 09:07:04 Tuesday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   Basic Jargons
+#+AUTHOR: Richard Wong
+
+* Independent and and identically distributed (i.i.d.)独立同分布
+  在概率统计理论中，如果变量序列或者其他随机变量有相同的概率分布，并且互相独立，那么这些随机变量是独立同分布。(independent and identically distributed )
+  
+* ill-formed problem
+  
+* functional(泛函)
+  a functional is a map from a vector space into its underlying scalar field, or a set of functions to the real numbers.
+  
+* Occam's Razor
+  这个原理称为“如无必要，勿增实体” (Entities should not be multiplied unnecessarily)。
+  Numquam ponenda est pluralitas sine necessitate.(避重趋轻)
+  Pluralitas non est ponenda sine necessitate.(避繁逐简)
+  Frustra fit per plura quod potest fieri per pauciora.(以简御繁)
+  Entia non sunt multiplicanda praeter necessitatem.(避虚就实)
+  
+* Bayesian Estimation
+  In estimation theory and decision theory, a Bayes estimator or a
+  Bayes action is an estimator or decision rule that minimizes the
+  posterior expected value of a loss function (i.e., the posterior
+  expected loss). 
+  
+* Newton's Method
+  牛顿法（Newton's method）又称为牛顿-拉弗森方法（Newton-Raphson
+  method），它是一种在实数域和复数域上近似求解方程的方法。方法使用函数
+  f(x)的泰勒级数的前面几项来寻找方程f(x)=0的根。
+  
+* Space
+  In mathematics, a space is a set with some added structure.
+  Mathematical spaces often form a hierarchy, 
+  
+** Types of spaces 
+*** Linear and topological spaces
+    Two basic spaces are linear spaces (called also vector spaces) and
+    topological spaces.
+    Linear spaces are of algebraic nature; 
+    Topological spaces are of analytic nature. 
+*** Affine and projective spaces
+    An dimensional linear subspace of an -dimensional linear space,
+    being itself an -dimensional linear space, is not homogeneous; it
+    contains a special point, the origin. Shifting it by a vector
+    external to it, one obtains an -dimensional affine space. It is homogeneous. 
+    Every linear space is also an affine space.
+    an affine space is a vector space that's forgotten its origin
+
+    Defined this way, affine and projective spaces are of algebraic
+    nature; they can be real, complex, and more generally, over any
+    field.
+
+    Every real (or complex) affine or projective space is also a
+    topological space. An affine space is a non-compact manifold; a
+    projective space is a compact manifold.
+
+*** Metric and uniform spaces
+>    A topological space is called metrizable, if it underlies a metric space. All manifolds are metrizable.
+    Every Euclidean space is also a complete metric space. 
+    Moreover, all geometric notions immanent to a Euclidean space can
+    be characterized in terms of its metric.
+
+    Uniform spaces do not introduce distances, but still allow one to
+    use uniform continuity, Cauchy sequences, completeness and
+    completion. Every uniform space is also a topological space. Every
+    linear topological space (metrizable or not) is also a uniform
+    space. More generally, every commutative topological group is also
+    a uniform space. A non-commutative topological group, however,
+    carries two uniform structures, one left-invariant, the other
+    right-invariant. Linear topological spaces are complete in finite
+    dimension but generally incomplete in infinite dimension.
+
+*** Normed, Banach, inner product, and Hilbert spaces
+    Vectors in a Euclidean space are a linear space, but each vector
+    has also a length, in other words, norm, . A (real or complex)
+    linear space endowed with a norm is a normed space. Every normed
+    space is both a linear topological space and a metric space. A
+    Banach space is a complete normed space. Many spaces of sequences
+    or functions are infinite-dimensional Banach spaces.
+
+    The set of all vectors of norm less than one is called the unit
+    ball of a normed space. It is a convex, centrally symmetric set,
+    generally not an ellipsoid; for example, it may be a polygon (on
+    the plane). The parallelogram law (called also parallelogram
+    identity)  generally fails in normed spaces, but holds for vectors
+    in Euclidean spaces, which follows from the fact that the squared
+    Euclidean norm of a vector is its inner product to itself.
+
+    An inner product space is a (real or complex) linear space endowed
+    with a bilinear (or sesquilinear) form satisfying some conditions
+    and called inner product. Every inner product space is also a
+    normed space. A normed space underlies an inner product space if
+    and only if it satisfies the parallelogram law, or equivalently,
+    if its unit ball is an ellipsoid. Angles between vectors are
+    defined in inner product spaces. A Hilbert space is defined as a
+    complete inner product space. (Some authors insist that it must be
+    complex, others admit also real Hilbert spaces.) Many spaces of
+    sequences or functions are infinite-dimensional Hilbert
+    spaces. Hilbert spaces are very important for quantum theory.
+
+    All -dimensional real inner product spaces are mutually
+    isomorphic. One may say that the -dimensional Euclidean space is
+    the -dimensional real inner product space that's forgotten its
+    origin.
+
+*** Smooth and Riemannian manifolds (spaces)
+    Smooth manifolds are not called "spaces", but could be. Smooth
+    (differentiable) functions, paths, maps, given in a smooth
+    manifold by definition, lead to tangent spaces. Every smooth
+    manifold is a (topological) manifold. Smooth surfaces in a
+    finite-dimensional linear space (like the surface of an ellipsoid,
+    not a polytope) are smooth manifolds. Every smooth manifold can be
+    embedded into a finite-dimensional linear space. A smooth path in
+    a smooth manifold has (at every point) the tangent vector,
+    belonging to the tangent space (attached to this point). Tangent
+    spaces to an -dimensional smooth manifold are -dimensional linear
+    spaces. A smooth function has (at every point) the differential, –
+    a linear functional on the tangent space. Real (or complex)
+    finite-dimensional linear, affine and projective spaces are also
+    smooth manifolds.
+
+    A Riemannian manifold, or Riemann space, is a smooth manifold
+    whose tangent spaces are endowed with inner product (satisfying
+    some conditions). Euclidean spaces are also Riemann spaces. Smooth
+    surfaces in Euclidean spaces are Riemann spaces. A hyperbolic
+    non-Euclidean space is also a Riemann space. A curve in a Riemann
+    space has the length. A Riemann space is both a smooth manifold
+    and a metric space; the length of the shortest curve is the
+    distance. The angle between two curves intersecting at a point is
+    the angle between their tangent lines.
+
+    Waiving positivity of inner product on tangent spaces one gets
+    pseudo-Riemann (especially, Lorentzian) spaces very important for
+    general relativity.
+
+*** Measurable, measure, and probability spaces 
+    Waiving distances and angles while retaining volumes (of geometric
+    bodies) one moves toward measure theory. Besides the volume, a
+    measure generalizes area, length, mass (or charge) distribution,
+    and also probability distribution, according to Andrey
+    Kolmogorov's approach to probability theory.
+
+    A measure space is a measurable space endowed with a measure. A
+    Euclidean space with Lebesgue measure is a measure
+    space. Integration theory defines integrability and integrals of
+    measurable functions on a measure space.
+
+    Sets of measure 0, called null sets, are negligible. Accordingly,
+    a isomorphism is defined as isomorphism between subsets of full
+    measure (that is, with negligible complement).
+
+    A probability space is a measure space such that the measure of
+    the whole space is equal to 1. The product of any family (finite
+    or not) of probability spaces is a probability space. In contrast,
+    for measure spaces in general, only the product of finitely many
+    spaces is defined. Accordingly, there are many
+    infinite-dimensional probability measures (especially, Gaussian
+    measures), but no infinite-dimensional Lebesgue measure.
+
+    Standard probability spaces are especially useful. Every
+    probability measure on a standard measurable space leads to a
+    standard probability space. The product of a sequence (finite or
+    not) of standard probability spaces is a standard probability
+    space. All non-atomic standard probability spaces are mutually
+    isomorphic  one of them is the interval with Lebesgue measure.
+
+    These spaces are less geometric. In particular, the idea of
+    dimension, applicable (in one form or another) to all other
+    spaces, does not apply to measurable, measure and probability
+    spaces.
+
+
