@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-06-13 22:04:59 Thursday by wongrichard>
+# Last modified: <2013-06-15 20:34:16 Saturday by wongrichard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -7,10 +7,10 @@
 
 * Relationship
 ** TODO:
-   
+
 * Professional Skill
   **
-  
+
 * Daily Journal
 ** <2013-06-12 Wed>
 
@@ -27,14 +27,13 @@
 *** For relationships
 **** DONE 第一次和java脑残粉群的人聚会
      水平都差不多，有微软的人，有18摸的人，领域不一样。
-     找找笑点，闹闹，完了。不算特别好玩，不过还算凑或吧。之后闭关，这种
-     聚会不会有很多机会去参加了。
+     找找笑点, 闹闹, 完了. 不算特别好玩, 不过还算凑或吧. 之后闭关, 这种聚会不会有很多机会去参加了.
 
 ** <2013-06-13 Thu>
 *** For Professional Skill
 **** DONE 上午
      - [X] 统计学习基础
-     - [ ] coursera machine learning one Week. 
+     - [ ] coursera machine learning one Week.
 
 **** DONE 总结functional thinking 的东西。->read 4 articles.
 
@@ -53,16 +52,48 @@
 ** <2013-06-14 Fri>
 *** For Professional Skill
 **** TODO 上午
-     - [ ] 统计学习基础
-     - [ ] coursera machine learning one Week. 
+     - [X] 统计学习基础
+     - [ ] coursera machine learning one Week.
 
 *** For life
-**** TODO marathon
+**** CANCELED marathon
      7km(恢复跑2，好久没有跑了)
 
-**** TODO [[http://nealford.com/functionalthinking.html][functional thinking]] 的东西。[5, 9]
+**** UNDERGOING [[http://nealford.com/functionalthinking.html][functional thinking]] 的东西。[5, 9]
 
 *** For Work
-**** TODO 跟进顾问需求
+**** UNDERGOING 跟进顾问需求
      定义好什么是噪声，
 
+** <2013-06-15 Sat>
+*** For Work
+**** UNDERGOING 跟进顾问需求
+     今天实验了三个模型, 并进行了简单调优.
+     |------------------------+--------------+----------+-------------------|
+     | model name             | training set | test set | predict wrong num |
+     |------------------------+--------------+----------+-------------------|
+     | SVM with rbf kernel    |         1500 |      662 |               226 |
+     | SVM with linear kernel |         1500 |      662 |                62 |
+     | logistic regression    |         1500 |      662 |                89 |
+     | decision tree          |         1500 |      662 |                82 |
+     |------------------------+--------------+----------+-------------------|
+     | SVM with rbf kernel    |        40000 |    10000 |              6261 |
+     | SVM with linear kernel |        40000 |    10000 |               768 |
+     | logistic regression    |        40000 |    10000 |  910(really fast) |
+     | decision tree          |         5000 |     5000 |               365 |
+     |------------------------+--------------+----------+-------------------|
+
+** 今天遇到一个vagrant的hidden问题.
+   启动vagrant的时候总是会报错:
+   #+begin_src log
+Vagrant assumes that this means the command failed!
+
+mount -t vboxsf -o uid=`id -u vagrant`,gid=`id -g vagrant` /vagrant /vagrant
+   #+end_src
+   忽视了自己升级了ubuntu内核. 升级内核之后的解决方案:
+   #+begin_src bash
+   # in VM
+   sudo /etc/init.d/vboxadd setup
+   #+end_src
+
+   1. http://docs-v1.vagrantup.com/v1/docs/troubleshooting.html

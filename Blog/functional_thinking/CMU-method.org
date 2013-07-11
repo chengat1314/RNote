@@ -1,0 +1,36 @@
+# -*- mode: org -*-
+# Last modified: <2013-06-23 16:52:38 Sunday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   CMU-method
+#+AUTHOR: Richard Wong
+我今天主要插入一个简单的介绍, 作为函数式思考的引子.
+CMU作为四大CS Uni. 特点就是软件工程化牛逼.
+** 对CMU教育模型的简单介绍:
+   本周在整理函数式思维的内容的时候整体的阅读了CMU的教育体系并大致观摩了15-150的课程(参见refer1).
+   在这里给大家简单的介绍一下.
+   首先从整个专业的规划角度讲:
+   主要围绕三个点,
+   1. 提高计算思考的能力.
+      主要分为两块, 制造抽象, 实例化抽象.
+   2. 提高软件可靠性.
+   3. 面对一个并行计算的世界.
+      现在CS重要的一个趋势:
+      - 并行和分布计算(Concurrent and distributed computing)
+      - 可伸缩的数据密集型计算(Data-intensive scalable computing)
+
+* 站在巨人的肩膀上
+  特别有趣的是, CMU的教育体系在2010年有一个大幅的改进, 除了基本的入门课程外,
+  将学生的进阶课程(15-121: Introduction to Data Structures)主要分为了两大块:
+  1. 15-122 Principles of Imperative Computation
+  2. 15-150: Principles of Functional Computation
+     在15-150之后, 就是学习15-210(Parallel & Sequential Data Structures and Algorithms), 和15-214(Principles of Software System Construction)的过程.
+     而更高级的算法课程(15-211, Fundamental Data Structures and Algorithms)则由sequential, computational model变为了parallel model.
+     在Principles of Functional Computation这门课中, 认为: functional 指的是一种编程风格避免但并非完全排除数据结构的变化. 强调编程中像使用字面量一样去使用数据结构. 而且特别强调递归和归纳推理法. 推荐选用的语言有:(Standard ML, Objective Caml, Haskell, or Scala).
+     之所以提上面的培养学生目标的三个点, 是因为之后函数式编程所带来的抽象能力和可靠性, 以及他在并行计算中的强大威力会逐渐展现出来威力.
+* PS
+  上周blade推荐给我/Why FP matters/其实是一个paper, 这节奏完全不对. 后来看了InfoQ对原作者John Hughes的访谈, 发现作者现在的观点还是更清晰一点.
+
+** refer
+   1. Introductory Computer Science Education at Carnegie Mellon University: A Deans' Perspective, 2010

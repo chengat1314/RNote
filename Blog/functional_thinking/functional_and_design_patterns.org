@@ -1,0 +1,45 @@
+# -*- mode: org -*-
+# Last modified: <2013-06-23 16:56:17 Sunday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+n#+TITLE:   Functional And Design Patterns
+#+AUTHOR: Richard Wong
+
+* 函数式思考.
+  范式往往是一种新的工具, 无论从学习成本来说, 还是要求来说, 新的范式的代价远比学习一门新的语言要求要高的多. 他不只是让你只是学会语法, 而是给出一种新的思考方式.
+  如果给出一个最简单的例子来说明函数式和OO区别的话, 那么就是:
+  #+begin_src python
+MySqlManager.execute()
+query()
+  #+end_src
+  函数式和OO最大的不同点在于OO是Nouns, FP是verbs. 在自然语言处理领域中, 动词和名词的语义影响是差不多的. 但是一般来讲, 动词组成的文章更生动, 更能打动人, 但是对于作者的要求更高. 这个和FP的特点很像.
+  quote:
+  OO makes code understandable by encapsulating moving parts.
+  FP makes code understandable by minimizing moving parts.
+  Michael Feathers, author of "Working with Legacy Code".
+
+** 函数的一些概念
+*** higher-order funcions.
+    Functions that can either take other functions as arguments or return them as results
+    我们发现很多同学在解决实际问题的时候, 在python这门语言中并不是经常提到设计模式的概念. 但是java dev 却经常讨论设计模式相关的内容. 为什么会出现这种情况呢?
+本篇我开始逐步介绍FP的过程, 来逐步阐述OO的设计模式在动态语言中发生的变化, 以及为什么他变的不再那么权威和流行.
+    设计模式这个东西在大学时候被很多书所引用, 但是在函数编程领域, OO的设计模式在FP中通常会以两种方式表现:
+    1. 语言本身的特性包含设计模式的思想.
+    2. 某些函数式的范式, 但是使用不同的设计模式.
+
+*** Factory and currying.
+    在设计模式中, 一般认为工厂方法是最常见的方法.
+
+    直到后来我才发现与其在python里面写出一个OO的框架, 真不如写一个functions set 来解决问题方便.
+    在此可以插入一个设计模式在动态语言中消失的一个例子,
+*** 1 class functions
+
+*** pure functions
+*** strict evaluation
+*** recursion
+
+语言发展的一个大的趋势就是:
+1. 倾向使用语言的子集,
+2. 语言帮助承接程序员做的事情越来越多.
+一个特别明显的趋势是从最开始从语法层面改进, 到抽象层面, 到GC(Garbage Collection), 基础数据结构的引入,

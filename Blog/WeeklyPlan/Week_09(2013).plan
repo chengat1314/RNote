@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-03-07 16:09:01 Thursday by richard>
+# Last modified: <2013-06-27 16:06:40 Thursday by wongrichard>
 #+STARTUP: showall
 #+TITLE:   Mar 04 - 11 (Week 09)
 
@@ -7,34 +7,6 @@
 ** TODO:
 
 * Professional Skill
-
-* MYSQL
-  Reset Forgotten MySQL Root Password
-
-  Have you ever forgotten the root password on one of your MySQL
-  servers? No? Well maybe I’m not as perfect as you. This is a quick
-  h00tow (how to) reset your MySQL root password. It does require root
-  access on your server. If you have forgotten that password wait for
-  another article. Original article posted on reset mysql root
-  password.
-
-  First things first. Log in as root and stop the mysql daemon. Now
-  lets start up the mysql daemon and skip the grant tables which store
-  the passwords.
-
-
-  You should see mysqld start up successfully. If not, well you have
-  bigger issues. Now you should be able to connect to mysql without a
-  password.
-#+begin_src shell
-  mysqld_safe --skip-grant-tables
-  mysql --user=root mysql
-  update user set Password=PASSWORD('new-password') where user='root';
-  flush privileges;
-  exit;
-  mysqladmin -uroot - p shutdown
-#+end_src
-
 
 * Daily Journal
 ** <2013-03-05 Tue>

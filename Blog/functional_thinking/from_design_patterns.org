@@ -1,0 +1,49 @@
+# -*- mode: org -*-
+# Last modified: <2013-06-23 17:19:16 Sunday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   from Design Patterns
+#+AUTHOR: Richard Wong
+
+我之后谈论函数式编程会假设你已经熟悉GOF的23种OO设计模式. 并带你熟悉在动态语言中设计模式的变化.
+本篇主要试图帮助你来回顾几类常见的设计模式并试图总结一些关于*现代*设计模式的东西.
+
+* 什么是设计模式?
+  Templates that describe design alternatives.
+  A pattern must explain why a particular situation causes problems, and why the proposed solution is considered a good one.
+
+  A design pattern in architecture and computer science is a formal way of documenting a solution to a design problem in a particular field of expertise.
+
+* 为什么是设计模式?
+  用来描述具有经验的设计师知道的内容, (而并非写在语法手册中.)
+  提示或者帮助你选择对象和方法.
+  从更高等级的抽象来组织程序.
+  可以通过讨论来记录和权衡设计方法.
+  避免局限于语言的实现.
+  设计策略, 是用来引导你去使用特定模式或者实现, 他们比模板更像是格言.
+
+* Abstract Factory.(抽象工厂)
+**  Intent: Create related objects without specifying concrete class at point of creation.
+**  Motivation: Portable GUI (Motif, Windows, ...) Create a ScrollBar, get a MotifScrollBar; Also for SmallBlueWindow, MyAppWindow
+**  Participants: AbstractFactory, ConcreteFactory, AbstractProduct, ConcreteProduct, Client
+**  Sample Code:
+class MotifFactory ... ;
+factory = new MotifFactory;
+CreateWindow(factory, x, y);
+
+* Design Patterns in Dynamic Languages
+  How to do classic patterns in dynamic languages Escape from language limitations
+* New Dynamic Language Patterns
+  New patterns suggested by dynamic languages
+* Design Strategies
+  Thinking about all of software development
+
+
+
+
+
+
+* reference.
+  1. Wikipedia:design patterns.
+  2. Design patterns in dynamic language.

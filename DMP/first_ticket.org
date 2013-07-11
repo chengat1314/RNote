@@ -1,0 +1,41 @@
+# -*- mode: org -*-
+# Last modified: <2013-06-03 18:14:02 Monday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   First Ticket
+#+AUTHOR: Richard Wong
+
+本周DMP计划是确定分类类型，在确定分类类型之前首先要感受一下基本的数据类型,
+今日和明天将会获取到Track和site的样本数据，(2013-06-03)和可以利用的特
+征，所以需要提取一部分数据并确定相应的数量特征。从而确定具体的标签体系。
+以下是提取数据的需求。
+
+* REDMINE 底层
+  底层的兄弟们，你们辛苦啦。。。。
+  DMP现在项目对Ads有一些数据上的需求
+  现在希望挖掘一些Ads相关的信息，特别需要你们的帮助。
+** TODO 绘制两张某一星期（任一不包含节假日的星期） UV访问数的histogram。
+   两张分别为：
+   1. 可以提出referer
+   2. 无法提出referer的总数。
+   最好精确到每分钟的UV数据计数总量。
+   如果处理比较复杂，就精确到小时就可以。
+** TODO *随机*抽取10w条基本的basic log原始信息。
+** TODO *随机*抽取5w条cookie-service接口的返回信息。
+** TODO 可能的TrackMaster文档地址。
+
+* DMP项目对site的需求
+  现在希望挖掘一些site相关的信息，特别需要你们的帮助。
+  主要包括：
+** TODO 绘制三张某一星期（任一不包含节假日的星期） UV访问数的histogram。
+   其中最好精确到每分钟的UV计数总量。
+   如果处理比较复杂，就精确到小时就可以。
+   （三张图包括：所有站的UV计数，top-2的计数，以及选取一个UV为中位数的计数）
+** TODO 需要两个站点的所有数据导出（3个表的），或者数据库的访问方式。
+   两个站点分别是：
+     1. top-2站点（拥有event/action table）的数据
+     2. 某一个UV为中位数（拥有event/action table）的数据量.
+** TODO site可能的对外接口。（包括未来可能开放的接口信息）
+** TODO @吴昊 先把上周的每日日志发过来瞅瞅咯。。
+** TODO <2013-06-03 Mon> 需要确认给出数据和绘制图标的时间。

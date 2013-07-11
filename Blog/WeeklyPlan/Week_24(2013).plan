@@ -1,0 +1,29 @@
+# -*- mode: org -*-
+# Last modified: <2013-06-30 10:55:52 Sunday by wongrichard>
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c) FAILED(f)
+#+STARTUP: showall
+#+TITLE:   Jun 17 - 24 (Week 24)
+
+* Relationship
+** TODO:
+
+* Professional Skill
+  **
+
+* Daily Journal
+  1. 主要处理了DMP的方案.
+     确认了做DMP提取语料的内容.
+     - weibo
+     - crumb
+     - rules of url
+     - content
+     - wiki
+     - baidu
+  2. 跟顾确认最终的噪音的解决方案.
+  3. 大概了解了haiwen时代的mysql数据结构.
+** 总结:
+会议太多, 做的事情太少. 没多少时间做事情, 会议倒是不少. 可能跟大V来有关.
+
+* 本周任务
+本周任务, 实现多用户多关键字的映射关系, 稳定人工纠正方案.
+平时开会太多啦, 周末加加班才又明显进展额.

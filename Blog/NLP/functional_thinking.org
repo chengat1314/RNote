@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-06-13 22:40:54 Thursday by wongrichard>
+# Last modified: <2013-06-23 16:52:51 Sunday by wongrichard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -15,28 +15,28 @@
   or return them as results.
   This in turn exposes a fundamental shift in thinking in functional
   languages: Focus on results, not steps.
-  
+
   This is a specific variation on a list-manipulation concept called a
   catamorphism, which is a generalization on list folding.
-  
+
 ** Currying
    transforms a multi-argument function so that it can be called as a
    chain of single-argument functions.
-   
+
 ** Partial application
    Closely related is partial application, a technique for assigning a
    fixed value to one or more of the arguments to a function, thereby
    producing another function of smaller arity.
-   
+
    Partial application is a broader technique that resembles currying but
    does not restrict the resulting function to a single argument.
    A closure is a function that carries an implicit binding to all the
    variables referenced within it.
-   
+
 * Immutable
   Object-oriented programming makes code understandable by
   encapsulating moving parts. Functional programming makes code
-  understandable by minimizing moving parts. 
+  understandable by minimizing moving parts.
   One of the benefits of switching to a functional mindset is the
   realization that tests exist to check that changes occur
   successfully in code. In other words, testing's real purpose is to
@@ -45,29 +45,27 @@
   Immutable objects are also automatically thread-safe and have no
   synchronization issues
   Finally, one of the best features of immutable classes is how well
-  they fit into the composition abstraction.  
-  
-* 函数式编程的思考
-  最近常常使用clojure，发现他对编程的风格影响特别大。在写python的时候
-  有的时候不自然的就开始改变自己的编程风格。
-  经常被问到，你说你吹了这么多函数式编程，那么你到底说说FP比Imperative
-  Programming到底强在哪里？
+  they fit into the composition abstraction.
+
+* weixin1:函数式编程的思考
+  最近常常使用clojure，发现他对编程的风格影响特别大。在写python的时候有的时候不自然的就开始改变自己的编程风格。
+  经常被问到，你说你吹了这么多函数式编程，那么你到底说说FP比Imperative Programming到底强在哪里？
   很难用一句话解释清楚什么是函数式编程。
-  如果你问一个clojure选手，那么可能他会告诉你优美的宏，haskell选手则会
-  告诉你什么是monad，erlang选手会告诉你actor模型也可以这样玩。
+  如果你问一个clojure选手，那么可能他会告诉你优美的宏，haskell选手则会告诉你什么是monad，erlang选手会告诉你actor模型也可以这样玩。
   Martin Fowler这个人特别操蛋，特别喜欢用java来描述很多种编程范式。
-  WTF, java?其实函数式编程并非一定需要一种函数式语言，只是一种paradigm。
-  所以你所使用的语言并非会局限你是否采用函数式编程这种范式。只是函数式
-  语言可以让你习惯性的，很方便的使用FP而已。
+  WTF, java?其实函数式编程并非一定需要一种函数式语言，只是一种paradigm。所以你所使用的语言并非会局限你是否采用函数式编程这种范式。只是函数式语言可以让你习惯性的，很方便的使用FP而已。
   There is no silver bullet.
-  如果你是一个木工，特别擅长使用矬子，那么我告诉你一个凿子的用法和特色，
-  是否会对你产出的作品有所裨益呢？
-  之后的几篇文章我将会整理一系列文章分享我的一些心得和经验。希望对大家
-  有一点帮助，喜欢不喜欢可以直接回微信。其中会参考各路工程师，架构师的
-  经验，除非大段抄袭，否则引用就忽略了。
-  
-  下一篇开始我将开始讨论什么如何用函数式思考来处理日常的任务，以及对我
-  的编程模式具体有那些影响。
-  
+  如果你是一个木工，特别擅长使用矬子，那么我告诉你一个凿子的用法和特色，是否会对你产出的作品有所裨益呢？
+  之后的几篇文章我将会整理一系列文章分享我的一些心得和经验。希望对大家有一点帮助，喜欢不喜欢可以直接回微信。其中会参考各路工程师，架构师的经验，除非大段抄袭，否则引用就忽略了。
+
+  下一篇开始我将开始讨论如何用函数式思考来处理日常的任务，以及对我的编程模式具体有那些影响。
+
+* weixin2:函数式思维
+  从今天开始, 我将整理自己所知道了解的, 并希望超越现在的东西.
+
+
+* From python
+
+
 * referece
   1. [[http://nealford.com/functionalthinking.html][Functional Thinking]]

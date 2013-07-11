@@ -1,0 +1,58 @@
+# -*- mode: org -*-
+# Last modified: <2013-07-02 12:41:13 Tuesday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   intro_to_algorithms
+#+AUTHOR: Richard Wong
+
+* Don't trust me. 
+  老规矩, 每个人都有每个人的偏见, 所以不要完全信赖我的结论, 正确与否, 请自行认知然后推断.
+  
+* why using algorithms.
+  1. Their impact is broad and far-reaching.
+  2. Old roots, new opportunities.
+  3. To solve problems that could not otherwise be addressed.
+  4. For intellectual stimulation.
+  5. To become a proficient programmer.
+  6. They may unlock the secrets of life and of the universe.
+  7. For fun and profit.
+     
+* syllabus
+  本课程大概维持10周. (节假日不休)
+  Mainly talking about basic Data-structures, Algorithms' Intuitions.
+  profiling tools, of course contains some best practices.
+  Topics include union-find, binary search, stacks, queues, bags,
+  insertion sort, selection sort, shellsort, quicksort, 3-way
+  quicksort, mergesort, heapsort, binary heaps, binary search trees,
+  red-black trees, separate chaining and linear probing hash tables,
+  Graham scan, and kd-trees.
+  graph Theory:(from week 4)
+  include depth-first search, breadth-first search,
+  topological sort, Kosaraju-Sharir, Kruskal, Prim, Dijkistra,
+  Bellman-Ford, Ford-Fulkerson, LSD radix sort, MSD radix sort, 3-way
+  radix quicksort, multiway tries, ternary search tries,
+  Knuth-Morris-Pratt, Boyer-Moore, Rabin-Karp, regular expression
+  matching, run-length coding, Huffman coding, LZW compression, and
+  the Burrows-Wheeler transform.
+  practical questions(frmo week 8)
+  
+  
+* Content.
+  本课程将至少超过这两们课讲师所讨论的内容, 涵盖整本书的可能性为0, 程序员就好好通读这些书把, 产品经理就大概了解一下就好啦.
+  一个是stanford的algorithms and data structrue, 另外一本是MIT's Introduction to Algorithms.
+  - http://www.amazon.cn/dp/B007HAOVUG
+  - http://www.amazon.cn/dp/0262033844
+    
+* workload
+  每周需要你在周末稍微做少2-3个小时的练习.
+  大概是每周周日上午 9:00-12:00 (大概3个小时, 包含练习过程, 请务必吃早饭). 节假日不休. 下一次假日在9.19的中秋节. 10.1的国庆节, (顺延两星期)
+  上课时 *需要* 带电脑.
+  
+* Place
+  准备在Admaster新会议室讨论这个东西.
+  POS:http://j.map.baidu.com/eKERi A 座16层, , 不是这个地址. 这个只是座标, 纵轴不对..
+
+* QA.
+  我在每周周五会自行讲课, 把握一下时间. 当把握时间之后才会出来本周的大纲.
+  自觉能handle这门课. (我已经通看了2门算法课, 然后准备在讲之前至少看过4个人的讲课, 已经整理了一些合理的题目. )

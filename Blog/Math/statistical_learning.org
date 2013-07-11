@@ -1,5 +1,5 @@
 # -*- mode: org -*-
-# Last modified: <2013-06-04 11:57:48 Tuesday by wongrichard>
+# Last modified: <2013-06-14 09:10:19 Friday by wongrichard>
 #+STARTUP: showall
 #+LaTeX_CLASS: chinese-export
 #+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
@@ -11,7 +11,7 @@
    statistical learning is statistical machine learning.
    关于计算机给予数据构建概率统计模型并运用模型对数据进行预测与分析的
    一门学科。
-   
+
 *** 统计学习的特点
     1. 以计算机和网络为平台，建立在计算机和网络之上。
     2. 统计学习以数据为研究对象，是数据驱动的学科。
@@ -23,7 +23,7 @@
     5. 统计学习是概率论，统计学，信息论，计算理论，最优化理论及计算机科
        学等多个领域的交叉学科。
        用随机变量来描述数据中的特征，用概率分布描述数据的统计规律。
-       
+
 *** 统计学习方法的三要素
 **** 模型
      首先要考虑的问题是学习什么样的模型.
@@ -32,12 +32,12 @@
 **** 策略
      损失函数
 **** 算法
-     
+
 *** 统计学习的研究
     1. 统计学习方法。
     2. 统计学习理论。
     3. 统计学习应用。
-       
+
 ** supervised learning
 *** 特征空间
     将输入与输出的所有取值的集合分别成为输入空间与输出空间。
@@ -58,12 +58,12 @@
 *** 监督学习的数学假设
     X为输入变量, Y为输出变量.
     在学习过程中, 假定监督学习假设输入与输出的随机变量X和Y遵循联合概率
-    分布P(X, Y)。P(X,Y)表示分布(密度)函数. 
+    分布P(X, Y)。P(X,Y)表示分布(密度)函数.
     但对学习系统来说,联合概率分布的具体定义是未知的.
     X和Y具有联合概率分布的假设就是监督学习关于数据的基本假设.
     监督学习中, 假设训练数据和测试数据是依靠联合概率分布P(X, Y)独立同
     分布产生的.
-    
+
 *** 策略
     损失函数度量模型一次预测的好坏, 风险函数度量平均意义下模型预测的好
     坏.
@@ -71,24 +71,24 @@
      损失函数是=f(X)=和=Y=的非负实值函数, 记作L(Y, f(X)).
      common loss function list
      1. 0-1 loss function
-     #+BEGIN_LaTeX
-     L(Y, f(X)) = 1, Y != f(X)
-     0, Y == f(X)
-     #+END_LaTeX
+        #+BEGIN_LaTeX
+        L(Y, f(X)) = 1, Y != f(X)
+        0, Y == f(X)
+        #+END_LaTeX
      2. quadratic loss function
-     #+BEGIN_LaTeX
-     L(Y, f(X)) = (Y - f(X))^2
-     #+END_LaTeX
+        #+BEGIN_LaTeX
+        L(Y, f(X)) = (Y - f(X))^2
+        #+END_LaTeX
      3. absolute loss function
-     #+BEGIN_LaTeX
-L(Y, f(X)) = abs(Y - f(X))
-     #+END_LaTeX
-     
+        #+BEGIN_LaTeX
+        L(Y, f(X)) = abs(Y - f(X))
+        #+END_LaTeX
+
      4. logarithmic loss function/loglikelihood loss function.
-     #+BEGIN_LaTeX
-     L(Y, P(Y|X)) = -log(P(Y|X))
-     #+END_LaTeX
-     
+        #+BEGIN_LaTeX
+        L(Y, P(Y|X)) = -log(P(Y|X))
+        #+END_LaTeX
+
 **** Risk Function/expected loss
      损失函数值越小, 模型就越好. 由于模型的输入, 输出(X, Y)是随机变量,
      遵循联合分布P(X, Y), 所以损失函数的期望(风险函数)是:
@@ -120,8 +120,7 @@ L(Y, f(X)) = abs(Y - f(X))
     模型选择的典型方法就是正则化(regularization).
 *** Cross-validation
     training set, validation set, test set.
-    训练集用来训练模型, 验证集用来模型选择, 而测试集用于最终对学习方法
-    的评估.
+    训练集用来训练模型, 验证集用来模型选择, 而测试集用于最终对学习方法的评估.
     1. 简单的交叉验证.
        数据量比较大
     2. S-fold cross validation
@@ -148,7 +147,7 @@ L(Y, f(X)) = abs(Y - f(X))
     4. Naive Bayes
     5. Averaged one-dependence estimators
     6. Latent Dirichlet allocation
-    7. Restricted Boltzmann machine    
+    7. Restricted Boltzmann machine
 *** 判别模型
     由数据直接学习决策函数f(X)或者条件概率分布P(Y|X)作为预测的模型, 叫
     做判别模型.
@@ -163,11 +162,11 @@ L(Y, f(X)) = abs(Y - f(X))
     5. Conditional random fields
     6. Linear regression
     7. Neural networks
-       
+
 *** pros and cons
     For tasks such as classification and regression that do not
     require the joint distribution, discriminative models can yield
-    superior performance. 
+    superior performance.
     On the other hand, generative models are typically more flexible
     than discriminative models in expressing dependencies in complex
     learning tasks. In addition, most discriminative models are
@@ -199,7 +198,7 @@ L(Y, f(X)) = abs(Y - f(X))
    F1 = 2TP / (2TP + FP + FN)
 * 标注问题
   标注常用的统计学习方法有:
-  HMM, CRF. 
+  HMM, CRF.
 
 * 回归问题
   回归用于预测输入变量(自变量)和输出变量(因变量)之间的关系.
@@ -211,4 +210,31 @@ L(Y, f(X)) = abs(Y - f(X))
 
 
 * 感知机
-  
+
+* 决策树
+  decision tree是一种基本的分类与回归方法.
+  经常被用作baseline.
+  他可以认为是if-then规则的集合, 也可以认为是定义做特征空间和类空间上的条件概率分布。
+  这个条件概率分布定义在特征空间的一个划分上, 将特征空间划分为互不相交的单元或区域, 并在每个单元定义一个类的概率分布就构成了一个条件概率分布。
+
+** 特点
+   - 模型具有可读性
+   - 分类速度快
+   - 互斥并且完备
+
+** 包含三个步骤
+   1. 特征选择
+   2. 决策树的生成
+   3. 决策树的修剪
+
+** 模型
+   内部节点表示一个特征或者属性，叶结点表示一个类。
+** 学习过程
+   决策树学习的损失函数通常是正则化的极大似然函数. 决策树的学习测率是以损失函数为目标函数的最小化.
+   从所有可能的决策树中选取最优决策树是NP完全问题.
+   决策树学习的算法通常是一个递归的选择最优特征, 并根据该特征对训练数据进行分割, 使得各个子数据有一个最好的分类过程. 这一过程对应着特征空间的划分, 也对应着决策树的构建.
+
+   决策树的学习算法包括:
+   1. 特征选择.
+   2. 决策树的生成.
+   3. 决策树的剪枝过程

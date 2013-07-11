@@ -1,0 +1,15 @@
+# -*- mode: org -*-
+# Last modified: <2013-07-11 17:13:19 Thursday by wongrichard>
+#+STARTUP: showall
+#+LaTeX_CLASS: chinese-export
+#+TODO: TODO(t) UNDERGOING(u) | DONE(d) CANCELED(c)
+#+TITLE:   IQzhuoji
+#+AUTHOR: Richard Wong
+
+有的时候想和关系不紧密的人划清界限, 但是有的时候就做的不是那么好.
+
+本来你获得了别人的号码, 但是如果是其他人问你要这个人的电话号码, 你最好要获得当事人的同意, 随便传播是什么事情呢? 为什么你知道那个人的电话号码, 别人不知道呢? 因为你们关系好点, 或者他不想让别人知道这个号码.
+
+总有的人喜欢在群里要别人电话, 但并不是让你特么在群里面把别人的电话号码之类的联系方式也嚷出来.
+
+智商太捉急.
